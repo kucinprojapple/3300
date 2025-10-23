@@ -15,7 +15,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Center(child: Text('Green Gym Club new')),
+        title: Center(child: Text('Green Gym Club new new')),
       ),
       body: Container(color: Colors.green),
     );
