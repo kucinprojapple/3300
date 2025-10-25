@@ -22,6 +22,12 @@ sealed class AppAssets {
   static const slotContainer = '${_basePath}slot_container.png';
   static const glowLine = '${_basePath}glow_line.png';
 
+  /// images for Avatar
+  static const avatarClearPlace = '${_basePath}avatar_clear_place.png';
+  static const avatarMan = '${_basePath}avatar_man.png';
+  static const avatarWoman = '${_basePath}avatar_woman.png';
+
+
   /// images for Exercises
   static const exerciseBicycleCrunches =
       '${_basePath}exercise_bicycle_crunches.png';

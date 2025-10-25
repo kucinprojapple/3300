@@ -215,7 +215,8 @@ class NumbersTextBody {
     String text, {
     TextSize size = TextSize.l,
     double? height,
-    Alignment alignment = Alignment.center,
+        double? fontSize,
+        Alignment alignment = Alignment.center,
     TextAlign textAlign = TextAlign.center,
     bool useGradient = true,
     bool useShadow = true,
@@ -243,6 +244,11 @@ class NumbersTextBody {
     if (height != null) {
       style = style.copyWith(height: height);
     }
+
+    if (fontSize != null) {
+      style = style.copyWith(fontSize: fontSize.sp);
+    }
+
 
     if (!useShadow) {
       style = style.copyWith(shadows: []);

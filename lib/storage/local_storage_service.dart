@@ -1,3 +1,4 @@
+import 'package:green_gym_club/app_core._design/assets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
@@ -28,6 +29,16 @@ class LocalStorageService {
   set notificationsEnabled(bool value) =>
       _prefs.setBool('notifications_enabled', value);
 
+// PLAYER DATA
+  String get playerName => _prefs.getString('player_name') ?? '';
 
+  set playerName(String value) => _prefs.setString('player_name', value);
+
+
+
+  String get playerAvatar =>
+      _prefs.getString('player_avatar') ?? AppAssets.avatarClearPlace;
+
+  set playerAvatar(String value) => _prefs.setString('player_avatar', value);
 
 }
