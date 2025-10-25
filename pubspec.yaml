@@ -23,6 +23,9 @@ dependencies:
   toast: ^0.3.0
   flutter_flip_card: ^0.0.6
   google_fonts: ^6.2.1
+  text_gradiate: ^1.0.1
+  gradient_borders: ^1.0.2
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:

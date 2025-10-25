@@ -1,27 +1,38 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: library_private_types_in_public_api
 
-
 import 'package:flutter/material.dart';
+import 'package:text_gradiate/text_gradiate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors.dart' show AppColors;
 
 const String _fontFamily = 'OtomanopeeOne';
 
-final textAccentShadows = [
-  Shadow(offset: Offset(-1, -2), color: AppColors.accent.primaryDart),
-];
-final textWhiteShadows = [
-  Shadow(offset: Offset(1, -2), color: AppColors.main.white),
-];
+// final textAccentShadows = [
+//   Shadow(offset: Offset(-1, -2), color: AppColors.accent.primaryDart),
+// ];
+// final textWhiteShadows = [
+//   Shadow(offset: Offset(1, -2), color: AppColors.main.white),
+// ];
 final textLightShadows = [
-  Shadow(offset: Offset(-1, -2), color: AppColors.text.primary),
+  Shadow(
+    offset: Offset(0.w, 1.59.h),
+    blurRadius: 1.59.r,
+    color: AppColors.textColors.shadowNumbers,
+  ),
 ];
 
 sealed class AppTextStyles {
   static Headers headers(BuildContext context) => Headers(context);
+
   static ButtonBody buttonBody(BuildContext context) => ButtonBody(context);
+
   static TinyBody tinyBody(BuildContext context) => TinyBody(context);
+
   static TabTextBody tabTextBody(BuildContext context) => TabTextBody(context);
+
+  static NumbersTextBody numbersTextBody(BuildContext context) =>
+      NumbersTextBody(context);
 }
 
 sealed class AppSize {
@@ -61,23 +72,23 @@ class _ButtonBody {
     fontWeight: FontWeight.w700,
     letterSpacing: 0.7,
     fontSize: 36,
-    shadows: textAccentShadows,
-    color: AppColors.text.pink,
+    // shadows: textAccentShadows,
+    // color: AppColors.text.pink,
   );
   final TextStyle m = TextStyle(
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w400,
     fontSize: 32,
     letterSpacing: 0.7,
-    color: AppColors.text.primary,
+    // color: AppColors.text.primary,
   );
   final TextStyle s = TextStyle(
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w400,
     fontSize: 28,
     letterSpacing: 0.7,
-    shadows: textAccentShadows,
-    color: AppColors.text.primary,
+    // shadows: textAccentShadows,
+    // color: AppColors.text.primary,
   );
   final TextStyle xs = TextStyle(
     fontFamily: _fontFamily,
@@ -85,7 +96,7 @@ class _ButtonBody {
     fontSize: 19,
     letterSpacing: 0.1,
     shadows: textLightShadows,
-    color: AppColors.main.white,
+    // color: AppColors.main.white,
   );
 }
 
@@ -109,8 +120,8 @@ class _Headers {
     fontWeight: FontWeight.w900,
     fontSize: 38,
     letterSpacing: 1,
-    shadows: [Shadow(offset: Offset(-1, -2), color: AppColors.text.shadows)],
-    color: AppColors.text.primary,
+    // shadows: [Shadow(offset: Offset(-1, -2), color: AppColors.text.shadows)],
+    // color: AppColors.text.primary,
   );
   final TextStyle m = TextStyle(
     fontFamily: _fontFamily,
@@ -144,15 +155,15 @@ class _TinyBody {
     fontWeight: FontWeight.w600,
     fontSize: 18,
     letterSpacing: 0.5,
-    color: AppColors.text.primary,
-    shadows: textAccentShadows,
+    // color: AppColors.text.primary,
+    // shadows: textAccentShadows,
   );
   final TextStyle xl = TextStyle(
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w600,
     fontSize: 19,
     letterSpacing: 0.5,
-    color: AppColors.main.white,
+    // color: AppColors.main.white,
     shadows: textLightShadows,
   );
 }
@@ -160,6 +171,7 @@ class _TinyBody {
 class TabTextBody {
   late final TextStyle selected;
   late final TextStyle unselected;
+
   TabTextBody(BuildContext context) {
     selected = _TabTextBody().selected;
     unselected = _TabTextBody().unSelected;
@@ -172,13 +184,111 @@ class _TabTextBody {
     fontWeight: FontWeight.w900,
     fontSize: 18,
     letterSpacing: 0.5,
-    color: AppColors.main.background,
+    // color: AppColors.main.background,
   );
   final TextStyle unSelected = TextStyle(
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w800,
     fontSize: 16,
     letterSpacing: 0.5,
-    color: AppColors.text.primary,
+    // color: AppColors.text.primary,
+  );
+}
+
+enum TextSize { l, m, s }
+
+class NumbersTextBody {
+  late final TextStyle l;
+  late final TextStyle m;
+  late final TextStyle s;
+
+  NumbersTextBody(BuildContext context) {
+    l = _NumbersTextBody().l;
+    m = _NumbersTextBody().m;
+    s = _NumbersTextBody().s;
+  }
+
+  static Widget gradientNumbers(
+    BuildContext context,
+    String text, {
+    TextSize size = TextSize.l,
+    double? height,
+    Alignment alignment = Alignment.center,
+    TextAlign textAlign = TextAlign.center,
+    bool useGradient = true,
+    bool useShadow = true,
+    List<Color>? gradientColors,
+  }) {
+    final numbers = AppTextStyles.numbersTextBody(context);
+    late TextStyle style;
+
+    switch (size) {
+      case TextSize.l:
+        style = numbers.l;
+        break;
+      case TextSize.m:
+        style = numbers.m;
+        break;
+      case TextSize.s:
+        style = numbers.s;
+        break;
+    }
+
+    if (height != null) {
+      style = style.copyWith(height: height);
+    }
+
+    if (!useShadow) {
+      style = style.copyWith(shadows: []);
+    }
+
+    final textWidget = Text(text, textAlign: textAlign, style: style);
+
+    final gradient =
+        gradientColors ?? AppColors.textColors.numbersGradient.colors;
+
+    return Align(
+      alignment: alignment,
+      child:
+          useGradient
+              ? TextGradiate(
+                text: textWidget,
+                colors: gradient,
+                gradientType: GradientType.linear,
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                tileMode: TileMode.clamp,
+              )
+              : textWidget,
+    );
+  }
+}
+
+class _NumbersTextBody {
+  final TextStyle l = TextStyle(
+    fontFamily: _fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 30.sp,
+    height: 0.85,
+    letterSpacing: 0,
+    shadows: textLightShadows,
+  );
+
+  final TextStyle m = TextStyle(
+    fontFamily: _fontFamily,
+    fontWeight: FontWeight.w600,
+    fontSize: 25.sp,
+    height: 0.85,
+    letterSpacing: 0,
+    shadows: textLightShadows,
+  );
+
+  final TextStyle s = TextStyle(
+    fontFamily: _fontFamily,
+    fontWeight: FontWeight.w500,
+    fontSize: 20.sp,
+    height: 0.85,
+    letterSpacing: 0,
+    shadows: textLightShadows,
   );
 }

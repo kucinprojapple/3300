@@ -9,12 +9,12 @@ sealed class AppTheme {
 
   static final ThemeData _mainTheme = ThemeData(
     useMaterial3: true,
-    splashColor: AppColors.main.background,
+    splashColor: AppColors.mainColors.background,
     splashFactory: NoSplash.splashFactory,
-    scaffoldBackgroundColor: AppColors.main.background,
+    scaffoldBackgroundColor: AppColors.mainColors.background,
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: AppColors.main.background,
-      indicatorColor: AppColors.main.white,
+      backgroundColor: AppColors.mainColors.background,
+      indicatorColor: AppColors.mainColors.white,
     ),
     cupertinoOverrideTheme: const CupertinoThemeData(
       brightness: Brightness.dark,

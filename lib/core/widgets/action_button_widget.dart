@@ -53,11 +53,11 @@ class ActionButtonWidget extends StatelessWidget {
                   fontFamily: 'OtomanopeeOne',
                   fontSize: fontSize.sp,
                   fontWeight: FontWeight.w400,
-                  shadows: const [
+                  shadows: [
                     Shadow(
-                      offset: Offset(0, 1.59),
-                      blurRadius: 1.59,
-                      color: Color(0x8C000000), // аналог box-shadow: #0000008C
+                      offset: Offset(0.w, 1.59.h),
+                      blurRadius: 1.59.r,
+                      color: Color(0x8C000000),
                     ),
                   ],
                 ),
