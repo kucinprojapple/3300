@@ -27,6 +27,43 @@ class AchievementsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ExerciseDetailsScreen]
+class ExerciseDetailsRoute extends PageRouteInfo<ExerciseDetailsRouteArgs> {
+  ExerciseDetailsRoute({
+    Key? key,
+    required int index,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ExerciseDetailsRoute.name,
+         args: ExerciseDetailsRouteArgs(key: key, index: index),
+         initialChildren: children,
+       );
+
+  static const String name = 'ExerciseDetailsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ExerciseDetailsRouteArgs>();
+      return ExerciseDetailsScreen(key: args.key, index: args.index);
+    },
+  );
+}
+
+class ExerciseDetailsRouteArgs {
+  const ExerciseDetailsRouteArgs({this.key, required this.index});
+
+  final Key? key;
+
+  final int index;
+
+  @override
+  String toString() {
+    return 'ExerciseDetailsRouteArgs{key: $key, index: $index}';
+  }
+}
+
+/// generated route for
 /// [GameScreen]
 class GameRoute extends PageRouteInfo<void> {
   const GameRoute({List<PageRouteInfo>? children})

@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 import '../features/achievements/view/achievements_screen.dart';
 import '../features/game/view/game_screen.dart';
+
+import '../features/game/widgets/exercise_details_screen.dart';
 import '../features/info/view/info_screen.dart';
 import '../features/onboarding/view/onboarding_screen.dart';
 import '../features/profile/view/profile_screen.dart';
@@ -35,6 +38,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ProfileRoute.page, path: '/profile'),
     AutoRoute(page: InfoRoute.page, path: '/info'),
     AutoRoute(page: GameRoute.page, path: '/game'),
+    AutoRoute(page: ExerciseDetailsRoute.page, path: '/exercise_details'),
     AutoRoute(page: AchievementsRoute.page, path: '/achievements'),
 
   ];

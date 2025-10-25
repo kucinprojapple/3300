@@ -18,6 +18,10 @@ sealed class AppAssets {
   // static const changeLevelInactiveButton =
   //     '${_basePath}change_level_inactive_button.png';
 
+  /// images for Grid
+  static const slotContainer = '${_basePath}slot_container.png';
+  static const glowLine = '${_basePath}glow_line.png';
+
   /// images for Exercises
   static const exerciseBicycleCrunches =
       '${_basePath}exercise_bicycle_crunches.png';

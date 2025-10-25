@@ -1,48 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../app_core._design/assets.dart';
+import '../data/exercise_list.dart';
+
 class ExerciseGridWidget extends StatelessWidget {
-  final ValueChanged<int> onLevelSelected;
+  final ValueChanged<int> onExerciseSelected;
 
-  ExerciseGridWidget({super.key, required this.onLevelSelected});
+  ExerciseGridWidget({super.key, required this.onExerciseSelected});
 
-  final List<int> openedLevels = [1, 2, 3, 4, 5, 6];
-  final List<int> lockedLevels = [7, 8, 9];
+  final List<String> exerciseImages = [
+    AppAssets.exerciseSquats,
+    AppAssets.exerciseLunges,
+    AppAssets.exercisePushUps,
+    AppAssets.exerciseTricepDips,
+    AppAssets.exerciseBurpees,
+    AppAssets.exerciseCrunches,
+    AppAssets.exerciseJumpingJacks,
+    AppAssets.exerciseLegRaises,
+    AppAssets.exerciseBicycleCrunches,
+  ];
 
   @override
   Widget build(BuildContext context) {
-    const crossAxisCount = 3;
-    final horizontalPadding = 4.w;
-    final crossAxisSpacing = 12.w;
-    final mainAxisSpacing = 60.h;
-
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final availableWidth = constraints.maxWidth - horizontalPadding * 2;
-        final totalSpacing = (crossAxisCount - 1) * crossAxisSpacing;
-        final itemWidth = (availableWidth - totalSpacing) / crossAxisCount;
-
-        final imageSize = itemWidth * 1;
-        final fontSize = (imageSize * 0.28).clamp(18.0, 48.0);
-
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-          child: GridView.count(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: crossAxisSpacing,
-            mainAxisSpacing: mainAxisSpacing,
-            childAspectRatio: 1,
-            children: List.generate(9, (index) {
-              final level = index + 1;
-              final isOpened = openedLevels.contains(level);
-
-              return Center(child: Text('Grid'));
-            }),
-          ),
-        );
-      },
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 32.w,
+          mainAxisSpacing: 4.h,
+          childAspectRatio: 0.88,
+        ),
+        itemCount: exercisesData.length,
+        itemBuilder: (context, index) {
+          final exercise = exercisesData[index];
+          return GestureDetector(
+            onTap: () => onExerciseSelected(index),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(4.r),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4.r),
+                child: Image.asset(exerciseImages[index], fit: BoxFit.contain),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

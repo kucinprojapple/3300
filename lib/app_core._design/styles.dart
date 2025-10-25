@@ -195,17 +195,19 @@ class _TabTextBody {
   );
 }
 
-enum TextSize { l, m, s }
+enum TextSize { l, m, s, xs }
 
 class NumbersTextBody {
   late final TextStyle l;
   late final TextStyle m;
   late final TextStyle s;
+  late final TextStyle xs;
 
   NumbersTextBody(BuildContext context) {
     l = _NumbersTextBody().l;
     m = _NumbersTextBody().m;
     s = _NumbersTextBody().s;
+    xs = _NumbersTextBody().xs;
   }
 
   static Widget gradientNumbers(
@@ -218,6 +220,7 @@ class NumbersTextBody {
     bool useGradient = true,
     bool useShadow = true,
     List<Color>? gradientColors,
+        Color? fallbackColor,
   }) {
     final numbers = AppTextStyles.numbersTextBody(context);
     late TextStyle style;
@@ -232,6 +235,9 @@ class NumbersTextBody {
       case TextSize.s:
         style = numbers.s;
         break;
+      case TextSize.xs:
+        style = numbers.xs;
+        break;
     }
 
     if (height != null) {
@@ -242,7 +248,9 @@ class NumbersTextBody {
       style = style.copyWith(shadows: []);
     }
 
-    final textWidget = Text(text, textAlign: textAlign, style: style);
+    final textWidget = Text(text, textAlign: textAlign, style: style.copyWith(
+      color: useGradient ? null : (fallbackColor ?? Colors.white),
+    ));
 
     final gradient =
         gradientColors ?? AppColors.textColors.numbersGradient.colors;
@@ -276,7 +284,7 @@ class _NumbersTextBody {
 
   final TextStyle m = TextStyle(
     fontFamily: _fontFamily,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w400,
     fontSize: 25.sp,
     height: 0.85,
     letterSpacing: 0,
@@ -285,8 +293,17 @@ class _NumbersTextBody {
 
   final TextStyle s = TextStyle(
     fontFamily: _fontFamily,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     fontSize: 20.sp,
+    height: 0.85,
+    letterSpacing: 0,
+    shadows: textLightShadows,
+  );
+
+  final TextStyle xs = TextStyle(
+    fontFamily: _fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
     height: 0.85,
     letterSpacing: 0,
     shadows: textLightShadows,
