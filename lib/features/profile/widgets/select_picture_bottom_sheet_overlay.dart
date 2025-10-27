@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../app_core._design/assets.dart';
+import '../../../app_core_design/assets.dart';
 import '../profile_bloc/profile_bloc.dart';
 
 class SelectPictureBottomSheetOverlay extends StatelessWidget {

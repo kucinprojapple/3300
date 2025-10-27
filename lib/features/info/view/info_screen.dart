@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../app_core._design/assets.dart';
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
 @RoutePage()

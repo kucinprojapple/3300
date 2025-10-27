@@ -1,4 +1,4 @@
-import '../../../app_core._design/assets.dart';
+import '../../../app_core_design/assets.dart';
 import '../model/exercise_entity.dart';
 
 final List<ExerciseEntity> exercisesData = [

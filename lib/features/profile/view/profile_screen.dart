@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:green_gym_club/features/game/widgets/custom_gradient_container_widget.dart';
 
-import '../../../app_core._design/assets.dart';
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
 import '../profile_bloc/profile_bloc.dart';

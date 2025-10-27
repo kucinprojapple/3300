@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/styles.dart';
 
 class OnboardingStepCircleWidget extends StatelessWidget {
   final int stepIndex;

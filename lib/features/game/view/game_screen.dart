@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/features/game/game_bloc/game_bloc.dart';
 
-import '../../../app_core._design/assets.dart';
+import '../../../app_core_design/assets.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../router/router.dart';

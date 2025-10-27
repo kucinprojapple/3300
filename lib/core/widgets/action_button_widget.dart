@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-import '../../app_core._design/assets.dart';
+import '../../app_core_design/assets.dart';
 
 class ActionButtonWidget extends StatelessWidget {
   final String text;

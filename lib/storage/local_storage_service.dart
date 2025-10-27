@@ -1,4 +1,4 @@
-import 'package:green_gym_club/app_core._design/assets.dart';
+import 'package:green_gym_club/app_core_design/assets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {

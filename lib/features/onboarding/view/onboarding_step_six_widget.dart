@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/app_core._design/assets.dart';
+import 'package:green_gym_club/app_core_design/assets.dart';
 import 'package:green_gym_club/router/router.dart';
 
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../widgets/onboarding_step_circle_widget.dart';
 

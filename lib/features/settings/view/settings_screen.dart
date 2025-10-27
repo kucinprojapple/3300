@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-import '../../../app_core._design/assets.dart';
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 
-import '../../../app_core._design/styles.dart';
+import '../../../app_core_design/styles.dart';
 
 class SwitchWithPrefsWidget extends StatefulWidget {
   final String title;

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/app_core._design/assets.dart';
+import 'package:green_gym_club/app_core_design/assets.dart';
 
 import '../features/loading/loading_cubit/loading_cubit.dart';
 import '../features/loading/loading_cubit/loading_state.dart';
