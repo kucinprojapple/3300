@@ -27,6 +27,11 @@ sealed class AppAssets {
   static const avatarMan = '${_basePath}avatar_man.png';
   static const avatarWoman = '${_basePath}avatar_woman.png';
 
+  /// images for Photo
+  static const backgroundMakeAPhoto = '${_basePath}background_make_a_photo.png';
+  static const backgroundChoosePhoto = '${_basePath}background_choose_photo.png';
+  static const backgroundCancel = '${_basePath}background_cancel.png';
+
 
   /// images for Exercises
   static const exerciseBicycleCrunches =

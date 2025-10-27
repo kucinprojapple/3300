@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:green_gym_club/features/profile/profile_bloc/profile_bloc.dart';
 import 'package:green_gym_club/router/router.dart';
 
 class GreenGymClub extends StatelessWidget {
@@ -15,10 +17,17 @@ class GreenGymClub extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'Green Gym Club',
-          routerConfig: _router.config(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<ProfileOverlayBloc>(
+              create: (context) => ProfileOverlayBloc(),
+            ),
+          ],
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'Green Gym Club',
+            routerConfig: _router.config(),
+          ),
         );
       },
     );

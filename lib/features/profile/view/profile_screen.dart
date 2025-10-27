@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:green_gym_club/features/game/widgets/custom_gradient_container_widget.dart';
@@ -8,7 +9,10 @@ import '../../../app_core._design/assets.dart';
 import '../../../app_core._design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
+import '../profile_bloc/profile_bloc.dart';
+
 import '../widgets/avatar_picker_widget.dart';
+import '../widgets/profile_overlays.dart';
 
 @RoutePage()
 class ProfileScreen extends StatefulWidget {
@@ -24,6 +28,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late TextEditingController usernameController;
 
   late String selectedAvatar;
+
+
 
   bool isEditingUsername = false;
   bool isEditingEmail = false;
@@ -177,7 +183,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           useGradient: false,
                           useShadow: false,
                           height: 1.0,
-
                         ),
                         GestureDetector(
                           onTap: () {
@@ -194,9 +199,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-
-
-
                 ),
                 SizedBox(height: 20.h),
                 Padding(
@@ -302,66 +304,81 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 SizedBox(height: 20.h),
-                CustomGradientContainerWidget(
-                  width: 354.w,
-                  height: 54.h,
-                  backgroundGradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF389A07), Color(0xFF020500)],
-                  ),
-                  borderGradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                  ),
-                  borderWidth: 1.5,
-                  borderRadius: 12.r,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 8.w),
-                    child: NumbersTextBody.gradientNumbers(
-                      context,
-                      'ACHIEVEMENTS',
-                      size: TextSize.xs,
-                      alignment: Alignment.centerLeft,
-                      useGradient: false,
-                      useShadow: false,
-                      height: 1.0,
+                GestureDetector(
+                  child: CustomGradientContainerWidget(
+                    width: 354.w,
+                    height: 54.h,
+                    backgroundGradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFF389A07), Color(0xFF020500)],
+                    ),
+                    borderGradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
+                    ),
+                    borderWidth: 1.5,
+                    borderRadius: 12.r,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 8.w),
+                      child: NumbersTextBody.gradientNumbers(
+                        context,
+                        'ACHIEVEMENTS',
+                        size: TextSize.xs,
+                        alignment: Alignment.centerLeft,
+                        useGradient: false,
+                        useShadow: false,
+                        height: 1.0,
+                      ),
                     ),
                   ),
+                  onTap: () {
+                    context.read<ProfileOverlayBloc>().add(
+                      ShowAchievementsOverlayEvent(),
+                    );
+                  },
                 ),
                 SizedBox(height: 12.h),
-                CustomGradientContainerWidget(
-                  width: 354.w,
-                  height: 54.h,
-                  backgroundGradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF389A07), Color(0xFF020500)],
-                  ),
-                  borderGradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                  ),
-                  borderWidth: 1.5,
-                  borderRadius: 12.r,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 8.w),
-                    child: NumbersTextBody.gradientNumbers(
-                      context,
-                      'FAVORITE EXERCISE',
-                      size: TextSize.xs,
-                      alignment: Alignment.centerLeft,
-                      useGradient: false,
-                      useShadow: false,
-                      height: 1.0,
+                GestureDetector(
+                  child: CustomGradientContainerWidget(
+                    width: 354.w,
+                    height: 54.h,
+                    backgroundGradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFF389A07), Color(0xFF020500)],
+                    ),
+                    borderGradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
+                    ),
+                    borderWidth: 1.5,
+                    borderRadius: 12.r,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 8.w),
+                      child: NumbersTextBody.gradientNumbers(
+                        context,
+                        'FAVORITE EXERCISE',
+                        size: TextSize.xs,
+                        alignment: Alignment.centerLeft,
+                        useGradient: false,
+                        useShadow: false,
+                        height: 1.0,
+                      ),
                     ),
                   ),
+                  onTap: () {
+                    context.read<ProfileOverlayBloc>().add(
+                      ShowFavoriteExerciseOverlayEvent(),
+                    );
+                  },
                 ),
               ],
             ),
           ),
+          Positioned.fill(child: ProfileOverlays()),
         ],
       ),
     );

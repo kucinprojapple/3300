@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:green_gym_club/app_core._design/assets.dart';
 
-
+import '../profile_bloc/profile_bloc.dart';
 
 class AvatarPickerWidget extends StatelessWidget {
   final String currentAvatar;
   final ValueChanged<String> onAvatarChanged;
   final double avatarSize;
+
   // final double buttonSize;
   // final double iconSize;
 
@@ -27,46 +29,22 @@ class AvatarPickerWidget extends StatelessWidget {
       // mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(currentAvatar, height: avatarSize.h, width: avatarSize.w),
-        // SizedBox(height: 4.h),
 
+        // SizedBox(height: 4.h),
         Positioned(
           left: 60.w,
           bottom: 5.h,
           child: InkWell(
-            onTap: () async {
-              final avatars = [AppAssets.avatarMan, AppAssets.avatarWoman];
-
-              final selected = await showDialog<String>(
-                context: context,
-                builder:
-                    (context) => SimpleDialog(
-                      title: const Text('Choose Avatar'),
-                      children:
-                          avatars.map((avatar) {
-                            return SimpleDialogOption(
-                              onPressed: () => Navigator.pop(context, avatar),
-                              child: Row(
-                                children: [
-                                  Image.asset(avatar, height: 48.h, width: 48.w),
-                                  SizedBox(width: 12.w),
-                                  Text(avatar.split('/').last.split('.').first),
-                                ],
-                              ),
-                            );
-                          }).toList(),
-                    ),
+            onTap: () {
+              context.read<ProfileOverlayBloc>().add(
+                ShowSelectPictureOverlayEvent(),
               );
-
-              if (selected != null) {
-                onAvatarChanged(selected);
-              }
             },
             child: Image.asset(
               AppAssets.iconAdd,
               // height: 40.w,
               // width: 30.h,
             ),
-
 
             // Container(
             //   height: buttonSize.h,
