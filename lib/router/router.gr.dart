@@ -192,6 +192,40 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [RecordScreen]
+class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
+  RecordRoute({Key? key, required int index, List<PageRouteInfo>? children})
+    : super(
+        RecordRoute.name,
+        args: RecordRouteArgs(key: key, index: index),
+        initialChildren: children,
+      );
+
+  static const String name = 'RecordRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<RecordRouteArgs>();
+      return RecordScreen(key: args.key, index: args.index);
+    },
+  );
+}
+
+class RecordRouteArgs {
+  const RecordRouteArgs({this.key, required this.index});
+
+  final Key? key;
+
+  final int index;
+
+  @override
+  String toString() {
+    return 'RecordRouteArgs{key: $key, index: $index}';
+  }
+}
+
+/// generated route for
 /// [SettingsScreen]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})

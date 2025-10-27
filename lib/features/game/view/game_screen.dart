@@ -99,7 +99,15 @@ class _GameScreenState extends State<GameScreen> {
                       text: 'Play',
                       fontSize: 30.sp,
                       onPressed: () {
-                        // todo: add action
+                        final gameBloc = context.read<GameBloc>();
+                        final state = gameBloc.state;
+
+                        if (state is ExerciseNavigateState) {
+                          context.router.push(RecordRoute(index: state.index));
+                        } else {
+                          // Например, если ты хочешь открыть первый элемент по умолчанию
+                          context.router.push(RecordRoute(index: 0));
+                        }
                       },
                     ),
                   ),
