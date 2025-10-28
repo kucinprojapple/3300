@@ -21,18 +21,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: LoadingRoute.page, path: '/', initial: true),
-    AutoRoute(
-      page: OnboardingWrapperRoute.page,
-      path: '/onboarding_wrapper',
-      children: [
-        AutoRoute(
-          page: OnboardingRoute.page,
-          path: 'onboarding',
-          initial: true,
-        ),
-      ],
-    ),
-    // AutoRoute(page: OnboardingRoute.page, path: '/   onboarding'),
+    AutoRoute(page: OnboardingRoute.page, path: '/onboarding'),
     AutoRoute(page: HomeRoute.page, path: '/home'),
     AutoRoute(page: MenuRoute.page, path: '/menu'),
     AutoRoute(page: SettingsRoute.page, path: '/settings'),
@@ -42,6 +31,5 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ExerciseDetailsRoute.page, path: '/exercise_details'),
     AutoRoute(page: AchievementsRoute.page, path: '/achievements'),
     AutoRoute(page: RecordRoute.page, path: '/record'),
-
   ];
 }

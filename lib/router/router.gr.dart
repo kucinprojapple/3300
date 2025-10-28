@@ -160,22 +160,6 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [OnboardingWrapper]
-class OnboardingWrapperRoute extends PageRouteInfo<void> {
-  const OnboardingWrapperRoute({List<PageRouteInfo>? children})
-    : super(OnboardingWrapperRoute.name, initialChildren: children);
-
-  static const String name = 'OnboardingWrapperRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const OnboardingWrapper();
-    },
-  );
-}
-
-/// generated route for
 /// [ProfileScreen]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})

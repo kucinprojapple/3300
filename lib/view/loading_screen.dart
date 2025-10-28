@@ -63,7 +63,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       child: BlocListener<LoadingCubit, LoadingState>(
         listener: (context, state) {
           if (state is LoadingCompleted) {
-            context.router.replace(const OnboardingWrapperRoute());
+            context.router.replace(const OnboardingRoute());
           }
         },
         child: Scaffold(
