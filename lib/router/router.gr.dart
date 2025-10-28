@@ -194,12 +194,22 @@ class ProfileRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [RecordScreen]
 class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
-  RecordRoute({Key? key, required int index, List<PageRouteInfo>? children})
-    : super(
-        RecordRoute.name,
-        args: RecordRouteArgs(key: key, index: index),
-        initialChildren: children,
-      );
+  RecordRoute({
+    Key? key,
+    required int index,
+    required int lastResult,
+    required void Function(int) onSave,
+    List<PageRouteInfo>? children,
+  }) : super(
+         RecordRoute.name,
+         args: RecordRouteArgs(
+           key: key,
+           index: index,
+           lastResult: lastResult,
+           onSave: onSave,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'RecordRoute';
 
@@ -207,21 +217,35 @@ class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<RecordRouteArgs>();
-      return RecordScreen(key: args.key, index: args.index);
+      return RecordScreen(
+        key: args.key,
+        index: args.index,
+        lastResult: args.lastResult,
+        onSave: args.onSave,
+      );
     },
   );
 }
 
 class RecordRouteArgs {
-  const RecordRouteArgs({this.key, required this.index});
+  const RecordRouteArgs({
+    this.key,
+    required this.index,
+    required this.lastResult,
+    required this.onSave,
+  });
 
   final Key? key;
 
   final int index;
 
+  final int lastResult;
+
+  final void Function(int) onSave;
+
   @override
   String toString() {
-    return 'RecordRouteArgs{key: $key, index: $index}';
+    return 'RecordRouteArgs{key: $key, index: $index, lastResult: $lastResult, onSave: $onSave}';
   }
 }
 

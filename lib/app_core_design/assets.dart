@@ -29,9 +29,9 @@ sealed class AppAssets {
 
   /// images for Photo
   static const backgroundMakeAPhoto = '${_basePath}background_make_a_photo.png';
-  static const backgroundChoosePhoto = '${_basePath}background_choose_photo.png';
+  static const backgroundChoosePhoto =
+      '${_basePath}background_choose_photo.png';
   static const backgroundCancel = '${_basePath}background_cancel.png';
-
 
   /// images for Exercises
   static const exerciseBicycleCrunches =
@@ -45,6 +45,17 @@ sealed class AppAssets {
   static const exerciseSquats = '${_basePath}exercise_squats.png';
   static const exerciseTricepDips = '${_basePath}exercise_tricep_dips.png';
 
+  /// images for Game
+  static const wow = '${_basePath}wow.png';
+  static const timer_1 = '${_basePath}timer_1.png';
+  static const timer_2 = '${_basePath}timer_2.png';
+  static const timer_3 = '${_basePath}timer_3.png';
+  static const timerGo = '${_basePath}timer_go.png';
+  static const timerGoodJob = '${_basePath}timer_good_job.png';
+  static const timerExcellent = '${_basePath}timer_excellent.png';
+  static const timerAmazing = '${_basePath}timer_amazing.png';
+  static const timerWellDone = '${_basePath}timer_well_done.png';
+
   /// images for icons
   static const iconAdd = '${_basePath}icon_add.png';
   static const iconBack = '${_basePath}icon_back.png';
@@ -55,4 +66,6 @@ sealed class AppAssets {
   static const iconProfile = '${_basePath}icon_profile.png';
   static const iconQuestion = '${_basePath}icon_question.png';
   static const iconSettings = '${_basePath}icon_settings.png';
+  static const iconTimerPlay = '${_basePath}icon_timer_play.png';
+  static const iconTimerStop = '${_basePath}icon_timer_stop.png';
 }

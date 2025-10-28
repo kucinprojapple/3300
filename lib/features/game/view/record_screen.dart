@@ -15,8 +15,10 @@ import '../model/exercise_entity.dart';
 @RoutePage()
 class RecordScreen extends StatelessWidget {
   final int index;
+  final int lastResult;
+  final void Function(int) onSave;
 
-  const RecordScreen({super.key, required this.index});
+  const RecordScreen({super.key, required this.index, required this.lastResult, required this.onSave});
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +179,8 @@ class RecordScreen extends StatelessWidget {
                 text: 'Save',
                 fontSize: 30.sp,
                 onPressed: () {
-                  CustomSnackBar.show(context, 'Settings saved');
+                  CustomSnackBar.show(context, 'Record saved');
+                  onSave(10);
                 },
               ),
             ),

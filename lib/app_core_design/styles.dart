@@ -215,13 +215,13 @@ class NumbersTextBody {
     String text, {
     TextSize size = TextSize.l,
     double? height,
-        double? fontSize,
-        Alignment alignment = Alignment.center,
+    double? fontSize,
+    Alignment alignment = Alignment.center,
     TextAlign textAlign = TextAlign.center,
     bool useGradient = true,
     bool useShadow = true,
     List<Color>? gradientColors,
-        Color? fallbackColor,
+    Color? fallbackColor,
   }) {
     final numbers = AppTextStyles.numbersTextBody(context);
     late TextStyle style;
@@ -249,14 +249,17 @@ class NumbersTextBody {
       style = style.copyWith(fontSize: fontSize.sp);
     }
 
-
     if (!useShadow) {
       style = style.copyWith(shadows: []);
     }
 
-    final textWidget = Text(text, textAlign: textAlign, style: style.copyWith(
-      color: useGradient ? null : (fallbackColor ?? Colors.white),
-    ));
+    final textWidget = Text(
+      text,
+      textAlign: textAlign,
+      style: style.copyWith(
+        color: useGradient ? null : (fallbackColor ?? Colors.white),
+      ),
+    );
 
     final gradient =
         gradientColors ?? AppColors.textColors.numbersGradient.colors;
