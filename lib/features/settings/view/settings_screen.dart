@@ -10,6 +10,7 @@ import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
 import '../widgets/custom_snack_bar_widget.dart';
 import '../widgets/swirch_with_prefs_widget.dart';
+import '../widgets/timer_option_circle_widget.dart';
 
 @RoutePage()
 class SettingsScreen extends StatefulWidget {
@@ -21,6 +22,8 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final storage = LocalStorageService();
+  int _selectedTimerSeconds = 30;
+  final List<int> _timerOptions = [30, 60, 90, 120];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           Positioned(
             left: 30.w,
-            top: 49.h,
+            top: 48.h,
             child: Column(
               children: [
                 IconButtonWidget(
@@ -46,10 +49,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           Positioned(
-            left: 0,
+            left: 0.w,
             top: 120.h,
-            right: 0,
-
+            right: 0.w,
             child: NumbersTextBody.gradientNumbers(
               context,
               'Settings',
@@ -64,35 +66,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
             left: 28.w,
             top: 226.h,
             child: Container(
-              width: 333.05.w,
-              height: 265.72.h,
+              width: 332.w,
+              height: 268.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color(0xFF389A07), // верх
-                    Color(0xFF020500), // низ
+                    Color(0xFF389A07),
+                    Color(0xFF020500),
                   ],
                 ),
                 border: GradientBoxBorder(
                   gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF969494), // верх рамки
-                      Color(0xFF848484), // низ рамки
-                    ],
+                    colors: [Color(0xFF969494), Color(0xFF848484)],
                   ),
-                  width: 4,
+                  width: 4.w,
                 ),
               ),
 
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                // mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 24.h),
 
                   SwitchWithPrefsWidget(
                     title: "Sound",
@@ -110,6 +109,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     title: "Vibration",
                     initialValue: storage.vibrationEnabled,
                     onChanged: (val) => storage.vibrationEnabled = val,
+                  ),
+                  SizedBox(height: 40.h),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        NumbersTextBody.gradientNumbers(
+                          context,
+                          'Timer',
+                          size: TextSize.m,
+                          alignment: Alignment.centerLeft,
+                          useShadow: false,
+                          height: 1.1,
+                        ),
+                        SizedBox(width: 36.w),
+                        Expanded(
+                          child: Row(
+                            children: _timerOptions.map((seconds) {
+                              return TimerOptionCircleWidget(
+                                seconds: seconds,
+                                isSelected: _selectedTimerSeconds == seconds,
+                                onTap: () {
+                                  setState(() {
+                                    _selectedTimerSeconds = seconds;
+                                  });
+                                },
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

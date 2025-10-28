@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-
 import '../../../app_core_design/styles.dart';
 
 class SwitchWithPrefsWidget extends StatefulWidget {
@@ -40,11 +39,11 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
   @override
   Widget build(BuildContext context) {
     // outer sizes according to your design
-    final double outerW = 64.53.w;
-    final double outerH = 27.75.h;
-    final double radius = 13.87.r;
-    final double circleSize = 23.25.w; // размер кружка по макету
-    // padding inside container so circle doesn't touch border hard
+    final double outerW = 64.w;
+    final double outerH = 28.h;
+    final double radius = 14.r;
+    final double circleSize = 22.w;
+
     final double innerPadding = (outerH - circleSize) / 2;
 
     return Padding(
@@ -52,16 +51,6 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Title
-          // Text(
-          //   widget.title,
-          //   style: GoogleFonts.rubikMonoOne(
-          //     fontSize: 16.sp,
-          //     fontWeight: FontWeight.bold,
-          //     letterSpacing: 1.5.sp,
-          //     color: Colors.white,
-          //   ),
-          // ),
           NumbersTextBody.gradientNumbers(
             context,
             widget.title,
@@ -71,21 +60,21 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
             height: 1.1,
           ),
 
-          // Switch area — GestureDetector so whole thing toggles
           GestureDetector(
             onTap: _toggle,
             child: Container(
               width: outerW,
               height: outerH,
-              // Decoration is not animated to avoid BoxBorder.lerp problem
+
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(radius),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: status
-                      ? const [Color(0xFF1BC431), Color(0xFF007421)] // unlocked bg
-                      : const [Color(0xFFFD3D3D), Color(0xFFAE0505)], // locked bg
+                  colors:
+                      status
+                          ? const [Color(0xFF1BC431), Color(0xFF007421)]
+                          : const [Color(0xFFFD3D3D), Color(0xFFAE0505)],
                 ),
                 boxShadow: const [
                   BoxShadow(
@@ -94,7 +83,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
                     blurRadius: 4.48,
                   ),
                 ],
-                // border via GradientBoxBorder (static, not animated)
+
                 border: GradientBoxBorder(
                   gradient: const LinearGradient(
                     begin: Alignment.topCenter,
@@ -108,12 +97,11 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
                 padding: EdgeInsets.symmetric(horizontal: innerPadding),
                 child: Stack(
                   children: [
-                    // AnimatedAlign moves the circle left/right
                     AnimatedAlign(
                       duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       alignment:
-                      status ? Alignment.centerRight : Alignment.centerLeft,
+                          status ? Alignment.centerRight : Alignment.centerLeft,
                       child: _buildToggleCircle(status, circleSize),
                     ),
                   ],
@@ -126,7 +114,6 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
     );
   }
 
-  // Кастомный кружок: использует свой градиент/бордер/тень для locked/unlocked
   Widget _buildToggleCircle(bool isActive, double size) {
     return Container(
       width: size,
@@ -136,18 +123,20 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: isActive
-              ? const [Color(0xFF116803), Color(0xFF102B02)] // анлок - сверху светлее
-              : const [Color(0xFFAE0505), Color(0xFF4A0404)], // лок - сверху светлее
+          colors:
+              isActive
+                  ? const [Color(0xFF116803), Color(0xFF102B02)]
+                  : const [Color(0xFFAE0505), Color(0xFF4A0404)],
         ),
-        // Используем GradientBoxBorder для рамки кружка
+
         border: GradientBoxBorder(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: isActive
-                ? const [Color(0xFF116803), Color(0xFF147D03)]
-                : const [Color(0xFFB30303), Color(0xFFFD3D3D)],
+            colors:
+                isActive
+                    ? const [Color(0xFF116803), Color(0xFF147D03)]
+                    : const [Color(0xFFB30303), Color(0xFFFD3D3D)],
           ),
           width: 1,
         ),

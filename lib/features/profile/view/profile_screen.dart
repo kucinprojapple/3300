@@ -119,17 +119,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Center(
                         child: SizedBox(
                           width: double.infinity,
-                          child: TextField(
-                            controller: usernameController,
-                            readOnly: !isEditingUsername,
-                            textAlign: TextAlign.center,
-                            style: AppTextStyles.numbersTextBody(
-                              context,
-                            ).m.copyWith(color: Colors.white, shadows: []),
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 8.h,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12.w),
+                            child: TextField(
+                              controller: usernameController,
+                              readOnly: !isEditingUsername,
+                              textAlign: TextAlign.center,
+                              style: AppTextStyles.numbersTextBody(
+                                context,
+                              ).m.copyWith(color: Colors.white, shadows: []),
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.symmetric(
+                                  vertical: 8.h,
+                                ),
                               ),
                             ),
                           ),

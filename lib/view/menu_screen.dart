@@ -73,7 +73,6 @@ class _MenuScreenState extends State<MenuScreen> {
               iconAsset: AppAssets.iconPlay,
               width: 140.w,
               height: 140.h,
-
               onPressed: () {
                 context.router.push(const GameRoute());
               },
@@ -105,7 +104,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 width: 227.w,
                 height: 89.h,
                 text: 'Achievements',
-                fontSize: 28.sp,
+                fontSize: 25.sp,
                 onPressed: () {
                   context.router.push(const AchievementsRoute());
                 },
