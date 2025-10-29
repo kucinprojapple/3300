@@ -59,6 +59,21 @@ sealed class AppAssets {
   // static const iconSettings = '${_basePath}icon_settings.png';
   // static const iconTimerPlay = '${_basePath}icon_timer_play.png';
   // static const iconTimerStop = '${_basePath}icon_timer_stop.png';
+  //
+  // /// images for Achievements
+  // static const achievementMedal_1 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_2 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_3 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_4 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_5 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_6 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_7 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_8 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_9 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_10 = '${_basePath}achievement_medal_1.png';
+  // static const achievementCupGold = '${_basePath}achievement_cup_gold.png';
+  // static const achievementCupWhite = '${_basePath}achievement_cup_white.png';
+  // static const achievementDone = '${_basePath}achievement_done.png';
 
   // // webp images
   // static const _basePath = 'assets/images/';
@@ -121,4 +136,19 @@ sealed class AppAssets {
   static const iconSettings = '${_basePath}icon_settings.webp';
   static const iconTimerPlay = '${_basePath}icon_timer_play.webp';
   static const iconTimerStop = '${_basePath}icon_timer_stop.webp';
+
+  /// images for Achievements
+  static const achievementMedal_1 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_2 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_3 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_4 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_5 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_6 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_7 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_8 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_9 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_10 = '${_basePath}achievement_medal_1.webp';
+  static const achievementCupGold = '${_basePath}achievement_cup_gold.webp';
+  static const achievementCupWhite = '${_basePath}achievement_cup_white.webp';
+  static const achievementDone = '${_basePath}achievement_done.webp';
 }

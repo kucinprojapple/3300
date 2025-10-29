@@ -128,6 +128,22 @@ class LoadingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [LostNetworkScreen]
+class LostNetworkRoute extends PageRouteInfo<void> {
+  const LostNetworkRoute({List<PageRouteInfo>? children})
+    : super(LostNetworkRoute.name, initialChildren: children);
+
+  static const String name = 'LostNetworkRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LostNetworkScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [MenuScreen]
 class MenuRoute extends PageRouteInfo<void> {
   const MenuRoute({List<PageRouteInfo>? children})

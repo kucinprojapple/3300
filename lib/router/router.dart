@@ -10,6 +10,7 @@ import '../features/info/view/info_screen.dart';
 import '../features/onboarding/view/onboarding_screen.dart';
 import '../features/profile/view/profile_screen.dart';
 import '../features/settings/view/settings_screen.dart';
+import '../features/lost_network/view/lost_network_screen.dart';
 import '../view/home_screen.dart';
 import '../view/loading_screen.dart';
 import '../view/menu_screen.dart';
@@ -31,5 +32,6 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ExerciseDetailsRoute.page, path: '/exercise_details'),
     AutoRoute(page: AchievementsRoute.page, path: '/achievements'),
     AutoRoute(page: RecordRoute.page, path: '/record'),
+    AutoRoute(page: LostNetworkRoute.page, path: '/lost_network'),
   ];
 }
