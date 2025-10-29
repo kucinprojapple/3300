@@ -1,0 +1,128 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/styles.dart';
+import '../../../core/widgets/icon_button_widget.dart';
+import '../../../router/router.dart';
+import '../data/exercise_list.dart';
+import '../model/exercise_entity.dart';
+import '../../game/widgets/custom_gradient_container_widget.dart';
+
+@RoutePage()
+class ExercisesScreen extends StatelessWidget {
+  const ExercisesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<ExerciseEntity> exercises = exercisesData;
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
+          ),
+          Positioned(
+            left: 30.w,
+            top: 48.h,
+            child: IconButtonWidget(
+              iconAsset: AppAssets.iconBack,
+              onPressed: () {
+                context.router.maybePop();
+              },
+            ),
+          ),
+
+          Positioned(
+            left: 0.w,
+            top: 120.h,
+            right: 0.w,
+            child: NumbersTextBody.gradientNumbers(
+              context,
+              'Exercises',
+              size: TextSize.m,
+              alignment: Alignment.center,
+              useShadow: false,
+              height: 1.1,
+            ),
+          ),
+
+          Positioned.fill(
+            top: 200.h,
+            bottom: 40.h,
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              itemCount: exercises.length,
+              itemBuilder: (context, index) {
+                final exercise = exercises[index];
+
+                return GestureDetector(
+                  onTap: () {
+                    context.pushRoute(ExerciseDetailsRoute(index: index));
+                  },
+                  child: CustomGradientContainerWidget(
+                    width: 332.w,
+                    height: 82.h,
+                    borderRadius: 12.r,
+                    borderWidth: 2.w,
+                    backgroundGradient: const LinearGradient(
+                      colors: [Color(0xFF389A07), Color(0xFF020500)],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    borderGradient: const LinearGradient(
+                      colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 0.w,
+                      vertical: 4.h,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 12.w,
+                      vertical: 8.h,
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: NumbersTextBody.gradientNumbers(
+                            context,
+                            exercise.name,
+                            alignment: Alignment.centerLeft,
+                            height: 1.1,
+                            fontSize: 18.sp,
+                          ),
+                        ),
+
+                        if (exercise.image.isNotEmpty)
+                          Container(
+                            width: 56.w,
+                            height: 56.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.r),
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [Color(0xFF0E2801), Color(0xFF020500)],
+                              ),
+                            ),
+                            padding: EdgeInsets.all(8.w),
+                            child: Image.asset(
+                              exercise.image,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

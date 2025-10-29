@@ -64,6 +64,22 @@ class ExerciseDetailsRouteArgs {
 }
 
 /// generated route for
+/// [ExercisesScreen]
+class ExercisesRoute extends PageRouteInfo<void> {
+  const ExercisesRoute({List<PageRouteInfo>? children})
+    : super(ExercisesRoute.name, initialChildren: children);
+
+  static const String name = 'ExercisesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ExercisesScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [GameScreen]
 class GameRoute extends PageRouteInfo<void> {
   const GameRoute({List<PageRouteInfo>? children})

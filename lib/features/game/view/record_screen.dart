@@ -9,8 +9,8 @@ import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
-import '../data/exercise_list.dart';
-import '../model/exercise_entity.dart';
+import '../../exercises/data/exercise_list.dart';
+import '../../exercises/model/exercise_entity.dart';
 
 @RoutePage()
 class RecordScreen extends StatelessWidget {

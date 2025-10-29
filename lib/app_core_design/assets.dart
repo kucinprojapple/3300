@@ -9,6 +9,9 @@ sealed class AppAssets {
   // /// images for Button
   // static const buttonMain = '${_basePath}button_main.png';
   //
+  /// images for Lost Network
+  // static const lostNetwork = '${_basePath}lost_network.png';
+  //
   // /// images for Grid
   // static const slotContainer = '${_basePath}slot_container.png';
   // static const glowLine = '${_basePath}glow_line.png';
@@ -81,6 +84,9 @@ sealed class AppAssets {
   /// images for Background
   static const backgroundMain = '${_basePath}background_main.webp';
   static const shirt = '${_basePath}shirt.webp';
+
+  /// images for Lost Network
+  static const lostNetwork = '${_basePath}lost_network.webp';
 
   /// images for Button
   static const buttonMain = '${_basePath}button_main.webp';

@@ -16,7 +16,7 @@ import '../game_flow_bloc/game_flow_bloc.dart';
 import '../game_flow_bloc/game_flow_event.dart';
 import '../game_flow_bloc/game_flow_state.dart';
 import '../widgets/countdown_overlay_widget.dart';
-import '../widgets/exercise_details_screen.dart';
+import '../../exercises/view/exercise_details_screen.dart';
 import '../widgets/exercise_grid_widget.dart';
 import '../widgets/go_overlay_widget.dart';
 import '../widgets/good_job_overlay_widget.dart';

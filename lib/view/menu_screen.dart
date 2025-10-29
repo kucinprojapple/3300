@@ -90,7 +90,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 text: 'Exercises',
                 fontSize: 30.sp,
                 onPressed: () {
-                  //   todo: add action
+                  context.router.push(const ExercisesRoute());
                 },
               ),
             ),

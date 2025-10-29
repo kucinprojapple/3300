@@ -5,8 +5,8 @@ import 'package:green_gym_club/app_core_design/assets.dart';
 
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../data/exercise_list.dart';
-import '../model/exercise_entity.dart';
+import '../../exercises/data/exercise_list.dart';
+import '../../exercises/model/exercise_entity.dart';
 import 'game_general_overlay_widget.dart';
 
 class WowOverlayWidget extends StatelessWidget {
