@@ -11,26 +11,24 @@ class AvatarPickerWidget extends StatelessWidget {
   final ValueChanged<String> onAvatarChanged;
   final double avatarSize;
 
-  // final double buttonSize;
-  // final double iconSize;
+
 
   const AvatarPickerWidget({
     super.key,
     required this.currentAvatar,
     required this.onAvatarChanged,
     this.avatarSize = 150,
-    // this.buttonSize = 32,
-    // this.iconSize = 18,
+
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      // mainAxisSize: MainAxisSize.min,
+
       children: [
         Image.asset(currentAvatar, height: avatarSize.h, width: avatarSize.w),
 
-        // SizedBox(height: 4.h),
+
         Positioned(
           left: 60.w,
           bottom: 5.h,

@@ -61,7 +61,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       mainContent: OnboardingStep4Widget(),
       title: 'Build Your Profile',
       description:
-          'Your profile displays your results, favorite exercise, title, and frame—change them to stand out!',
+          'Your profile displays your results, favorite exercise, title, and frame - change them to stand out!',
       onNext: () {
         setState(() {
           currentIndex++;

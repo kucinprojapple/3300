@@ -37,7 +37,7 @@ class LocalStorageService {
 
 
   String get playerAvatar =>
-      _prefs.getString('player_avatar') ?? AppAssets.avatarClearPlace;
+      _prefs.getString('player_avatar') ?? AppAssets.avatarWoman;
 
   set playerAvatar(String value) => _prefs.setString('player_avatar', value);
 

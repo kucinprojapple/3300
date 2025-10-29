@@ -29,9 +29,9 @@ class OnboardingStepWidget extends StatelessWidget {
           child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
         ),
         Positioned(
-          left: 55.w,
-          top: 139.h,
-          right: 55.w,
+          left: 32.w,
+          top: 140.h,
+          right: 32.w,
           child: Center(
             child: Column(
               children: [
@@ -59,7 +59,6 @@ class OnboardingStepWidget extends StatelessWidget {
                             colors: [Color(0xFF1D5401), Color(0xFF020500)],
                           ),
                         ),
-
                         child: mainContent,
                       ),
                     ),
@@ -71,21 +70,21 @@ class OnboardingStepWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 22.h),
+                SizedBox(height: 20.h),
                 NumbersTextBody.gradientNumbers(
                   context,
                   title,
-                  size: TextSize.l,
                   alignment: Alignment.center,
                   height: 1.1,
+                  fontSize: 25.sp,
                 ),
-                SizedBox(height: 31.h),
+                SizedBox(height: 24.h),
                 NumbersTextBody.gradientNumbers(
                   context,
                   description,
-                  size: TextSize.s,
                   alignment: Alignment.center,
                   height: 1.5,
+                  fontSize: 17.sp,
                 ),
               ],
             ),

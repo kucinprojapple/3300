@@ -8,7 +8,7 @@ import '../../../core/widgets/icon_button_widget.dart';
 import '../../../router/router.dart';
 import '../data/exercise_list.dart';
 import '../model/exercise_entity.dart';
-import '../../game/widgets/custom_gradient_container_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 @RoutePage()
 class ExercisesScreen extends StatelessWidget {

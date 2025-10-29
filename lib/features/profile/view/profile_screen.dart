@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:green_gym_club/features/game/widgets/custom_gradient_container_widget.dart';
+import 'package:green_gym_club/core/widgets/custom_gradient_container_widget.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
@@ -225,16 +225,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           borderWidth: 1.5,
                           borderRadius: 12.r,
                           child: Padding(
-                            padding: EdgeInsets.only(top: 8.h),
-                            child: NumbersTextBody.gradientNumbers(
-                              context,
-                              'NUMBER OF \nEXERCISES \nPERFORMED',
-                              size: TextSize.xs,
-                              alignment: Alignment.topCenter,
-                              useGradient: false,
-                              useShadow: false,
-                              height: 1.0,
-                              fontSize: 12.sp,
+                            padding: EdgeInsets.only(top: 8.h, bottom: 12.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  'NUMBER OF \nEXERCISES \nPERFORMED',
+                                  size: TextSize.xs,
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 12.sp,
+                                ),
+                                Spacer(),
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  '25',
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 30.sp,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -257,16 +272,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           borderWidth: 1.5,
                           borderRadius: 12.r,
                           child: Padding(
-                            padding: EdgeInsets.only(top: 8.h),
-                            child: NumbersTextBody.gradientNumbers(
-                              context,
-                              'AMOUNT OF \nTIMER FOR \nEXERCISE',
-                              size: TextSize.xs,
-                              alignment: Alignment.topCenter,
-                              useGradient: false,
-                              useShadow: false,
-                              height: 1.0,
-                              fontSize: 12.sp,
+                            padding: EdgeInsets.only(top: 8.h, bottom: 12.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  'AMOUNT OF \nTIMER FOR \nEXERCISE',
+                                  size: TextSize.xs,
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 12.sp,
+                                ),
+                                Spacer(),
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  '0:30',
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 30.sp,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -289,16 +319,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           borderRadius: 12.r,
                           borderWidth: 1.5,
                           child: Padding(
-                            padding: EdgeInsets.only(top: 8.h),
-                            child: NumbersTextBody.gradientNumbers(
-                              context,
-                              'NUMBER OF \nREPETITION',
-                              size: TextSize.xs,
-                              alignment: Alignment.topCenter,
-                              useGradient: false,
-                              useShadow: false,
-                              height: 1.0,
-                              fontSize: 12.sp,
+                            padding: EdgeInsets.only(top: 8.h, bottom: 12.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  'NUMBER OF \nREPETITION',
+                                  size: TextSize.xs,
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 12.sp,
+                                ),
+                                Spacer(),
+                                NumbersTextBody.gradientNumbers(
+                                  context,
+                                  '300',
+                                  alignment: Alignment.topCenter,
+                                  useGradient: false,
+                                  useShadow: false,
+                                  height: 1.0,
+                                  fontSize: 30.sp,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -324,15 +369,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     borderWidth: 1.5,
                     borderRadius: 12.r,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8.w),
-                      child: NumbersTextBody.gradientNumbers(
-                        context,
-                        'ACHIEVEMENTS',
-                        size: TextSize.xs,
-                        alignment: Alignment.centerLeft,
-                        useGradient: false,
-                        useShadow: false,
-                        height: 1.0,
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          NumbersTextBody.gradientNumbers(
+                            context,
+                            'ACHIEVEMENTS',
+                            size: TextSize.xs,
+                            alignment: Alignment.centerLeft,
+                            useGradient: false,
+                            useShadow: false,
+                            height: 1.0,
+                          ),
+                          NumbersTextBody.gradientNumbers(
+                            context,
+                            '3 | 20',
+                            size: TextSize.s,
+                            alignment: Alignment.centerLeft,
+                            useGradient: false,
+                            useShadow: false,
+                            height: 1.0,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -360,15 +419,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     borderWidth: 1.5,
                     borderRadius: 12.r,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8.w),
-                      child: NumbersTextBody.gradientNumbers(
-                        context,
-                        'FAVORITE EXERCISE',
-                        size: TextSize.xs,
-                        alignment: Alignment.centerLeft,
-                        useGradient: false,
-                        useShadow: false,
-                        height: 1.0,
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          NumbersTextBody.gradientNumbers(
+                            context,
+                            'FAVORITE EXERCISE',
+                            size: TextSize.xs,
+                            alignment: Alignment.centerLeft,
+                            useGradient: false,
+                            useShadow: false,
+                            height: 1.0,
+                          ),
+                          NumbersTextBody.gradientNumbers(
+                            context,
+                            'Push-Ups',
+                            size: TextSize.s,
+                            alignment: Alignment.centerLeft,
+                            useGradient: false,
+                            useShadow: false,
+                            height: 1.0,
+                          ),
+                        ],
                       ),
                     ),
                   ),

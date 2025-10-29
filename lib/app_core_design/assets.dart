@@ -65,18 +65,20 @@ sealed class AppAssets {
   //
   // /// images for Achievements
   // static const achievementMedal_1 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_2 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_3 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_4 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_5 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_6 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_7 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_8 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_9 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_10 = '${_basePath}achievement_medal_1.png';
+  // static const achievementMedal_2 = '${_basePath}achievement_medal_2.png';
+  // static const achievementMedal_3 = '${_basePath}achievement_medal_3.png';
+  // static const achievementMedal_4 = '${_basePath}achievement_medal_4.png';
+  // static const achievementMedal_5 = '${_basePath}achievement_medal_5.png';
+  // static const achievementMedal_6 = '${_basePath}achievement_medal_6.png';
+  // static const achievementMedal_7 = '${_basePath}achievement_medal_7.png';
+  // static const achievementMedal_8 = '${_basePath}achievement_medal_8.png';
+  // static const achievementMedal_9 = '${_basePath}achievement_medal_9.png';
+  // static const achievementMedal_10 = '${_basePath}achievement_medal_10.png';
   // static const achievementCupGold = '${_basePath}achievement_cup_gold.png';
   // static const achievementCupWhite = '${_basePath}achievement_cup_white.png';
   // static const achievementDone = '${_basePath}achievement_done.png';
+  // static const achievementContainerEmpty = '${_basePath}achievement_container_empty.png';
+  // static const achievementContainerDone = '${_basePath}achievement_container_done.png';
 
   // // webp images
   // static const _basePath = 'assets/images/';
@@ -145,16 +147,20 @@ sealed class AppAssets {
 
   /// images for Achievements
   static const achievementMedal_1 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_2 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_3 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_4 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_5 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_6 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_7 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_8 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_9 = '${_basePath}achievement_medal_1.webp';
-  static const achievementMedal_10 = '${_basePath}achievement_medal_1.webp';
+  static const achievementMedal_2 = '${_basePath}achievement_medal_2.webp';
+  static const achievementMedal_3 = '${_basePath}achievement_medal_3.webp';
+  static const achievementMedal_4 = '${_basePath}achievement_medal_4.webp';
+  static const achievementMedal_5 = '${_basePath}achievement_medal_5.webp';
+  static const achievementMedal_6 = '${_basePath}achievement_medal_6.webp';
+  static const achievementMedal_7 = '${_basePath}achievement_medal_7.webp';
+  static const achievementMedal_8 = '${_basePath}achievement_medal_8.webp';
+  static const achievementMedal_9 = '${_basePath}achievement_medal_9.webp';
+  static const achievementMedal_10 = '${_basePath}achievement_medal_10.webp';
   static const achievementCupGold = '${_basePath}achievement_cup_gold.webp';
   static const achievementCupWhite = '${_basePath}achievement_cup_white.webp';
   static const achievementDone = '${_basePath}achievement_done.webp';
+  static const achievementContainerEmpty =
+      '${_basePath}achievement_container_empty.webp';
+  static const achievementContainerDone =
+      '${_basePath}achievement_container_done.webp';
 }

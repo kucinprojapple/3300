@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
-import '../../game/widgets/custom_gradient_container_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 @RoutePage()
 class LostNetworkScreen extends StatelessWidget {

@@ -2,79 +2,76 @@ import '../../../app_core_design/assets.dart';
 import '../model/exercise_entity.dart';
 
 final List<ExerciseEntity> exercisesData = [
-
   const ExerciseEntity(
     name: 'Push-Ups',
     target: 'Chest, Triceps, Shoulders, Core',
     technique:
-    'Keep your body straight, hands slightly wider than shoulder-width apart. Lower yourself until your chest is parallel to the floor, then push yourself up.',
-    tip: 'Don’t let your pelvis drop — keep your core rigid.',
+        'Keep your body straight, hands slightly wider than shoulder-width apart. Lower yourself until your chest is parallel to the floor, then push yourself up.',
+    tip: "Don’t let your pelvis drop -  your core should be rigid.",
     image: AppAssets.exercisePushUps,
   ),
   const ExerciseEntity(
     name: 'Tricep Dips',
-    target: 'Triceps, Shoulders',
+    target: 'Triceps, shoulders',
     technique:
-    'Place your hands behind your back on a bench or chair, legs extended in front of you. Bend your elbows to lower your body, then push back up to the starting position.',
-    tip: 'Keep your elbows close to your body throughout the movement.',
+        'Hands behind your back on a bench or chair, legs in front of you. Bend your elbows as you lower your body, then lift.',
+    tip: "Keep your elbows close to your body.",
     image: AppAssets.exerciseTricepDips,
   ),
   const ExerciseEntity(
     name: 'Squats',
     target: 'Legs, Buttocks, Core',
     technique:
-    'Stand straight with your feet shoulder-width apart. Lower yourself down, tilting your pelvis back as if sitting down. Keep your chest up and make sure your knees don’t go beyond your toes.',
-    tip: 'Keep your heels firmly on the floor at all times.',
+        'Standing straight, feet shoulder-width apart. Squat down, tilting your pelvis back as if you were sitting down. Your knees should not go beyond your toes.',
+    tip: "Keep your heels on the floor at all times.",
     image: AppAssets.exerciseSquats,
   ),
   const ExerciseEntity(
     name: 'Lunges',
     target: 'Quads, Glutes, Balance',
     technique:
-    'Step forward with one leg and lower your body until both knees are bent at about 90°. Push off your front foot to return to the starting position.',
-    tip: 'Keep your back straight and avoid leaning forward.',
+        'Step forward and lower until both knees are bent at 90°. Return to starting position.',
+    tip: "Keep your back straight, don’t lean forward.",
     image: AppAssets.exerciseLunges,
   ),
-  ExerciseEntity(
+  const ExerciseEntity(
     name: 'Burpees',
-    image: AppAssets.exerciseBurpees,
     target: 'Total body, Cardio',
     technique:
-    'Squat, step back into plank, do push-ups, turn around, jump up. Repeat.',
-    tip: "Move at a pace, but don't sacrifice technique.",
+        'Squat, step back into plank, do push-ups, turn around, jump up. Repeat.',
+    tip: "Move at a pace, but don’t sacrifice technique.",
+    image: AppAssets.exerciseBurpees,
   ),
-  ExerciseEntity(
+  const ExerciseEntity(
     name: 'Jumping Jacks',
+    target: 'Cardio, Shoulders, legs',
+    technique:
+        'Jump, spreading your arms and legs out to the sides, then return to the starting position.',
+    tip: "Light on your feet, watch your breathing rhythm.",
     image: AppAssets.exerciseJumpingJacks,
-    target: 'Cardio, Shoulders, Legs',
-    technique:
-    'Jump, spreading your arms and legs out to the sides, then return to the starting position.',
-    tip: 'Be light on your feet and keep a steady breathing rhythm.',
   ),
-  ExerciseEntity(
+  const ExerciseEntity(
     name: 'Crunches',
+    target: 'Upper abs',
+    technique:
+        "Lie on your back, knees bent. Lift your shoulder blades without pulling on your neck, then roll back.",
+    tip: "Exhale as you lift, don’t use your hands.",
     image: AppAssets.exerciseCrunches,
-    target: 'Upper Abs',
-    technique:
-    'Lie on your back with your knees bent. Lift your shoulder blades without pulling on your neck, then roll back down.',
-    tip: "Exhale as you lift and avoid using your hands to pull your head.",
   ),
-  ExerciseEntity(
+  const ExerciseEntity(
     name: 'Bicycle Crunches',
+    target: 'Obliques and rectus abdominis',
+    technique:
+        "Lying on your back, alternately curling your elbow towards the opposite knee, simulating pedaling.",
+    tip: "Keep the movement smooth, don’t strain your neck.",
     image: AppAssets.exerciseBicycleCrunches,
-    target: 'Obliques and Rectus Abdominis',
-    technique:
-    'Lie on your back and alternately curl your elbow towards the opposite knee, simulating a pedaling motion.',
-    tip: "Keep the movement smooth and avoid straining your neck.",
   ),
-  ExerciseEntity(
+  const ExerciseEntity(
     name: 'Leg Raises',
-    image: AppAssets.exerciseLegRaises,
-    target: 'Obliques and Rectus Abdominis',
+    target: 'Obliques and rectus abdominis',
     technique:
-    'Lie on your back and raise your straight legs up without arching your back. Lower them slowly back down.',
-    tip: "Tighten your abs and don’t let your lower back arch off the floor.",
+        "Lying on your back, raise your straight legs up without arching your back. Lower slowly.",
+    tip: "Tighten your abs - don’t let your lower back arch.",
+    image: AppAssets.exerciseLegRaises,
   ),
-
-  // 🔜 добавляй остальные упражнения здесь
 ];

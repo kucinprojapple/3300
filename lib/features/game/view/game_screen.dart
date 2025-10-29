@@ -20,7 +20,7 @@ import '../../exercises/view/exercise_details_screen.dart';
 import '../widgets/exercise_grid_widget.dart';
 import '../widgets/go_overlay_widget.dart';
 import '../widgets/good_job_overlay_widget.dart';
-import '../widgets/timer_widget.dart';
+import 'timer_screen.dart';
 
 @RoutePage()
 class GameScreen extends StatefulWidget {

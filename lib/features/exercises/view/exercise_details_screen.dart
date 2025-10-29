@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
-import 'package:green_gym_club/features/game/widgets/custom_gradient_container_widget.dart';
+import 'package:green_gym_club/core/widgets/custom_gradient_container_widget.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
-import 'package:green_gym_club/features/game/widgets/custom_gradient_container_widget.dart';
+import 'package:green_gym_club/core/widgets/custom_gradient_container_widget.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
@@ -116,6 +116,16 @@ class RecordScreen extends StatelessWidget {
                           useShadow: false,
                           height: 1.0,
                         ),
+                        Spacer(),
+                        NumbersTextBody.gradientNumbers(
+                          context,
+                          '00:30',
+                          size: TextSize.l,
+                          alignment: Alignment.centerLeft,
+                          useShadow: false,
+                          height: 1.0,
+                        ),
+                        SizedBox(width: 24.w),
                       ],
                     ),
                   ),
@@ -149,8 +159,17 @@ class RecordScreen extends StatelessWidget {
                           // useGradient: false,
                           useShadow: false,
                           height: 1.0,
-
                         ),
+                        Spacer(),
+                        NumbersTextBody.gradientNumbers(
+                          context,
+                          '10',
+                          size: TextSize.l,
+                          alignment: Alignment.centerLeft,
+                          useShadow: false,
+                          height: 1.0,
+                        ),
+                        SizedBox(width: 12.w),
                         GestureDetector(
                           onTap: () {},
                           child: Image.asset(

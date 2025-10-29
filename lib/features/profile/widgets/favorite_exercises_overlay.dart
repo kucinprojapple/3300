@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/assets.dart';
 import '../../../core/widgets/action_button_widget.dart';
-import '../../game/widgets/custom_gradient_container_widget.dart';
-import '../../settings/widgets/custom_snack_bar_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
+
 import '../profile_bloc/profile_bloc.dart';
 
 class FavoriteExercisesOverlay extends StatelessWidget {
@@ -16,10 +15,10 @@ class FavoriteExercisesOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
-        height: 400.h,
-        decoration: const BoxDecoration(color: Color(0xFF000000)),
+        height: 500.h,
+
         child: Column(
           children: [
             Padding(
@@ -44,15 +43,32 @@ class FavoriteExercisesOverlay extends StatelessWidget {
                       borderRadius: 12.r,
                       child: Padding(
                         padding: EdgeInsets.only(top: 8.h),
-                        child: NumbersTextBody.gradientNumbers(
-                          context,
-                          'NUMBER OF \nEXERCISES \nPERFORMED',
-                          size: TextSize.xs,
-                          alignment: Alignment.topCenter,
-                          useGradient: false,
-                          useShadow: false,
-                          height: 1.0,
-                          fontSize: 12.sp,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              AppAssets.achievementMedal_1,
+                              width: 72.w,
+                              height: 72.h,
+                            ),
+                            SizedBox(height: 8.h),
+                            ActionButtonWidget(
+                              width: 84.w,
+                              height: 32.h,
+                              text: 'Selected',
+                              fontSize: 12.sp,
+                              onPressed: () {
+                                // todo: add action
+                                // CustomSnackBar.show(context, 'Achievements saved');
+                                final bloc = context.read<ProfileOverlayBloc>();
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  if (context.mounted) {
+                                    bloc.add(HideOverlayEvent());
+                                  }
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -76,15 +92,32 @@ class FavoriteExercisesOverlay extends StatelessWidget {
                       borderRadius: 12.r,
                       child: Padding(
                         padding: EdgeInsets.only(top: 8.h),
-                        child: NumbersTextBody.gradientNumbers(
-                          context,
-                          'AMOUNT OF \nTIMER FOR \nEXERCISE',
-                          size: TextSize.xs,
-                          alignment: Alignment.topCenter,
-                          useGradient: false,
-                          useShadow: false,
-                          height: 1.0,
-                          fontSize: 12.sp,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              AppAssets.achievementMedal_2,
+                              width: 72.w,
+                              height: 72.h,
+                            ),
+                            SizedBox(height: 8.h),
+                            ActionButtonWidget(
+                              width: 84.w,
+                              height: 32.h,
+                              text: 'Selected',
+                              fontSize: 12.sp,
+                              onPressed: () {
+                                // todo: add action
+                                // CustomSnackBar.show(context, 'Achievements saved');
+                                final bloc = context.read<ProfileOverlayBloc>();
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  if (context.mounted) {
+                                    bloc.add(HideOverlayEvent());
+                                  }
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -104,42 +137,42 @@ class FavoriteExercisesOverlay extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
                       ),
-                      borderRadius: 12.r,
                       borderWidth: 1.5,
+                      borderRadius: 12.r,
                       child: Padding(
                         padding: EdgeInsets.only(top: 8.h),
-                        child: NumbersTextBody.gradientNumbers(
-                          context,
-                          'NUMBER OF \nREPETITION',
-                          size: TextSize.xs,
-                          alignment: Alignment.topCenter,
-                          useGradient: false,
-                          useShadow: false,
-                          height: 1.0,
-                          fontSize: 12.sp,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              AppAssets.achievementMedal_3,
+                              width: 72.w,
+                              height: 72.h,
+                            ),
+                            SizedBox(height: 8.h),
+                            ActionButtonWidget(
+                              width: 84.w,
+                              height: 32.h,
+                              text: 'Selected',
+                              fontSize: 12.sp,
+                              onPressed: () {
+                                // todo: add action
+                                // CustomSnackBar.show(context, 'Achievements saved');
+                                final bloc = context.read<ProfileOverlayBloc>();
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  if (context.mounted) {
+                                    bloc.add(HideOverlayEvent());
+                                  }
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 20.h),
-
-            ActionButtonWidget(
-              width: 227.w,
-              height: 89.h,
-              text: 'Save',
-              fontSize: 30.sp,
-              onPressed: () {
-                CustomSnackBar.show(context, 'Achievements saved');
-                final bloc = context.read<ProfileOverlayBloc>();
-                Future.delayed(const Duration(seconds: 3), () {
-                  if (context.mounted) {
-                    bloc.add(HideOverlayEvent());
-                  }
-                });
-              },
             ),
           ],
         ),
