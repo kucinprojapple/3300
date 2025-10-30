@@ -13,32 +13,31 @@ class LocalStorageService {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  // SETTINGS
-  bool get soundEnabled => _prefs.getBool('sound_enabled') ?? false;
-
-  set soundEnabled(bool value) => _prefs.setBool('sound_enabled', value);
-
-  bool get vibrationEnabled => _prefs.getBool('vibration_enabled') ?? false;
-
-  set vibrationEnabled(bool value) =>
-      _prefs.setBool('vibration_enabled', value);
-
-  bool get notificationsEnabled =>
-      _prefs.getBool('notifications_enabled') ?? false;
-
-  set notificationsEnabled(bool value) =>
-      _prefs.setBool('notifications_enabled', value);
-
-// PLAYER DATA
+  // PLAYER DATA
   String get playerName => _prefs.getString('player_name') ?? '';
 
   set playerName(String value) => _prefs.setString('player_name', value);
-
-
 
   String get playerAvatar =>
       _prefs.getString('player_avatar') ?? AppAssets.avatarWoman;
 
   set playerAvatar(String value) => _prefs.setString('player_avatar', value);
 
+  // SETTINGS
+  bool get soundEnabled => _prefs.getBool('sound_enabled') ?? false;
+
+  set soundEnabled(bool value) => _prefs.setBool('sound_enabled', value);
+
+  bool get musicEnabled => _prefs.getBool('music_enabled') ?? false;
+
+  set musicEnabled(bool value) => _prefs.setBool('music_enabled', value);
+
+  bool get vibrationEnabled => _prefs.getBool('vibration_enabled') ?? false;
+
+  set vibrationEnabled(bool value) =>
+      _prefs.setBool('vibration_enabled', value);
+
+  int get timerDuration => _prefs.getInt('timer_duration') ?? 30;
+
+  set timerDuration(int value) => _prefs.setInt('timer_duration', value);
 }

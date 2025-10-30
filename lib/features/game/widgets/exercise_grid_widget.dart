@@ -20,6 +20,8 @@ class ExerciseGridWidget extends StatefulWidget {
 class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
   late List<_ExerciseCardData> _shuffledExercises;
   final Map<int, FlipCardController> _controllers = {};
+  bool  _isLocked = false;
+
 
   @override
   void initState() {
@@ -63,6 +65,9 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
 
           return GestureDetector(
             onTap: () async {
+              if (_isLocked) return;
+              setState(() => _isLocked = true);
+
               _controllers[index]!.flipcard();
               await Future.delayed(const Duration(milliseconds: 300));
 

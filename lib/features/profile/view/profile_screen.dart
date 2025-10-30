@@ -29,8 +29,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   late String selectedAvatar;
 
-
-
   bool isEditingUsername = false;
   bool isEditingEmail = false;
 

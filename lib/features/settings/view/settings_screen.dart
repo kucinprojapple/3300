@@ -22,8 +22,37 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final storage = LocalStorageService();
+  bool _soundEnabled = false;
+  bool _musicEnabled = false;
+  bool _vibrationEnabled = false;
   int _selectedTimerSeconds = 30;
-  final List<int> _timerOptions = [30, 60, 90, 120];
+
+  // final List<int> _timerOptions = [30, 60, 90, 120];
+  final List<int> _timerOptions = [5, 10, 15, 20];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSettings();
+  }
+
+  void _loadSettings() {
+    setState(() {
+      _soundEnabled = storage.soundEnabled;
+      _musicEnabled = storage.musicEnabled;
+      _vibrationEnabled = storage.vibrationEnabled;
+      _selectedTimerSeconds = storage.timerDuration;
+    });
+  }
+
+  void _saveSettings() {
+    storage.soundEnabled = _soundEnabled;
+    storage.musicEnabled = _musicEnabled;
+    storage.vibrationEnabled = _vibrationEnabled;
+    storage.timerDuration = _selectedTimerSeconds;
+
+    CustomSnackBar.show(context, 'Settings saved');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +102,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF389A07),
-                    Color(0xFF020500),
-                  ],
+                  colors: [Color(0xFF389A07), Color(0xFF020500)],
                 ),
                 border: GradientBoxBorder(
                   gradient: const LinearGradient(
@@ -89,26 +115,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
 
               child: Column(
-                // mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: 24.h),
 
                   SwitchWithPrefsWidget(
                     title: "Sound",
                     initialValue: storage.soundEnabled,
-                    onChanged: (val) => storage.soundEnabled = val,
+                    onChanged: (value) {
+                      setState(() {
+                        _soundEnabled = value;
+                      });
+                    },
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
                     title: "Music",
-                    initialValue: storage.notificationsEnabled,
-                    onChanged: (val) => storage.notificationsEnabled = val,
+                    initialValue: storage.musicEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        _musicEnabled = value;
+                      });
+                    },
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
                     title: "Vibration",
                     initialValue: storage.vibrationEnabled,
-                    onChanged: (val) => storage.vibrationEnabled = val,
+                    onChanged: (value) {
+                      setState(() {
+                        _vibrationEnabled = value;
+                      });
+                    },
                   ),
                   SizedBox(height: 40.h),
                   Padding(
@@ -127,17 +164,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         SizedBox(width: 36.w),
                         Expanded(
                           child: Row(
-                            children: _timerOptions.map((seconds) {
-                              return TimerOptionCircleWidget(
-                                seconds: seconds,
-                                isSelected: _selectedTimerSeconds == seconds,
-                                onTap: () {
-                                  setState(() {
-                                    _selectedTimerSeconds = seconds;
-                                  });
-                                },
-                              );
-                            }).toList(),
+                            children:
+                                _timerOptions.map((seconds) {
+                                  return TimerOptionCircleWidget(
+                                    seconds: seconds,
+                                    isSelected:
+                                        _selectedTimerSeconds == seconds,
+                                    onTap: () {
+                                      setState(() {
+                                        _selectedTimerSeconds = seconds;
+                                      });
+                                    },
+                                  );
+                                }).toList(),
                           ),
                         ),
                       ],
@@ -159,7 +198,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 text: 'Save',
                 fontSize: 30.sp,
                 onPressed: () {
-                  CustomSnackBar.show(context, 'Settings saved');
+                  _saveSettings();
                 },
               ),
             ),

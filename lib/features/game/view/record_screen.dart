@@ -1,16 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
-import 'package:green_gym_club/core/widgets/custom_gradient_container_widget.dart';
+
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
+import '../game_flow_bloc/game_flow_bloc.dart';
+import '../game_flow_bloc/game_flow_event.dart';
 
 @RoutePage()
 class RecordScreen extends StatelessWidget {
@@ -18,7 +21,12 @@ class RecordScreen extends StatelessWidget {
   final int lastResult;
   final void Function(int) onSave;
 
-  const RecordScreen({super.key, required this.index, required this.lastResult, required this.onSave});
+  const RecordScreen({
+    super.key,
+    required this.index,
+    required this.lastResult,
+    required this.onSave,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +179,9 @@ class RecordScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 12.w),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            // todo: add action
+                          },
                           child: Image.asset(
                             AppAssets.iconEdit,
                             width: 44.w,
@@ -200,6 +210,7 @@ class RecordScreen extends StatelessWidget {
                 onPressed: () {
                   CustomSnackBar.show(context, 'Record saved');
                   onSave(10);
+                  context.read<GameFlowBloc>().add(const SaveResultEvent(10));
                 },
               ),
             ),
