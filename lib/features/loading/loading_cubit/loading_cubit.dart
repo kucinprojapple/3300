@@ -26,7 +26,7 @@ class LoadingCubit extends Cubit<LoadingState> {
 
     final weights = List<double>.generate(
       stages.length,
-          (_) => _random.nextDouble(),
+      (_) => _random.nextDouble(),
     );
     final totalWeight = weights.reduce((a, b) => a + b);
     for (int i = 0; i < stages.length; i++) {
@@ -43,7 +43,10 @@ class LoadingCubit extends Cubit<LoadingState> {
 
       while (true) {
         final elapsed = DateTime.now().difference(startTime);
-        final t = (elapsed.inMilliseconds / stepDuration.inMilliseconds).clamp(0.0, 1.0);
+        final t = (elapsed.inMilliseconds / stepDuration.inMilliseconds).clamp(
+          0.0,
+          1.0,
+        );
         final current = progress + (target - progress) * t;
         emit(LoadingInProgress(current));
         if (t >= 1.0) break;
@@ -61,11 +64,10 @@ class LoadingCubit extends Cubit<LoadingState> {
   }
 }
 
-// --- INTERNAL STAGE MODEL ---
-
 class _FakeStage extends Equatable {
   final String name;
   final double progressWeight;
+
   const _FakeStage(this.name, {this.progressWeight = 0.0});
 
   _FakeStage copyWith({double? progressWeight}) =>

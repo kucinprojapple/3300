@@ -7,14 +7,35 @@ abstract class GameEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class ExerciseSelectedEvent extends GameEvent {
-  final int index;
-  const ExerciseSelectedEvent(this.index);
-
-  @override
-  List<Object?> get props => [index];
+class StartGameFlowEvent extends GameEvent {
+  const StartGameFlowEvent();
 }
 
-class ExerciseClosedEvent extends GameEvent {
-  const ExerciseClosedEvent();
+class ShowOverlayWowEvent extends GameEvent {}
+
+class PauseTimerEvent extends GameEvent {
+  const PauseTimerEvent();
+}
+
+class ResumeTimerEvent extends GameEvent {
+  const ResumeTimerEvent();
+}
+
+class TimerTickEvent extends GameEvent {
+  final int secondsLeft;
+
+  const TimerTickEvent(this.secondsLeft);
+}
+
+class TimerFinishEvent extends GameEvent {
+  const TimerFinishEvent();
+}
+
+class SaveResultEvent extends GameEvent {
+  final int result;
+
+  const SaveResultEvent(this.result);
+
+  @override
+  List<Object?> get props => [result];
 }

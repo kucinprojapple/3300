@@ -66,7 +66,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: 4.h),
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     exercise.name,
                     size: TextSize.l,
@@ -78,7 +78,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                   SizedBox(height: 12.h),
                   Image.asset(exercise.image, height: 152.h),
                   SizedBox(height: 12.h),
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     'Target: ${exercise.target}',
                     size: TextSize.s,
@@ -116,7 +116,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                       ),
-                      child: NumbersTextBody.gradientNumbers(
+                      child: MainTextBody.gradientText(
                         context,
                         'Technique: ${exercise.technique}',
                         size: TextSize.xs,
@@ -141,7 +141,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                       ),
-                      child: NumbersTextBody.gradientNumbers(
+                      child: MainTextBody.gradientText(
                         context,
                         'Tip: ${exercise.tip}',
                         size: TextSize.xs,

@@ -8,12 +8,6 @@ import 'colors.dart' show AppColors;
 
 const String _fontFamily = 'OtomanopeeOne';
 
-// final textAccentShadows = [
-//   Shadow(offset: Offset(-1, -2), color: AppColors.accent.primaryDart),
-// ];
-// final textWhiteShadows = [
-//   Shadow(offset: Offset(1, -2), color: AppColors.main.white),
-// ];
 final textLightShadows = [
   Shadow(
     offset: Offset(0.w, 1.59.h),
@@ -31,8 +25,8 @@ sealed class AppTextStyles {
 
   static TabTextBody tabTextBody(BuildContext context) => TabTextBody(context);
 
-  static NumbersTextBody numbersTextBody(BuildContext context) =>
-      NumbersTextBody(context);
+  static MainTextBody mainTextBody(BuildContext context) =>
+      MainTextBody(context);
 }
 
 sealed class AppSize {
@@ -197,20 +191,20 @@ class _TabTextBody {
 
 enum TextSize { l, m, s, xs }
 
-class NumbersTextBody {
+class MainTextBody {
   late final TextStyle l;
   late final TextStyle m;
   late final TextStyle s;
   late final TextStyle xs;
 
-  NumbersTextBody(BuildContext context) {
-    l = _NumbersTextBody().l;
-    m = _NumbersTextBody().m;
-    s = _NumbersTextBody().s;
-    xs = _NumbersTextBody().xs;
+  MainTextBody(BuildContext context) {
+    l = _MainTextBody().l;
+    m = _MainTextBody().m;
+    s = _MainTextBody().s;
+    xs = _MainTextBody().xs;
   }
 
-  static Widget gradientNumbers(
+  static Widget gradientText(
     BuildContext context,
     String text, {
     TextSize size = TextSize.l,
@@ -223,7 +217,7 @@ class NumbersTextBody {
     List<Color>? gradientColors,
     Color? fallbackColor,
   }) {
-    final numbers = AppTextStyles.numbersTextBody(context);
+    final numbers = AppTextStyles.mainTextBody(context);
     late TextStyle style;
 
     switch (size) {
@@ -281,7 +275,7 @@ class NumbersTextBody {
   }
 }
 
-class _NumbersTextBody {
+class _MainTextBody {
   final TextStyle l = TextStyle(
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w400,

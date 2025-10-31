@@ -50,7 +50,7 @@ class TimerScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 32.h),
 
-                NumbersTextBody.gradientNumbers(
+                MainTextBody.gradientText(
                   context,
                   '$minutes:$seconds',
                   size: TextSize.m,

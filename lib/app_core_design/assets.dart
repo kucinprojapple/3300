@@ -1,7 +1,7 @@
 sealed class AppAssets {
-  // png images
-  static const _basePath = 'assets/images/';
-
+  // // png images
+  // static const _basePath = 'assets/images/';
+  //
   // /// images for Background
   // static const backgroundMain = '${_basePath}background_main.png';
   // static const shirt = '${_basePath}shirt.png';
@@ -9,7 +9,7 @@ sealed class AppAssets {
   // /// images for Button
   // static const buttonMain = '${_basePath}button_main.png';
   //
-  /// images for Lost Network
+  // /// images for Lost Network
   // static const lostNetwork = '${_basePath}lost_network.png';
   //
   // /// images for Grid
@@ -77,12 +77,14 @@ sealed class AppAssets {
   // static const achievementCupGold = '${_basePath}achievement_cup_gold.png';
   // static const achievementCupWhite = '${_basePath}achievement_cup_white.png';
   // static const achievementDone = '${_basePath}achievement_done.png';
-  // static const achievementContainerEmpty = '${_basePath}achievement_container_empty.png';
-  // static const achievementContainerDone = '${_basePath}achievement_container_done.png';
+  // static const achievementContainerEmpty =
+  //     '${_basePath}achievement_container_empty.png';
+  // static const achievementContainerDone =
+  //     '${_basePath}achievement_container_done.png';
 
-  // // webp images
-  // static const _basePath = 'assets/images/';
-  //
+  // webp images
+  static const _basePath = 'assets/images/';
+
   /// images for Background
   static const backgroundMain = '${_basePath}background_main.webp';
   static const shirt = '${_basePath}shirt.webp';

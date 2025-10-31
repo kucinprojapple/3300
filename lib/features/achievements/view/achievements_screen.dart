@@ -51,7 +51,7 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
             left: 0.w,
             top: 120.h,
             right: 0.w,
-            child: NumbersTextBody.gradientNumbers(
+            child: MainTextBody.gradientText(
               context,
               'Achievements',
               size: TextSize.m,

@@ -81,7 +81,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             left: 0.w,
             top: 120.h,
             right: 0.w,
-            child: NumbersTextBody.gradientNumbers(
+            child: MainTextBody.gradientText(
               context,
               'Settings',
               size: TextSize.m,
@@ -153,7 +153,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           'Timer',
                           size: TextSize.m,

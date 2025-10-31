@@ -45,7 +45,7 @@ class _GreenTimerCircle extends StatelessWidget {
         ),
         Positioned(
           bottom: 20.h,
-          child: NumbersTextBody.gradientNumbers(
+          child: MainTextBody.gradientText(
             context,
             timeString,
             size: TextSize.m,

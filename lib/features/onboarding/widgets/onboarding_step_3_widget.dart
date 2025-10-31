@@ -33,7 +33,7 @@ class OnboardingStep3Widget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Column(
             children: [
-              NumbersTextBody.gradientNumbers(
+              MainTextBody.gradientText(
                 context,
                 'Squats',
                 size: TextSize.l,

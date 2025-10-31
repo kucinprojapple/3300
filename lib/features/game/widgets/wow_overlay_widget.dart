@@ -45,7 +45,7 @@ class WowOverlayWidget extends StatelessWidget {
                     SizedBox(height: 12.h),
                     Image.asset(exercise.image, fit: BoxFit.contain),
                     SizedBox(height: 14.h),
-                    NumbersTextBody.gradientNumbers(
+                    MainTextBody.gradientText(
                       context,
                       'You got the exercise\n${exercise.name}',
                       size: TextSize.m,

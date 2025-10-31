@@ -73,7 +73,7 @@ class OnboardingStep4Widget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     'TITLE:',
                     alignment: Alignment.centerLeft,
@@ -82,7 +82,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                     height: 1.0,
                     fontSize: 14.sp,
                   ),
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     'Push-Up King',
                     size: TextSize.xs,
@@ -123,7 +123,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'NUMBER OF \nEXERCISES \nPERFORMED',
                             size: TextSize.xs,
@@ -134,7 +134,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             fontSize: 6.sp,
                           ),
                           Spacer(),
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             '25',
                             alignment: Alignment.topCenter,
@@ -170,7 +170,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'AMOUNT OF \nTIMER FOR \nEXERCISE',
                             size: TextSize.xs,
@@ -181,7 +181,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             fontSize: 6.sp,
                           ),
                           Spacer(),
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             '0:30',
                             alignment: Alignment.topCenter,
@@ -217,7 +217,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'NUMBER OF \nREPETITION',
                             size: TextSize.xs,
@@ -228,7 +228,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             fontSize: 6.sp,
                           ),
                           Spacer(),
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             '300',
                             alignment: Alignment.topCenter,

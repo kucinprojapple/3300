@@ -38,7 +38,7 @@ class ExercisesScreen extends StatelessWidget {
             left: 0.w,
             top: 120.h,
             right: 0.w,
-            child: NumbersTextBody.gradientNumbers(
+            child: MainTextBody.gradientText(
               context,
               'Exercises',
               size: TextSize.m,
@@ -87,7 +87,7 @@ class ExercisesScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: NumbersTextBody.gradientNumbers(
+                          child: MainTextBody.gradientText(
                             context,
                             exercise.name,
                             alignment: Alignment.centerLeft,

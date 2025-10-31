@@ -96,22 +96,6 @@ class GameRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [HomeScreen]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-    : super(HomeRoute.name, initialChildren: children);
-
-  static const String name = 'HomeRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const HomeScreen();
-    },
-  );
-}
-
-/// generated route for
 /// [InfoScreen]
 class InfoRoute extends PageRouteInfo<void> {
   const InfoRoute({List<PageRouteInfo>? children})

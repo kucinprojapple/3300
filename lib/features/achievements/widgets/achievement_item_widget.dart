@@ -48,7 +48,7 @@ class AchievementItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     achievement.title,
                     alignment: Alignment.centerLeft,
@@ -56,7 +56,7 @@ class AchievementItem extends StatelessWidget {
                     fontSize: 18.sp * scale,
                   ),
                   SizedBox(height: 4.h * scale),
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     achievement.description,
                     alignment: Alignment.centerLeft,

@@ -71,7 +71,7 @@ class OnboardingStepWidget extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20.h),
-                NumbersTextBody.gradientNumbers(
+                MainTextBody.gradientText(
                   context,
                   title,
                   alignment: Alignment.center,
@@ -79,7 +79,7 @@ class OnboardingStepWidget extends StatelessWidget {
                   fontSize: 25.sp,
                 ),
                 SizedBox(height: 24.h),
-                NumbersTextBody.gradientNumbers(
+                MainTextBody.gradientText(
                   context,
                   description,
                   alignment: Alignment.center,

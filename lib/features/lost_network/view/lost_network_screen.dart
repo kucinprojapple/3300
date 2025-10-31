@@ -40,7 +40,7 @@ class LostNetworkScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(height: 15.h),
-                  NumbersTextBody.gradientNumbers(
+                  MainTextBody.gradientText(
                     context,
                     'Lost Network',
                     size: TextSize.l,

@@ -51,7 +51,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          NumbersTextBody.gradientNumbers(
+          MainTextBody.gradientText(
             context,
             widget.title,
             size: TextSize.m,

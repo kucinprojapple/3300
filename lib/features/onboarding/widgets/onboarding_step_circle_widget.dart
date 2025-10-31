@@ -27,7 +27,7 @@ class OnboardingStepCircleWidget extends StatelessWidget {
         colors: [Color(0xFFAAA7A6), Color(0xFFFFFFFF)],
       ),
       child: Center(
-        child: NumbersTextBody.gradientNumbers(
+        child: MainTextBody.gradientText(
           context,
           '$stepIndex',
           alignment: Alignment.center,

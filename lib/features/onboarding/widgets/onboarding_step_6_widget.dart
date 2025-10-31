@@ -43,7 +43,7 @@ class OnboardingStep6Widget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 4.h),
-              NumbersTextBody.gradientNumbers(
+              MainTextBody.gradientText(
                 context,
                 exercise.name,
                 size: TextSize.l,
@@ -56,7 +56,7 @@ class OnboardingStep6Widget extends StatelessWidget {
               SizedBox(height: 4.h),
               Image.asset(exercise.image, height: 92.h),
               SizedBox(height: 12.h),
-              NumbersTextBody.gradientNumbers(
+              MainTextBody.gradientText(
                 context,
                 'Target: ${exercise.target}',
 
@@ -91,7 +91,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                   ),
                   borderRadius: 10.r,
-                  child: NumbersTextBody.gradientNumbers(
+                  child: MainTextBody.gradientText(
                     context,
                     'Technique: ${exercise.technique}',
 
@@ -118,7 +118,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                   ),
                   borderRadius: 10.r,
-                  child: NumbersTextBody.gradientNumbers(
+                  child: MainTextBody.gradientText(
                     context,
                     'Tip: ${exercise.tip}',
 

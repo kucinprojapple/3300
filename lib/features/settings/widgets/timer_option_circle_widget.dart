@@ -56,7 +56,7 @@ class TimerOptionCircleWidget extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: NumbersTextBody.gradientNumbers(
+          child: MainTextBody.gradientText(
             context,
             '${seconds}s',
             size: TextSize.m,

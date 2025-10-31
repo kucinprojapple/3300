@@ -175,7 +175,7 @@ class OnboardingStep1Widget extends StatelessWidget {
           left: 0,
           right: 0,
           bottom: 13.h,
-          child: NumbersTextBody.gradientNumbers(
+          child: MainTextBody.gradientText(
             context,
             'You got the\nexercise Squats',
             size: TextSize.m,

@@ -62,7 +62,7 @@ class CustomSnackBar {
                 ),
                 SizedBox(width: 12.w),
                 Flexible(
-                  child: NumbersTextBody.gradientNumbers(
+                  child: MainTextBody.gradientText(
                     context,
                     message,
                     size: TextSize.s,

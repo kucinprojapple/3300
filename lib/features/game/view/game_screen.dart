@@ -7,9 +7,9 @@ import '../../../app_core_design/assets.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
-import '../game_flow_bloc/game_flow_bloc.dart';
-import '../game_flow_bloc/game_flow_event.dart';
-import '../game_flow_bloc/game_flow_state.dart';
+import '../game_bloc/game_bloc.dart';
+import '../game_bloc/game_event.dart';
+import '../game_bloc/game_state.dart';
 import '../widgets/countdown_overlay_widget.dart';
 import '../widgets/exercise_grid_widget.dart';
 import '../widgets/go_overlay_widget.dart';
@@ -32,8 +32,8 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => GameFlowBloc(),
-      child: BlocConsumer<GameFlowBloc, GameFlowState>(
+      create: (_) => GameBloc(),
+      child: BlocConsumer<GameBloc, GameState>(
         listener: (context, state) {
           if (state is GameFlowDone) {
             context.router.popUntilRoot();
@@ -47,10 +47,10 @@ class _GameScreenState extends State<GameScreen> {
               secondsLeft: gameFlowState.secondsLeft,
               totalSeconds: totalSeconds,
               onStart: () {
-                context.read<GameFlowBloc>().add(const ResumeTimerEvent());
+                context.read<GameBloc>().add(const ResumeTimerEvent());
               },
               onPause: () {
-                context.read<GameFlowBloc>().add(const PauseTimerEvent());
+                context.read<GameBloc>().add(const PauseTimerEvent());
               },
             );
           }
@@ -111,7 +111,7 @@ class _GameScreenState extends State<GameScreen> {
                       fontSize: 30.sp,
 
                       onPressed: () {
-                        context.read<GameFlowBloc>().add(
+                        context.read<GameBloc>().add(
                           const StartGameFlowEvent(),
                         );
                       },
@@ -132,7 +132,7 @@ class _GameScreenState extends State<GameScreen> {
                     index: 2,
                     lastResult: gameFlowState.lastResult,
                     onSave: (value) {
-                      context.read<GameFlowBloc>().add(SaveResultEvent(value));
+                      context.read<GameBloc>().add(SaveResultEvent(value));
                     },
                   ),
               ],

@@ -12,8 +12,8 @@ import '../../../core/widgets/icon_button_widget.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
-import '../game_flow_bloc/game_flow_bloc.dart';
-import '../game_flow_bloc/game_flow_event.dart';
+import '../game_bloc/game_bloc.dart';
+import '../game_bloc/game_event.dart';
 
 @RoutePage()
 class RecordScreen extends StatelessWidget {
@@ -80,7 +80,7 @@ class RecordScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(height: 4.h),
-                      NumbersTextBody.gradientNumbers(
+                      MainTextBody.gradientText(
                         context,
                         exercise.name,
                         size: TextSize.l,
@@ -115,7 +115,7 @@ class RecordScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           'Time:',
                           size: TextSize.m,
@@ -125,7 +125,7 @@ class RecordScreen extends StatelessWidget {
                           height: 1.0,
                         ),
                         Spacer(),
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           '00:30',
                           size: TextSize.l,
@@ -159,7 +159,7 @@ class RecordScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           'Reps:',
                           size: TextSize.m,
@@ -169,7 +169,7 @@ class RecordScreen extends StatelessWidget {
                           height: 1.0,
                         ),
                         Spacer(),
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           '10',
                           size: TextSize.l,
@@ -210,7 +210,7 @@ class RecordScreen extends StatelessWidget {
                 onPressed: () {
                   CustomSnackBar.show(context, 'Record saved');
                   onSave(10);
-                  context.read<GameFlowBloc>().add(const SaveResultEvent(10));
+                  context.read<GameBloc>().add(const SaveResultEvent(10));
                 },
               ),
             ),

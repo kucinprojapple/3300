@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                NumbersTextBody.gradientNumbers(
+                MainTextBody.gradientText(
                   context,
                   'My Account',
                   size: TextSize.m,
@@ -123,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               controller: usernameController,
                               readOnly: !isEditingUsername,
                               textAlign: TextAlign.center,
-                              style: AppTextStyles.numbersTextBody(
+                              style: AppTextStyles.mainTextBody(
                                 context,
                               ).m.copyWith(color: Colors.white, shadows: []),
                               decoration: InputDecoration(
@@ -176,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        NumbersTextBody.gradientNumbers(
+                        MainTextBody.gradientText(
                           context,
                           'TITLE:',
                           size: TextSize.m,
@@ -227,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   'NUMBER OF \nEXERCISES \nPERFORMED',
                                   size: TextSize.xs,
@@ -238,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontSize: 12.sp,
                                 ),
                                 Spacer(),
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   '25',
                                   alignment: Alignment.topCenter,
@@ -274,7 +274,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   'AMOUNT OF \nTIMER FOR \nEXERCISE',
                                   size: TextSize.xs,
@@ -285,7 +285,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontSize: 12.sp,
                                 ),
                                 Spacer(),
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   '0:30',
                                   alignment: Alignment.topCenter,
@@ -321,7 +321,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   'NUMBER OF \nREPETITION',
                                   size: TextSize.xs,
@@ -332,7 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontSize: 12.sp,
                                 ),
                                 Spacer(),
-                                NumbersTextBody.gradientNumbers(
+                                MainTextBody.gradientText(
                                   context,
                                   '300',
                                   alignment: Alignment.topCenter,
@@ -371,7 +371,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'ACHIEVEMENTS',
                             size: TextSize.xs,
@@ -380,7 +380,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             useShadow: false,
                             height: 1.0,
                           ),
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             '3 | 20',
                             size: TextSize.s,
@@ -421,7 +421,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'FAVORITE EXERCISE',
                             size: TextSize.xs,
@@ -430,7 +430,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             useShadow: false,
                             height: 1.0,
                           ),
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'Push-Ups',
                             size: TextSize.s,

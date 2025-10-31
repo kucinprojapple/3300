@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import '../../app_core_design/assets.dart';
 
 class ActionButtonWidget extends StatelessWidget {
@@ -41,11 +40,14 @@ class ActionButtonWidget extends StatelessWidget {
             ),
             ShaderMask(
               blendMode: BlendMode.srcIn,
-              shaderCallback: (bounds) => const LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [Color(0xFFFFE2AA), Color(0xFFFFFFFF)],
-              ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+              shaderCallback:
+                  (bounds) => const LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [Color(0xFFFFE2AA), Color(0xFFFFFFFF)],
+                  ).createShader(
+                    Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                  ),
               child: Text(
                 text,
                 textAlign: TextAlign.center,

@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/app_core_design/assets.dart';
 
-import '../features/loading/loading_cubit/loading_cubit.dart';
-import '../features/loading/loading_cubit/loading_state.dart';
-import '../features/loading/widgets/loading_progress_bar.dart';
-import '../router/router.dart';
+import '../../../app_core_design/assets.dart';
+import '../loading_cubit/loading_cubit.dart';
+import '../loading_cubit/loading_state.dart';
+import '../widgets/loading_progress_bar.dart';
+import '../../../router/router.dart';
 
 @RoutePage()
 class LoadingScreen extends StatefulWidget {

@@ -43,7 +43,7 @@ class _InfoScreenState extends State<InfoScreen> {
             top: 120.h,
             right: 0,
 
-            child: NumbersTextBody.gradientNumbers(
+            child: MainTextBody.gradientText(
               context,
               'Info',
               size: TextSize.m,

@@ -50,7 +50,7 @@ class AchievementsOverlay extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'Push-up King',
 
@@ -89,7 +89,7 @@ class AchievementsOverlay extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'Squat Captain',
                             size: TextSize.xs,
@@ -128,7 +128,7 @@ class AchievementsOverlay extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NumbersTextBody.gradientNumbers(
+                          MainTextBody.gradientText(
                             context,
                             'Burpee Lightning',
                             size: TextSize.xs,
