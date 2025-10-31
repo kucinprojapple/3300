@@ -8,6 +8,7 @@ import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
+import '../../exercises/data/exercise_list.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';
 import '../game_bloc/game_state.dart';
@@ -139,10 +140,21 @@ class _GameScreenState extends State<GameScreen> {
                   GoodJobOverlayWidget(),
                 if (gameFlowState is ShowRecordScreenState)
                   RecordScreen(
-                    index: 2,
+                    index: _selectedExerciseIndex,
                     lastResult: gameFlowState.lastResult,
                     onSave: (value) {
-                      context.read<GameBloc>().add(SaveResultEvent(value));
+                      final exerciseName =
+                          exercisesData[_selectedExerciseIndex].name;
+                      final storage = LocalStorageService();
+                      final seconds = storage.timerDuration;
+
+                      context.read<GameBloc>().add(
+                        SaveResultEvent(
+                          exerciseName: exerciseName,
+                          seconds: seconds,
+                          result: value,
+                        ),
+                      );
                     },
                   ),
               ],

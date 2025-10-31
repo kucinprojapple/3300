@@ -9,14 +9,16 @@ import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
+import '../../../storage/local_storage_service.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';
 
+
 @RoutePage()
-class RecordScreen extends StatelessWidget {
+class RecordScreen extends StatefulWidget {
   final int index;
   final int lastResult;
   final void Function(int) onSave;
@@ -29,9 +31,33 @@ class RecordScreen extends StatelessWidget {
   });
 
   @override
+  State<RecordScreen> createState() => _RecordScreenState();
+}
+
+class _RecordScreenState extends State<RecordScreen> {
+  late TextEditingController _repsController;
+  bool _isEditing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _repsController = TextEditingController(text: '');
+  }
+
+  @override
+  void dispose() {
+    _repsController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ExerciseEntity exercise =
-        exercisesData[index.clamp(0, exercisesData.length - 1)];
+        exercisesData[widget.index.clamp(0, exercisesData.length - 1)];
+
+    final storage = LocalStorageService();
+    final seconds = storage.timerDuration;
+    final formattedTime = '00:${seconds.toString().padLeft(2, '0')}';
 
     return Scaffold(
       body: Stack(
@@ -44,12 +70,9 @@ class RecordScreen extends StatelessWidget {
             left: 30.w,
             child: IconButtonWidget(
               iconAsset: AppAssets.iconBack,
-              onPressed: () {
-                context.router.maybePop();
-              },
+              onPressed: () => context.router.maybePop(),
             ),
           ),
-
           Positioned(
             left: 20.w,
             top: 200.h,
@@ -75,9 +98,7 @@ class RecordScreen extends StatelessWidget {
                       width: 2.w,
                     ),
                   ),
-
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(height: 4.h),
                       MainTextBody.gradientText(
@@ -88,7 +109,6 @@ class RecordScreen extends StatelessWidget {
                         useShadow: false,
                         height: 1.1,
                       ),
-
                       SizedBox(height: 12.h),
                       Image.asset(exercise.image, height: 152.h),
                     ],
@@ -98,12 +118,12 @@ class RecordScreen extends StatelessWidget {
                 CustomGradientContainerWidget(
                   width: 332.w,
                   height: 60.h,
-                  backgroundGradient: LinearGradient(
+                  backgroundGradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFF1D5401), Color(0xFF020500)],
                   ),
-                  borderGradient: LinearGradient(
+                  borderGradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
@@ -111,7 +131,7 @@ class RecordScreen extends StatelessWidget {
                   borderWidth: 2.w,
                   borderRadius: 20.r,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 20.w, right: 8.w),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -120,20 +140,18 @@ class RecordScreen extends StatelessWidget {
                           'Time:',
                           size: TextSize.m,
                           alignment: Alignment.centerLeft,
-                          // useGradient: false,
                           useShadow: false,
                           height: 1.0,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         MainTextBody.gradientText(
                           context,
-                          '00:30',
+                          formattedTime,
                           size: TextSize.l,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
                           height: 1.0,
                         ),
-                        SizedBox(width: 24.w),
                       ],
                     ),
                   ),
@@ -142,12 +160,12 @@ class RecordScreen extends StatelessWidget {
                 CustomGradientContainerWidget(
                   width: 332.w,
                   height: 60.h,
-                  backgroundGradient: LinearGradient(
+                  backgroundGradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFF1D5401), Color(0xFF020500)],
                   ),
-                  borderGradient: LinearGradient(
+                  borderGradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
@@ -164,29 +182,44 @@ class RecordScreen extends StatelessWidget {
                           'Reps:',
                           size: TextSize.m,
                           alignment: Alignment.centerLeft,
-                          // useGradient: false,
                           useShadow: false,
                           height: 1.0,
                         ),
-                        Spacer(),
-                        MainTextBody.gradientText(
-                          context,
-                          '10',
-                          size: TextSize.l,
-                          alignment: Alignment.centerLeft,
-                          useShadow: false,
-                          height: 1.0,
+                        const Spacer(),
+                        SizedBox(
+                          width: 80.w,
+                          child: TextField(
+                            controller: _repsController,
+                            enabled: _isEditing,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
+                            style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              isCollapsed: true,
+                              contentPadding: EdgeInsets.zero,
+                            ),
+                          ),
                         ),
-                        SizedBox(width: 12.w),
+                        SizedBox(width: 8.w),
                         GestureDetector(
                           onTap: () {
-                            // todo: add action
+                            setState(() {
+                              _isEditing = !_isEditing;
+                            });
                           },
-                          child: Image.asset(
-                            AppAssets.iconEdit,
-                            width: 44.w,
-                            height: 44.h,
-                            fit: BoxFit.contain,
+                          child: Opacity(
+                            opacity: _isEditing ? 0.5 : 1.0,
+                            child: Image.asset(
+                              AppAssets.iconEdit,
+                              width: 44.w,
+                              height: 44.h,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ],
@@ -196,7 +229,6 @@ class RecordScreen extends StatelessWidget {
               ],
             ),
           ),
-
           Positioned(
             left: 0.w,
             bottom: 100.h,
@@ -207,10 +239,25 @@ class RecordScreen extends StatelessWidget {
                 height: 89.h,
                 text: 'Save',
                 fontSize: 30.sp,
-                onPressed: () {
+                onPressed: () async {
+                  final exerciseName = exercise.name;
+                  final seconds = LocalStorageService().timerDuration;
+                  final reps = int.tryParse(_repsController.text) ?? 0;
+
+                  final bloc = context.read<GameBloc>();
+
                   CustomSnackBar.show(context, 'Record saved');
-                  onSave(10);
-                  context.read<GameBloc>().add(const SaveResultEvent(10));
+
+                  await Future.delayed(const Duration(seconds: 3));
+
+                  bloc.add(
+                    SaveResultEvent(
+                      exerciseName: exerciseName,
+                      seconds: seconds,
+                      result: reps,
+                    ),
+                  );
+
                 },
               ),
             ),

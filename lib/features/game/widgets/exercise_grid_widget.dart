@@ -20,8 +20,7 @@ class ExerciseGridWidget extends StatefulWidget {
 class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
   late List<_ExerciseCardData> _shuffledExercises;
   final Map<int, FlipCardController> _controllers = {};
-  bool  _isLocked = false;
-
+  bool _isLocked = false;
 
   @override
   void initState() {
@@ -124,3 +123,8 @@ class _ExerciseCardData {
 
   _ExerciseCardData(this.imagePath, this.exercise);
 }
+
+// class ExerciseGridInfo {
+//   static List<String> get exerciseNames =>
+//       exercisesData.map((e) => e.name).toList();
+// }

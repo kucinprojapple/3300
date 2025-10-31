@@ -68,6 +68,10 @@ class ShowRecordScreenState extends GameState {
   List<Object?> get props => [lastResult];
 }
 
+class RecordSavedState extends GameState {
+  const RecordSavedState();
+}
+
 class GameFlowDone extends GameState {
   const GameFlowDone();
 }

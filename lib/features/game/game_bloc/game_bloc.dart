@@ -108,7 +108,6 @@
 
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../storage/local_storage_service.dart';
 import 'game_event.dart';
 import 'game_state.dart';
@@ -116,7 +115,7 @@ import 'game_state.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   Timer? _timer;
   int _secondsLeft = 0;
-  late final int _totalSeconds;
+  int _totalSeconds = 0;
 
   GameBloc() : super(const GameFlowInitial()) {
     on<StartGameFlowEvent>(_onStartFlow);
@@ -200,12 +199,20 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   Future<void> _onSaveResult(
-    SaveResultEvent event,
-    Emitter<GameState> emit,
-  ) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('exercise_record', event.result);
-    await Future.delayed(const Duration(seconds: 3));
-    emit(const GameFlowDone());
+      SaveResultEvent event,
+      Emitter<GameState> emit,
+      ) async {
+    final storage = LocalStorageService();
+
+    await storage.addExerciseProgress(
+      exerciseName: event.exerciseName,
+      seconds: event.seconds,
+      reps: event.result,
+    );
+
+    emit(const RecordSavedState());
+
+    // await Future.delayed(const Duration(seconds: 1));
+    // emit(const GameFlowDone());
   }
 }
