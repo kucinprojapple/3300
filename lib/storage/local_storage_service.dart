@@ -1,5 +1,7 @@
-import 'package:green_gym_club/app_core_design/assets.dart';
+import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../app_core_design/assets.dart';
 
 class LocalStorageService {
   static final LocalStorageService _instance = LocalStorageService._internal();
@@ -40,4 +42,48 @@ class LocalStorageService {
   int get timerDuration => _prefs.getInt('timer_duration') ?? 30;
 
   set timerDuration(int value) => _prefs.setInt('timer_duration', value);
+
+
+  // EXERCISES
+static const String _exerciseStatsKey = 'exercise_stats';
+
+/// Получить всю статистику по упражнениям
+Map<String, Map<String, int>> get exerciseStats {
+  final jsonString = _prefs.getString(_exerciseStatsKey);
+  if (jsonString == null) return {};
+  final Map<String, dynamic> decoded = jsonDecode(jsonString);
+  return decoded.map((key, value) => MapEntry(
+    key,
+    {
+      'time': value['time'] ?? 0,
+      'reps': value['reps'] ?? 0,
+    },
+  ));
+}
+
+/// Получить статистику по конкретному упражнению
+Map<String, int> getExerciseStats(String exerciseName) {
+  final all = exerciseStats;
+  return all[exerciseName] ?? {'time': 0, 'reps': 0};
+}
+
+/// Добавить прогресс (накопительно)
+Future<void> addExerciseProgress({
+  required String exerciseName,
+  required int seconds,
+  required int reps,
+}) async {
+  final all = exerciseStats;
+  final prev = all[exerciseName] ?? {'time': 0, 'reps': 0};
+  all[exerciseName] = {
+    'time': prev['time']! + seconds,
+    'reps': prev['reps']! + reps,
+  };
+  await _prefs.setString(_exerciseStatsKey, jsonEncode(all));
+}
+
+/// Очистить всю статистику
+Future<void> clearExerciseStats() async {
+  await _prefs.remove(_exerciseStatsKey);
+}
 }

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../../storage/local_storage_service.dart';
@@ -40,18 +41,20 @@ class _GameScreenState extends State<GameScreen> {
           }
         },
         builder: (context, gameFlowState) {
-          if (gameFlowState is TimerRunningState) {
+          if (gameFlowState is TimerInitialState ||
+              gameFlowState is TimerRunningState ||
+              gameFlowState is TimerPausedState) {
             final totalSeconds = LocalStorageService().timerDuration;
+            final secondsLeft =
+                gameFlowState is TimerInitialState
+                    ? gameFlowState.secondsLeft
+                    : gameFlowState is TimerRunningState
+                    ? gameFlowState.secondsLeft
+                    : (gameFlowState as TimerPausedState).secondsLeft;
 
             return TimerScreen(
-              secondsLeft: gameFlowState.secondsLeft,
+              secondsLeft: secondsLeft,
               totalSeconds: totalSeconds,
-              onStart: () {
-                context.read<GameBloc>().add(const ResumeTimerEvent());
-              },
-              onPause: () {
-                context.read<GameBloc>().add(const PauseTimerEvent());
-              },
             );
           }
           return Material(
@@ -68,17 +71,24 @@ class _GameScreenState extends State<GameScreen> {
                 Positioned(
                   left: 30.w,
                   top: 48.h,
-                  child: Column(
-                    children: [
-                      IconButtonWidget(
-                        iconAsset: AppAssets.iconPause,
-                        onPressed: () {
-                          // todo: add action
-                          context.router.maybePop();
-                        },
-                      ),
-                      SizedBox(height: 20.h),
-                    ],
+                  child: IconButtonWidget(
+                    iconAsset: AppAssets.iconBack,
+                    onPressed: () {
+                      context.router.maybePop();
+                    },
+                  ),
+                ),
+                Positioned(
+                  left: 18.w,
+                  top: 150.h,
+                  right: 18.w,
+                  child: MainTextBody.gradientText(
+                    context,
+                    'Tap on the card \nfor choose an exercise',
+                    size: TextSize.s,
+                    alignment: Alignment.bottomCenter,
+                    useShadow: false,
+                    height: 1.1,
                   ),
                 ),
                 Positioned(
@@ -107,7 +117,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: ActionButtonWidget(
                       width: 227.w,
                       height: 89.h,
-                      text: 'Play',
+                      text: 'Start',
                       fontSize: 30.sp,
 
                       onPressed: () {
