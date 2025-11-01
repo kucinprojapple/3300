@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
-
 import '../../../core/widgets/icon_button_widget.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';

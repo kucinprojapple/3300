@@ -1,4 +1,4 @@
-part of 'profile_bloc.dart';
+part of 'profile_overlay_bloc.dart';
 
 abstract class ProfileOverlayEvent {
   const ProfileOverlayEvent();
@@ -8,12 +8,12 @@ class ShowSelectPictureOverlayEvent extends ProfileOverlayEvent {
   const ShowSelectPictureOverlayEvent();
 }
 
-class ShowAchievementsOverlayEvent extends ProfileOverlayEvent {
-  const ShowAchievementsOverlayEvent();
+class ShowTitleSelectOverlayEvent extends ProfileOverlayEvent {
+  const ShowTitleSelectOverlayEvent();
 }
 
-class ShowFavoriteExerciseOverlayEvent extends ProfileOverlayEvent {
-  const ShowFavoriteExerciseOverlayEvent();
+class ShowMedalSelectOverlayEvent extends ProfileOverlayEvent {
+  const ShowMedalSelectOverlayEvent();
 }
 
 class HideOverlayEvent extends ProfileOverlayEvent {

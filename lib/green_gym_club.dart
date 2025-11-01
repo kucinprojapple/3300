@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 import 'core/router/router.dart';
-import 'features/profile/profile_bloc/profile_bloc.dart';
+import 'core/storage/local_storage_service.dart';
+import 'features/profile/profile_data_cubit/profile_data_cubit.dart';
+import 'features/profile/profile_overlay_bloc/profile_overlay_bloc.dart';
 
 
 class GreenGymClub extends StatelessWidget {
@@ -14,6 +16,7 @@ class GreenGymClub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final storage = LocalStorageService();
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -24,6 +27,7 @@ class GreenGymClub extends StatelessWidget {
             BlocProvider<ProfileOverlayBloc>(
               create: (context) => ProfileOverlayBloc(),
             ),
+            BlocProvider(create: (_) => ProfileDataCubit(storage)),
           ],
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,

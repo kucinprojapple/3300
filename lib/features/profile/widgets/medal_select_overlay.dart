@@ -5,11 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
+import '../profile_overlay_bloc/profile_overlay_bloc.dart';
 
-import '../profile_bloc/profile_bloc.dart';
 
-class FavoriteExercisesOverlay extends StatelessWidget {
-  const FavoriteExercisesOverlay({super.key});
+
+class MedalSelectOverlay extends StatelessWidget {
+  const MedalSelectOverlay({super.key});
 
   @override
   Widget build(BuildContext context) {

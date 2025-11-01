@@ -1,4 +1,4 @@
-class Achievement {
+  class Achievement {
   final String title;
   final String description;
   final double progress;

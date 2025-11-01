@@ -5,18 +5,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../app_core_design/assets.dart';
 import '../../features/game/models/game_exercise_stats.dart';
 
-
 class LocalStorageKeys {
   static const playerName = 'player_name';
   static const playerAvatar = 'player_avatar';
+  static const playerTitle = 'player_title';
   static const soundEnabled = 'sound_enabled';
   static const musicEnabled = 'music_enabled';
   static const vibrationEnabled = 'vibration_enabled';
   static const timerDuration = 'timer_duration';
   static const exerciseStats = 'exercise_stats';
 }
-
-
 
 class LocalStorageService {
   static final LocalStorageService _instance = LocalStorageService._internal();
@@ -65,11 +63,35 @@ class LocalStorageService {
 
   set playerName(String value) => setValue(LocalStorageKeys.playerName, value);
 
+  // async writer for name
+  Future<void> setPlayerName(String value) async {
+    await ensureInitialized();
+    await setValue(LocalStorageKeys.playerName, value);
+  }
+
   String get playerAvatar =>
       getValue(LocalStorageKeys.playerAvatar, AppAssets.avatarWoman);
 
   set playerAvatar(String value) =>
       setValue(LocalStorageKeys.playerAvatar, value);
+
+  // async writer for avatar
+  Future<void> setPlayerAvatar(String value) async {
+    await ensureInitialized();
+    await setValue(LocalStorageKeys.playerAvatar, value);
+  }
+
+  String get playerTitle =>
+      getValue(LocalStorageKeys.playerTitle, 'No title selected');
+
+  set playerTitle(String value) =>
+      setValue(LocalStorageKeys.playerTitle, value);
+
+  // async writer for title
+  Future<void> setPlayerTitle(String value) async {
+    await ensureInitialized();
+    await setValue(LocalStorageKeys.playerTitle, value);
+  }
 
   // ---------- Settings ----------
   bool get soundEnabled => getValue(LocalStorageKeys.soundEnabled, false);

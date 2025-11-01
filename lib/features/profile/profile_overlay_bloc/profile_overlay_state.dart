@@ -1,4 +1,4 @@
-part of 'profile_bloc.dart';
+part of 'profile_overlay_bloc.dart';
 
 abstract class ProfileOverlayState {
   const ProfileOverlayState();
@@ -12,10 +12,10 @@ class ProfileOverlaySelectPicture extends ProfileOverlayState {
   const ProfileOverlaySelectPicture();
 }
 
-class ProfileOverlayAchievements extends ProfileOverlayState {
-  const ProfileOverlayAchievements();
+class ProfileOverlayTitleSelectState extends ProfileOverlayState {
+  const ProfileOverlayTitleSelectState();
 }
 
-class ProfileOverlayFavoriteExercise extends ProfileOverlayState {
-  const ProfileOverlayFavoriteExercise();
+class ProfileOverlayMedalSelectState extends ProfileOverlayState {
+  const ProfileOverlayMedalSelectState();
 }

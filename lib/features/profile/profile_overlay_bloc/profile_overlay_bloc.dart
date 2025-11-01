@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'profile_event.dart';
+part 'profile_overlay_event.dart';
 
-part 'profile_state.dart';
+part 'profile_overlay_state.dart';
 
 enum ProfileOverlayType { selectPicture, achievements, favoriteExercise }
 
@@ -12,12 +12,14 @@ class ProfileOverlayBloc
     on<ShowSelectPictureOverlayEvent>(
       (event, emit) => emit(const ProfileOverlaySelectPicture()),
     );
-    on<ShowAchievementsOverlayEvent>(
-      (event, emit) => emit(const ProfileOverlayAchievements()),
+    on<ShowTitleSelectOverlayEvent>(
+      (event, emit) => emit(const ProfileOverlayTitleSelectState()),
     );
-    on<ShowFavoriteExerciseOverlayEvent>(
-      (event, emit) => emit(const ProfileOverlayFavoriteExercise()),
+    on<ShowMedalSelectOverlayEvent>(
+      (event, emit) => emit(const ProfileOverlayMedalSelectState()),
     );
-    on<HideOverlayEvent>((event, emit) => emit(const ProfileOverlayInitial()));
+    on<HideOverlayEvent>((event, emit) {
+      emit(const ProfileOverlayInitial());
+    });
   }
 }
