@@ -38,15 +38,15 @@ class TimerFinishEvent extends GameEvent {
 
 class SaveResultEvent extends GameEvent {
   final String exerciseName;
-  final int seconds;
-  final int result;
+  final int exerciseTime;
+  final int exerciseReps;
 
   const SaveResultEvent({
     required this.exerciseName,
-    required this.seconds,
-    required this.result,
+    required this.exerciseTime,
+    required this.exerciseReps,
   });
 
   @override
-  List<Object?> get props => [exerciseName, seconds, result];
+  List<Object?> get props => [exerciseName, exerciseTime, exerciseReps];
 }

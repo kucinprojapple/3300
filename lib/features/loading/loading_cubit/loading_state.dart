@@ -7,19 +7,19 @@ abstract class LoadingState extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadingInitial extends LoadingState {
-  const LoadingInitial();
+class LoadingInitialState extends LoadingState {
+  const LoadingInitialState();
 }
 
-class LoadingInProgress extends LoadingState {
+class LoadingInProgressState extends LoadingState {
   final double progress;
 
-  const LoadingInProgress(this.progress);
+  const LoadingInProgressState(this.progress);
 
   @override
   List<Object?> get props => [progress];
 }
 
-class LoadingCompleted extends LoadingState {
-  const LoadingCompleted();
+class LoadingCompletedState extends LoadingState {
+  const LoadingCompletedState();
 }

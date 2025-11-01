@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
 
-import '../../../router/router.dart';
+
+import '../../../core/router/router.dart';
 import '../widgets/onboarding_step_1_widget.dart';
 import '../widgets/onboarding_step_2_widget.dart';
 import '../widgets/onboarding_step_3_widget.dart';

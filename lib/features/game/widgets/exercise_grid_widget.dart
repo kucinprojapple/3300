@@ -124,7 +124,4 @@ class _ExerciseCardData {
   _ExerciseCardData(this.imagePath, this.exercise);
 }
 
-// class ExerciseGridInfo {
-//   static List<String> get exerciseNames =>
-//       exercisesData.map((e) => e.name).toList();
-// }
+

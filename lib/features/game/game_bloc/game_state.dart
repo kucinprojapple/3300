@@ -7,25 +7,25 @@ abstract class GameState extends Equatable {
   List<Object?> get props => [];
 }
 
-class GameFlowInitial extends GameState {
-  const GameFlowInitial();
+class GameFlowInitialState extends GameState {
+  const GameFlowInitialState();
 }
 
-class OverlayWow extends GameState {
-  const OverlayWow();
+class ShowOverlayWowState extends GameState {
+  const ShowOverlayWowState();
 }
 
-class CountdownOverlay extends GameState {
+class ShowCountdownOverlayState extends GameState {
   final int value;
 
-  const CountdownOverlay(this.value);
+  const ShowCountdownOverlayState(this.value);
 
   @override
   List<Object?> get props => [value];
 }
 
-class GoOverlayState extends GameState {
-  const GoOverlayState();
+class ShowGoOverlayState extends GameState {
+  const ShowGoOverlayState();
 }
 
 class TimerInitialState extends GameState {
@@ -70,8 +70,4 @@ class ShowRecordScreenState extends GameState {
 
 class RecordSavedState extends GameState {
   const RecordSavedState();
-}
-
-class GameFlowDone extends GameState {
-  const GameFlowDone();
 }

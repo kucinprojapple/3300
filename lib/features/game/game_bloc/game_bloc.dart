@@ -108,21 +108,24 @@
 
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../storage/local_storage_service.dart';
+
+import '../../../core/storage/local_storage_service.dart';
+import '../repository/game_exercise_repository.dart';
 import 'game_event.dart';
 import 'game_state.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
+  final ExerciseRepository repository;
   Timer? _timer;
   int _secondsLeft = 0;
   int _totalSeconds = 0;
 
-  GameBloc() : super(const GameFlowInitial()) {
+  GameBloc(this.repository) : super(const GameFlowInitialState()) {
     on<StartGameFlowEvent>(_onStartFlow);
-    on<TimerPauseEvent>(_onPauseTimer);
-    on<TimerStartResumeEvent>(_onResumeTimer);
-    on<TimerStopResetEvent>(_onResetTimer);
     on<TimerTickEvent>(_onTimerTick);
+    on<TimerStartResumeEvent>(_onResumeTimer);
+    on<TimerPauseEvent>(_onPauseTimer);
+    on<TimerStopResetEvent>(_onResetTimer);
     on<TimerFinishEvent>(_onTimerFinish);
     on<SaveResultEvent>(_onSaveResult);
   }
@@ -135,19 +138,24 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _totalSeconds = storage.timerDuration;
     _secondsLeft = _totalSeconds;
 
-    emit(const OverlayWow());
+    emit(const ShowOverlayWowState());
     await Future.delayed(const Duration(seconds: 2));
 
     if (isClosed) return;
     for (int i = 3; i > 0; i--) {
-      emit(CountdownOverlay(i));
+      emit(ShowCountdownOverlayState(i));
       await Future.delayed(const Duration(seconds: 1));
     }
 
-    emit(const GoOverlayState());
+    emit(const ShowGoOverlayState());
     await Future.delayed(const Duration(seconds: 1));
 
     emit(TimerInitialState(_secondsLeft));
+  }
+
+  void _onTimerTick(TimerTickEvent event, Emitter<GameState> emit) {
+    _secondsLeft = event.secondsLeft;
+    emit(TimerRunningState(event.secondsLeft));
   }
 
   void _startTimer(Emitter<GameState> emit) {
@@ -164,11 +172,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     });
 
     emit(TimerRunningState(_secondsLeft));
-  }
-
-  void _onTimerTick(TimerTickEvent event, Emitter<GameState> emit) {
-    _secondsLeft = event.secondsLeft;
-    emit(TimerRunningState(event.secondsLeft));
   }
 
   void _onPauseTimer(TimerPauseEvent event, Emitter<GameState> emit) {
@@ -199,20 +202,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   Future<void> _onSaveResult(
-      SaveResultEvent event,
-      Emitter<GameState> emit,
-      ) async {
-    final storage = LocalStorageService();
-
-    await storage.addExerciseProgress(
+    SaveResultEvent event,
+    Emitter<GameState> emit,
+  ) async {
+    await repository.saveExerciseProgress(
       exerciseName: event.exerciseName,
-      seconds: event.seconds,
-      reps: event.result,
+      exerciseTime: event.exerciseTime,
+      exerciseReps: event.exerciseReps,
     );
 
     emit(const RecordSavedState());
-
-    // await Future.delayed(const Duration(seconds: 1));
-    // emit(const GameFlowDone());
   }
 }

@@ -6,29 +6,21 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../../../storage/local_storage_service.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';
 
-
 @RoutePage()
 class RecordScreen extends StatefulWidget {
   final int index;
-  final int lastResult;
-  final void Function(int) onSave;
 
-  const RecordScreen({
-    super.key,
-    required this.index,
-    required this.lastResult,
-    required this.onSave,
-  });
+  const RecordScreen({super.key, required this.index});
 
   @override
   State<RecordScreen> createState() => _RecordScreenState();
@@ -56,8 +48,8 @@ class _RecordScreenState extends State<RecordScreen> {
         exercisesData[widget.index.clamp(0, exercisesData.length - 1)];
 
     final storage = LocalStorageService();
-    final seconds = storage.timerDuration;
-    final formattedTime = '00:${seconds.toString().padLeft(2, '0')}';
+    final exerciseTime = storage.timerDuration;
+    final formattedTime = '00:${exerciseTime.toString().padLeft(2, '0')}';
 
     return Scaffold(
       body: Stack(
@@ -241,23 +233,21 @@ class _RecordScreenState extends State<RecordScreen> {
                 fontSize: 30.sp,
                 onPressed: () async {
                   final exerciseName = exercise.name;
-                  final seconds = LocalStorageService().timerDuration;
-                  final reps = int.tryParse(_repsController.text) ?? 0;
+                  final exerciseTime = LocalStorageService().timerDuration;
+                  final exerciseReps = int.tryParse(_repsController.text) ?? 0;
 
                   final bloc = context.read<GameBloc>();
 
-                  CustomSnackBar.show(context, 'Record saved');
-
+                  CustomSnackBar.show(context, 'Result saved');
                   await Future.delayed(const Duration(seconds: 3));
 
                   bloc.add(
                     SaveResultEvent(
                       exerciseName: exerciseName,
-                      seconds: seconds,
-                      result: reps,
+                      exerciseTime: exerciseTime,
+                      exerciseReps: exerciseReps,
                     ),
                   );
-
                 },
               ),
             ),

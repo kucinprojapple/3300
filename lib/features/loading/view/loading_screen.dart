@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../core/router/router.dart';
 import '../loading_cubit/loading_cubit.dart';
 import '../loading_cubit/loading_state.dart';
 import '../widgets/loading_progress_bar.dart';
-import '../../../router/router.dart';
+
 
 @RoutePage()
 class LoadingScreen extends StatefulWidget {
@@ -62,7 +63,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       value: _loadingCubit,
       child: BlocListener<LoadingCubit, LoadingState>(
         listener: (context, state) {
-          if (state is LoadingCompleted) {
+          if (state is LoadingCompletedState) {
             context.router.replace(const OnboardingRoute());
           }
         },
@@ -91,9 +92,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 child: BlocBuilder<LoadingCubit, LoadingState>(
                   builder: (context, state) {
                     double progress = 0;
-                    if (state is LoadingInProgress) {
+                    if (state is LoadingInProgressState) {
                       progress = state.progress;
-                    } else if (state is LoadingCompleted) {
+                    } else if (state is LoadingCompletedState) {
                       progress = 1.0;
                     }
 

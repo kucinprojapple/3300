@@ -7,12 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'loading_state.dart';
 
 class LoadingCubit extends Cubit<LoadingState> {
-  LoadingCubit() : super(const LoadingInitial());
+  LoadingCubit() : super(const LoadingInitialState());
 
   final _random = Random();
 
   Future<void> startLoading() async {
-    emit(const LoadingInProgress(0.0));
+    emit(const LoadingInProgressState(0.0));
 
     final List<_FakeStage> stages = [
       _FakeStage('Initializing engine'),
@@ -48,7 +48,7 @@ class LoadingCubit extends Cubit<LoadingState> {
           1.0,
         );
         final current = progress + (target - progress) * t;
-        emit(LoadingInProgress(current));
+        emit(LoadingInProgressState(current));
         if (t >= 1.0) break;
         await Future.delayed(const Duration(milliseconds: 20));
       }
@@ -58,9 +58,9 @@ class LoadingCubit extends Cubit<LoadingState> {
       await Future.delayed(pauseDuration);
     }
 
-    emit(const LoadingInProgress(1.0));
+    emit(const LoadingInProgressState(1.0));
     await Future.delayed(const Duration(milliseconds: 100));
-    emit(const LoadingCompleted());
+    emit(const LoadingCompletedState());
   }
 }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../app_core_design/styles.dart';
+
 class LoadingProgressBar extends StatelessWidget {
   final double progress;
 
@@ -36,48 +38,13 @@ class LoadingProgressBar extends StatelessWidget {
             ),
 
             Center(
-              child: Stack(
-                children: [
-                  Text(
-                    '$progressPercent%',
-                    style: TextStyle(
-                      fontFamily: 'OtomanopeeOne',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 25.sp,
-                      foreground:
-                          Paint()
-                            ..style = PaintingStyle.stroke
-                            ..strokeWidth = 1.59
-                            ..color = const Color(0x8C000000),
-                    ),
-                  ),
-
-                  ShaderMask(
-                    shaderCallback: (Rect bounds) {
-                      return const LinearGradient(
-                        colors: [Color(0xFFFFFFFF), Color(0xFFFFE2AA)],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ).createShader(bounds);
-                    },
-                    blendMode: BlendMode.srcIn,
-                    child: Text(
-                      '$progressPercent%',
-                      style: TextStyle(
-                        fontFamily: 'OtomanopeeOne',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 25.sp,
-                        shadows: const [
-                          Shadow(
-                            offset: Offset(0, 1.59),
-                            blurRadius: 1.59,
-                            color: Color(0x8C000000),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+              child: MainTextBody.gradientText(
+                context,
+                '$progressPercent%',
+                size: TextSize.m,
+                alignment: Alignment.center,
+                useShadow: false,
+                height: 1.1,
               ),
             ),
           ],

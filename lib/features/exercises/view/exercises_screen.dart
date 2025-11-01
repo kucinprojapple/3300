@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/router/router.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../../../router/router.dart';
+
 import '../data/exercise_list.dart';
 import '../model/exercise_entity.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -63,7 +64,7 @@ class ExercisesScreen extends StatelessWidget {
                   },
                   child: CustomGradientContainerWidget(
                     width: 332.w,
-                    height: 82.h,
+                    height: 80.h,
                     borderRadius: 12.r,
                     borderWidth: 2.w,
                     backgroundGradient: const LinearGradient(

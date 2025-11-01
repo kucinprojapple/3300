@@ -5,9 +5,10 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../../../storage/local_storage_service.dart';
+
 import '../widgets/custom_snack_bar_widget.dart';
 import '../widgets/swirch_with_prefs_widget.dart';
 import '../widgets/timer_option_circle_widget.dart';

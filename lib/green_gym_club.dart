@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/features/profile/profile_bloc/profile_bloc.dart';
-import 'package:green_gym_club/router/router.dart';
+
+
+import 'core/router/router.dart';
+import 'features/profile/profile_bloc/profile_bloc.dart';
+
 
 class GreenGymClub extends StatelessWidget {
   final _router = AppRouter();

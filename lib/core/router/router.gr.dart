@@ -220,8 +220,8 @@ class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
       return RecordScreen(
         key: args.key,
         index: args.index,
-        lastResult: args.lastResult,
-        onSave: args.onSave,
+        // lastResult: args.lastResult,
+        // onSave: args.onSave,
       );
     },
   );

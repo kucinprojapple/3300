@@ -5,13 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../../../storage/local_storage_service.dart';
-import '../../exercises/data/exercise_list.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';
 import '../game_bloc/game_state.dart';
+import '../repository/game_exercise_repository.dart';
 import '../widgets/countdown_overlay_widget.dart';
 import '../widgets/exercise_grid_widget.dart';
 import '../widgets/go_overlay_widget.dart';
@@ -34,13 +34,9 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => GameBloc(),
+      create: (_) => GameBloc(ExerciseRepository()),
       child: BlocConsumer<GameBloc, GameState>(
-        listener: (context, state) {
-          if (state is GameFlowDone) {
-            context.router.popUntilRoot();
-          }
-        },
+        listener: (context, state) {},
         builder: (context, gameFlowState) {
           if (gameFlowState is TimerInitialState ||
               gameFlowState is TimerRunningState ||
@@ -130,38 +126,20 @@ class _GameScreenState extends State<GameScreen> {
                   ),
                 ),
 
-                if (gameFlowState is OverlayWow)
+                if (gameFlowState is ShowOverlayWowState)
                   WowOverlayWidget(index: _selectedExerciseIndex),
-                if (gameFlowState is CountdownOverlay)
+                if (gameFlowState is ShowCountdownOverlayState)
                   CountdownOverlayWidget(value: gameFlowState.value),
-                if (gameFlowState is GoOverlayState) GoOverlayWidget(),
+                if (gameFlowState is ShowGoOverlayState) GoOverlayWidget(),
 
                 if (gameFlowState is GoodJobOverlayState)
                   GoodJobOverlayWidget(),
                 if (gameFlowState is ShowRecordScreenState)
-                  RecordScreen(
-                    index: _selectedExerciseIndex,
-                    lastResult: gameFlowState.lastResult,
-                    onSave: (value) {
-                      final exerciseName =
-                          exercisesData[_selectedExerciseIndex].name;
-                      final storage = LocalStorageService();
-                      final seconds = storage.timerDuration;
-
-                      context.read<GameBloc>().add(
-                        SaveResultEvent(
-                          exerciseName: exerciseName,
-                          seconds: seconds,
-                          result: value,
-                        ),
-                      );
-                    },
-                  ),
+                  RecordScreen(index: _selectedExerciseIndex),
               ],
             ),
           );
         },
-        // ),
       ),
     );
   }

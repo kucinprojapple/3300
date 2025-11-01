@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/app_core_design/assets.dart';
 
+
+import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../model/achievement_model.dart';
