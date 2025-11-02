@@ -11,6 +11,7 @@ import '../game_bloc/game_event.dart';
 import '../game_bloc/game_state.dart';
 import '../widgets/custom_gradient_circular_timer.dart';
 
+@RoutePage()
 class TimerScreen extends StatelessWidget {
   final int secondsLeft;
   final int totalSeconds;
@@ -23,15 +24,21 @@ class TimerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final minutes = (secondsLeft ~/ 60).toString().padLeft(2, '0');
-    final seconds = (secondsLeft % 60).toString().padLeft(2, '0');
-
     return Scaffold(
       body: BlocBuilder<GameBloc, GameState>(
         builder: (context, state) {
+          final bloc = context.read<GameBloc>();
+
+          int seconds = secondsLeft;
+          if (state is TimerRunningState) seconds = state.secondsLeft;
+          if (state is TimerPausedState) seconds = state.secondsLeft;
+          if (state is TimerInitialState) seconds = state.secondsLeft;
+
+          final minutes = (seconds ~/ 60).toString().padLeft(2, '0');
+          final secs = (seconds % 60).toString().padLeft(2, '0');
+
           final isRunning = state is TimerRunningState;
           final isPaused = state is TimerPausedState;
-          final isInitial = state is TimerInitialState;
 
           return Stack(
             children: [
@@ -43,16 +50,16 @@ class TimerScreen extends StatelessWidget {
                 top: 48.h,
                 child: IconButtonWidget(
                   iconAsset: AppAssets.iconBack,
-                  onPressed: () {
-                    context.router.maybePop();
-                  },
+                  onPressed: () => context.router.maybePop(),
                 ),
               ),
+
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(height: 200.h),
+
                     SizedBox(
                       width: 260.w,
                       height: 260.h,
@@ -60,16 +67,17 @@ class TimerScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         children: [
                           CustomGradientCircularTimer(
-                            progress: 1 - (secondsLeft / totalSeconds),
+                            progress: 1 - (seconds / totalSeconds),
                           ),
                         ],
                       ),
                     ),
+
                     SizedBox(height: 32.h),
 
                     MainTextBody.gradientText(
                       context,
-                      '$minutes:$seconds',
+                      '$minutes:$secs',
                       size: TextSize.m,
                       alignment: Alignment.center,
                       useGradient: false,
@@ -77,48 +85,55 @@ class TimerScreen extends StatelessWidget {
                       height: 1.0,
                       fontSize: 35.sp,
                     ),
+
                     SizedBox(height: 32.h),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Opacity(
+                          opacity: isRunning ? 0.4 : 1.0,
+                          child: IgnorePointer(
+                            ignoring: isRunning,
+                            child: IconButton(
+                              onPressed:
+                                  () => bloc.add(const TimerStartOrResumeEvent()),
+                              icon: SizedBox(
+                                width: 72.w,
+                                height: 72.h,
+                                child: Image.asset(
+                                  AppAssets.iconTimerPlay,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: 16.w),
+
                         IconButton(
-                          // iconSize: 82.w,
                           onPressed: () {
-                            final bloc = context.read<GameBloc>();
-                            if (isInitial) {
-                              bloc.add(const TimerStartResumeEvent());
-                            } else if (isPaused) {
-                              bloc.add(const TimerStartResumeEvent());
-                            } else if (isRunning) {
+                            if (isRunning) {
                               bloc.add(const TimerPauseEvent());
+                            } else if (isPaused) {
+                              bloc.add(const TimerResetEvent());
                             }
                           },
                           icon: AnimatedSwitcher(
                             duration: const Duration(milliseconds: 200),
                             child: SizedBox(
+                              key: ValueKey(isRunning),
                               width: 72.w,
                               height: 72.h,
                               child: Image.asset(
                                 isRunning
                                     ? AppAssets.iconPause
-                                    : AppAssets.iconTimerPlay,
+                                    : AppAssets.iconTimerStop,
                                 fit: BoxFit.contain,
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8.w),
-                        IconButton(
-                          // iconSize: 82.w,
-                          onPressed: () {
-                            context.read<GameBloc>().add(
-                              const TimerStopResetEvent(),
-                            );
-                          },
-                          icon: SizedBox(
-                              width: 72.w,
-                              height: 72.h,
-                              child: Image.asset(AppAssets.iconTimerStop)),
                         ),
                       ],
                     ),

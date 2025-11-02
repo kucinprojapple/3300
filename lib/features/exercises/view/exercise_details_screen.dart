@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -44,7 +43,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
             top: 194.h,
             right: 20.w,
             child: Container(
-              width: 335.w,
+              width: 332.w,
               height: 270.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
@@ -59,7 +58,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                   ),
-                  width: 4,
+                  width: 2,
                 ),
               ),
 
@@ -77,15 +76,18 @@ class ExerciseDetailsScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 12.h),
-                  Image.asset(exercise.image, height: 152.h),
+                  Image.asset(exercise.image, height: 160.h),
                   SizedBox(height: 12.h),
-                  MainTextBody.gradientText(
-                    context,
-                    'Target: ${exercise.target}',
-                    size: TextSize.s,
-                    alignment: Alignment.bottomCenter,
-                    useShadow: false,
-                    height: 1.1,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 32.w),
+                    child: MainTextBody.gradientText(
+                      context,
+                      'Target: ${exercise.target}',
+                      alignment: Alignment.bottomCenter,
+                      useShadow: false,
+                      height: 1.1,
+                      fontSize: 14.sp,
+                    ),
                   ),
                 ],
               ),
@@ -94,19 +96,19 @@ class ExerciseDetailsScreen extends StatelessWidget {
 
           Positioned(
             left: 8.w,
-            bottom: 192.h,
+            top: 472.h,
             right: 8.w,
             child: Align(
               alignment: Alignment.center,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+
                   children: [
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 18.h),
                     CustomGradientContainerWidget(
-                      width: 340,
-                      height: 86,
+                      width: 332.w,
+                      height: 88.h,
                       backgroundGradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -117,21 +119,24 @@ class ExerciseDetailsScreen extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                       ),
-                      child: MainTextBody.gradientText(
-                        context,
-                        'Technique: ${exercise.technique}',
-                        size: TextSize.xs,
-                        alignment: Alignment.center,
-                        useGradient: false,
-                        useShadow: false,
-                        height: 1.0,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        child: MainTextBody.gradientText(
+                          context,
+                          'Technique: ${exercise.technique}',
+                          alignment: Alignment.center,
+                          useGradient: false,
+                          useShadow: false,
+                          height: 1.0,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
 
                     SizedBox(height: 10.h),
                     CustomGradientContainerWidget(
-                      width: 340,
-                      height: 60,
+                      width: 332.w,
+                      height: 60.h,
                       backgroundGradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -142,14 +147,17 @@ class ExerciseDetailsScreen extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                       ),
-                      child: MainTextBody.gradientText(
-                        context,
-                        'Tip: ${exercise.tip}',
-                        size: TextSize.xs,
-                        alignment: Alignment.center,
-                        useGradient: false,
-                        useShadow: false,
-                        height: 1.0,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        child: MainTextBody.gradientText(
+                          context,
+                          'Tip: ${exercise.tip}',
+                          alignment: Alignment.center,
+                          useGradient: false,
+                          useShadow: false,
+                          height: 1.0,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   ],

@@ -158,7 +158,6 @@ sealed class AppAssets {
   static const achievementMedal_8 = '${_basePath}achievement_medal_8.webp';
   static const achievementMedal_9 = '${_basePath}achievement_medal_9.webp';
   static const achievementMedal_10 = '${_basePath}achievement_medal_10.webp';
-  static const achievementMedal_11 = '${_basePath}achievement_medal_11.webp';
   static const achievementCupGold = '${_basePath}achievement_cup_gold.webp';
   static const achievementCupWhite = '${_basePath}achievement_cup_white.webp';
   static const achievementDone = '${_basePath}achievement_done.webp';

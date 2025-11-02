@@ -24,12 +24,12 @@ class TimerPauseEvent extends GameEvent {
   const TimerPauseEvent();
 }
 
-class TimerStartResumeEvent extends GameEvent {
-  const TimerStartResumeEvent();
+class TimerStartOrResumeEvent extends GameEvent {
+  const TimerStartOrResumeEvent();
 }
 
-class TimerStopResetEvent extends GameEvent {
-  const TimerStopResetEvent();
+class TimerResetEvent extends GameEvent {
+  const TimerResetEvent();
 }
 
 class TimerFinishEvent extends GameEvent {

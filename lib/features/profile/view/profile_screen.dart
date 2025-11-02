@@ -81,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: 12.h),
                     ProfileAvatarMedalWidget(
                       avatarPicture: state.avatar,
-                      medalAsset: AppAssets.achievementMedal_11,
+                      medalAsset: AppAssets.achievementMedal_5,
                       onAddPressed:
                           () => context.read<ProfileOverlayBloc>().add(
                             ShowSelectPictureOverlayEvent(),
@@ -97,7 +97,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // === USERNAME FIELD ===
                     Container(
                       height: 42.h,
                       margin: EdgeInsets.symmetric(horizontal: 94.w),
