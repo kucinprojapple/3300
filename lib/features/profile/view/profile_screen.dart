@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +26,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   late TextEditingController usernameController;
   bool isEditingUsername = false;
+  Timer? _debounce;
 
   @override
   void initState() {
@@ -34,6 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void dispose() {
+    _debounce?.cancel();
     usernameController.dispose();
     super.dispose();
   }
@@ -43,6 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return BlocBuilder<ProfileDataCubit, ProfileDataState>(
       builder: (context, state) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Stack(
             children: [
               Positioned.fill(
@@ -76,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: 12.h),
                     ProfileAvatarMedalWidget(
                       avatarPicture: state.avatar,
-                      medalAsset: AppAssets.achievementMedal_8,
+                      medalAsset: AppAssets.achievementMedal_11,
                       onAddPressed:
                           () => context.read<ProfileOverlayBloc>().add(
                             ShowSelectPictureOverlayEvent(),
@@ -128,13 +133,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       vertical: 8.h,
                                     ),
                                   ),
-                                  onSubmitted: (value) {
-                                    context.read<ProfileDataCubit>().updateName(
-                                      value,
+                                  onChanged: (value) {
+                                    if (_debounce?.isActive ?? false) {
+                                      _debounce!.cancel();
+                                    }
+                                    _debounce = Timer(
+                                      const Duration(milliseconds: 500),
+                                      () {
+                                        context
+                                            .read<ProfileDataCubit>()
+                                            .updateName(value);
+                                      },
                                     );
-                                    setState(() {
-                                      isEditingUsername = false;
-                                    });
                                   },
                                 ),
                               ),
@@ -159,7 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     SizedBox(height: 12.h),
-                    // === TITLE FIELD ===
+
                     CustomGradientContainerWidget(
                       width: 336.w,
                       height: 48.h,
@@ -252,7 +262,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       alignment: Alignment.topCenter,
                                       useGradient: false,
                                       useShadow: false,
-                                      height: 1.0,
+                                      height: 1.1,
                                       fontSize: 12.sp,
                                     ),
                                     Spacer(),
@@ -303,7 +313,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       alignment: Alignment.topCenter,
                                       useGradient: false,
                                       useShadow: false,
-                                      height: 1.0,
+                                      height: 1.1,
                                       fontSize: 12.sp,
                                     ),
                                     Spacer(),
@@ -364,7 +374,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       alignment: Alignment.topCenter,
                                       useGradient: false,
                                       useShadow: false,
-                                      height: 1.0,
+                                      height: 1.1,
                                       fontSize: 30.sp,
                                     ),
                                   ],
@@ -408,11 +418,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             MainTextBody.gradientText(
                               context,
                               '3 | 20',
-                              size: TextSize.s,
                               alignment: Alignment.centerLeft,
                               useGradient: false,
                               useShadow: false,
                               height: 1.0,
+                              fontSize: 22.sp,
                             ),
                           ],
                         ),
@@ -451,11 +461,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             MainTextBody.gradientText(
                               context,
                               'Push-Ups',
-                              size: TextSize.s,
                               alignment: Alignment.centerLeft,
                               useGradient: false,
                               useShadow: false,
                               height: 1.0,
+                              fontSize: 22.sp,
                             ),
                           ],
                         ),

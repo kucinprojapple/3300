@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,12 +29,19 @@ class ProfileAvatarMedalWidget extends StatelessWidget {
           Image.asset(medalAsset, width: size.w, height: size.h),
 
           ClipOval(
-            child: Image.asset(
-              avatarPicture,
-              width: (size * 0.8).w,
-              height: (size * 0.8).h,
+            child:
+            Image.file(
+              File(avatarPicture),
               fit: BoxFit.cover,
-            ),
+              width: (size * 0.82).w,
+              height: (size * 0.82).h,
+            )
+            // Image.asset(
+            //   avatarPicture,
+            //   width: (size * 0.8).w,
+            //   height: (size * 0.8).h,
+            //   fit: BoxFit.cover,
+            // ),
           ),
 
           Positioned(

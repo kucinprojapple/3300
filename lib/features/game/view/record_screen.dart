@@ -52,6 +52,7 @@ class _RecordScreenState extends State<RecordScreen> {
     final formattedTime = '00:${exerciseTime.toString().padLeft(2, '0')}';
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Positioned.fill(
@@ -185,11 +186,15 @@ class _RecordScreenState extends State<RecordScreen> {
                             enabled: _isEditing,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
-                            style: TextStyle(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
+                            style: AppTextStyles.mainTextBody(
+                              context,
+                            ).m.copyWith(color: Colors.white, shadows: []),
+
+                            // TextStyle(
+                            //   fontSize: 24.sp,
+                            //   fontWeight: FontWeight.w700,
+                            //   color: Colors.white,
+                            // ),
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               isCollapsed: true,

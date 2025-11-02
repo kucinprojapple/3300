@@ -7,20 +7,24 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
   final LocalStorageService storage;
 
   ProfileDataCubit(this.storage)
-      : super(ProfileDataState(
-    name: storage.playerName,
-    title: storage.playerTitle,
-    avatar: storage.playerAvatar,
-  ));
+    : super(
+        ProfileDataState(
+          name: storage.playerName,
+          title: storage.playerTitle,
+          avatar: storage.playerAvatar,
+        ),
+      );
 
   Future<void> refresh() async {
     // убедимся, что storage инициализирован
     await storage.ensureInitialized();
-    emit(ProfileDataState(
-      name: storage.playerName,
-      title: storage.playerTitle,
-      avatar: storage.playerAvatar,
-    ));
+    emit(
+      ProfileDataState(
+        name: storage.playerName,
+        title: storage.playerTitle,
+        avatar: storage.playerAvatar,
+      ),
+    );
   }
 
   Future<void> updateTitle(String title) async {
