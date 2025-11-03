@@ -194,22 +194,12 @@ class ProfileRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [RecordScreen]
 class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
-  RecordRoute({
-    Key? key,
-    required int index,
-    required int lastResult,
-    required void Function(int) onSave,
-    List<PageRouteInfo>? children,
-  }) : super(
-         RecordRoute.name,
-         args: RecordRouteArgs(
-           key: key,
-           index: index,
-           lastResult: lastResult,
-           onSave: onSave,
-         ),
-         initialChildren: children,
-       );
+  RecordRoute({Key? key, required int index, List<PageRouteInfo>? children})
+    : super(
+        RecordRoute.name,
+        args: RecordRouteArgs(key: key, index: index),
+        initialChildren: children,
+      );
 
   static const String name = 'RecordRoute';
 
@@ -217,35 +207,21 @@ class RecordRoute extends PageRouteInfo<RecordRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<RecordRouteArgs>();
-      return RecordScreen(
-        key: args.key,
-        index: args.index,
-        // lastResult: args.lastResult,
-        // onSave: args.onSave,
-      );
+      return RecordScreen(key: args.key, index: args.index);
     },
   );
 }
 
 class RecordRouteArgs {
-  const RecordRouteArgs({
-    this.key,
-    required this.index,
-    required this.lastResult,
-    required this.onSave,
-  });
+  const RecordRouteArgs({this.key, required this.index});
 
   final Key? key;
 
   final int index;
 
-  final int lastResult;
-
-  final void Function(int) onSave;
-
   @override
   String toString() {
-    return 'RecordRouteArgs{key: $key, index: $index, lastResult: $lastResult, onSave: $onSave}';
+    return 'RecordRouteArgs{key: $key, index: $index}';
   }
 }
 
@@ -263,4 +239,56 @@ class SettingsRoute extends PageRouteInfo<void> {
       return const SettingsScreen();
     },
   );
+}
+
+/// generated route for
+/// [TimerScreen]
+class TimerRoute extends PageRouteInfo<TimerRouteArgs> {
+  TimerRoute({
+    Key? key,
+    required int secondsLeft,
+    required int totalSeconds,
+    List<PageRouteInfo>? children,
+  }) : super(
+         TimerRoute.name,
+         args: TimerRouteArgs(
+           key: key,
+           secondsLeft: secondsLeft,
+           totalSeconds: totalSeconds,
+         ),
+         initialChildren: children,
+       );
+
+  static const String name = 'TimerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<TimerRouteArgs>();
+      return TimerScreen(
+        key: args.key,
+        secondsLeft: args.secondsLeft,
+        totalSeconds: args.totalSeconds,
+      );
+    },
+  );
+}
+
+class TimerRouteArgs {
+  const TimerRouteArgs({
+    this.key,
+    required this.secondsLeft,
+    required this.totalSeconds,
+  });
+
+  final Key? key;
+
+  final int secondsLeft;
+
+  final int totalSeconds;
+
+  @override
+  String toString() {
+    return 'TimerRouteArgs{key: $key, secondsLeft: $secondsLeft, totalSeconds: $totalSeconds}';
+  }
 }

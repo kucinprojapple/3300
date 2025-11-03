@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app_core_design/assets.dart';
+import '../../features/achievements/model/achievement_model.dart';
 import '../../features/game/models/game_exercise_stats.dart';
 
 class LocalStorageKeys {
@@ -15,6 +16,7 @@ class LocalStorageKeys {
   static const vibrationEnabled = 'vibration_enabled';
   static const timerDuration = 'timer_duration';
   static const exerciseStats = 'exercise_stats';
+  static const achievements = 'achievements';
 }
 
 class LocalStorageService {
@@ -192,6 +194,30 @@ class LocalStorageService {
       );
     }
     debugPrint('──────────────────────────────');
+  }
+
+  // ---------- Achievements ----------
+  List<Achievement> get achievements {
+    final jsonString = _prefs?.getString(LocalStorageKeys.achievements);
+    if (jsonString == null) return [];
+
+    try {
+      final decoded = jsonDecode(jsonString) as List<dynamic>;
+      return decoded
+          .map((e) => Achievement.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint('⚠️ Failed to parse achievements: $e');
+      }
+      return [];
+    }
+  }
+
+  Future<void> saveAchievements(List<Achievement> list) async {
+    await ensureInitialized();
+    final encoded = jsonEncode(list.map((e) => e.toJson()).toList());
+    await _prefs!.setString(LocalStorageKeys.achievements, encoded);
   }
 
   Future<void> clearAll() async {

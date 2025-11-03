@@ -6,9 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
-import '../data/achievements_data.dart';
-import '../model/achievement_model.dart';
+import '../achievements_bloc/achievements_bloc.dart';
 import '../widgets/achievement_item_widget.dart';
 import '../widgets/achievements_overlays.dart';
 import '../widgets/achievements_page_indicator_widget.dart';
@@ -26,10 +24,13 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
   int _currentPage = 0;
 
   @override
+  void initState() {
+    super.initState();
+    context.read<AchievementsBloc>().add(const LoadAchievementsEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    debugPrint('AchievementsOverlays context: ${BlocProvider.of<AchievementsOverlayBloc>(context, listen: false)}');
-    final List<Achievement> achievements = AchievementsData.achievements;
-    final pageCount = (achievements.length / 5).ceil();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -69,41 +70,53 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
             left: 0.w,
             top: 200.h,
             right: 0.w,
-            child: SizedBox(
-              width: double.infinity,
-              height: 500.h,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: PageView.builder(
-                      controller: _controller,
-                      itemCount: 4,
-                      onPageChanged:
-                          (index) => setState(() => _currentPage = index),
-                      itemBuilder: (context, pageIndex) {
-                        final pageAchievements =
-                        achievements.skip(pageIndex * 5).take(5).toList();
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: List.generate(
-                            5,
-                                (i) =>
-                                AchievementItem(
-                                  achievement: pageAchievements[i],
+            child: BlocBuilder<AchievementsBloc, AchievementsState>(
+              builder: (context, state) {
+                if (state is AchievementsLoaded) {
+                  final achievements = state.achievements;
+                  final pageCount = (achievements.length / 5).ceil();
+
+                  return SizedBox(
+                    width: double.infinity,
+                    height: 500.h,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: PageView.builder(
+                            controller: _controller,
+                            itemCount: 4,
+                            onPageChanged:
+                                (index) => setState(() => _currentPage = index),
+                            itemBuilder: (context, pageIndex) {
+                              final pageAchievements =
+                                  achievements
+                                      .skip(pageIndex * 5)
+                                      .take(5)
+                                      .toList();
+                              return Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: List.generate(
+                                  5,
+                                  (i) => AchievementItem(
+                                    achievement: pageAchievements[i],
+                                  ),
                                 ),
+                              );
+                            },
                           ),
-                        );
-                      },
+                        ),
+                        // SizedBox(height: 20.h),
+                        AchievementsPageIndicatorWidget(
+                          pageCount: pageCount,
+                          currentPage: _currentPage,
+                        ),
+                      ],
                     ),
-                  ),
-                  // SizedBox(height: 20.h),
-                  AchievementsPageIndicatorWidget(
-                    pageCount: pageCount,
-                    currentPage: _currentPage,
-                  ),
-                ],
-              ),
+                  );
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
             ),
           ),
           Positioned.fill(child: AchievementsOverlays()),

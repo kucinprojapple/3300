@@ -6,6 +6,7 @@ import '../../features/exercises/view/exercise_details_screen.dart';
 import '../../features/exercises/view/exercises_screen.dart';
 import '../../features/game/view/game_screen.dart';
 import '../../features/game/view/record_screen.dart';
+import '../../features/game/view/timer_screen.dart';
 import '../../features/info/view/info_screen.dart';
 import '../../features/loading/view/loading_screen.dart';
 import '../../features/lost_network/view/lost_network_screen.dart';
