@@ -1,43 +1,66 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../core/storage/local_storage_service.dart';
 import 'profile_data_state.dart';
 
 class ProfileDataCubit extends Cubit<ProfileDataState> {
   final LocalStorageService storage;
 
-  ProfileDataCubit(this.storage)
-    : super(
-        ProfileDataState(
-          name: storage.playerName,
-          title: storage.playerTitle,
-          avatar: storage.playerAvatar,
-        ),
-      );
+  ProfileDataCubit(this.storage) : super(ProfileDataState.initial());
 
-  Future<void> refresh() async {
+  Future<void> loadProfile() async {
     await storage.ensureInitialized();
+
+    final stats = storage.exerciseStats;
+    final achievements = storage.achievements;
+
+    final totalExercises = stats.keys.length;
+    final totalReps = stats.values.fold<int>(
+      0,
+      (sum, e) => sum + e.exerciseReps,
+    );
+    final totalTime = stats.values.fold<int>(
+      0,
+      (sum, e) => sum + e.exerciseTime,
+    );
+    final completedAchievements =
+        achievements.where((a) => a.progress >= 1.0).length;
+    final totalAchievements = achievements.length;
+
+    String favoriteExercise = '—';
+    if (stats.isNotEmpty) {
+      final top = stats.values.reduce(
+        (a, b) => a.exerciseReps >= b.exerciseReps ? a : b,
+      );
+      favoriteExercise = top.exerciseName;
+    }
+
     emit(
-      ProfileDataState(
+      state.copyWith(
         name: storage.playerName,
         title: storage.playerTitle,
         avatar: storage.playerAvatar,
+        totalExercises: totalExercises,
+        totalReps: totalReps,
+        totalTime: totalTime,
+        completedAchievements: completedAchievements,
+        totalAchievements: totalAchievements,
+        favoriteExercise: favoriteExercise,
       ),
     );
   }
 
-  Future<void> updateTitle(String title) async {
-    await storage.setPlayerTitle(title);
-    await refresh();
+  void updateName(String name) {
+    storage.setPlayerName(name);
+    emit(state.copyWith(name: name));
   }
 
-  Future<void> updateAvatar(String avatarPath) async {
-    await storage.setPlayerAvatar(avatarPath);
-    await refresh();
+  void updateTitle(String title) {
+    storage.setPlayerTitle(title);
+    emit(state.copyWith(title: title));
   }
 
-  Future<void> updateName(String name) async {
-    await storage.setPlayerName(name);
-    await refresh();
+  void updateAvatar(String avatar) {
+    storage.setPlayerAvatar(avatar);
+    emit(state.copyWith(avatar: avatar));
   }
 }
