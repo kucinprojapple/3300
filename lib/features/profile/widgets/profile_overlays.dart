@@ -18,7 +18,6 @@ class ProfileOverlays extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        // 👇 Закрываем оверлей, когда Cubit обновил данные профиля
         BlocListener<ProfileDataCubit, ProfileDataState>(
           listener: (context, state) {
             context.read<ProfileOverlayBloc>().add(const HideOverlayEvent());

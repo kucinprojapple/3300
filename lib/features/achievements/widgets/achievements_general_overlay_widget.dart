@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class GameGeneralOverlayWidget extends StatelessWidget {
+class AchievementsGeneralOverlayWidget extends StatelessWidget {
   final Widget child;
 
-  const GameGeneralOverlayWidget({super.key, required this.child});
+  const AchievementsGeneralOverlayWidget({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -10,6 +10,9 @@
     required this.progress,
     required this.iconType,
   });
+
+  bool get isCompleted => progress >= 1.0;
+
 }
 
 enum AchievementIconType { medal, cup }

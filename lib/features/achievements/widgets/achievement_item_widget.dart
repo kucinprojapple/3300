@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
+import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
 import '../model/achievement_model.dart';
 
 class AchievementItem extends StatelessWidget {
@@ -80,25 +81,36 @@ class AchievementItem extends StatelessWidget {
               ),
             ),
           ),
-          CustomGradientContainerWidget(
-            width: 68.w * scale,
-            height: 68.w * scale,
-            borderRadius: 12.r * scale,
-            borderWidth: 2.w * scale,
-            backgroundGradient: LinearGradient(
-              colors: [Color(0xFF0E2801), Color(0xFF020500)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            borderGradient: LinearGradient(
-              colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            padding: EdgeInsets.all(8.w * scale),
-            child: Image.asset(
-              AppAssets.achievementCupGold,
-              fit: BoxFit.contain,
+          GestureDetector(
+            onTap: () {
+              debugPrint('🟢 Tap on achievement: ${achievement.title}');
+              if (achievement.isCompleted) {
+                debugPrint('🏆 Achievement completed!');
+                context.read<AchievementsOverlayBloc>().add(
+                  ShowAchievementCongratsOverlayEvent(achievement.title),
+                );
+              }
+            },
+            child: CustomGradientContainerWidget(
+              width: 68.w * scale,
+              height: 68.w * scale,
+              borderRadius: 12.r * scale,
+              borderWidth: 2.w * scale,
+              backgroundGradient: LinearGradient(
+                colors: [Color(0xFF0E2801), Color(0xFF020500)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderGradient: LinearGradient(
+                colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              padding: EdgeInsets.all(8.w * scale),
+              child: Image.asset(
+                AppAssets.achievementCupGold,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ],

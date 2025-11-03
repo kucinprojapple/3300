@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../core/router/router.dart';
+import '../../../core/storage/local_storage_service.dart';
 import '../loading_cubit/loading_cubit.dart';
 import '../loading_cubit/loading_state.dart';
 import '../widgets/loading_progress_bar.dart';
@@ -21,11 +22,21 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   late final LoadingCubit _loadingCubit;
   bool _assetsPrecached = false;
+  bool _onboardingShown = false;
 
   @override
   void initState() {
     super.initState();
     _loadingCubit = LoadingCubit();
+    _checkOnboardingStatus();
+  }
+
+  Future<void> _checkOnboardingStatus() async {
+    final storage = LocalStorageService();
+    await storage.ensureInitialized();
+    setState(() {
+      _onboardingShown = storage.onboardingShown;
+    });
   }
 
   @override
@@ -62,9 +73,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return BlocProvider.value(
       value: _loadingCubit,
       child: BlocListener<LoadingCubit, LoadingState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is LoadingCompletedState) {
-            context.router.replace(const OnboardingRoute());
+            if (_onboardingShown) {
+              context.router.replace(const MenuRoute());
+            } else {
+              context.router.replace(const OnboardingRoute());
+            }
           }
         },
         child: Scaffold(

@@ -6,6 +6,7 @@ import '../../app_core_design/assets.dart';
 import '../../features/game/models/game_exercise_stats.dart';
 
 class LocalStorageKeys {
+  static const onboardingShown = 'onboarding_shown';
   static const playerName = 'player_name';
   static const playerAvatar = 'player_avatar';
   static const playerTitle = 'player_title';
@@ -56,6 +57,17 @@ class LocalStorageService {
     final value = _prefs?.get(key);
     if (value == null) return defaultValue;
     return value as T;
+  }
+
+  // ---------- Onboarding ----------
+  bool get onboardingShown => getValue(LocalStorageKeys.onboardingShown, false);
+
+  set onboardingShown(bool value) =>
+      setValue(LocalStorageKeys.onboardingShown, value);
+
+  Future<void> setOnboardingShown() async {
+    await ensureInitialized();
+    await setValue(LocalStorageKeys.onboardingShown, true);
   }
 
   // ---------- Player ----------

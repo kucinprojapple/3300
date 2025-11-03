@@ -94,7 +94,6 @@ class OnboardingStep6Widget extends StatelessWidget {
                   child: MainTextBody.gradientText(
                     context,
                     'Technique: ${exercise.technique}',
-
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,
@@ -121,7 +120,6 @@ class OnboardingStep6Widget extends StatelessWidget {
                   child: MainTextBody.gradientText(
                     context,
                     'Tip: ${exercise.tip}',
-
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,

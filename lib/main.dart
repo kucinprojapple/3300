@@ -5,6 +5,7 @@ import 'green_gym_club.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   final storage = LocalStorageService();
   await storage.init();
 
