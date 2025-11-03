@@ -38,7 +38,6 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
 
   @override
   Widget build(BuildContext context) {
-
     final double outerW = 64.w;
     final double outerH = 28.h;
     final double radius = 14.r;

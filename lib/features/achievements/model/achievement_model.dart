@@ -1,4 +1,4 @@
-  class Achievement {
+class Achievement {
   final String title;
   final String description;
   final double progress;
@@ -12,7 +12,6 @@
   });
 
   bool get isCompleted => progress >= 1.0;
-
 }
 
 enum AchievementIconType { medal, cup }

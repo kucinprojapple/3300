@@ -112,7 +112,6 @@ class AchievementsData {
     ),
     Achievement(
       title: "Titled Athlete",
-      // description: "Completed 500 repetitions of \nany exercise in total.",
       description: "Completed 500 repetitions \nof any exercise in total.",
       progress: 0.4,
       iconType: AchievementIconType.medal,

@@ -21,8 +21,8 @@ class ActionButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buttonWidth = width ?? 227.w;
-    final buttonHeight = height ?? 89.h;
+    final buttonWidth = width ?? 228.w;
+    final buttonHeight = height ?? 88.h;
 
     return GestureDetector(
       onTap: onPressed,

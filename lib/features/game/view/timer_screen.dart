@@ -97,7 +97,8 @@ class TimerScreen extends StatelessWidget {
                             ignoring: isRunning,
                             child: IconButton(
                               onPressed:
-                                  () => bloc.add(const TimerStartOrResumeEvent()),
+                                  () =>
+                                      bloc.add(const TimerStartOrResumeEvent()),
                               icon: SizedBox(
                                 width: 72.w,
                                 height: 72.h,

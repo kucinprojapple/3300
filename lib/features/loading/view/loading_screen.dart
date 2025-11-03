@@ -10,7 +10,6 @@ import '../loading_cubit/loading_cubit.dart';
 import '../loading_cubit/loading_state.dart';
 import '../widgets/loading_progress_bar.dart';
 
-
 @RoutePage()
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});

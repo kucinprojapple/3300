@@ -7,7 +7,8 @@ import '../../../app_core_design/assets.dart';
 import 'game_general_overlay_widget.dart';
 
 class GoodJobOverlayWidget extends StatelessWidget {
-  const GoodJobOverlayWidget({super.key, });
+  const GoodJobOverlayWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     final random = Random();

@@ -16,7 +16,6 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
       );
 
   Future<void> refresh() async {
-    // убедимся, что storage инициализирован
     await storage.ensureInitialized();
     emit(
       ProfileDataState(
@@ -28,8 +27,8 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
   }
 
   Future<void> updateTitle(String title) async {
-    await storage.setPlayerTitle(title); // <-- ждём записи
-    await refresh(); // читаем уже записанное значение и эмитим
+    await storage.setPlayerTitle(title);
+    await refresh();
   }
 
   Future<void> updateAvatar(String avatarPath) async {

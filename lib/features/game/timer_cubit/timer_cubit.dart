@@ -11,14 +11,12 @@ class TimerCubit extends Cubit<TimerState> {
 
   TimerCubit(this.storage) : super(const TimerInitialState(0));
 
-  /// Инициализация таймера
   Future<void> initializeTimer() async {
     _totalSeconds = storage.timerDuration;
     _secondsLeft = _totalSeconds;
     emit(TimerInitialState(_secondsLeft));
   }
 
-  /// Запуск таймера
   void startTimer() {
     _timer?.cancel();
     emit(TimerRunningState(_secondsLeft));
@@ -34,13 +32,11 @@ class TimerCubit extends Cubit<TimerState> {
     });
   }
 
-  /// Пауза таймера
   void pauseTimer() {
     _timer?.cancel();
     emit(TimerPausedState(_secondsLeft));
   }
 
-  /// Продолжение таймера
   void resumeTimer() {
     if (_secondsLeft > 0) {
       emit(TimerResumedState(_secondsLeft));
@@ -48,7 +44,6 @@ class TimerCubit extends Cubit<TimerState> {
     }
   }
 
-  /// Сброс таймера
   void stopTimer() {
     _timer?.cancel();
     _secondsLeft = _totalSeconds;

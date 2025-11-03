@@ -59,7 +59,6 @@ class OnboardingStep6Widget extends StatelessWidget {
               MainTextBody.gradientText(
                 context,
                 'Target: ${exercise.target}',
-
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
                 height: 1.1,

@@ -7,7 +7,6 @@ import '../../../core/router/router.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
-
 @RoutePage()
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -39,7 +38,7 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           Positioned(
             left: 30.w,
-            top: 49.h,
+            top: 48.h,
             child: Column(
               children: [
                 IconButtonWidget(
@@ -81,9 +80,9 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
 
           Positioned(
-            left: 0,
-            bottom: 181.h,
-            right: 0,
+            left: 0.w,
+            bottom: 180.h,
+            right: 0.w,
             child: Center(
               child: ActionButtonWidget(
                 width: 227.w,
@@ -97,9 +96,9 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ),
           Positioned(
-            left: 0,
+            left: 0.w,
             bottom: 84.h,
-            right: 0,
+            right: 0.w,
             child: Center(
               child: ActionButtonWidget(
                 width: 227.w,

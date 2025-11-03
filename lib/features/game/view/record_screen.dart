@@ -190,11 +190,6 @@ class _RecordScreenState extends State<RecordScreen> {
                               context,
                             ).m.copyWith(color: Colors.white, shadows: []),
 
-                            // TextStyle(
-                            //   fontSize: 24.sp,
-                            //   fontWeight: FontWeight.w700,
-                            //   color: Colors.white,
-                            // ),
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               isCollapsed: true,

@@ -32,7 +32,6 @@ class _TitleSelectOverlayState extends State<TitleSelectOverlay> {
 
   @override
   Widget build(BuildContext context) {
-    print(profileTitles.length);
     return Material(
       color: Colors.transparent,
       child: SizedBox(

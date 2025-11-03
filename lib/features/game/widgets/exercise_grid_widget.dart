@@ -123,5 +123,3 @@ class _ExerciseCardData {
 
   _ExerciseCardData(this.imagePath, this.exercise);
 }
-
-

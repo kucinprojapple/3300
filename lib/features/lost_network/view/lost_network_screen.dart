@@ -20,7 +20,7 @@ class LostNetworkScreen extends StatelessWidget {
           ),
 
           Positioned(
-            left: (MediaQuery.of(context).size.width - 322.w) / 2,
+            left: ((MediaQuery.of(context).size.width - 322) / 2).w,
             top: 244.h,
 
             child: CustomGradientContainerWidget(
@@ -45,8 +45,6 @@ class LostNetworkScreen extends StatelessWidget {
                     'Lost Network',
                     size: TextSize.l,
                     alignment: Alignment.center,
-                    // useGradient: false,
-                    // useShadow: false,
                     height: 1.0,
                   ),
                   SizedBox(height: 32.h),

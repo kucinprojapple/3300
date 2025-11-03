@@ -13,7 +13,7 @@ class CustomGradientContainerWidget extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
 
-  const   CustomGradientContainerWidget({
+  const CustomGradientContainerWidget({
     super.key,
     required this.width,
     required this.height,
@@ -35,7 +35,10 @@ class CustomGradientContainerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: backgroundGradient,
         borderRadius: BorderRadius.circular(borderRadius ?? 20.r),
-        border: GradientBoxBorder(gradient: borderGradient, width: borderWidth ?? 2.r),
+        border: GradientBoxBorder(
+          gradient: borderGradient,
+          width: borderWidth ?? 2.r,
+        ),
       ),
       child:
           child != null

@@ -6,7 +6,6 @@ import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/router/router.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-
 import '../data/exercise_list.dart';
 import '../model/exercise_entity.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';

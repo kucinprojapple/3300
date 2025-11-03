@@ -1,87 +1,88 @@
-sealed class AppAssets {
-  // // png images
-  // static const _basePath = 'assets/images/';
-  //
-  // /// images for Background
-  // static const backgroundMain = '${_basePath}background_main.png';
-  // static const shirt = '${_basePath}shirt.png';
-  //
-  // /// images for Button
-  // static const buttonMain = '${_basePath}button_main.png';
-  //
-  // /// images for Lost Network
-  // static const lostNetwork = '${_basePath}lost_network.png';
-  //
-  // /// images for Grid
-  // static const slotContainer = '${_basePath}slot_container.png';
-  // static const glowLine = '${_basePath}glow_line.png';
-  //
-  // /// images for Avatar
-  // static const avatarClearPlace = '${_basePath}avatar_clear_place.png';
-  // static const avatarMan = '${_basePath}avatar_man.png';
-  // static const avatarWoman = '${_basePath}avatar_woman.png';
-  //
-  // /// images for Photo
-  // static const backgroundMakeAPhoto = '${_basePath}background_make_a_photo.png';
-  // static const backgroundChoosePhoto =
-  //     '${_basePath}background_choose_photo.png';
-  // static const backgroundCancel = '${_basePath}background_cancel.png';
-  //
-  // /// images for Exercises
-  // static const exerciseBicycleCrunches =
-  //     '${_basePath}exercise_bicycle_crunches.png';
-  // static const exerciseBurpees = '${_basePath}exercise_burpees.png';
-  // static const exerciseCrunches = '${_basePath}exercise_crunches.png';
-  // static const exerciseJumpingJacks = '${_basePath}exercise_jumping_jacks.png';
-  // static const exerciseLegRaises = '${_basePath}exercise_leg_raises.png';
-  // static const exerciseLunges = '${_basePath}exercise_lunges.png';
-  // static const exercisePushUps = '${_basePath}exercise_push_ups.png';
-  // static const exerciseSquats = '${_basePath}exercise_squats.png';
-  // static const exerciseTricepDips = '${_basePath}exercise_tricep_dips.png';
-  //
-  // /// images for Game
-  // static const wow = '${_basePath}wow.png';
-  // static const timer_1 = '${_basePath}timer_1.png';
-  // static const timer_2 = '${_basePath}timer_2.png';
-  // static const timer_3 = '${_basePath}timer_3.png';
-  // static const timerGo = '${_basePath}timer_go.png';
-  // static const timerGoodJob = '${_basePath}timer_good_job.png';
-  // static const timerExcellent = '${_basePath}timer_excellent.png';
-  // static const timerAmazing = '${_basePath}timer_amazing.png';
-  // static const timerWellDone = '${_basePath}timer_well_done.png';
-  //
-  // /// images for icons
-  // static const iconAdd = '${_basePath}icon_add.png';
-  // static const iconBack = '${_basePath}icon_back.png';
-  // static const iconEdit = '${_basePath}icon_edit.png';
-  // static const iconInfo = '${_basePath}icon_info.png';
-  // static const iconPause = '${_basePath}icon_pause.png';
-  // static const iconPlay = '${_basePath}icon_play.png';
-  // static const iconProfile = '${_basePath}icon_profile.png';
-  // static const iconQuestion = '${_basePath}icon_question.png';
-  // static const iconSettings = '${_basePath}icon_settings.png';
-  // static const iconTimerPlay = '${_basePath}icon_timer_play.png';
-  // static const iconTimerStop = '${_basePath}icon_timer_stop.png';
-  //
-  // /// images for Achievements
-  // static const achievementMedal_1 = '${_basePath}achievement_medal_1.png';
-  // static const achievementMedal_2 = '${_basePath}achievement_medal_2.png';
-  // static const achievementMedal_3 = '${_basePath}achievement_medal_3.png';
-  // static const achievementMedal_4 = '${_basePath}achievement_medal_4.png';
-  // static const achievementMedal_5 = '${_basePath}achievement_medal_5.png';
-  // static const achievementMedal_6 = '${_basePath}achievement_medal_6.png';
-  // static const achievementMedal_7 = '${_basePath}achievement_medal_7.png';
-  // static const achievementMedal_8 = '${_basePath}achievement_medal_8.png';
-  // static const achievementMedal_9 = '${_basePath}achievement_medal_9.png';
-  // static const achievementMedal_10 = '${_basePath}achievement_medal_10.png';
-  // static const achievementCupGold = '${_basePath}achievement_cup_gold.png';
-  // static const achievementCupWhite = '${_basePath}achievement_cup_white.png';
-  // static const achievementDone = '${_basePath}achievement_done.png';
-  // static const achievementContainerEmpty =
-  //     '${_basePath}achievement_container_empty.png';
-  // static const achievementContainerDone =
-  //     '${_basePath}achievement_container_done.png';
+// sealed class AppAssets {
+// // png images
+// static const _basePath = 'assets/images/';
+//
+// /// images for Background
+// static const backgroundMain = '${_basePath}background_main.png';
+// static const shirt = '${_basePath}shirt.png';
+//
+// /// images for Button
+// static const buttonMain = '${_basePath}button_main.png';
+//
+// /// images for Lost Network
+// static const lostNetwork = '${_basePath}lost_network.png';
+//
+// /// images for Grid
+// static const slotContainer = '${_basePath}slot_container.png';
+// static const glowLine = '${_basePath}glow_line.png';
+//
+// /// images for Avatar
+// static const avatarClearPlace = '${_basePath}avatar_clear_place.png';
+// static const avatarMan = '${_basePath}avatar_man.png';
+// static const avatarWoman = '${_basePath}avatar_woman.png';
+//
+// /// images for Photo
+// static const backgroundMakeAPhoto = '${_basePath}background_make_a_photo.png';
+// static const backgroundChoosePhoto =
+//     '${_basePath}background_choose_photo.png';
+// static const backgroundCancel = '${_basePath}background_cancel.png';
+//
+// /// images for Exercises
+// static const exerciseBicycleCrunches =
+//     '${_basePath}exercise_bicycle_crunches.png';
+// static const exerciseBurpees = '${_basePath}exercise_burpees.png';
+// static const exerciseCrunches = '${_basePath}exercise_crunches.png';
+// static const exerciseJumpingJacks = '${_basePath}exercise_jumping_jacks.png';
+// static const exerciseLegRaises = '${_basePath}exercise_leg_raises.png';
+// static const exerciseLunges = '${_basePath}exercise_lunges.png';
+// static const exercisePushUps = '${_basePath}exercise_push_ups.png';
+// static const exerciseSquats = '${_basePath}exercise_squats.png';
+// static const exerciseTricepDips = '${_basePath}exercise_tricep_dips.png';
+//
+// /// images for Game
+// static const wow = '${_basePath}wow.png';
+// static const timer_1 = '${_basePath}timer_1.png';
+// static const timer_2 = '${_basePath}timer_2.png';
+// static const timer_3 = '${_basePath}timer_3.png';
+// static const timerGo = '${_basePath}timer_go.png';
+// static const timerGoodJob = '${_basePath}timer_good_job.png';
+// static const timerExcellent = '${_basePath}timer_excellent.png';
+// static const timerAmazing = '${_basePath}timer_amazing.png';
+// static const timerWellDone = '${_basePath}timer_well_done.png';
+//
+// /// images for icons
+// static const iconAdd = '${_basePath}icon_add.png';
+// static const iconBack = '${_basePath}icon_back.png';
+// static const iconEdit = '${_basePath}icon_edit.png';
+// static const iconInfo = '${_basePath}icon_info.png';
+// static const iconPause = '${_basePath}icon_pause.png';
+// static const iconPlay = '${_basePath}icon_play.png';
+// static const iconProfile = '${_basePath}icon_profile.png';
+// static const iconQuestion = '${_basePath}icon_question.png';
+// static const iconSettings = '${_basePath}icon_settings.png';
+// static const iconTimerPlay = '${_basePath}icon_timer_play.png';
+// static const iconTimerStop = '${_basePath}icon_timer_stop.png';
+//
+// /// images for Achievements
+// static const achievementMedal_1 = '${_basePath}achievement_medal_1.png';
+// static const achievementMedal_2 = '${_basePath}achievement_medal_2.png';
+// static const achievementMedal_3 = '${_basePath}achievement_medal_3.png';
+// static const achievementMedal_4 = '${_basePath}achievement_medal_4.png';
+// static const achievementMedal_5 = '${_basePath}achievement_medal_5.png';
+// static const achievementMedal_6 = '${_basePath}achievement_medal_6.png';
+// static const achievementMedal_7 = '${_basePath}achievement_medal_7.png';
+// static const achievementMedal_8 = '${_basePath}achievement_medal_8.png';
+// static const achievementMedal_9 = '${_basePath}achievement_medal_9.png';
+// static const achievementMedal_10 = '${_basePath}achievement_medal_10.png';
+// static const achievementCupGold = '${_basePath}achievement_cup_gold.png';
+// static const achievementCupWhite = '${_basePath}achievement_cup_white.png';
+// static const achievementDone = '${_basePath}achievement_done.png';
+// static const achievementContainerEmpty =
+//     '${_basePath}achievement_container_empty.png';
+// static const achievementContainerDone =
+//     '${_basePath}achievement_container_done.png';
 
+sealed class AppAssets {
   // webp images
   static const _basePath = 'assets/images/';
 

@@ -26,7 +26,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
           Positioned(
             left: 30.w,
-            top: 49.h,
+            top: 48.h,
             child: Column(
               children: [
                 IconButtonWidget(
@@ -39,9 +39,9 @@ class _InfoScreenState extends State<InfoScreen> {
             ),
           ),
           Positioned(
-            left: 0,
+            left: 0.w,
             top: 120.h,
-            right: 0,
+            right: 0.w,
 
             child: MainTextBody.gradientText(
               context,
@@ -52,10 +52,6 @@ class _InfoScreenState extends State<InfoScreen> {
               height: 1.1,
             ),
           ),
-
-
-
-
         ],
       ),
     );
