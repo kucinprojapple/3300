@@ -12,7 +12,12 @@ class Achievement {
   final String description;
   final double progress;
   final bool isCompleted;
-  final AchievementIconType iconType;
+
+  /// Тип иконки (может быть null, если используется кастомный путь)
+  final AchievementIconType? iconType;
+
+  /// Путь к иконке (если нужно переопределить стандартную)
+  final String? iconPath;
 
   Achievement({
     String? id,
@@ -20,7 +25,8 @@ class Achievement {
     required this.description,
     this.progress = 0.0,
     this.isCompleted = false,
-    this.iconType = AchievementIconType.medal,
+    this.iconType,
+    this.iconPath,
   }) : id = id ?? _uuid.v4();
 
   factory Achievement.fromJson(Map<String, dynamic> json) =>
@@ -31,6 +37,8 @@ class Achievement {
   Achievement copyWith({
     double? progress,
     bool? isCompleted,
+    AchievementIconType? iconType,
+    String? iconPath,
   }) {
     return Achievement(
       id: id,
@@ -38,7 +46,8 @@ class Achievement {
       description: description,
       progress: progress ?? this.progress,
       isCompleted: isCompleted ?? this.isCompleted,
-      iconType: iconType,
+      iconType: iconType ?? this.iconType,
+      iconPath: iconPath ?? this.iconPath,
     );
   }
 }

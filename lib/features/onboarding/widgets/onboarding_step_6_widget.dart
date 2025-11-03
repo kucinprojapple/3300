@@ -90,6 +90,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                   ),
                   borderRadius: 10.r,
+                  borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
                     'Technique: ${exercise.technique}',
@@ -116,6 +117,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                     colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
                   ),
                   borderRadius: 10.r,
+                  borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
                     'Tip: ${exercise.tip}',

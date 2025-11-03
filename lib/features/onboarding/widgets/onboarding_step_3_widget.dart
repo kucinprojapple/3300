@@ -68,22 +68,25 @@ class OnboardingStep3Widget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
             children: [
-              Text(
+              MainTextBody.gradientText(
+                context,
                 'Time:',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.sp,
-                  color: Colors.white,
-                ),
+                alignment: Alignment.center,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+                fontSize: 14.sp,
               ),
+
               Spacer(),
-              Text(
+              MainTextBody.gradientText(
+                context,
                 '00:30',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18.sp,
-                  color: Colors.white,
-                ),
+                alignment: Alignment.center,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+                fontSize: 14.sp,
               ),
             ],
           ),
@@ -107,22 +110,24 @@ class OnboardingStep3Widget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
             children: [
-              Text(
+              MainTextBody.gradientText(
+                context,
                 'Reps:',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.sp,
-                  color: Colors.white,
-                ),
+                alignment: Alignment.center,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+                fontSize: 14.sp,
               ),
               Spacer(),
-              Text(
+              MainTextBody.gradientText(
+                context,
                 '10',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18.sp,
-                  color: Colors.white,
-                ),
+                alignment: Alignment.center,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+                fontSize: 14.sp,
               ),
               SizedBox(width: 8.w),
               Center(

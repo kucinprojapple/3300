@@ -2,6 +2,7 @@ class ProfileDataState {
   final String name;
   final String title;
   final String avatar;
+  final int selectedMedalIndex;
   final int totalExercises;
   final int totalReps;
   final int totalTime;
@@ -13,6 +14,7 @@ class ProfileDataState {
     required this.name,
     required this.title,
     required this.avatar,
+    required this.selectedMedalIndex,
     required this.totalExercises,
     required this.totalReps,
     required this.totalTime,
@@ -25,6 +27,7 @@ class ProfileDataState {
     String? name,
     String? title,
     String? avatar,
+    int? selectedMedalIndex,
     int? totalExercises,
     int? totalReps,
     int? totalTime,
@@ -36,6 +39,7 @@ class ProfileDataState {
       name: name ?? this.name,
       title: title ?? this.title,
       avatar: avatar ?? this.avatar,
+      selectedMedalIndex: selectedMedalIndex ?? this.selectedMedalIndex,
       totalExercises: totalExercises ?? this.totalExercises,
       totalReps: totalReps ?? this.totalReps,
       totalTime: totalTime ?? this.totalTime,
@@ -50,6 +54,7 @@ class ProfileDataState {
     name: '',
     title: '',
     avatar: '',
+    selectedMedalIndex: 0,
     totalExercises: 0,
     totalReps: 0,
     totalTime: 0,

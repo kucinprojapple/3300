@@ -10,6 +10,7 @@ class OnboardingStep4Widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double size = 88;
     return Align(
       alignment: Alignment.topCenter,
       child: Column(
@@ -17,16 +18,39 @@ class OnboardingStep4Widget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 12.h),
-          Stack(
-            children: [
-              Image.asset(AppAssets.avatarWoman, height: 80.h),
-              Positioned(
-                left: 30.w,
-                top: 62.h,
-                child: Image.asset(AppAssets.iconAdd, height: 20.h),
-              ),
-            ],
+          SizedBox(
+            width: size.w,
+            height: size.h,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  AppAssets.achievementMedal_1,
+                  width: size.w,
+                  height: size.h,
+                ),
+
+                ClipOval(
+                  child: Image.asset(
+                    AppAssets.avatarWoman,
+                    fit: BoxFit.cover,
+                    width: (size * 0.80).w,
+                    height: (size * 0.80).h,
+                  ),
+                ),
+
+                Positioned(
+                  bottom: 0.h,
+                  child: Image.asset(
+                    AppAssets.iconAdd,
+                    width: 32.w,
+                    height: 32.h,
+                  ),
+                ),
+              ],
+            ),
           ),
+
           SizedBox(height: 8.h),
           Container(
             width: 120.w,
@@ -130,7 +154,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
-                            height: 1.0,
+                            height: 1.1,
                             fontSize: 6.sp,
                           ),
                           Spacer(),
@@ -177,7 +201,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
-                            height: 1.0,
+                            height: 1.1,
                             fontSize: 6.sp,
                           ),
                           Spacer(),
@@ -224,7 +248,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
-                            height: 1.0,
+                            height: 1.1,
                             fontSize: 6.sp,
                           ),
                           Spacer(),

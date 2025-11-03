@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/constants/medal_assets.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
 import '../profile_data_cubit/profile_data_state.dart';
@@ -51,6 +52,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileDataCubit, ProfileDataState>(
       builder: (context, state) {
+        final medalAsset =
+            MedalAssets.all[state.selectedMedalIndex.clamp(
+              0,
+              MedalAssets.all.length - 1,
+            )];
+
         return Scaffold(
           resizeToAvoidBottomInset: false,
           body: Stack(
@@ -86,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: 12.h),
                     ProfileAvatarMedalWidget(
                       avatarPicture: state.avatar,
-                      medalAsset: AppAssets.achievementMedal_5,
+                      medalAsset: medalAsset,
                       onAddPressed:
                           () => context.read<ProfileOverlayBloc>().add(
                             ShowSelectPictureOverlayEvent(),

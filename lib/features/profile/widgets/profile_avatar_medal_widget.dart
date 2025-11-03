@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../profile_overlay_bloc/profile_overlay_bloc.dart';
 
 class ProfileAvatarMedalWidget extends StatelessWidget {
   final String avatarPicture;
@@ -26,7 +28,14 @@ class ProfileAvatarMedalWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset(medalAsset, width: size.w, height: size.h),
+          GestureDetector(
+            onTap: () {
+              context.read<ProfileOverlayBloc>().add(
+                ShowMedalSelectOverlayEvent(),
+              );
+            },
+            child: Image.asset(medalAsset, width: size.w, height: size.h),
+          ),
 
           ClipOval(
             child: Image.file(

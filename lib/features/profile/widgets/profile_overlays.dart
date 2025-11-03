@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_gym_club/features/profile/widgets/medal_select_overlay.dart';
 import 'package:green_gym_club/features/profile/widgets/select_picture_bottom_sheet_overlay.dart';
 
-
-
 import '../profile_data_cubit/profile_data_cubit.dart';
 import '../profile_data_cubit/profile_data_state.dart';
 import '../profile_overlay_bloc/profile_overlay_bloc.dart';
@@ -35,7 +33,13 @@ class ProfileOverlays extends StatelessWidget {
           } else if (state is ProfileOverlayTitleSelectState) {
             return const ProfileGeneralOverlay(child: TitleSelectOverlay());
           } else if (state is ProfileOverlayMedalSelectState) {
-            return const ProfileGeneralOverlay(child: MedalSelectOverlay());
+            final profileState = context.read<ProfileDataCubit>().state;
+            return ProfileGeneralOverlay(
+              child: MedalSelectOverlay(
+                userAchievementsCount: profileState.completedAchievements,
+                selectedMedalIndex: profileState.selectedMedalIndex,
+              ),
+            );
           }
           return const SizedBox.shrink();
         },

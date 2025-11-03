@@ -13,6 +13,8 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
     final stats = storage.exerciseStats;
     final achievements = storage.achievements;
 
+    final selectedMedalIndex = storage.getValue<int>('selected_medal_index', 0);
+
     final totalExercises = stats.keys.length;
     final totalReps = stats.values.fold<int>(
       0,
@@ -39,6 +41,7 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
         name: storage.playerName,
         title: storage.playerTitle,
         avatar: storage.playerAvatar,
+        selectedMedalIndex: selectedMedalIndex,
         totalExercises: totalExercises,
         totalReps: totalReps,
         totalTime: totalTime,
@@ -62,5 +65,9 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
   void updateAvatar(String avatar) {
     storage.setPlayerAvatar(avatar);
     emit(state.copyWith(avatar: avatar));
+  }
+  void updateSelectedMedalIndex(int index) {
+    storage.setValue<int>('selected_medal_index', index);
+    emit(state.copyWith(selectedMedalIndex: index));
   }
 }
