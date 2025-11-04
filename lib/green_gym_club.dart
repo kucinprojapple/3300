@@ -9,8 +9,13 @@ import 'features/achievements/achievements_overlay_bloc/achievements_overlay_blo
 import 'features/profile/profile_data_cubit/profile_data_cubit.dart';
 import 'features/profile/profile_overlay_bloc/profile_overlay_bloc.dart';
 
+
+final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+
 class GreenGymClub extends StatelessWidget {
   final _router = AppRouter();
+
+
 
   GreenGymClub({super.key});
 
@@ -38,7 +43,9 @@ class GreenGymClub extends StatelessWidget {
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Green Gym Club',
-            routerConfig: _router.config(),
+            routerConfig: _router.config(
+            navigatorObservers: () => [routeObserver],
+            ),
           ),
         );
       },

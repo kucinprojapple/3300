@@ -54,9 +54,8 @@ class _GameScreenState extends State<GameScreen> {
               totalSeconds: totalSeconds,
             );
           }
-          return Material(
-            color: Colors.transparent,
-            child: Stack(
+          return Scaffold(
+            body: Stack(
               children: [
                 Positioned.fill(
                   child: Image.asset(
@@ -76,53 +75,57 @@ class _GameScreenState extends State<GameScreen> {
                   ),
                 ),
                 Positioned(
-                  left: 18.w,
+                  left: 12.w,
                   top: 150.h,
-                  right: 18.w,
-                  child: MainTextBody.gradientText(
-                    context,
-                    'Tap on the card \nfor choose an exercise',
-                    size: TextSize.s,
-                    alignment: Alignment.bottomCenter,
-                    useShadow: false,
-                    height: 1.1,
-                  ),
-                ),
-                Positioned(
-                  left: 18.w,
-                  bottom: 272.h,
-                  right: 18.w,
-                  child: Image.asset(AppAssets.slotContainer),
-                ),
+                  right: 12.w,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      MainTextBody.gradientText(
+                        context,
+                        'Tap on the card \nfor choose an exercise',
+                        size: TextSize.s,
+                        alignment: Alignment.bottomCenter,
+                        useShadow: false,
+                        height: 1.1,
+                      ),
+                      SizedBox(height: 12.h),
+                      SizedBox(
+                        width: 324.w,
+                        height: 368.h,
+                        child: Stack(
+                          children: [
+                            ExerciseGridWidget(
+                              onExerciseSelected: (index) {
+                                setState(() => _selectedExerciseIndex = index);
+                              },
+                            ),
+                            Positioned.fill(
+                              top: 24.h,
+                              child: IgnorePointer(
+                                child: Image.asset(
+                                  AppAssets.slotContainer,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 32.h),
+                      ActionButtonWidget(
+                        width: 224.w,
+                        height: 88.h,
+                        text: 'Start',
+                        fontSize: 30.sp,
 
-                Positioned(
-                  left: 18.w,
-                  bottom: 260.h,
-                  right: 18.w,
-                  child: ExerciseGridWidget(
-                    onExerciseSelected: (index) {
-                      setState(() => _selectedExerciseIndex = index);
-                    },
-                  ),
-                ),
-
-                Positioned(
-                  left: 0.w,
-                  bottom: 160.h,
-                  right: 0.w,
-                  child: Center(
-                    child: ActionButtonWidget(
-                      width: 227.w,
-                      height: 89.h,
-                      text: 'Start',
-                      fontSize: 30.sp,
-
-                      onPressed: () {
-                        context.read<GameBloc>().add(
-                          const StartGameFlowEvent(),
-                        );
-                      },
-                    ),
+                        onPressed: () {
+                          context.read<GameBloc>().add(
+                            const StartGameFlowEvent(),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
 

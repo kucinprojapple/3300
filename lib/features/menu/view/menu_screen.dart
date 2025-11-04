@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/services/music_service.dart';
+import '/green_gym_club.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../core/router/router.dart';
 import '../../../core/widgets/action_button_widget.dart';
@@ -15,7 +18,38 @@ class MenuScreen extends StatefulWidget {
   State<MenuScreen> createState() => _MenuScreenState();
 }
 
-class _MenuScreenState extends State<MenuScreen> {
+class _MenuScreenState extends State<MenuScreen> with RouteAware {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) {
+      routeObserver.subscribe(this, route);
+    }
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    MusicService.stopMenuMusic();
+    super.dispose();
+  }
+
+  @override
+  void didPush() {
+    MusicService.playMenuMusic();
+  }
+
+  @override
+  void didPopNext() {
+    MusicService.playMenuMusic();
+  }
+
+  @override
+  void didPushNext() {
+    MusicService.stopMenuMusic();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

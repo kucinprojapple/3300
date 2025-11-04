@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:green_gym_club/features/achievements/widgets/achievement_congrats_overlay.dart';
+
+
+import '../../../core/services/vibration_service.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
+import 'achievement_congrats_overlay.dart';
 
 class AchievementsOverlays extends StatelessWidget {
   const AchievementsOverlays({super.key});
@@ -13,6 +16,8 @@ class AchievementsOverlays extends StatelessWidget {
         if (state is AchievementsOverlayInitial) {
           return const SizedBox.shrink();
         } else if (state is AchievementsOverlayCongratsState) {
+          // VibrationService.heavyImpact();
+          Future.microtask(() => VibrationService.heavyImpact());
           return AchievementCongratsOverlay(
             achievement: state.achievement,
           );

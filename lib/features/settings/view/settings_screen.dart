@@ -6,6 +6,7 @@ import 'package:green_gym_club/core/constants/timer_constants.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../core/services/vibration_service.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
@@ -28,8 +29,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _musicEnabled = false;
   bool _vibrationEnabled = false;
   int _selectedTimerSeconds = 30;
-
-
 
   @override
   void initState() {
@@ -122,30 +121,40 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SwitchWithPrefsWidget(
                     title: "Sound",
                     initialValue: storage.soundEnabled,
-                    onChanged: (value) {
+                    onChanged: (value) async {
                       setState(() {
                         _soundEnabled = value;
                       });
+                      if (value) {
+                        await VibrationService.mediumImpact();
+                      }
                     },
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
                     title: "Music",
                     initialValue: storage.musicEnabled,
-                    onChanged: (value) {
+                    onChanged: (value) async {
                       setState(() {
                         _musicEnabled = value;
                       });
+                      if (value) {
+                        await VibrationService.mediumImpact();
+                      }
                     },
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
                     title: "Vibration",
                     initialValue: storage.vibrationEnabled,
-                    onChanged: (value) {
+                    onChanged: (value) async {
                       setState(() {
                         _vibrationEnabled = value;
                       });
+
+                      if (value) {
+                        await VibrationService.mediumImpact();
+                      }
                     },
                   ),
                   SizedBox(height: 40.h),
@@ -190,15 +199,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           Positioned(
             left: 0,
-            bottom: 181.h,
+            bottom: 180.h,
             right: 0,
             child: Center(
               child: ActionButtonWidget(
-                width: 227.w,
-                height: 89.h,
+                width: 224.w,
+                height: 88.h,
                 text: 'Save',
                 fontSize: 30.sp,
-                onPressed: () {
+                onPressed: () async {
+                  if (_vibrationEnabled) {
+                    await VibrationService.lightImpact();
+                  }
+
                   _saveSettings();
                 },
               ),

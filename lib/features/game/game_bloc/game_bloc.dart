@@ -1,8 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_gym_club/core/services/sound_service.dart';
 
 import '../../../core/storage/local_storage_service.dart';
 import '../repository/game_exercise_repository.dart';
+
 import 'game_event.dart';
 import 'game_state.dart';
 
@@ -36,12 +39,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     if (isClosed) return;
 
     for (int i = 3; i > 0; i--) {
-      emit(ShowCountdownOverlayState(i));
+      SoundService.playCountdown();
       await Future.delayed(const Duration(seconds: 1));
+      emit(ShowCountdownOverlayState(i));
     }
 
+    SoundService.playLongBeep();
     emit(const ShowGoOverlayState());
-    await Future.delayed(const Duration(seconds: 1));
+
+    await Future.delayed(const Duration(seconds: 3));
 
     emit(TimerInitialState(_secondsLeft));
 
@@ -73,6 +79,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _onTick(TimerTickEvent event, Emitter<GameState> emit) {
     _secondsLeft = event.secondsLeft;
+
+    // _player.play(AssetSource(AppSounds.tick));
+    SoundService.playTick();
+
     emit(TimerRunningState(_secondsLeft));
   }
 
@@ -93,6 +103,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   ) async {
     _timer?.cancel();
     emit(const GoodJobOverlayState());
+
+    SoundService.playBeep();
+
     await Future.delayed(const Duration(seconds: 2));
     emit(const ShowRecordScreenState(10));
   }

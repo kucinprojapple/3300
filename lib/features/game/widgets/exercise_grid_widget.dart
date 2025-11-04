@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_flip_card/flutter_flip_card.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../core/services/sound_service.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 
@@ -48,14 +49,14 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       child: GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: _shuffledExercises.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 32.w,
+          crossAxisSpacing: 18.w,
           mainAxisSpacing: 4.h,
           childAspectRatio: 0.88,
         ),
@@ -66,6 +67,8 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
             onTap: () async {
               if (_isLocked) return;
               setState(() => _isLocked = true);
+
+              SoundService.playFlip();
 
               _controllers[index]!.flipcard();
               await Future.delayed(const Duration(milliseconds: 300));
