@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../profile_data_cubit/profile_data_state.dart';
 
@@ -34,7 +35,7 @@ class ProfileStatsRowWidget extends StatelessWidget {
               borderRadius: 12.r,
               child: _buildStatItem(
                 context,
-                title: 'NUMBER OF \nEXERCISES \nPERFORMED',
+                title: AppTexts.numberOfExercisesPerformed,
                 value: state.totalExercises.toString(),
               ),
             ),
@@ -58,7 +59,7 @@ class ProfileStatsRowWidget extends StatelessWidget {
               borderRadius: 12.r,
               child: _buildStatItem(
                 context,
-                title: 'AMOUNT OF \nTIMER FOR \nEXERCISE',
+                title: AppTexts.amountOfTimeForExercise,
                 value: _formatTime(state.totalTime),
               ),
             ),
@@ -82,7 +83,7 @@ class ProfileStatsRowWidget extends StatelessWidget {
               borderRadius: 12.r,
               child: _buildStatItem(
                 context,
-                title: 'NUMBER OF \nREPETITION',
+                title: AppTexts.numberOfRepetitions,
                 value: state.totalReps.toString(),
               ),
             ),

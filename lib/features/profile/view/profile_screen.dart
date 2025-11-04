@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/constants/medal_assets_constants.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
@@ -84,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     MainTextBody.gradientText(
                       context,
-                      'My Account',
+                      AppTexts.myAccount,
                       size: TextSize.m,
                       alignment: Alignment.bottomCenter,
                       useShadow: false,

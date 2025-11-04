@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/app_core_design/assets.dart';
 
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
@@ -47,7 +48,7 @@ class WowOverlayWidget extends StatelessWidget {
                     SizedBox(height: 14.h),
                     MainTextBody.gradientText(
                       context,
-                      'You got the exercise\n${exercise.name}',
+                      '${AppTexts.youGotTheExercise}\n${exercise.name}',
                       size: TextSize.m,
                       alignment: Alignment.bottomCenter,
                       useShadow: false,

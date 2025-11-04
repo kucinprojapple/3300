@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
 
+import '../../../app_core_design/texts.dart';
 import '../../../core/router/router.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../widgets/onboarding_step_1_widget.dart';
@@ -27,66 +28,53 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingStepWidget(
       stepIndex: 1,
       mainContent: OnboardingStep1Widget(),
-      title: 'Workout Begins',
-      description: 'Unlock your random workout!',
+      title: AppTexts.onboardingStep1Title,
+      description: AppTexts.onboardingStep1Desc,
       onNext: () {
-        setState(() {
-          currentIndex++;
-        });
+        setState(() => currentIndex++);
       },
     ),
     OnboardingStepWidget(
       stepIndex: 2,
       mainContent: OnboardingStep2Widget(),
-      title: 'Ready, Set, Timer!',
-      description: 'Your exercise is set. Get ready for a 30–120 sec timer.',
+      title: AppTexts.onboardingStep2Title,
+      description: AppTexts.onboardingStep2Desc,
       onNext: () {
-        setState(() {
-          currentIndex++;
-        });
+        setState(() => currentIndex++);
       },
     ),
     OnboardingStepWidget(
       stepIndex: 3,
       mainContent: OnboardingStep3Widget(),
-      title: 'Record Your Reps',
-      description: 'After the timer, log your reps to track progress.',
+      title: AppTexts.onboardingStep3Title,
+      description: AppTexts.onboardingStep3Desc,
       onNext: () {
-        setState(() {
-          currentIndex++;
-        });
+        setState(() => currentIndex++);
       },
     ),
     OnboardingStepWidget(
       stepIndex: 4,
       mainContent: OnboardingStep4Widget(),
-      title: 'Build Your Profile',
-      description:
-          'Your profile displays your results, favorite exercise, title, and frame - change them to stand out!',
+      title: AppTexts.onboardingStep4Title,
+      description: AppTexts.onboardingStep4Desc,
       onNext: () {
-        setState(() {
-          currentIndex++;
-        });
+        setState(() => currentIndex++);
       },
     ),
     OnboardingStepWidget(
       stepIndex: 5,
       mainContent: OnboardingStep5Widget(),
-      title: 'Unlock Achievements',
-      description:
-          'Complete challenges and earn fun titles and profile frames.',
+      title: AppTexts.onboardingStep5Title,
+      description: AppTexts.onboardingStep5Desc,
       onNext: () {
-        setState(() {
-          currentIndex++;
-        });
+        setState(() => currentIndex++);
       },
     ),
     OnboardingStepWidget(
       stepIndex: 6,
       mainContent: OnboardingStep6Widget(),
-      title: 'Learn the Moves',
-      description:
-          'Read proper form, target muscles, and pro tips for every exercise.',
+      title: AppTexts.onboardingStep6Title,
+      description: AppTexts.onboardingStep6Desc,
       onNext: () async {
         await LocalStorageService().setOnboardingShown();
         if (!mounted) return;

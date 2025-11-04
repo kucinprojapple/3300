@@ -6,6 +6,7 @@ import 'package:green_gym_club/core/constants/timer_constants.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/services/vibration_service.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
@@ -51,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     storage.vibrationEnabled = _vibrationEnabled;
     storage.timerDuration = _selectedTimerSeconds;
 
-    CustomSnackBar.show(context, 'Settings saved');
+    CustomSnackBar.show(context, AppTexts.snackBarSettingsSaved);
   }
 
   @override
@@ -83,7 +84,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             right: 0.w,
             child: MainTextBody.gradientText(
               context,
-              'Settings',
+              AppTexts.settings,
               size: TextSize.m,
               alignment: Alignment.bottomCenter,
               useShadow: false,
@@ -119,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SizedBox(height: 24.h),
 
                   SwitchWithPrefsWidget(
-                    title: "Sound",
+                    title:  AppTexts.sound,
                     initialValue: storage.soundEnabled,
                     onChanged: (value) async {
                       setState(() {
@@ -132,7 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
-                    title: "Music",
+                    title:  AppTexts.music,
                     initialValue: storage.musicEnabled,
                     onChanged: (value) async {
                       setState(() {
@@ -145,7 +146,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
-                    title: "Vibration",
+                    title:  AppTexts.vibration,
                     initialValue: storage.vibrationEnabled,
                     onChanged: (value) async {
                       setState(() {
@@ -165,7 +166,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       children: [
                         MainTextBody.gradientText(
                           context,
-                          'Timer',
+                          AppTexts.timer,
                           size: TextSize.m,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
@@ -205,7 +206,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: ActionButtonWidget(
                 width: 224.w,
                 height: 88.h,
-                text: 'Save',
+                text: AppTexts.buttonSave,
                 fontSize: 30.sp,
                 onPressed: () async {
                   if (_vibrationEnabled) {

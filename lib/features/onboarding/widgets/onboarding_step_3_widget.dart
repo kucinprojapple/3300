@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 class OnboardingStep3Widget extends StatelessWidget {
@@ -35,7 +36,7 @@ class OnboardingStep3Widget extends StatelessWidget {
             children: [
               MainTextBody.gradientText(
                 context,
-                'Squats',
+               AppTexts.squats,
                 size: TextSize.l,
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
@@ -70,7 +71,7 @@ class OnboardingStep3Widget extends StatelessWidget {
             children: [
               MainTextBody.gradientText(
                 context,
-                'Time:',
+                AppTexts.time,
                 alignment: Alignment.center,
                 useGradient: false,
                 useShadow: false,
@@ -112,7 +113,7 @@ class OnboardingStep3Widget extends StatelessWidget {
             children: [
               MainTextBody.gradientText(
                 context,
-                'Reps:',
+                AppTexts.reps,
                 alignment: Alignment.center,
                 useGradient: false,
                 useShadow: false,

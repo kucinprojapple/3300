@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../settings/widgets/custom_snack_bar_widget.dart';
@@ -127,7 +128,7 @@ class _TitleSelectOverlayState extends State<TitleSelectOverlay> {
                   final title = selectedTitle!;
                   context.read<ProfileDataCubit>().updateTitle(title);
 
-                  CustomSnackBar.show(context, 'Title saved');
+                  CustomSnackBar.show(context, AppTexts.snackBarTitleSaved);
 
                   await Future.delayed(const Duration(seconds: 3), () {
                     if (!mounted) return;

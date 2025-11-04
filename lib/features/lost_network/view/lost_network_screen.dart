@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 @RoutePage()
@@ -22,7 +23,6 @@ class LostNetworkScreen extends StatelessWidget {
           Positioned(
             left: ((MediaQuery.of(context).size.width - 322) / 2).w,
             top: 244.h,
-
             child: CustomGradientContainerWidget(
               width: 322.w,
               height: 308.h,
@@ -42,7 +42,7 @@ class LostNetworkScreen extends StatelessWidget {
                   SizedBox(height: 15.h),
                   MainTextBody.gradientText(
                     context,
-                    'Lost Network',
+                    AppTexts.lostNetwork,
                     size: TextSize.l,
                     alignment: Alignment.center,
                     height: 1.0,

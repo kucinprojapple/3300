@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/app_core_design/assets.dart';
 
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../achievements/model/achievement_model.dart';
 
@@ -136,32 +137,32 @@ class _AchievementCard extends StatelessWidget {
 
 final List<Achievement> achievementsForOnboarding = [
   Achievement(
-    title: "First step",
-    description: "Performed 1 exercise of any type.",
+    title: AppTexts.achievementFirstStepTitle,
+    description: AppTexts.achievementFirstStepDesc,
     progress: 1.0,
     iconPath: AppAssets.achievementCupGold,
   ),
   Achievement(
-    title: "Ten reps",
-    description: "Did a total of 10 reps of any exercise.",
+    title: AppTexts.achievementTenReps,
+    description: AppTexts.achievementTenRepsDesc,
     progress: 0.8,
     iconPath: AppAssets.achievementMedal_1,
   ),
   Achievement(
-    title: "Beginner",
-    description: "Completed 3 different exercises \nfrom the list.",
+    title: AppTexts.achievementBeginner,
+    description: AppTexts.achievementBeginnerDesc,
     progress: 0.67,
     iconPath: AppAssets.achievementMedal_2,
   ),
   Achievement(
-    title: "Five-minute workout",
-    description: "I practiced for at least 5 minutes a day.",
+    title: AppTexts.achievementFiveMinutes,
+    description: AppTexts.achievementFiveMinutesDesc,
     progress: 0.4,
     iconPath: AppAssets.achievementMedal_3,
   ),
   Achievement(
-    title: "Loyal user",
-    description: "Worked out 3 days in a row.",
+    title: AppTexts.achievementLoyalUser,
+    description: AppTexts.achievementLoyalUserDesc,
     progress: 0.33,
     iconPath: AppAssets.achievementMedal_4,
   ),

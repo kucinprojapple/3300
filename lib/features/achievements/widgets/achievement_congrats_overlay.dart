@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
 
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
 import '../model/achievement_model.dart';
@@ -51,7 +52,7 @@ class AchievementCongratsOverlay extends StatelessWidget {
                     ),
                     child: MainTextBody.gradientText(
                       context,
-                      'Congrats!',
+                      AppTexts.congratsTitle,
                       alignment: Alignment.center,
                       height: 1.2,
                       fontSize: 40.sp,
@@ -65,7 +66,7 @@ class AchievementCongratsOverlay extends StatelessWidget {
                   SizedBox(height: 20.h),
                   MainTextBody.gradientText(
                     context,
-                    'You received the title',
+                    AppTexts.congratsReceivedTitle,
                     alignment: Alignment.center,
                     height: 1.1,
                     fontSize: 20.sp,

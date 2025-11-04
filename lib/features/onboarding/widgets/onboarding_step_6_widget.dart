@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -13,7 +14,7 @@ class OnboardingStep6Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ExerciseEntity exercise = exercisesData.firstWhere(
-      (ex) => ex.name == 'Lunges',
+      (ex) => ex.name == AppTexts.lunges,
     );
     return Column(
       children: [
@@ -58,7 +59,7 @@ class OnboardingStep6Widget extends StatelessWidget {
               SizedBox(height: 12.h),
               MainTextBody.gradientText(
                 context,
-                'Target: ${exercise.target}',
+                '${AppTexts.onboardingStep6Target} ${exercise.target}',
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
                 height: 1.1,
@@ -93,7 +94,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                   borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
-                    'Technique: ${exercise.technique}',
+                    '${AppTexts.onboardingStep6Technique} ${exercise.technique}',
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,
@@ -120,7 +121,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                   borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
-                    'Tip: ${exercise.tip}',
+                    '${AppTexts.onboardingStep6Tip} ${exercise.tip}',
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,

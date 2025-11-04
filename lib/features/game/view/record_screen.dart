@@ -6,6 +6,7 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -130,7 +131,7 @@ class _RecordScreenState extends State<RecordScreen> {
                       children: [
                         MainTextBody.gradientText(
                           context,
-                          'Time:',
+                          AppTexts.time,
                           size: TextSize.m,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
@@ -172,7 +173,7 @@ class _RecordScreenState extends State<RecordScreen> {
                       children: [
                         MainTextBody.gradientText(
                           context,
-                          'Reps:',
+                          AppTexts.reps,
                           size: TextSize.m,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
@@ -227,9 +228,9 @@ class _RecordScreenState extends State<RecordScreen> {
             right: 0.w,
             child: Center(
               child: ActionButtonWidget(
-                width: 227.w,
-                height: 89.h,
-                text: 'Save',
+                width: 224.w,
+                height: 88.h,
+                text: AppTexts.buttonSave,
                 fontSize: 30.sp,
                 onPressed: () async {
                   final exerciseName = exercise.name;
@@ -238,7 +239,7 @@ class _RecordScreenState extends State<RecordScreen> {
 
                   final bloc = context.read<GameBloc>();
 
-                  CustomSnackBar.show(context, 'Result saved');
+                  CustomSnackBar.show(context, AppTexts.snackBarResultSaved);
                   await Future.delayed(const Duration(seconds: 3));
 
                   bloc.add(

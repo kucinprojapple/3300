@@ -1,6 +1,8 @@
+import '../../../app_core_design/texts.dart';
+
 final List<String> profileTitles = [
-  'Push-up King',
-  'Squat Captain',
-  'Burpee Lightning',
-  'Push-up King',
+  AppTexts.titlePushUpKing,
+  AppTexts.titleSquatCaptain,
+  AppTexts.titleBurpeeLightning,
+  AppTexts.titlePushUpKing,
 ];

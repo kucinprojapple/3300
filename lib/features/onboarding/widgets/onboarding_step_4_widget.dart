@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 class OnboardingStep4Widget extends StatelessWidget {
@@ -99,7 +100,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                 children: [
                   MainTextBody.gradientText(
                     context,
-                    'TITLE:',
+                    AppTexts.title,
                     alignment: Alignment.centerLeft,
                     useGradient: false,
                     useShadow: false,
@@ -108,7 +109,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                   ),
                   MainTextBody.gradientText(
                     context,
-                    'Push-Up King',
+                    AppTexts.titlePushUpKing,
                     size: TextSize.xs,
                     alignment: Alignment.centerLeft,
                     useGradient: false,
@@ -149,7 +150,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                         children: [
                           MainTextBody.gradientText(
                             context,
-                            'NUMBER OF \nEXERCISES \nPERFORMED',
+                            AppTexts.numberOfExercisesPerformed,
                             size: TextSize.xs,
                             alignment: Alignment.topCenter,
                             useGradient: false,
@@ -196,7 +197,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                         children: [
                           MainTextBody.gradientText(
                             context,
-                            'AMOUNT OF \nTIMER FOR \nEXERCISE',
+                            AppTexts.amountOfTimeForExercise,
                             size: TextSize.xs,
                             alignment: Alignment.topCenter,
                             useGradient: false,
@@ -243,7 +244,7 @@ class OnboardingStep4Widget extends StatelessWidget {
                         children: [
                           MainTextBody.gradientText(
                             context,
-                            'NUMBER OF \nREPETITION',
+                            AppTexts.numberOfRepetitions,
                             size: TextSize.xs,
                             alignment: Alignment.topCenter,
                             useGradient: false,

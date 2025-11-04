@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 
 class OnboardingStep1Widget extends StatelessWidget {
   const OnboardingStep1Widget({super.key});
@@ -27,7 +28,7 @@ class OnboardingStep1Widget extends StatelessWidget {
           bottom: 13.h,
           child: MainTextBody.gradientText(
             context,
-            'You got the\nexercise Squats',
+            AppTexts.onboardingStep1YouGotTheExerciseSquats,
             size: TextSize.m,
             alignment: Alignment.bottomCenter,
             useShadow: false,

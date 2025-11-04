@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/texts.dart';
 import '../profile_overlay_bloc/profile_overlay_bloc.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
 
@@ -36,7 +37,7 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
             children: [
               SizedBox(height: 28.h),
               Text(
-                'Please make your choice',
+                AppTexts.bottomSheetPleaseMakeYourChoice,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 16.sp,
@@ -63,7 +64,7 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       Text(
-                        'Make a photo',
+                        AppTexts.bottomSheetMakePhoto,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                           fontSize: 19.sp,
@@ -93,7 +94,7 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       Text(
-                        'Choose photo',
+                        AppTexts.bottomSheetChoosePhoto,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                           fontSize: 19.sp,
@@ -125,7 +126,7 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       Text(
-                        'Cancel',
+                        AppTexts.bottomSheetCancel,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                           fontSize: 19.sp,
