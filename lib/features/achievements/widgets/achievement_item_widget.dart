@@ -80,7 +80,7 @@ class AchievementItem extends StatelessWidget {
               if (achievement.isCompleted) {
                 debugPrint('🏆 Achievement completed!');
                 context.read<AchievementsOverlayBloc>().add(
-                  ShowAchievementCongratsOverlayEvent(achievement.title),
+                  ShowAchievementCongratsOverlayEvent(achievement),
                 );
               }
             },
@@ -99,10 +99,26 @@ class AchievementItem extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
-              padding: EdgeInsets.all(8.w),
-              child: Image.asset(
-                achievement.iconPath ?? AppAssets.achievementCupGold,
-                fit: BoxFit.contain,
+              padding: EdgeInsets.all(4.w),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    achievement.iconPath ?? AppAssets.achievementMedal_1,
+                    fit: BoxFit.contain,
+                  ),
+                  if (achievement.isCompleted)
+                    Positioned(
+                      // right: 2.w,
+                      bottom: 4.h,
+                      child: Image.asset(
+                        AppAssets.achievementDone,
+                        width: 32.w,
+                        height: 32.h,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                ],
               ),
             ),
           ),

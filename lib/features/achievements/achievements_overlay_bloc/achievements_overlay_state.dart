@@ -12,9 +12,10 @@ class AchievementsOverlayInitial extends AchievementsOverlayState {
 }
 
 class AchievementsOverlayCongratsState extends AchievementsOverlayState {
-  final String title;
-  const AchievementsOverlayCongratsState(this.title);
+  final Achievement achievement;
+
+  const AchievementsOverlayCongratsState(this.achievement);
 
   @override
-  List<Object?> get props => [title];
+  List<Object?> get props => [achievement];
 }

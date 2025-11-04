@@ -13,7 +13,9 @@ class AchievementsOverlays extends StatelessWidget {
         if (state is AchievementsOverlayInitial) {
           return const SizedBox.shrink();
         } else if (state is AchievementsOverlayCongratsState) {
-          return AchievementCongratsOverlay();
+          return AchievementCongratsOverlay(
+            achievement: state.achievement,
+          );
         }
         return const SizedBox.shrink();
       },

@@ -7,10 +7,13 @@ import '../../../app_core_design/styles.dart';
 
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
+import '../model/achievement_model.dart';
 import 'achievements_general_overlay_widget.dart';
 
 class AchievementCongratsOverlay extends StatelessWidget {
-  const AchievementCongratsOverlay({super.key});
+  final Achievement achievement;
+
+  const AchievementCongratsOverlay({super.key, required this.achievement});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +73,7 @@ class AchievementCongratsOverlay extends StatelessWidget {
                   SizedBox(height: 12.h),
                   MainTextBody.gradientText(
                     context,
-                    "World Champion",
+                    achievement.title,
                     size: TextSize.m,
                     alignment: Alignment.center,
                     height: 1.1,

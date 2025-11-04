@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app_core_design/assets.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../model/achievement_model.dart';
 
@@ -59,6 +60,15 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
     const workoutsToday = 2;
 
     double ratio(num value, num target) => min(1.0, value / target.toDouble());
+
+    String resolveIconPath(double progress) {
+      progress = progress.clamp(0.0, 1.0);
+      if (progress >= 1.0) return AppAssets.achievementCupWhite;
+      if (progress >= 0.5) return AppAssets.achievementCupGold;
+      final index = (progress / 0.05).floor() + 1;
+      final safeIndex = index.clamp(1, 10);
+      return 'assets/images/achievement_medal_$safeIndex.webp';
+    }
 
     final all = <Achievement>[
       Achievement(
@@ -189,10 +199,15 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
             (a) => a.title == current.title,
             orElse: () => current,
           );
-          final isCompleted = current.progress >= 1.0;
+
+          final progress = current.progress;
+          final isCompleted = progress >= 1.0;
+          final iconPath = resolveIconPath(progress);
+
           return old.copyWith(
-            progress: current.progress,
+            progress: progress,
             isCompleted: isCompleted,
+            iconPath: iconPath,
           );
         }).toList();
 

@@ -12,11 +12,7 @@ class Achievement {
   final String description;
   final double progress;
   final bool isCompleted;
-
-  /// Тип иконки (может быть null, если используется кастомный путь)
   final AchievementIconType? iconType;
-
-  /// Путь к иконке (если нужно переопределить стандартную)
   final String? iconPath;
 
   Achievement({

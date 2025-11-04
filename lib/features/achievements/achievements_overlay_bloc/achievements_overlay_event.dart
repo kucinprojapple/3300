@@ -8,11 +8,12 @@ abstract class AchievementsOverlayEvent extends Equatable {
 }
 
 class ShowAchievementCongratsOverlayEvent extends AchievementsOverlayEvent {
-  final String title;
-  const ShowAchievementCongratsOverlayEvent(this.title);
+  final Achievement achievement;
+
+  const ShowAchievementCongratsOverlayEvent(this.achievement);
 
   @override
-  List<Object?> get props => [title];
+  List<Object?> get props => [achievement];
 }
 
 class HideAchievementsOverlayEvent extends AchievementsOverlayEvent {
