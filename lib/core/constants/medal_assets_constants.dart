@@ -1,6 +1,6 @@
 import '../../app_core_design/assets.dart';
 
-class MedalAssets {
+class MedalAssetsConstants {
   static List<String> all = [
     AppAssets.achievementMedal_1,
     AppAssets.achievementMedal_2,
@@ -11,5 +11,6 @@ class MedalAssets {
     AppAssets.achievementMedal_7,
     AppAssets.achievementMedal_8,
     AppAssets.achievementMedal_9,
+    AppAssets.achievementMedal_10,
   ];
 }

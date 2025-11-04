@@ -143,7 +143,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           //   child: Center(
           //     child: Builder(
           //       builder: (context) {
-          //         final bool isLast = currentIndex == onboardingPages.length - 1;
+          //         final bool isLast =
+          //             currentIndex == onboardingPages.length - 1;
           //         return ActionButtonWidget(
           //           width: 227.w,
           //           height: 89.h,

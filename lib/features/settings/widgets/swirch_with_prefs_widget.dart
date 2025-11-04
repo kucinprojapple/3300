@@ -43,7 +43,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
     final double radius = 14.r;
     final double circleSize = 22.w;
 
-    final double innerPadding = (outerH - circleSize) / 2;
+    final double innerPadding = ((outerH - circleSize) / 2).w;
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -62,8 +62,8 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
           GestureDetector(
             onTap: _toggle,
             child: Container(
-              width: outerW,
-              height: outerH,
+              width: outerW.w,
+              height: outerH.h,
 
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(radius),
@@ -78,8 +78,8 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
                 boxShadow: const [
                   BoxShadow(
                     color: Color.fromRGBO(0, 0, 0, 0.25),
-                    offset: Offset(0, 1.34),
-                    blurRadius: 4.48,
+                    offset: Offset(0, 1.5),
+                    blurRadius: 1.5,
                   ),
                 ],
 
@@ -89,7 +89,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
                     end: Alignment.bottomCenter,
                     colors: [Color(0xFFE31E1E), Color(0xFFAE0505)],
                   ),
-                  width: 1,
+                  width: 1.w,
                 ),
               ),
               child: Padding(

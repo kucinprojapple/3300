@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/constants/medal_assets.dart';
+import '../../../core/constants/medal_assets_constants.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
 import '../profile_overlay_bloc/profile_overlay_bloc.dart';
 
-class MedalSelectOverlay extends StatelessWidget {
+class SelectMedalOverlay extends StatelessWidget {
   final int userAchievementsCount;
   final int selectedMedalIndex;
 
-  const MedalSelectOverlay({
+  const SelectMedalOverlay({
     super.key,
     required this.userAchievementsCount,
     required this.selectedMedalIndex,
@@ -21,7 +21,7 @@ class MedalSelectOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int availableMedals = (userAchievementsCount ~/ 5) + 1;
-    final medalAssets = MedalAssets.all;
+    final medalAssets = MedalAssetsConstants.all;
 
     return Material(
       color: Colors.transparent,

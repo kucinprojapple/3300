@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
-import '../../../core/constants/medal_assets.dart';
+import '../../../core/constants/medal_assets_constants.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
 import '../profile_data_cubit/profile_data_state.dart';
@@ -53,9 +53,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return BlocBuilder<ProfileDataCubit, ProfileDataState>(
       builder: (context, state) {
         final medalAsset =
-            MedalAssets.all[state.selectedMedalIndex.clamp(
+            MedalAssetsConstants.all[state.selectedMedalIndex.clamp(
               0,
-              MedalAssets.all.length - 1,
+              MedalAssetsConstants.all.length - 1,
             )];
 
         return Scaffold(

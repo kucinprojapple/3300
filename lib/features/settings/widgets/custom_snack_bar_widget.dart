@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/styles.dart';
@@ -47,8 +46,8 @@ class CustomSnackBar {
               boxShadow: [
                 BoxShadow(
                   color: Color.fromRGBO(0, 0, 0, 0.55),
-                  offset: Offset(0.w, 1.59),
-                  blurRadius: 1.59,
+                  offset: Offset(0.w, 1.5),
+                  blurRadius: 1.5,
                 ),
               ],
             ),
@@ -65,7 +64,6 @@ class CustomSnackBar {
                   child: MainTextBody.gradientText(
                     context,
                     message,
-
                     alignment: Alignment.bottomCenter,
                     useShadow: false,
                     height: 1.1,

@@ -15,10 +15,8 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
     final XFile? pickedFile = await picker.pickImage(source: source);
 
     if (pickedFile != null) {
-      // Сохраняем путь к файлу в cubit
       context.read<ProfileDataCubit>().updateAvatar(pickedFile.path);
 
-      // Прячем оверлей
       context.read<ProfileOverlayBloc>().add(HideOverlayEvent());
     }
   }

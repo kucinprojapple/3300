@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:green_gym_club/core/constants/timer_constants.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
@@ -28,8 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _vibrationEnabled = false;
   int _selectedTimerSeconds = 30;
 
-  // final List<int> _timerOptions = [30, 60, 90, 120];
-  final List<int> _timerOptions = [5, 10, 15, 20];
+
 
   @override
   void initState() {
@@ -166,7 +166,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         Expanded(
                           child: Row(
                             children:
-                                _timerOptions.map((seconds) {
+                                TimerConstants.timerOptions.map((seconds) {
                                   return TimerOptionCircleWidget(
                                     seconds: seconds,
                                     isSelected:

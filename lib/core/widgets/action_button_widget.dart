@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../app_core_design/assets.dart';
+import '../../app_core_design/styles.dart';
 
 class ActionButtonWidget extends StatelessWidget {
   final String text;
@@ -27,43 +28,25 @@ class ActionButtonWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: SizedBox(
-        height: buttonHeight,
-        width: buttonWidth,
+        width: buttonWidth.w,
+        height: buttonHeight.h,
+
         child: Stack(
           alignment: Alignment.center,
           children: [
             Image.asset(
+              width: buttonWidth.w,
+              height: buttonHeight.h,
               AppAssets.buttonMain,
               fit: BoxFit.fill,
-              height: buttonHeight,
-              width: buttonWidth,
             ),
-            ShaderMask(
-              blendMode: BlendMode.srcIn,
-              shaderCallback:
-                  (bounds) => const LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [Color(0xFFFFE2AA), Color(0xFFFFFFFF)],
-                  ).createShader(
-                    Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                  ),
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'OtomanopeeOne',
-                  fontSize: fontSize.sp,
-                  fontWeight: FontWeight.w400,
-                  shadows: [
-                    Shadow(
-                      offset: Offset(0.w, 1.59.h),
-                      blurRadius: 1.59.r,
-                      color: Color(0x8C000000),
-                    ),
-                  ],
-                ),
-              ),
+            MainTextBody.gradientText(
+              context,
+              text,
+              alignment: Alignment.center,
+              textAlign: TextAlign.left,
+              height: 1.1,
+              fontSize: fontSize.sp,
             ),
           ],
         ),

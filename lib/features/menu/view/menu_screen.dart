@@ -26,12 +26,12 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           Positioned(
             left: 30.w,
-            top: 162.h,
-            right: 28.w,
+            top: 160.h,
+            right: 30.w,
             child: Image.asset(
               AppAssets.shirt,
               width: 332.w,
-              height: 389.h,
+              height: 388.h,
               fit: BoxFit.fill,
               alignment: Alignment.bottomCenter,
             ),
@@ -67,48 +67,43 @@ class _MenuScreenState extends State<MenuScreen> {
 
           Positioned(
             left: 0.w,
-            top: 384.h,
+            top: 380.h,
             right: 0.w,
-            child: IconButtonWidget(
-              iconAsset: AppAssets.iconPlay,
-              width: 140.w,
-              height: 140.h,
-              onPressed: () {
-                context.router.push(const GameRoute());
-              },
-            ),
-          ),
-
-          Positioned(
-            left: 0.w,
-            bottom: 180.h,
-            right: 0.w,
-            child: Center(
-              child: ActionButtonWidget(
-                width: 227.w,
-                height: 89.h,
-                text: 'Exercises',
-                fontSize: 30.sp,
-                onPressed: () {
-                  context.router.push(const ExercisesRoute());
-                },
-              ),
-            ),
-          ),
-          Positioned(
-            left: 0.w,
-            bottom: 84.h,
-            right: 0.w,
-            child: Center(
-              child: ActionButtonWidget(
-                width: 227.w,
-                height: 89.h,
-                text: 'Achievements',
-                fontSize: 25.sp,
-                onPressed: () {
-                  context.router.push(const AchievementsRoute());
-                },
-              ),
+            child: Column(
+              children: [
+                IconButtonWidget(
+                  iconAsset: AppAssets.iconPlay,
+                  width: 140.w,
+                  height: 140.h,
+                  onPressed: () {
+                    context.router.push(const GameRoute());
+                  },
+                ),
+                SizedBox(height: 12.h),
+                Center(
+                  child: ActionButtonWidget(
+                    width: 224.w,
+                    height: 88.h,
+                    text: 'Exercises',
+                    fontSize: 30.sp,
+                    onPressed: () {
+                      context.router.push(const ExercisesRoute());
+                    },
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Center(
+                  child: ActionButtonWidget(
+                    width: 224.w,
+                    height: 88.h,
+                    text: 'Achievements',
+                    fontSize: 24.sp,
+                    onPressed: () {
+                      context.router.push(const AchievementsRoute());
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

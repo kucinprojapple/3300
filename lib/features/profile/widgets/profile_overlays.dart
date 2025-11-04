@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:green_gym_club/features/profile/widgets/medal_select_overlay.dart';
+import 'package:green_gym_club/features/profile/widgets/select_medal_overlay.dart';
 import 'package:green_gym_club/features/profile/widgets/select_picture_bottom_sheet_overlay.dart';
 
 import '../profile_data_cubit/profile_data_cubit.dart';
@@ -35,7 +35,7 @@ class ProfileOverlays extends StatelessWidget {
           } else if (state is ProfileOverlayMedalSelectState) {
             final profileState = context.read<ProfileDataCubit>().state;
             return ProfileGeneralOverlay(
-              child: MedalSelectOverlay(
+              child: SelectMedalOverlay(
                 userAchievementsCount: profileState.completedAchievements,
                 selectedMedalIndex: profileState.selectedMedalIndex,
               ),
