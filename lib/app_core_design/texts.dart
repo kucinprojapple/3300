@@ -31,9 +31,13 @@ sealed class AppTexts {
 
   static const String onboardingStep1YouGotTheExerciseSquats =
       'You got the\nexercise Squats';
-  static const String onboardingStep6Target = 'Target:';
-  static const String onboardingStep6Technique = 'Technique:';
-  static const String onboardingStep6Tip = 'Tip:';
+
+  /// --- Settings Screen text ---
+  static const String settings = 'Settings';
+  static const String sound = 'Sound';
+  static const String music = 'Music';
+  static const String vibration = 'Vibration';
+  static const String timer = 'Timer';
 
   /// --- Profile Screen text ---
   static const String myAccount = 'My Account';
@@ -51,12 +55,8 @@ sealed class AppTexts {
   static const String titleSquatCaptain = 'Squat Captain';
   static const String titleBurpeeLightning = 'Burpee Lightning';
 
-  /// --- Settings Screen text ---
-  static const String settings = 'Settings';
-  static const String sound = 'Sound';
-  static const String music = 'Music';
-  static const String vibration = 'Vibration';
-  static const String timer = 'Timer';
+  /// --- Info Screen text ---
+  static const String info = 'Info';
 
   /// --- Achievements Screen text ---
   static const String congratsTitle = 'Congrats!';
@@ -66,6 +66,11 @@ sealed class AppTexts {
   static const String youGotTheExercise = 'You got the exercise';
   static const String reps = 'Reps:';
   static const String time = 'Time:';
+
+  /// --- ExerciseDetails Screen text ---
+  static const String exerciseDetailsTarget = 'Target:';
+  static const String exerciseDetailsTechnique = 'Technique:';
+  static const String exerciseDetailsTip = 'Tip:';
 
   /// --- Button text ---
   static const String buttonSave = 'Save';

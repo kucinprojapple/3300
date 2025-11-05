@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
 @RoutePage()
@@ -42,10 +43,9 @@ class _InfoScreenState extends State<InfoScreen> {
             left: 0.w,
             top: 120.h,
             right: 0.w,
-
             child: MainTextBody.gradientText(
               context,
-              'Info',
+              AppTexts.info,
               size: TextSize.m,
               alignment: Alignment.bottomCenter,
               useShadow: false,

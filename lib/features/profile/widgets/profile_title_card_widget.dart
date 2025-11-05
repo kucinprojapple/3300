@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -19,16 +20,8 @@ class ProfileTitleCardWidget extends StatelessWidget {
     return CustomGradientContainerWidget(
       width: 332.w,
       height: 48.h,
-      backgroundGradient: const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Color(0xFF389A07), Color(0xFF020500)],
-      ),
-      borderGradient: const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-      ),
+      backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
+      borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
       borderWidth: 1.5,
       borderRadius: 12.r,
       child: Padding(

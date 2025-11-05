@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 
 import '../../../app_core_design/texts.dart';
@@ -32,16 +33,9 @@ class AchievementCongratsOverlay extends StatelessWidget {
             child: CustomGradientContainerWidget(
               width: 332.w,
               height: 384.h,
-              backgroundGradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF1D5401), Color(0xFF020500)],
-              ),
-              borderGradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-              ),
+              backgroundGradient:
+                  AppColors.gradientColors.containerGradientDarkGreen,
+              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

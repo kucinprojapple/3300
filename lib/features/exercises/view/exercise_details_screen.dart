@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../data/exercise_list.dart';
@@ -42,26 +43,12 @@ class ExerciseDetailsScreen extends StatelessWidget {
             left: 20.w,
             top: 194.h,
             right: 20.w,
-            child: Container(
+            child: CustomGradientContainerWidget(
               width: 332.w,
               height: 270.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                ),
-                border: GradientBoxBorder(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                  ),
-                  width: 2,
-                ),
-              ),
-
+              backgroundGradient:
+                  AppColors.gradientColors.containerGradientDarkGreen,
+              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -82,7 +69,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 32.w),
                     child: MainTextBody.gradientText(
                       context,
-                      'Target: ${exercise.target}',
+                      '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
                       alignment: Alignment.bottomCenter,
                       useShadow: false,
                       height: 1.1,
@@ -103,27 +90,20 @@ class ExerciseDetailsScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
                 child: Column(
-
                   children: [
                     SizedBox(height: 18.h),
                     CustomGradientContainerWidget(
                       width: 332.w,
                       height: 88.h,
-                      backgroundGradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                      ),
-                      borderGradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                      ),
+                      backgroundGradient:
+                          AppColors.gradientColors.containerGradientDarkGreen,
+                      borderGradient:
+                          AppColors.gradientColors.borderGradientDarkGreen,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 4.w),
                         child: MainTextBody.gradientText(
                           context,
-                          'Technique: ${exercise.technique}',
+                          '${AppTexts.exerciseDetailsTarget} ${exercise.technique}',
                           alignment: Alignment.center,
                           useGradient: false,
                           useShadow: false,
@@ -137,21 +117,15 @@ class ExerciseDetailsScreen extends StatelessWidget {
                     CustomGradientContainerWidget(
                       width: 332.w,
                       height: 60.h,
-                      backgroundGradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                      ),
-                      borderGradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                      ),
+                      backgroundGradient:
+                          AppColors.gradientColors.containerGradientDarkGreen,
+                      borderGradient:
+                          AppColors.gradientColors.borderGradientDarkGreen,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 4.w),
                         child: MainTextBody.gradientText(
                           context,
-                          'Tip: ${exercise.tip}',
+                          '${AppTexts.exerciseDetailsTarget} ${exercise.tip}',
                           alignment: Alignment.center,
                           useGradient: false,
                           useShadow: false,

@@ -59,7 +59,7 @@ class OnboardingStep6Widget extends StatelessWidget {
               SizedBox(height: 12.h),
               MainTextBody.gradientText(
                 context,
-                '${AppTexts.onboardingStep6Target} ${exercise.target}',
+                '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
                 height: 1.1,
@@ -94,7 +94,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                   borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
-                    '${AppTexts.onboardingStep6Technique} ${exercise.technique}',
+                    '${AppTexts.exerciseDetailsTechnique} ${exercise.technique}',
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,
@@ -121,7 +121,7 @@ class OnboardingStep6Widget extends StatelessWidget {
                   borderWidth: 1.w,
                   child: MainTextBody.gradientText(
                     context,
-                    '${AppTexts.onboardingStep6Tip} ${exercise.tip}',
+                    '${AppTexts.exerciseDetailsTip} ${exercise.tip}',
                     alignment: Alignment.center,
                     useGradient: false,
                     useShadow: false,
