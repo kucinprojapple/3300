@@ -13,7 +13,7 @@ import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
-import '../widgets/custom_snack_bar_widget.dart';
+import '../../../core/widgets/custom_snack_bar_widget.dart';
 import '../widgets/swirch_with_prefs_widget.dart';
 import '../widgets/timer_option_circle_widget.dart';
 
@@ -99,8 +99,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: CustomGradientContainerWidget(
               width: 332.w,
               height: 268.h,
-              backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
-              borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+              backgroundGradient:
+                  AppColors.gradientColors.containerGradientBrightGreen,
+              borderGradient:
+                  AppColors.gradientColors.borderGradientBrightGreen,
               borderWidth: 2.w,
               borderRadius: 20.r,
               child: Column(
@@ -108,7 +110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SizedBox(height: 24.h),
 
                   SwitchWithPrefsWidget(
-                    title:  AppTexts.sound,
+                    title: AppTexts.sound,
                     initialValue: storage.soundEnabled,
                     onChanged: (value) async {
                       setState(() {
@@ -121,7 +123,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
-                    title:  AppTexts.music,
+                    title: AppTexts.music,
                     initialValue: storage.musicEnabled,
                     onChanged: (value) async {
                       setState(() {
@@ -134,7 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 20.h),
                   SwitchWithPrefsWidget(
-                    title:  AppTexts.vibration,
+                    title: AppTexts.vibration,
                     initialValue: storage.vibrationEnabled,
                     onChanged: (value) async {
                       setState(() {

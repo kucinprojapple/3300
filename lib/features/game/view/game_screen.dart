@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
@@ -116,9 +117,8 @@ class _GameScreenState extends State<GameScreen> {
                       ActionButtonWidget(
                         width: 224.w,
                         height: 88.h,
-                        text: 'Start',
+                        text: AppTexts.buttonStart,
                         fontSize: 30.sp,
-
                         onPressed: () {
                           context.read<GameBloc>().add(
                             const StartGameFlowEvent(),

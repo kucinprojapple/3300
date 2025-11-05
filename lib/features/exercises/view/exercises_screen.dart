@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/router/router.dart';
 import '../../../core/widgets/icon_button_widget.dart';
@@ -64,18 +65,12 @@ class ExercisesScreen extends StatelessWidget {
                   child: CustomGradientContainerWidget(
                     width: 332.w,
                     height: 80.h,
+                    backgroundGradient:
+                        AppColors.gradientColors.containerGradientBrightGreen,
+                    borderGradient:
+                        AppColors.gradientColors.borderGradientBrightGreen,
                     borderRadius: 12.r,
                     borderWidth: 2.w,
-                    backgroundGradient: const LinearGradient(
-                      colors: [Color(0xFF389A07), Color(0xFF020500)],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderGradient: const LinearGradient(
-                      colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
                     margin: EdgeInsets.symmetric(
                       horizontal: 0.w,
                       vertical: 4.h,
@@ -97,18 +92,20 @@ class ExercisesScreen extends StatelessWidget {
                         ),
 
                         if (exercise.image.isNotEmpty)
-                          Container(
-                            width: 56.w,
-                            height: 56.w,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                              gradient: const LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [Color(0xFF0E2801), Color(0xFF020500)],
-                              ),
-                            ),
-                            padding: EdgeInsets.all(8.w),
+                          CustomGradientContainerWidget(
+                            width: 64.w,
+                            height: 64.h,
+                            backgroundGradient:
+                                AppColors
+                                    .gradientColors
+                                    .containerGradientDarkGreen,
+                            borderGradient:
+                                AppColors
+                                    .gradientColors
+                                    .borderGradientDarkGreen,
+                            borderWidth: 1.w,
+                            borderRadius: 12.r,
+                            padding: EdgeInsets.all(4.w),
                             child: Image.asset(
                               exercise.image,
                               fit: BoxFit.contain,

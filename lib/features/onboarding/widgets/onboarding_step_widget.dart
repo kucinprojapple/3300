@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:green_gym_club/app_core_design/assets.dart';
+
+import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/action_button_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../widgets/onboarding_step_circle_widget.dart';
 
 class OnboardingStepWidget extends StatelessWidget {
@@ -38,29 +42,16 @@ class OnboardingStepWidget extends StatelessWidget {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Container(
-                      width: 281.w,
+                    CustomGradientContainerWidget(
+                      width: 280.w,
                       height: 278.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.r),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                        ),
-                      ),
-                      child: Container(
-                        margin: EdgeInsets.all(2.r),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(28.r),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                          ),
-                        ),
-                        child: mainContent,
-                      ),
+                      backgroundGradient:
+                          AppColors.gradientColors.containerGradientDarkGreen,
+                      borderGradient:
+                          AppColors.gradientColors.borderGradientDarkGreen,
+                      borderWidth: 2.w,
+                      borderRadius: 30.r,
+                      child: mainContent,
                     ),
 
                     Positioned(
@@ -91,14 +82,14 @@ class OnboardingStepWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 0,
-          bottom: 109.h,
-          right: 0,
+          left: 0.w,
+          right: 0.w,
+          bottom: 100.h,
           child: Center(
             child: ActionButtonWidget(
-              width: 227.w,
-              height: 89.h,
-              text: 'Next',
+              width: 224.w,
+              height: 88.h,
+              text: AppTexts.buttonNext,
               fontSize: 35.sp,
               onPressed: onNext,
             ),

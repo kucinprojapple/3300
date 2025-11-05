@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/app_core_design/assets.dart';
 
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../achievements/model/achievement_model.dart';
-
 
 class OnboardingStep5Widget extends StatelessWidget {
   const OnboardingStep5Widget({super.key});
@@ -20,7 +20,7 @@ class OnboardingStep5Widget extends StatelessWidget {
         SizedBox(height: 20.h * kScale),
         ...List.generate(
           achievementsForOnboarding.length,
-              (index) => Padding(
+          (index) => Padding(
             padding: EdgeInsets.symmetric(vertical: 4.h * kScale),
             child: _AchievementCard(
               achievement: achievementsForOnboarding[index],
@@ -37,10 +37,7 @@ class _AchievementCard extends StatelessWidget {
   final Achievement achievement;
   final double scale;
 
-  const _AchievementCard({
-    required this.achievement,
-    required this.scale,
-  });
+  const _AchievementCard({required this.achievement, required this.scale});
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +46,8 @@ class _AchievementCard extends StatelessWidget {
       height: 82.h * scale,
       borderRadius: 12.r * scale,
       borderWidth: 2.w * scale,
-      backgroundGradient: const LinearGradient(
-        colors: [Color(0xFF389A07), Color(0xFF020500)],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      ),
-      borderGradient: const LinearGradient(
-        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      ),
+      backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
+      borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
       padding: EdgeInsets.symmetric(
         horizontal: 8.w * scale,
         vertical: 6.h * scale,
@@ -66,7 +55,6 @@ class _AchievementCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
           Expanded(
             flex: 4,
             child: Padding(
@@ -107,22 +95,15 @@ class _AchievementCard extends StatelessWidget {
             ),
           ),
 
-
           CustomGradientContainerWidget(
             width: 56.w * scale,
             height: 56.w * scale,
+            backgroundGradient:
+                AppColors.gradientColors.containerGradientDeepDarkGreen,
+            borderGradient:
+                AppColors.gradientColors.borderGradientDeepDarkGreen,
             borderRadius: 12.r * scale,
-            borderWidth: 2.w * scale,
-            backgroundGradient: const LinearGradient(
-              colors: [Color(0xFF0E2801), Color(0xFF020500)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            borderGradient: const LinearGradient(
-              colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            borderWidth: 1.w * scale,
             padding: EdgeInsets.all(8.w * scale),
             child: Image.asset(
               achievement.iconPath ?? AppAssets.achievementMedal_1,

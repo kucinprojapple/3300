@@ -23,9 +23,9 @@ class OnboardingStep1Widget extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 0,
-          right: 0,
-          bottom: 13.h,
+          left: 0.w,
+          right: 0.w,
+          bottom: 12.h,
           child: MainTextBody.gradientText(
             context,
             AppTexts.onboardingStep1YouGotTheExerciseSquats,

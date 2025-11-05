@@ -5,4 +5,11 @@ final List<String> profileTitles = [
   AppTexts.titleSquatCaptain,
   AppTexts.titleBurpeeLightning,
   AppTexts.titlePushUpKing,
+  AppTexts.titleCardioQueen,
+  AppTexts.titleTricepTitan,
+  AppTexts.titleLungeLegend,
+  AppTexts.titleJumpingJackFlash,
+  AppTexts.titleBicycleCrunchCaptain,
+  AppTexts.titleLegRaiseRoyalty,
+  AppTexts.titleSweatMaster,
 ];

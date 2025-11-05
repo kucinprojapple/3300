@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -59,7 +60,7 @@ class OnboardingStep4Widget extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(0xFF031400),
               borderRadius: BorderRadius.circular(24.r),
-              border: Border.all(color: const Color(0xFF73706D), width: 1.5.w),
+              border: Border.all(color: const Color(0xFF73706D), width: 1.w),
             ),
 
             child: Row(
@@ -81,17 +82,10 @@ class OnboardingStep4Widget extends StatelessWidget {
           CustomGradientContainerWidget(
             width: 204.w,
             height: 28.h,
-            backgroundGradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF389A07), Color(0xFF020500)],
-            ),
-            borderGradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-            ),
-            borderWidth: 1.5,
+            backgroundGradient:
+                AppColors.gradientColors.containerGradientBrightGreen,
+            borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+            borderWidth: 1.w,
             borderRadius: 12.r,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -131,17 +125,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                   child: CustomGradientContainerWidget(
                     width: 60.w,
                     height: 80.h,
-                    backgroundGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF389A07), Color(0xFF020500)],
-                    ),
-                    borderGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                    ),
-                    borderWidth: 1.5,
+                    backgroundGradient:
+                        AppColors.gradientColors.containerGradientBrightGreen,
+                    borderGradient:
+                        AppColors.gradientColors.borderGradientBrightGreen,
+                    borderWidth: 1.w,
                     borderRadius: 12.r,
                     child: Padding(
                       padding: EdgeInsets.only(top: 4.h, bottom: 8.h),
@@ -178,17 +166,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                   child: CustomGradientContainerWidget(
                     width: 68.w,
                     height: 80.h,
-                    backgroundGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF389A07), Color(0xFF020500)],
-                    ),
-                    borderGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                    ),
-                    borderWidth: 1.5,
+                    backgroundGradient:
+                        AppColors.gradientColors.containerGradientBrightGreen,
+                    borderGradient:
+                        AppColors.gradientColors.borderGradientBrightGreen,
+                    borderWidth: 1.w,
                     borderRadius: 12.r,
                     child: Padding(
                       padding: EdgeInsets.only(top: 4.h, bottom: 8.h),
@@ -225,18 +207,12 @@ class OnboardingStep4Widget extends StatelessWidget {
                   child: CustomGradientContainerWidget(
                     width: 68.w,
                     height: 80.h,
-                    backgroundGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF389A07), Color(0xFF020500)],
-                    ),
-                    borderGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                    ),
+                    backgroundGradient:
+                        AppColors.gradientColors.containerGradientBrightGreen,
+                    borderGradient:
+                        AppColors.gradientColors.borderGradientBrightGreen,
                     borderRadius: 12.r,
-                    borderWidth: 1.5,
+                    borderWidth: 1.w,
                     child: Padding(
                       padding: EdgeInsets.only(top: 4.h, bottom: 8.h),
                       child: Column(

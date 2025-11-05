@@ -5,25 +5,26 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 class CustomGradientContainerWidget extends StatelessWidget {
   final double width;
   final double height;
-  final double? borderRadius;
-  final double? borderWidth;
   final Gradient backgroundGradient;
   final Gradient borderGradient;
-  final Widget? child;
+  final double? borderRadius;
+  final double? borderWidth;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final Widget? child;
+
 
   const CustomGradientContainerWidget({
     super.key,
     required this.width,
     required this.height,
-    this.borderRadius,
-    this.borderWidth,
     required this.backgroundGradient,
     required this.borderGradient,
-    this.child,
+    this.borderRadius,
+    this.borderWidth,
     this.padding,
     this.margin,
+    this.child,
   });
 
   @override

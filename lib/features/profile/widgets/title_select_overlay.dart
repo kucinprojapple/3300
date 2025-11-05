@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
-import '../../settings/widgets/custom_snack_bar_widget.dart';
+import '../../../core/widgets/custom_snack_bar_widget.dart';
 
 import '../data/titles_list.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
@@ -46,17 +47,11 @@ class _TitleSelectOverlayState extends State<TitleSelectOverlay> {
               child: CustomGradientContainerWidget(
                 width: 310.w,
                 height: 132.h,
-                backgroundGradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF389A07), Color(0xFF020500)],
-                ),
-                borderGradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                ),
-                borderWidth: 1.5,
+                backgroundGradient:
+                AppColors.gradientColors.containerGradientBrightGreen,
+                borderGradient:
+                AppColors.gradientColors.borderGradientBrightGreen,
+                borderWidth: 1.w,
                 borderRadius: 12.r,
                 child: SizedBox(
                   height: 132.h,
@@ -87,7 +82,7 @@ class _TitleSelectOverlayState extends State<TitleSelectOverlay> {
                                 useGradient: false,
                                 useShadow: false,
                                 height: 1.0,
-                                fontSize: 22.sp,
+                                fontSize: 18.sp,
                               ),
                               Stack(
                                 clipBehavior: Clip.none,

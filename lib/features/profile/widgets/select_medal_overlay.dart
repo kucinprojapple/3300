@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../app_core_design/colors.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/constants/medal_assets_constants.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -20,7 +22,7 @@ class SelectMedalOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int availableMedals = (userAchievementsCount ~/ 5) + 1;
+    final int availableMedals = (userAchievementsCount ~/ 2) + 1;
     final medalAssets = MedalAssetsConstants.all;
 
     return Material(
@@ -35,17 +37,11 @@ class SelectMedalOverlay extends StatelessWidget {
               child: CustomGradientContainerWidget(
                 width: 332.w,
                 height: 300.h,
-                backgroundGradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF389A07), Color(0xFF020500)],
-                ),
-                borderGradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF1E1E1E), Color(0xFF848484)],
-                ),
-                borderWidth: 1.5,
+                backgroundGradient:
+                    AppColors.gradientColors.containerGradientBrightGreen,
+                borderGradient:
+                    AppColors.gradientColors.borderGradientBrightGreen,
+                borderWidth: 1.5.w,
                 borderRadius: 12.r,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -63,7 +59,7 @@ class SelectMedalOverlay extends StatelessWidget {
 
                         return Padding(
                           padding: EdgeInsets.only(
-                            bottom: rowIndex < 4 ? 12.h : 0,
+                            bottom: rowIndex < 4 ? 12.h : 0.h,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -80,28 +76,20 @@ class SelectMedalOverlay extends StatelessWidget {
                                     right:
                                         index < medalAssets.length - 1
                                             ? 8.w
-                                            : 0,
+                                            : 0.w,
                                   ),
                                   child: CustomGradientContainerWidget(
                                     width: 114.w,
                                     height: 132.h,
-                                    backgroundGradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Color(0xFF389A07),
-                                        Color(0xFF020500),
-                                      ],
-                                    ),
-                                    borderGradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Color(0xFF1E1E1E),
-                                        Color(0xFF848484),
-                                      ],
-                                    ),
-                                    borderWidth: 1.5,
+                                    backgroundGradient:
+                                        AppColors
+                                            .gradientColors
+                                            .containerGradientBrightGreen,
+                                    borderGradient:
+                                        AppColors
+                                            .gradientColors
+                                            .borderGradientBrightGreen,
+                                    borderWidth: 1.w,
                                     borderRadius: 12.r,
                                     child: Padding(
                                       padding: EdgeInsets.only(top: 8.h),
@@ -139,9 +127,12 @@ class SelectMedalOverlay extends StatelessWidget {
                                             text:
                                                 isAvailable
                                                     ? (isSelected
-                                                        ? 'Selected'
-                                                        : 'Available')
-                                                    : 'Unavailable',
+                                                        ? AppTexts
+                                                            .buttonSelected
+                                                        : AppTexts
+                                                            .buttonAvailable)
+                                                    : AppTexts
+                                                        .buttonUnavailable,
 
                                             fontSize: 12.sp,
                                             onPressed: () {

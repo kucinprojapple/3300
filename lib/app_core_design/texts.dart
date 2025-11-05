@@ -54,6 +54,17 @@ sealed class AppTexts {
   static const String titlePushUpKing = 'Push-Up King';
   static const String titleSquatCaptain = 'Squat Captain';
   static const String titleBurpeeLightning = 'Burpee Lightning';
+  static const String titleCardioQueen = 'Cardio Queen';
+  static const String titleTricepTitan = 'Tricep Titan';
+  static const String titleLungeLegend = 'Lunge Legend';
+  static const String titleJumpingJackFlash = 'Jumping Jack Flash';
+  static const String titleBicycleCrunchCaptain = 'Bicycle Crunch Captain';
+  static const String titleLegRaiseRoyalty = 'Leg Raise Royalty';
+  static const String titleSweatMaster = 'Sweat Master';
+
+
+
+
 
   /// --- Info Screen text ---
   static const String info = 'Info';
@@ -77,7 +88,11 @@ sealed class AppTexts {
   static const String buttonNext = 'Next';
   static const String buttonExercises = 'Exercises';
   static const String buttonAchievements = 'Achievements';
+  static const String buttonSelected = 'Selected';
+  static const String buttonAvailable = 'Available';
+  static const String buttonUnavailable = 'Unavailable';
   static const String buttonPlay = 'Play';
+  static const String buttonStart = 'Start';
 
   /// --- BottomSheet text ---
   static const String bottomSheetPleaseMakeYourChoice =

@@ -46,7 +46,7 @@ class ProfileTitleCardWidget extends StatelessWidget {
                 useGradient: false,
                 useShadow: false,
                 height: 1.0,
-                fontSize: 20.sp,
+                fontSize: 18.sp,
               ),
             ),
             GestureDetector(

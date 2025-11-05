@@ -24,8 +24,7 @@ class _MainColors {
 class _TextColors {
   const _TextColors();
 
-  // final Color shadowNumbers = const Color.fromRGBO(0, 0, 0, 0.55);
-  final Color shadowNumbers = const Color.fromRGBO(0, 0, 0, 0.55);
+  final Color shadowText = const Color.fromRGBO(0, 0, 0, 0.55);
   final LinearGradient numbersGradient = const LinearGradient(
     begin: Alignment.bottomCenter,
     end: Alignment.topCenter,
@@ -57,6 +56,12 @@ class _GradientColors {
     colors: [Color.fromRGBO(14, 40, 1, 1), Color.fromRGBO(2, 5, 0, 1)],
   );
 
+  final LinearGradient containerGradientOnboardingCircle = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color.fromRGBO(47, 135, 3, 1), Color.fromRGBO(75, 203, 11, 1)],
+  );
+
   final LinearGradient borderGradientDarkGreen = const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -79,5 +84,11 @@ class _GradientColors {
       Color.fromRGBO(126, 123, 123, 1),
       Color.fromRGBO(132, 132, 132, 1),
     ],
+  );
+
+  final LinearGradient borderGradientOnboardingCircle = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color(0xFFAAA7A6), Color(0xFFFFFFFF)],
   );
 }

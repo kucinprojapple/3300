@@ -83,7 +83,7 @@ class AchievementItem extends StatelessWidget {
               borderGradient:
                   AppColors.gradientColors.borderGradientDeepDarkGreen,
               borderRadius: 12.r,
-              borderWidth: 2.w,
+              borderWidth: 1.w,
               padding: EdgeInsets.all(4.w),
               child: Stack(
                 alignment: Alignment.center,

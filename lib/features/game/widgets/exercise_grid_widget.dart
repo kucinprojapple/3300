@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_flip_card/flutter_flip_card.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../core/services/sound_service.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../exercises/data/exercise_list.dart';
@@ -94,21 +95,12 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
 
   Widget _buildCard({String? imagePath}) {
     return CustomGradientContainerWidget(
-      width: 90.w,
-      height: 90.h,
+      width: 80.w,
+      height: 88.h,
+      backgroundGradient: AppColors.gradientColors.containerGradientDarkGreen,
+      borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
       borderRadius: 12.r,
       borderWidth: 2.r,
-      backgroundGradient: const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Color(0xFF1D5401), Color(0xFF020500)],
-        stops: [0.5, 1.0],
-      ),
-      borderGradient: const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-      ),
       child:
           imagePath != null
               ? Padding(

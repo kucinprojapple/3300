@@ -12,7 +12,7 @@ final textLightShadows = [
   Shadow(
     offset: Offset(0.w, 1.5.h),
     blurRadius: 1.5.r,
-    color: AppColors.textColors.shadowNumbers,
+    color: AppColors.textColors.shadowText,
   ),
 ];
 

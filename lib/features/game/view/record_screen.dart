@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
-import '../../settings/widgets/custom_snack_bar_widget.dart';
+import '../../../core/widgets/custom_snack_bar_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
 import '../game_bloc/game_bloc.dart';
@@ -73,25 +73,13 @@ class _RecordScreenState extends State<RecordScreen> {
             right: 20.w,
             child: Column(
               children: [
-                Container(
-                  width: 332.w,
+                CustomGradientContainerWidget(
+                  width: 322.w,
                   height: 248.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.r),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                    ),
-                    border: GradientBoxBorder(
-                      gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                      ),
-                      width: 2.w,
-                    ),
-                  ),
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
                   child: Column(
                     children: [
                       SizedBox(height: 4.h),
@@ -108,20 +96,15 @@ class _RecordScreenState extends State<RecordScreen> {
                     ],
                   ),
                 ),
+
                 SizedBox(height: 20.h),
                 CustomGradientContainerWidget(
                   width: 332.w,
                   height: 60.h,
-                  backgroundGradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                  ),
-                  borderGradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                  ),
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
                   borderWidth: 2.w,
                   borderRadius: 20.r,
                   child: Padding(
@@ -154,16 +137,10 @@ class _RecordScreenState extends State<RecordScreen> {
                 CustomGradientContainerWidget(
                   width: 332.w,
                   height: 60.h,
-                  backgroundGradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF1D5401), Color(0xFF020500)],
-                  ),
-                  borderGradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                  ),
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
                   borderWidth: 2.w,
                   borderRadius: 20.r,
                   child: Padding(
@@ -224,7 +201,7 @@ class _RecordScreenState extends State<RecordScreen> {
           ),
           Positioned(
             left: 0.w,
-            bottom: 100.h,
+            bottom: 80.h,
             right: 0.w,
             child: Center(
               child: ActionButtonWidget(
