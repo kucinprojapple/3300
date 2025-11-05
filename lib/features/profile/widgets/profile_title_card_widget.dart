@@ -22,7 +22,7 @@ class ProfileTitleCardWidget extends StatelessWidget {
       height: 48.h,
       backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
       borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
-      borderWidth: 1.5,
+      borderWidth: 2.w,
       borderRadius: 12.r,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),

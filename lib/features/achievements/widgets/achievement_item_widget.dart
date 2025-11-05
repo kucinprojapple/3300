@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
@@ -18,18 +19,10 @@ class AchievementItem extends StatelessWidget {
     return CustomGradientContainerWidget(
       width: 332.w,
       height: 82.h,
+      backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
+      borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
       borderRadius: 12.r,
       borderWidth: 2.w,
-      backgroundGradient: LinearGradient(
-        colors: [Color(0xFF389A07), Color(0xFF020500)],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      ),
-      borderGradient: LinearGradient(
-        colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      ),
       margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 4.h),
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
       child: Row(
@@ -76,9 +69,7 @@ class AchievementItem extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              debugPrint('🟢 Tap on achievement: ${achievement.title}');
               if (achievement.isCompleted) {
-                debugPrint('🏆 Achievement completed!');
                 context.read<AchievementsOverlayBloc>().add(
                   ShowAchievementCongratsOverlayEvent(achievement),
                 );
@@ -87,18 +78,12 @@ class AchievementItem extends StatelessWidget {
             child: CustomGradientContainerWidget(
               width: 68.w,
               height: 68.w,
+              backgroundGradient:
+                  AppColors.gradientColors.containerGradientDeepDarkGreen,
+              borderGradient:
+                  AppColors.gradientColors.borderGradientDeepDarkGreen,
               borderRadius: 12.r,
               borderWidth: 2.w,
-              backgroundGradient: LinearGradient(
-                colors: [Color(0xFF0E2801), Color(0xFF020500)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              borderGradient: LinearGradient(
-                colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
               padding: EdgeInsets.all(4.w),
               child: Stack(
                 alignment: Alignment.center,
@@ -109,7 +94,6 @@ class AchievementItem extends StatelessWidget {
                   ),
                   if (achievement.isCompleted)
                     Positioned(
-                      // right: 2.w,
                       bottom: 4.h,
                       child: Image.asset(
                         AppAssets.achievementDone,

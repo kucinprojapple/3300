@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
@@ -26,16 +27,9 @@ class LostNetworkScreen extends StatelessWidget {
             child: CustomGradientContainerWidget(
               width: 322.w,
               height: 308.h,
-              backgroundGradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF1D5401), Color(0xFF020500)],
-              ),
-              borderGradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-              ),
+              backgroundGradient:
+                  AppColors.gradientColors.containerGradientDarkGreen,
+              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

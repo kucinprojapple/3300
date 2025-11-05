@@ -8,7 +8,9 @@ sealed class AppColors {
   static const _GradientColors _gradientColors = _GradientColors();
 
   static _MainColors get mainColors => _mainColors;
+
   static _TextColors get textColors => _textColors;
+
   static _GradientColors get gradientColors => _gradientColors;
 }
 
@@ -49,6 +51,12 @@ class _GradientColors {
     colors: [Color.fromRGBO(56, 154, 7, 1), Color.fromRGBO(2, 5, 0, 1)],
   );
 
+  final LinearGradient containerGradientDeepDarkGreen = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color.fromRGBO(14, 40, 1, 1), Color.fromRGBO(2, 5, 0, 1)],
+  );
+
   final LinearGradient borderGradientDarkGreen = const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -62,5 +70,14 @@ class _GradientColors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [Color.fromRGBO(30, 30, 30, 1), Color.fromRGBO(132, 132, 132, 1)],
+  );
+
+  final LinearGradient borderGradientDeepDarkGreen = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color.fromRGBO(126, 123, 123, 1),
+      Color.fromRGBO(132, 132, 132, 1),
+    ],
   );
 }

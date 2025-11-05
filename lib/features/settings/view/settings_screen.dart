@@ -1,15 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:green_gym_club/core/constants/timer_constants.dart';
 
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/colors.dart';
 import '../../../app_core_design/styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/services/vibration_service.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
 import '../widgets/custom_snack_bar_widget.dart';
@@ -95,26 +96,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Positioned(
             left: 28.w,
             top: 226.h,
-            child: Container(
+            child: CustomGradientContainerWidget(
               width: 332.w,
               height: 268.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF389A07), Color(0xFF020500)],
-                ),
-                border: GradientBoxBorder(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xFF969494), Color(0xFF848484)],
-                  ),
-                  width: 4.w,
-                ),
-              ),
-
+              backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
+              borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+              borderWidth: 2.w,
+              borderRadius: 20.r,
               child: Column(
                 children: [
                   SizedBox(height: 24.h),
