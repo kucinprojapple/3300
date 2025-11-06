@@ -62,14 +62,14 @@ sealed class AppTexts {
   static const String titleLegRaiseRoyalty = 'Leg Raise Royalty';
   static const String titleSweatMaster = 'Sweat Master';
 
-
-
-
-
   /// --- Info Screen text ---
   static const String info = 'Info';
 
+  /// --- Exercise Screen text ---
+  static const String exercises = 'Exercises';
+
   /// --- Achievements Screen text ---
+  static const String achievementsScreen = 'Achievements';
   static const String congratsTitle = 'Congrats!';
   static const String congratsReceivedTitle = 'You received the title';
 

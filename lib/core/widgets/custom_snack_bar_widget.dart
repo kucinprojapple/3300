@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../app_core_design/assets.dart';
 import '../../app_core_design/colors.dart';
-import '../../app_core_design/styles.dart';
+import '../../app_core_design/text_styles.dart';
 import 'custom_gradient_container_widget.dart';
 
 class CustomSnackBar {

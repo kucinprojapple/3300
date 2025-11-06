@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
@@ -20,18 +20,18 @@ class OnboardingStep3Widget extends StatelessWidget {
           width: 188.w,
           height: 144.h,
           backgroundGradient:
-          AppColors.gradientColors.containerGradientDarkGreen,
+              AppColors.gradientColors.containerGradientDarkGreen,
           borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
           borderRadius: 10.r,
-          borderWidth: 2,
+          borderWidth: 1.w,
           margin: EdgeInsets.symmetric(vertical: 2.h),
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Column(
             children: [
               MainTextBody.gradientText(
                 context,
-               AppTexts.squats,
-                size: TextSize.l,
+                AppTexts.squats,
+                fontSize: 30.sp,
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
                 height: 1.1,
@@ -48,10 +48,10 @@ class OnboardingStep3Widget extends StatelessWidget {
           width: 200.w,
           height: 32.h,
           backgroundGradient:
-          AppColors.gradientColors.containerGradientDarkGreen,
+              AppColors.gradientColors.containerGradientDarkGreen,
           borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
           borderRadius: 10.r,
-          borderWidth: 2,
+          borderWidth: 1.w,
           margin: EdgeInsets.symmetric(vertical: 2.h),
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
@@ -59,22 +59,22 @@ class OnboardingStep3Widget extends StatelessWidget {
               MainTextBody.gradientText(
                 context,
                 AppTexts.time,
+                fontSize: 14.sp,
                 alignment: Alignment.center,
                 useGradient: false,
                 useShadow: false,
                 height: 1.0,
-                fontSize: 14.sp,
               ),
 
               Spacer(),
               MainTextBody.gradientText(
                 context,
                 '00:30',
+                fontSize: 14.sp,
                 alignment: Alignment.center,
                 useGradient: false,
                 useShadow: false,
                 height: 1.0,
-                fontSize: 14.sp,
               ),
             ],
           ),
@@ -82,18 +82,11 @@ class OnboardingStep3Widget extends StatelessWidget {
         CustomGradientContainerWidget(
           width: 200.w,
           height: 32.h,
+          backgroundGradient:
+              AppColors.gradientColors.containerGradientDarkGreen,
+          borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
           borderRadius: 10.r,
-          borderWidth: 2,
-          backgroundGradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF1D5401), Color(0xFF020500)],
-          ),
-          borderGradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7E7B7B), Color(0xFF848484)],
-          ),
+          borderWidth: 1.w,
           margin: EdgeInsets.symmetric(vertical: 2.h),
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Row(
@@ -101,21 +94,21 @@ class OnboardingStep3Widget extends StatelessWidget {
               MainTextBody.gradientText(
                 context,
                 AppTexts.reps,
+                fontSize: 14.sp,
                 alignment: Alignment.center,
                 useGradient: false,
                 useShadow: false,
                 height: 1.0,
-                fontSize: 14.sp,
               ),
               Spacer(),
               MainTextBody.gradientText(
                 context,
                 '10',
                 alignment: Alignment.center,
+                fontSize: 14.sp,
                 useGradient: false,
                 useShadow: false,
                 height: 1.0,
-                fontSize: 14.sp,
               ),
               SizedBox(width: 8.w),
               Center(

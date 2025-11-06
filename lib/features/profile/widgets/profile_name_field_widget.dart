@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 
 class ProfileNameFieldWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -26,7 +26,7 @@ class ProfileNameFieldWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF031400),
         borderRadius: BorderRadius.circular(24.r),
-        border: Border.all(color: const Color(0xFF73706D), width: 1.5.w),
+        border: Border.all(color: const Color(0xFF73706D), width: 1.w),
       ),
       child: Stack(
         alignment: Alignment.center,
@@ -38,9 +38,11 @@ class ProfileNameFieldWidget extends StatelessWidget {
                 controller: controller,
                 readOnly: !isEditing,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.mainTextBody(
-                  context,
-                ).m.copyWith(color: Colors.white, shadows: []),
+                style: MainTextBody.style(
+                  fontSize: 25.sp,
+                  color: Colors.white,
+                  useShadow: false,
+                ),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(vertical: 8.h),

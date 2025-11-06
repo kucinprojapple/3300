@@ -55,6 +55,12 @@ class TimerPausedState extends GameState {
   List<Object?> get props => [secondsLeft];
 }
 
+class TimerFinishedState extends GameState {
+  final int secondsLeft;
+
+  const TimerFinishedState(this.secondsLeft);
+}
+
 class GoodJobOverlayState extends GameState {
   const GoodJobOverlayState();
 }

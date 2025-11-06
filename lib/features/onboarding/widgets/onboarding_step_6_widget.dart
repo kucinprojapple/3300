@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
-import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 class OnboardingStep6Widget extends StatelessWidget {
   const OnboardingStep6Widget({super.key});
@@ -36,11 +36,10 @@ class OnboardingStep6Widget extends StatelessWidget {
               MainTextBody.gradientText(
                 context,
                 exercise.name,
-                size: TextSize.l,
+                fontSize: 15.sp,
                 alignment: Alignment.bottomCenter,
                 useShadow: false,
                 height: 1.1,
-                fontSize: 15.sp,
               ),
 
               SizedBox(height: 4.h),

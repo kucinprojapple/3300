@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
@@ -104,12 +104,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                   MainTextBody.gradientText(
                     context,
                     AppTexts.titlePushUpKing,
-                    size: TextSize.xs,
+                    fontSize: 11.sp,
                     alignment: Alignment.centerLeft,
                     useGradient: false,
                     useShadow: false,
                     height: 1.0,
-                    fontSize: 11.sp,
                   ),
                   Image.asset(AppAssets.iconEdit, width: 22.w, height: 22.h),
                 ],
@@ -139,12 +138,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                           MainTextBody.gradientText(
                             context,
                             AppTexts.numberOfExercisesPerformed,
-                            size: TextSize.xs,
+                            fontSize: 6.sp,
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
                             height: 1.1,
-                            fontSize: 6.sp,
                           ),
                           Spacer(),
                           MainTextBody.gradientText(
@@ -180,12 +178,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                           MainTextBody.gradientText(
                             context,
                             AppTexts.amountOfTimeForExercise,
-                            size: TextSize.xs,
+                            fontSize: 6.sp,
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
                             height: 1.1,
-                            fontSize: 6.sp,
                           ),
                           Spacer(),
                           MainTextBody.gradientText(
@@ -221,12 +218,11 @@ class OnboardingStep4Widget extends StatelessWidget {
                           MainTextBody.gradientText(
                             context,
                             AppTexts.numberOfRepetitions,
-                            size: TextSize.xs,
+                            fontSize: 6.sp,
                             alignment: Alignment.topCenter,
                             useGradient: false,
                             useShadow: false,
                             height: 1.1,
-                            fontSize: 6.sp,
                           ),
                           Spacer(),
                           MainTextBody.gradientText(

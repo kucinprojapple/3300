@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/router/router.dart';
+import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../data/exercise_list.dart';
 import '../model/exercise_entity.dart';
-import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 @RoutePage()
 class ExercisesScreen extends StatelessWidget {
@@ -41,8 +42,8 @@ class ExercisesScreen extends StatelessWidget {
             right: 0.w,
             child: MainTextBody.gradientText(
               context,
-              'Exercises',
-              size: TextSize.m,
+              AppTexts.exercises,
+              fontSize: 25.sp,
               alignment: Alignment.center,
               useShadow: false,
               height: 1.1,

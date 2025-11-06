@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../profile_data_cubit/profile_data_state.dart';
@@ -89,22 +89,21 @@ class ProfileStatsRowWidget extends StatelessWidget {
           MainTextBody.gradientText(
             context,
             title,
-            size: TextSize.xs,
+            fontSize: 12.sp,
             alignment: Alignment.topCenter,
             useGradient: false,
             useShadow: false,
             height: 1.1,
-            fontSize: 12.sp,
           ),
           const Spacer(),
           MainTextBody.gradientText(
             context,
             value,
+            fontSize: 30.sp,
             alignment: Alignment.topCenter,
             useGradient: false,
             useShadow: false,
             height: 1.0,
-            fontSize: 30.sp,
           ),
         ],
       ),

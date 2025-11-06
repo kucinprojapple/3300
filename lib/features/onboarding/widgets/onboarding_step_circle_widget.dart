@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 
 class OnboardingStepCircleWidget extends StatelessWidget {

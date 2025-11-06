@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 
 class OnboardingStep2Widget extends StatelessWidget {
   const OnboardingStep2Widget({super.key});
@@ -34,7 +34,7 @@ class _GreenTimerCircle extends StatelessWidget {
           top: 40.h,
           child: SizedBox(
             width: 172.w,
-            height: 172.w,
+            height: 172.h,
             child: CircularProgressIndicator(
               value: progress,
               strokeWidth: 9.w,
@@ -48,12 +48,11 @@ class _GreenTimerCircle extends StatelessWidget {
           child: MainTextBody.gradientText(
             context,
             timeString,
-            size: TextSize.m,
+            fontSize: 24.sp,
             alignment: Alignment.center,
             useGradient: false,
             useShadow: false,
             height: 1.0,
-            fontSize: 24.sp,
           ),
         ),
       ],

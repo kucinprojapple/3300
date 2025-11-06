@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
@@ -56,7 +56,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
                   MainTextBody.gradientText(
                     context,
                     exercise.name,
-                    size: TextSize.l,
+                    fontSize: 30.sp,
                     alignment: Alignment.bottomCenter,
                     useShadow: false,
                     height: 1.1,

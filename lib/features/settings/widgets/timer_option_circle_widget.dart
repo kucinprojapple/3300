@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 
 class TimerOptionCircleWidget extends StatelessWidget {
   final int seconds;
@@ -51,10 +51,9 @@ class TimerOptionCircleWidget extends StatelessWidget {
           child: MainTextBody.gradientText(
             context,
             '${seconds}s',
-            size: TextSize.m,
+            fontSize: 14.sp,
             alignment: Alignment.center,
             height: 1.0,
-            fontSize: 14.sp,
           ),
         ),
       ),

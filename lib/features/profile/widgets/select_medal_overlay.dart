@@ -41,7 +41,7 @@ class SelectMedalOverlay extends StatelessWidget {
                     AppColors.gradientColors.containerGradientBrightGreen,
                 borderGradient:
                     AppColors.gradientColors.borderGradientBrightGreen,
-                borderWidth: 1.5.w,
+                borderWidth: 2.w,
                 borderRadius: 12.r,
                 child: Padding(
                   padding: EdgeInsets.symmetric(

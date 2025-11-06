@@ -5,13 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
-import '../../../core/widgets/icon_button_widget.dart';
 import '../../../core/widgets/custom_snack_bar_widget.dart';
+import '../../../core/widgets/icon_button_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
 import '../game_bloc/game_bloc.dart';
@@ -86,7 +86,7 @@ class _RecordScreenState extends State<RecordScreen> {
                       MainTextBody.gradientText(
                         context,
                         exercise.name,
-                        size: TextSize.l,
+                        fontSize: 30.sp,
                         alignment: Alignment.bottomCenter,
                         useShadow: false,
                         height: 1.1,
@@ -115,7 +115,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         MainTextBody.gradientText(
                           context,
                           AppTexts.time,
-                          size: TextSize.m,
+                          fontSize: 25.sp,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
                           height: 1.0,
@@ -124,7 +124,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         MainTextBody.gradientText(
                           context,
                           formattedTime,
-                          size: TextSize.l,
+                          fontSize: 30.sp,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
                           height: 1.0,
@@ -151,7 +151,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         MainTextBody.gradientText(
                           context,
                           AppTexts.reps,
-                          size: TextSize.m,
+                          fontSize: 25.sp,
                           alignment: Alignment.centerLeft,
                           useShadow: false,
                           height: 1.0,
@@ -164,9 +164,12 @@ class _RecordScreenState extends State<RecordScreen> {
                             enabled: _isEditing,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
-                            style: AppTextStyles.mainTextBody(
-                              context,
-                            ).m.copyWith(color: Colors.white, shadows: []),
+
+                            style: MainTextBody.style().copyWith(
+                              color: Colors.white,
+                              fontSize: 30.sp,
+                              shadows: [],
+                            ),
 
                             decoration: const InputDecoration(
                               border: InputBorder.none,

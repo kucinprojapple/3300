@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 
 class SwitchWithPrefsWidget extends StatefulWidget {
   final String title;
@@ -53,7 +53,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
           MainTextBody.gradientText(
             context,
             widget.title,
-            size: TextSize.m,
+            fontSize: 25.sp,
             alignment: Alignment.bottomCenter,
             useShadow: false,
             height: 1.1,
@@ -78,8 +78,8 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
                 boxShadow: const [
                   BoxShadow(
                     color: Color.fromRGBO(0, 0, 0, 0.25),
-                    offset: Offset(0, 1.5),
-                    blurRadius: 1.5,
+                    offset: Offset(0, 1),
+                    blurRadius: 2,
                   ),
                 ],
 
@@ -118,7 +118,7 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
       width: size,
       height: size,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.55.r),
+        borderRadius: BorderRadius.circular(16.r),
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -142,8 +142,8 @@ class _SwitchWithPrefsWidgetState extends State<SwitchWithPrefsWidget>
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.25),
-            offset: Offset(0, 1.34),
-            blurRadius: 4.48,
+            offset: Offset(0, 1),
+            blurRadius: 4,
           ),
         ],
       ),

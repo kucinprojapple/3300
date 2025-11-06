@@ -2,8 +2,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:text_gradiate/text_gradiate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:text_gradiate/text_gradiate.dart';
+
 import 'colors.dart' show AppColors;
 
 const String _fontFamily = 'OtomanopeeOne';
@@ -189,63 +190,50 @@ class _TabTextBody {
   );
 }
 
-enum TextSize { l, m, s, xs }
-
 class MainTextBody {
-  late final TextStyle l;
-  late final TextStyle m;
-  late final TextStyle s;
-  late final TextStyle xs;
+  MainTextBody(BuildContext context);
 
-  MainTextBody(BuildContext context) {
-    l = _MainTextBody().l;
-    m = _MainTextBody().m;
-    s = _MainTextBody().s;
-    xs = _MainTextBody().xs;
+  static TextStyle style({
+    double fontSize = 24,
+    FontWeight fontWeight = FontWeight.w400,
+    bool useShadow = true,
+    double letterSpacing = 0,
+    double? height,
+    Color color = Colors.white,
+  }) {
+    return TextStyle(
+      fontFamily: _fontFamily,
+      fontWeight: fontWeight,
+      fontSize: fontSize.sp,
+      height: height ?? 0.85,
+      letterSpacing: letterSpacing,
+      shadows: useShadow ? textLightShadows : [],
+      color: color,
+    );
   }
 
   static Widget gradientText(
     BuildContext context,
     String text, {
-    TextSize size = TextSize.l,
+    double fontSize = 24,
+    FontWeight fontWeight = FontWeight.w400,
     double? height,
-    double? fontSize,
     Alignment alignment = Alignment.center,
     TextAlign textAlign = TextAlign.center,
     bool useGradient = true,
     bool useShadow = true,
     List<Color>? gradientColors,
     Color? fallbackColor,
+    double letterSpacing = 0,
   }) {
-    final numbers = AppTextStyles.mainTextBody(context);
-    late TextStyle style;
-
-    switch (size) {
-      case TextSize.l:
-        style = numbers.l;
-        break;
-      case TextSize.m:
-        style = numbers.m;
-        break;
-      case TextSize.s:
-        style = numbers.s;
-        break;
-      case TextSize.xs:
-        style = numbers.xs;
-        break;
-    }
-
-    if (height != null) {
-      style = style.copyWith(height: height);
-    }
-
-    if (fontSize != null) {
-      style = style.copyWith(fontSize: fontSize.sp);
-    }
-
-    if (!useShadow) {
-      style = style.copyWith(shadows: []);
-    }
+    TextStyle style = TextStyle(
+      fontFamily: _fontFamily,
+      fontWeight: fontWeight,
+      fontSize: fontSize.sp,
+      height: height ?? 0.85,
+      letterSpacing: letterSpacing,
+      shadows: useShadow ? textLightShadows : [],
+    );
 
     final textWidget = Text(
       text,
@@ -273,42 +261,4 @@ class MainTextBody {
               : textWidget,
     );
   }
-}
-
-class _MainTextBody {
-  final TextStyle l = TextStyle(
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w400,
-    fontSize: 30.sp,
-    height: 0.85,
-    letterSpacing: 0,
-    shadows: textLightShadows,
-  );
-
-  final TextStyle m = TextStyle(
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w400,
-    fontSize: 25.sp,
-    height: 0.85,
-    letterSpacing: 0,
-    shadows: textLightShadows,
-  );
-
-  final TextStyle s = TextStyle(
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w400,
-    fontSize: 20.sp,
-    height: 0.85,
-    letterSpacing: 0,
-    shadows: textLightShadows,
-  );
-
-  final TextStyle xs = TextStyle(
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w400,
-    fontSize: 15.sp,
-    height: 0.85,
-    letterSpacing: 0,
-    shadows: textLightShadows,
-  );
 }

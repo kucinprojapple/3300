@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
-
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
@@ -61,18 +60,17 @@ class AchievementCongratsOverlay extends StatelessWidget {
                   MainTextBody.gradientText(
                     context,
                     AppTexts.congratsReceivedTitle,
+                    fontSize: 20.sp,
                     alignment: Alignment.center,
                     height: 1.1,
-                    fontSize: 20.sp,
                   ),
                   SizedBox(height: 12.h),
                   MainTextBody.gradientText(
                     context,
                     achievement.title,
-                    size: TextSize.m,
+                    fontSize: 30.sp,
                     alignment: Alignment.center,
                     height: 1.1,
-                    fontSize: 30.sp,
                   ),
                 ],
               ),

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/services/music_service.dart';
 import '/green_gym_club.dart';
 import '../../../app_core_design/assets.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/router/router.dart';
+import '../../../core/services/music_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
@@ -118,7 +118,7 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
                   child: ActionButtonWidget(
                     width: 224.w,
                     height: 88.h,
-                    text: 'Exercises',
+                    text: AppTexts.exercises,
                     fontSize: 30.sp,
                     onPressed: () {
                       context.router.push(const ExercisesRoute());
@@ -130,8 +130,8 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
                   child: ActionButtonWidget(
                     width: 224.w,
                     height: 88.h,
-                    text: 'Achievements',
-                    fontSize: 24.sp,
+                    text: AppTexts.achievementsScreen,
+                    fontSize: 25.sp,
                     onPressed: () {
                       context.router.push(const AchievementsRoute());
                     },

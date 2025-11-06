@@ -4,12 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../../../core/widgets/custom_snack_bar_widget.dart';
-
 import '../data/titles_list.dart';
 import '../profile_data_cubit/profile_data_cubit.dart';
 import '../profile_overlay_bloc/profile_overlay_bloc.dart';

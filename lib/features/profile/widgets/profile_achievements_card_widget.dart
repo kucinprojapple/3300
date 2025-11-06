@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../profile_data_cubit/profile_data_state.dart';
@@ -15,11 +15,11 @@ class ProfileAchievementsCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomGradientContainerWidget(
-      width: 354.w,
+      width: 352.w,
       height: 54.h,
       backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
       borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
-      borderWidth: 1.5,
+      borderWidth: 2.w,
       borderRadius: 12.r,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -29,7 +29,7 @@ class ProfileAchievementsCardWidget extends StatelessWidget {
             MainTextBody.gradientText(
               context,
               AppTexts.achievements,
-              size: TextSize.xs,
+              fontSize: 15.sp,
               alignment: Alignment.centerLeft,
               useGradient: false,
               useShadow: false,
@@ -38,11 +38,11 @@ class ProfileAchievementsCardWidget extends StatelessWidget {
             MainTextBody.gradientText(
               context,
               '${state.completedAchievements} | ${state.totalAchievements}',
+              fontSize: 22.sp,
               alignment: Alignment.centerLeft,
               useGradient: false,
               useShadow: false,
               height: 1.0,
-              fontSize: 22.sp,
             ),
           ],
         ),

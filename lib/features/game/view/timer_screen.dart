@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../game_bloc/game_bloc.dart';
 import '../game_bloc/game_event.dart';
@@ -78,12 +78,11 @@ class TimerScreen extends StatelessWidget {
                     MainTextBody.gradientText(
                       context,
                       '$minutes:$secs',
-                      size: TextSize.m,
+                      fontSize: 35.sp,
                       alignment: Alignment.center,
                       useGradient: false,
                       useShadow: false,
                       height: 1.0,
-                      fontSize: 35.sp,
                     ),
 
                     SizedBox(height: 32.h),

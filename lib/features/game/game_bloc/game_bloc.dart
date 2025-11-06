@@ -5,7 +5,6 @@ import 'package:green_gym_club/core/services/sound_service.dart';
 
 import '../../../core/storage/local_storage_service.dart';
 import '../repository/game_exercise_repository.dart';
-
 import 'game_event.dart';
 import 'game_state.dart';
 
@@ -34,14 +33,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     _secondsLeft = _totalSeconds;
 
     emit(const ShowOverlayWowState());
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     if (isClosed) return;
 
+    await SoundService.preloadCountdownSounds();
+
     for (int i = 3; i > 0; i--) {
+      emit(ShowCountdownOverlayState(i));
       SoundService.playCountdown();
       await Future.delayed(const Duration(seconds: 1));
-      emit(ShowCountdownOverlayState(i));
     }
 
     SoundService.playLongBeep();
@@ -64,6 +65,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       _secondsLeft = _totalSeconds;
     }
 
+    SoundService.startTicking();
+
     emit(TimerRunningState(_secondsLeft));
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -78,16 +81,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onTick(TimerTickEvent event, Emitter<GameState> emit) {
-    _secondsLeft = event.secondsLeft;
+    // if (_secondsLeft <= 0) return;
 
-    // _player.play(AssetSource(AppSounds.tick));
-    SoundService.playTick();
+    _secondsLeft = event.secondsLeft;
 
     emit(TimerRunningState(_secondsLeft));
   }
 
   void _onPause(TimerPauseEvent event, Emitter<GameState> emit) {
     _timer?.cancel();
+    SoundService.stopTicking();
     emit(TimerPausedState(_secondsLeft));
   }
 
@@ -102,6 +105,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     Emitter<GameState> emit,
   ) async {
     _timer?.cancel();
+    SoundService.stopTicking();
+    _secondsLeft = 0;
+
+    emit(TimerFinishedState(_secondsLeft));
     emit(const GoodJobOverlayState());
 
     SoundService.playBeep();

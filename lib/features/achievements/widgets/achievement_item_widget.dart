@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../core/widgets/custom_gradient_container_widget.dart';
 import '../achievements_overlay_bloc/achievements_overlay_bloc.dart';
 import '../model/achievement_model.dart';

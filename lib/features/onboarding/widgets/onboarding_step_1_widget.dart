@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 
 class OnboardingStep1Widget extends StatelessWidget {
@@ -29,7 +29,7 @@ class OnboardingStep1Widget extends StatelessWidget {
           child: MainTextBody.gradientText(
             context,
             AppTexts.onboardingStep1YouGotTheExerciseSquats,
-            size: TextSize.m,
+            fontSize: 25.sp,
             alignment: Alignment.bottomCenter,
             useShadow: false,
             height: 1.1,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
@@ -46,7 +46,7 @@ class _InfoScreenState extends State<InfoScreen> {
             child: MainTextBody.gradientText(
               context,
               AppTexts.info,
-              size: TextSize.m,
+              fontSize: 25.sp,
               alignment: Alignment.bottomCenter,
               useShadow: false,
               height: 1.1,

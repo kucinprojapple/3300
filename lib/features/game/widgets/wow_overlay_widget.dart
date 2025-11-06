@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/app_core_design/assets.dart';
 
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../exercises/data/exercise_list.dart';
@@ -49,7 +49,7 @@ class WowOverlayWidget extends StatelessWidget {
                     MainTextBody.gradientText(
                       context,
                       '${AppTexts.youGotTheExercise}\n${exercise.name}',
-                      size: TextSize.m,
+                      fontSize: 25.sp,
                       alignment: Alignment.bottomCenter,
                       useShadow: false,
                       height: 1.1,

@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
+import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../achievements_bloc/achievements_bloc.dart';
 import '../widgets/achievement_item_widget.dart';
@@ -59,8 +60,8 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
             right: 0.w,
             child: MainTextBody.gradientText(
               context,
-              'Achievements',
-              size: TextSize.m,
+              AppTexts.achievementsScreen,
+              fontSize: 25.sp,
               alignment: Alignment.center,
               useShadow: false,
               height: 1.1,

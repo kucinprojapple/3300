@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
-import '../../../app_core_design/styles.dart';
+import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
@@ -85,7 +85,7 @@ class _GameScreenState extends State<GameScreen> {
                       MainTextBody.gradientText(
                         context,
                         'Tap on the card \nfor choose an exercise',
-                        size: TextSize.s,
+                        fontSize: 20.sp,
                         alignment: Alignment.bottomCenter,
                         useShadow: false,
                         height: 1.1,
