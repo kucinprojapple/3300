@@ -7,7 +7,4 @@ sealed class AppSounds {
   static const flip = '${_basePath}flip.mp3';
   static const countdown = '${_basePath}countdown.mp3';
   static const longBeep = '${_basePath}long_beep.mp3';
-
-  /// Music
-  static const backgroundMusic = '${_basePath}background_music.mp3';
 }

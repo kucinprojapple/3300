@@ -21,6 +21,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<TimerResetEvent>(_onReset);
     on<TimerTickEvent>(_onTick);
     on<TimerFinishEvent>(_onFinish);
+    on<TimerExitEvent>(_onExit);
     on<SaveResultEvent>(_onSaveResult);
   }
 
@@ -115,6 +116,14 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     await Future.delayed(const Duration(seconds: 2));
     emit(const ShowRecordScreenState(10));
+  }
+
+  void _onExit(TimerExitEvent event, Emitter<GameState> emit) {
+    _timer?.cancel();
+    SoundService.stopTicking();
+    _secondsLeft = _totalSeconds;
+
+    emit(TimerInitialState(_secondsLeft));
   }
 
   Future<void> _onSaveResult(

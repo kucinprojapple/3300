@@ -24,126 +24,137 @@ class TimerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<GameBloc, GameState>(
-        builder: (context, state) {
-          final bloc = context.read<GameBloc>();
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        final bloc = context.read<GameBloc>();
 
-          int seconds = secondsLeft;
-          if (state is TimerRunningState) seconds = state.secondsLeft;
-          if (state is TimerPausedState) seconds = state.secondsLeft;
-          if (state is TimerInitialState) seconds = state.secondsLeft;
+        int seconds = secondsLeft;
+        if (state is TimerRunningState) seconds = state.secondsLeft;
+        if (state is TimerPausedState) seconds = state.secondsLeft;
+        if (state is TimerInitialState) seconds = state.secondsLeft;
 
-          final minutes = (seconds ~/ 60).toString().padLeft(2, '0');
-          final secs = (seconds % 60).toString().padLeft(2, '0');
+        final minutes = (seconds ~/ 60).toString().padLeft(2, '0');
+        final secs = (seconds % 60).toString().padLeft(2, '0');
 
-          final isRunning = state is TimerRunningState;
-          final isPaused = state is TimerPausedState;
+        final isRunning = state is TimerRunningState;
+        final isPaused = state is TimerPausedState;
 
-          return Stack(
-            children: [
-              Positioned.fill(
-                child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
-              ),
-              Positioned(
-                left: 30.w,
-                top: 48.h,
-                child: IconButtonWidget(
-                  iconAsset: AppAssets.iconBack,
-                  onPressed: () => context.router.maybePop(),
+        return PopScope(
+          canPop: true,
+          onPopInvokedWithResult: (didPop, result) {
+            bloc.add(const TimerExitEvent());
+          },
+          child: Scaffold(
+            body: Stack(
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                      AppAssets.backgroundMain, fit: BoxFit.fill),
                 ),
-              ),
 
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 200.h),
+                /// Кнопка "Назад"
+                Positioned(
+                  left: 30.w,
+                  top: 48.h,
+                  child: IconButtonWidget(
+                    iconAsset: AppAssets.iconBack,
+                    onPressed: () {
+                      bloc.add(const TimerExitEvent());
+                      context.router.maybePop();
+                    },
+                  ),
+                ),
 
-                    SizedBox(
-                      width: 260.w,
-                      height: 260.h,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          CustomGradientCircularTimer(
-                            progress: 1 - (seconds / totalSeconds),
-                          ),
-                        ],
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 200.h),
+
+                      SizedBox(
+                        width: 260.w,
+                        height: 260.h,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomGradientCircularTimer(
+                              progress: 1 - (seconds / totalSeconds),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
 
-                    SizedBox(height: 32.h),
+                      SizedBox(height: 32.h),
 
-                    MainTextBody.gradientText(
-                      context,
-                      '$minutes:$secs',
-                      fontSize: 35.sp,
-                      alignment: Alignment.center,
-                      useGradient: false,
-                      useShadow: false,
-                      height: 1.0,
-                    ),
+                      MainTextBody.gradientText(
+                        context,
+                        '$minutes:$secs',
+                        fontSize: 35.sp,
+                        alignment: Alignment.center,
+                        useGradient: false,
+                        useShadow: false,
+                        height: 1.0,
+                      ),
 
-                    SizedBox(height: 32.h),
+                      SizedBox(height: 32.h),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Opacity(
-                          opacity: isRunning ? 0.4 : 1.0,
-                          child: IgnorePointer(
-                            ignoring: isRunning,
-                            child: IconButton(
-                              onPressed:
-                                  () =>
-                                      bloc.add(const TimerStartOrResumeEvent()),
-                              icon: SizedBox(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Opacity(
+                            opacity: isRunning ? 0.4 : 1.0,
+                            child: IgnorePointer(
+                              ignoring: isRunning,
+                              child: IconButton(
+                                onPressed: () =>
+                                    bloc.add(const TimerStartOrResumeEvent()),
+                                icon: SizedBox(
+                                  width: 72.w,
+                                  height: 72.h,
+                                  child: Image.asset(
+                                    AppAssets.iconTimerPlay,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(width: 16.w),
+
+                          IconButton(
+                            onPressed: () {
+                              if (isRunning) {
+                                bloc.add(const TimerPauseEvent());
+                              } else if (isPaused) {
+                                bloc.add(const TimerResetEvent());
+                              }
+                            },
+                            icon: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 200),
+                              child: SizedBox(
+                                key: ValueKey(isRunning),
                                 width: 72.w,
                                 height: 72.h,
                                 child: Image.asset(
-                                  AppAssets.iconTimerPlay,
+                                  isRunning
+                                      ? AppAssets.iconPause
+                                      : AppAssets.iconTimerStop,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                             ),
                           ),
-                        ),
-
-                        SizedBox(width: 16.w),
-
-                        IconButton(
-                          onPressed: () {
-                            if (isRunning) {
-                              bloc.add(const TimerPauseEvent());
-                            } else if (isPaused) {
-                              bloc.add(const TimerResetEvent());
-                            }
-                          },
-                          icon: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 200),
-                            child: SizedBox(
-                              key: ValueKey(isRunning),
-                              width: 72.w,
-                              height: 72.h,
-                              child: Image.asset(
-                                isRunning
-                                    ? AppAssets.iconPause
-                                    : AppAssets.iconTimerStop,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          );
-        },
-      ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -64,6 +64,17 @@ sealed class AppTexts {
 
   /// --- Info Screen text ---
   static const String info = 'Info';
+  static const String infoGuideP1 =
+      '  Green Gym Club is a fitness game where you can choose one of nine exercises for your daily workouts.';
+  static const String infoGuideP2 =
+      '  The slots select a random exercise - do it, set a timer, and record the number of repetitions.';
+  static const String infoGuideP3 = '  Everything is saved in your profile.';
+  static const String infoGuideP4 =
+      '  Complete tasks, earn achievements, unlock funny titles and avatar frames.';
+  static const String infoGuideP5 =
+      '  Share your progress and see tips for proper exercise technique.';
+  static const String infoGuideP6 =
+      " It's simple, fun, and motivates you to exercise every day.";
 
   /// --- Exercise Screen text ---
   static const String exercises = 'Exercises';

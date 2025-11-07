@@ -8,23 +8,44 @@ import '../../../app_core_design/texts.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 
 @RoutePage()
-class InfoScreen extends StatefulWidget {
+class InfoScreen extends StatelessWidget {
   const InfoScreen({super.key});
 
-  @override
-  State<InfoScreen> createState() => _InfoScreenState();
-}
+  Widget _buildParagraphRow(BuildContext context, String text) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: MainTextBody.gradientText(
+            context,
+            text,
+            fontSize: 20.sp,
+            useShadow: false,
+            height: 1.1,
+            textAlign: TextAlign.left,
+          ),
+        ),
+      ],
+    );
+  }
 
-class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
+    final paragraphs = [
+      AppTexts.infoGuideP1,
+      AppTexts.infoGuideP2,
+      AppTexts.infoGuideP3,
+      AppTexts.infoGuideP4,
+      AppTexts.infoGuideP5,
+      AppTexts.infoGuideP6,
+    ];
+
     return Scaffold(
       body: Stack(
         children: [
           Positioned.fill(
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
-
           Positioned(
             left: 30.w,
             top: 48.h,
@@ -33,7 +54,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 IconButtonWidget(
                   iconAsset: AppAssets.iconBack,
                   onPressed: () {
-                    context.router.maybePop();
+                    AutoRouter.of(context).maybePop();
                   },
                 ),
               ],
@@ -50,6 +71,26 @@ class _InfoScreenState extends State<InfoScreen> {
               alignment: Alignment.bottomCenter,
               useShadow: false,
               height: 1.1,
+            ),
+          ),
+          Positioned(
+            left: 0.w,
+            top: 180.h,
+            right: 0.w,
+            bottom: 20.h,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (var paragraph in paragraphs) ...[
+                      _buildParagraphRow(context, paragraph),
+                      SizedBox(height: 12.h),
+                    ],
+                  ],
+                ),
+              ),
             ),
           ),
         ],

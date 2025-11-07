@@ -36,6 +36,10 @@ class TimerFinishEvent extends GameEvent {
   const TimerFinishEvent();
 }
 
+class TimerExitEvent extends GameEvent {
+  const TimerExitEvent();
+}
+
 class SaveResultEvent extends GameEvent {
   final String exerciseName;
   final int exerciseTime;
