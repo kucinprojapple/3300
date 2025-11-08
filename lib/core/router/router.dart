@@ -15,7 +15,6 @@ import '../../features/onboarding/view/onboarding_screen.dart';
 import '../../features/profile/view/profile_screen.dart';
 import '../../features/settings/view/settings_screen.dart';
 
-
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen,Route')

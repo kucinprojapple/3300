@@ -13,9 +13,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   Timer? _timer;
   int _secondsLeft = 0;
   int _totalSeconds = 0;
+  bool _isFlowPaused = false;
 
   GameBloc(this.repository) : super(const GameFlowInitialState()) {
     on<StartGameFlowEvent>(_onStartFlow);
+    on<PauseFlowEvent>(_onPauseFlow);
     on<TimerStartOrResumeEvent>(_onStartOrResume);
     on<TimerPauseEvent>(_onPause);
     on<TimerResetEvent>(_onReset);
@@ -32,14 +34,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     final storage = LocalStorageService();
     _totalSeconds = storage.timerDuration;
     _secondsLeft = _totalSeconds;
+    _isFlowPaused = false;
 
     emit(const ShowOverlayWowState());
-    await Future.delayed(const Duration(seconds: 1));
-
-    if (isClosed) return;
+    await Future.delayed(const Duration(seconds: 3));
+    if (isClosed || _isFlowPaused) return;
 
     await SoundService.preloadCountdownSounds();
-
     for (int i = 3; i > 0; i--) {
       emit(ShowCountdownOverlayState(i));
       SoundService.playCountdown();
@@ -48,12 +49,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     SoundService.playLongBeep();
     emit(const ShowGoOverlayState());
-
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
 
     emit(TimerInitialState(_secondsLeft));
-
     add(const TimerStartOrResumeEvent());
+  }
+
+  void _onPauseFlow(PauseFlowEvent event, Emitter<GameState> emit) {
+    _isFlowPaused = true;
+    emit(GameFlowInitialState());
   }
 
   void _onStartOrResume(
@@ -82,8 +86,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _onTick(TimerTickEvent event, Emitter<GameState> emit) {
-    // if (_secondsLeft <= 0) return;
-
     _secondsLeft = event.secondsLeft;
 
     emit(TimerRunningState(_secondsLeft));

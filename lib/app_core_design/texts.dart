@@ -85,6 +85,7 @@ sealed class AppTexts {
   static const String congratsReceivedTitle = 'You received the title';
 
   /// --- Game Screen text ---
+  static const String tapOnTheCard = 'Tap on the card \nfor choose an exercise';
   static const String youGotTheExercise = 'You got the exercise';
   static const String reps = 'Reps:';
   static const String time = 'Time:';

@@ -1,13 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:green_gym_club/app_core_design/assets.dart';
 
 import '../../../app_core_design/text_styles.dart';
 import '../../../app_core_design/texts.dart';
+import '../../../core/router/router.dart';
 import '../../../core/widgets/icon_button_widget.dart';
 import '../../exercises/data/exercise_list.dart';
 import '../../exercises/model/exercise_entity.dart';
+import '../game_bloc/game_bloc.dart';
+import '../game_bloc/game_event.dart';
 import 'game_general_overlay_widget.dart';
 
 class WowOverlayWidget extends StatelessWidget {
@@ -30,7 +34,12 @@ class WowOverlayWidget extends StatelessWidget {
               child: IconButtonWidget(
                 iconAsset: AppAssets.iconQuestion,
                 onPressed: () {
-                  context.router.maybePop();
+                  final bloc = context.read<GameBloc>();
+                  bloc.add(const PauseFlowEvent());
+
+                  context.router.push(
+                    ExerciseDetailsRoute(index: index,),
+                  );
                 },
               ),
             ),

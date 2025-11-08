@@ -11,6 +11,14 @@ class StartGameFlowEvent extends GameEvent {
   const StartGameFlowEvent();
 }
 
+class PauseFlowEvent extends GameEvent {
+  const PauseFlowEvent();
+}
+
+class ResumeFlowEvent extends GameEvent {
+  const ResumeFlowEvent();
+}
+
 class TimerTickEvent extends GameEvent {
   final int secondsLeft;
 

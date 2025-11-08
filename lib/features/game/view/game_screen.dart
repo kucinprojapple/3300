@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +32,13 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  int _selectedExerciseIndex = 0;
+  late int _selectedExerciseIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedExerciseIndex = Random().nextInt(9);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +52,11 @@ class _GameScreenState extends State<GameScreen> {
               gameFlowState is TimerPausedState) {
             final totalSeconds = LocalStorageService().timerDuration;
             final secondsLeft =
-                gameFlowState is TimerInitialState
-                    ? gameFlowState.secondsLeft
-                    : gameFlowState is TimerRunningState
-                    ? gameFlowState.secondsLeft
-                    : (gameFlowState as TimerPausedState).secondsLeft;
+            gameFlowState is TimerInitialState
+                ? gameFlowState.secondsLeft
+                : gameFlowState is TimerRunningState
+                ? gameFlowState.secondsLeft
+                : (gameFlowState as TimerPausedState).secondsLeft;
 
             return TimerScreen(
               secondsLeft: secondsLeft,
@@ -64,71 +72,74 @@ class _GameScreenState extends State<GameScreen> {
                     fit: BoxFit.fill,
                   ),
                 ),
-
-                Positioned(
-                  left: 30.w,
-                  top: 48.h,
-                  child: IconButtonWidget(
-                    iconAsset: AppAssets.iconBack,
-                    onPressed: () {
-                      context.router.maybePop();
-                    },
-                  ),
-                ),
-                Positioned(
-                  left: 12.w,
-                  top: 150.h,
-                  right: 12.w,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: MediaQuery
+                            .viewPaddingOf(context)
+                            .top + 16.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.w),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButtonWidget(
+                            iconAsset: AppAssets.iconBack,
+                            onPressed: () {
+                              context.router.maybePop();
+                            },
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 24.h),
                       MainTextBody.gradientText(
                         context,
-                        'Tap on the card \nfor choose an exercise',
+                        AppTexts.tapOnTheCard,
                         fontSize: 20.sp,
                         alignment: Alignment.bottomCenter,
                         useShadow: false,
                         height: 1.1,
                       ),
-                      SizedBox(height: 12.h),
-                      SizedBox(
-                        width: 324.w,
-                        height: 368.h,
-                        child: Stack(
-                          children: [
-                            ExerciseGridWidget(
-                              onExerciseSelected: (index) {
-                                setState(() => _selectedExerciseIndex = index);
-                              },
-                            ),
-                            Positioned.fill(
-                              top: 24.h,
-                              child: IgnorePointer(
-                                child: Image.asset(
-                                  AppAssets.slotContainer,
-                                  fit: BoxFit.fill,
-                                ),
+                      SizedBox(height: 32.h),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          ExerciseGridWidget(
+                            onExerciseSelected: (index) {
+                              setState(() => _selectedExerciseIndex = index);
+                            },
+                          ),
+                          Positioned.fill(
+                            child: IgnorePointer(
+                              child: Image.asset(
+                                AppAssets.slotContainer,
+                                fit: BoxFit.fill,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 32.h),
-                      ActionButtonWidget(
-                        width: 224.w,
-                        height: 88.h,
-                        text: AppTexts.buttonStart,
-                        fontSize: 30.sp,
-                        onPressed: () {
-                          context.read<GameBloc>().add(
-                            const StartGameFlowEvent(),
-                          );
-                        },
+
+                      const Spacer(),
+
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 100.h),
+                        child: ActionButtonWidget(
+                          width: 224.w,
+                          height: 88.h,
+                          text: AppTexts.buttonStart,
+                          fontSize: 30.sp,
+                          onPressed: () {
+                            context.read<GameBloc>().add(
+                                const StartGameFlowEvent());
+                          },
+                        ),
                       ),
                     ],
                   ),
                 ),
-
                 if (gameFlowState is ShowOverlayWowState)
                   WowOverlayWidget(index: _selectedExerciseIndex),
                 if (gameFlowState is ShowCountdownOverlayState)

@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_flip_card/flutter_flip_card.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
@@ -52,6 +52,7 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       child: GridView.builder(
+        padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: _shuffledExercises.length,
@@ -95,8 +96,8 @@ class _ExerciseGridWidgetState extends State<ExerciseGridWidget> {
 
   Widget _buildCard({String? imagePath}) {
     return CustomGradientContainerWidget(
-      width: 80.w,
-      height: 88.h,
+      width: double.infinity,
+      height: double.infinity,
       backgroundGradient: AppColors.gradientColors.containerGradientDarkGreen,
       borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
       borderRadius: 12.r,
