@@ -38,12 +38,20 @@ class ProfileAvatarMedalWidget extends StatelessWidget {
           ),
 
           ClipOval(
-            child: Image.file(
-              File(avatarPicture),
-              fit: BoxFit.cover,
-              width: (size * 0.80).w,
-              height: (size * 0.80).h,
-            ),
+            child:
+                avatarPicture.isNotEmpty && File(avatarPicture).existsSync()
+                    ? Image.file(
+                      File(avatarPicture),
+                      fit: BoxFit.cover,
+                      width: (size * 0.80).w,
+                      height: (size * 0.80).h,
+                    )
+                    : Image.asset(
+                      AppAssets.avatarDefault,
+                      fit: BoxFit.cover,
+                      width: (size * 0.80).w,
+                      height: (size * 0.80).h,
+                    ),
           ),
 
           Positioned(

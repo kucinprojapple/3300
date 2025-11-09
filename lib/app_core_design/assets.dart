@@ -101,7 +101,7 @@ sealed class AppAssets {
   static const glowLine = '${_basePath}glow_line.webp';
 
   /// images for Avatar
-  static const avatarClearPlace = '${_basePath}avatar_clear_place.webp';
+  static const avatarDefault = '${_basePath}avatar_default.webp';
   static const avatarMan = '${_basePath}avatar_man.webp';
   static const avatarWoman = '${_basePath}avatar_woman.webp';
 

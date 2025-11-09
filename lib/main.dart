@@ -7,14 +7,12 @@ import 'green_gym_club.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   final storage = LocalStorageService();
   await storage.init();
 
-  // await storage.setValue(LocalStorageKeys.onboardingShown, false);
+  await storage.setValue(LocalStorageKeys.onboardingShown, false);
 
   runApp(GreenGymClub());
 }
