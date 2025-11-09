@@ -69,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Positioned(
                 left: 30.w,
                 top: 48.h,
-                child: IconButtonWidget(
+                child: CustomIconButtonWidget(
                   iconAsset: AppAssets.iconBack,
                   onPressed: () {
                     context.router.maybePop();

@@ -31,7 +31,7 @@ class WowOverlayWidget extends StatelessWidget {
             Positioned(
               left: 30.w,
               top: 48.h,
-              child: IconButtonWidget(
+              child: CustomIconButtonWidget(
                 iconAsset: AppAssets.iconQuestion,
                 onPressed: () {
                   final bloc = context.read<GameBloc>();

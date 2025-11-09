@@ -56,7 +56,7 @@ class TimerScreen extends StatelessWidget {
                 Positioned(
                   left: 30.w,
                   top: 48.h,
-                  child: IconButtonWidget(
+                  child: CustomIconButtonWidget(
                     iconAsset: AppAssets.iconBack,
                     onPressed: () {
                       bloc.add(const TimerExitEvent());

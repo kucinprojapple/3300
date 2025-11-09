@@ -31,7 +31,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
           Positioned(
             top: 48.h,
             left: 30.w,
-            child: IconButtonWidget(
+            child: CustomIconButtonWidget(
               iconAsset: AppAssets.iconBack,
               onPressed: () {
                 context.router.maybePop();

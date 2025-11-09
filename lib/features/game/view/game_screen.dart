@@ -85,7 +85,7 @@ class _GameScreenState extends State<GameScreen> {
                         padding: EdgeInsets.only(left: 8.w),
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: IconButtonWidget(
+                          child: CustomIconButtonWidget(
                             iconAsset: AppAssets.iconBack,
                             onPressed: () {
                               context.router.maybePop();

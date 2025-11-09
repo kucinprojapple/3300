@@ -13,6 +13,7 @@ class CustomSnackBar {
         behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.transparent,
         elevation: 0,
+
         margin: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
         padding: EdgeInsets.zero,
         duration: const Duration(seconds: 1),
@@ -22,16 +23,13 @@ class CustomSnackBar {
           builder: (context, value, child) {
             return Opacity(
               opacity: value,
-              child: Transform.scale(
-                scale: 0.90 + (0.1 * value),
-                child: child,
-              ),
+              child: Transform.scale(scale: 0.90 + (0.1 * value), child: child),
             );
           },
 
           child: CustomGradientContainerWidget(
-            width: 322.w,
-            height: 48.h,
+            width: 300.w,
+            height: 40.h,
             backgroundGradient:
                 AppColors.gradientColors.containerGradientBrightGreen,
             borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
@@ -54,7 +52,7 @@ class CustomSnackBar {
                       message,
                       alignment: Alignment.center,
                       useShadow: false,
-                      height: 1.1,
+                      height: 1.2,
                       fontSize: 18.sp,
                     ),
                   ),

@@ -56,7 +56,7 @@ class _RecordScreenState extends State<RecordScreen> {
   @override
   Widget build(BuildContext context) {
     final ExerciseEntity exercise =
-    exercisesData[widget.index.clamp(0, exercisesData.length - 1)];
+        exercisesData[widget.index.clamp(0, exercisesData.length - 1)];
 
     final storage = LocalStorageService();
     final exerciseTime = storage.timerDuration;
@@ -69,164 +69,154 @@ class _RecordScreenState extends State<RecordScreen> {
           Positioned.fill(
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
-          Column(
-            children: [
-              SizedBox(
-                height: MediaQuery
-                    .viewPaddingOf(context)
-                    .top + 16.h,
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.w),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: IconButtonWidget(
-                            iconAsset: AppAssets.iconBack,
-                            onPressed: () => context.router.maybePop(),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 100.h),
-                      CustomGradientContainerWidget(
-                        width: double.infinity,
-                        height: 248.h,
-                        backgroundGradient:
-                        AppColors
-                            .gradientColors
-                            .containerGradientDarkGreen,
-                        borderGradient:
-                        AppColors.gradientColors.borderGradientDarkGreen,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            MainTextBody.gradientText(
-                              context,
-                              exercise.name,
-                              fontSize: 30.sp,
-                              alignment: Alignment.bottomCenter,
-                              useShadow: false,
-                              height: 1.1,
-                            ),
-                            SizedBox(height: 12.h),
-                            Image.asset(exercise.image, height: 152.h),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 20.h),
-                      CustomGradientContainerWidget(
-                        width: double.infinity,
-                        height: 60.h,
-                        backgroundGradient:
-                        AppColors
-                            .gradientColors
-                            .containerGradientDarkGreen,
-                        borderGradient:
-                        AppColors.gradientColors.borderGradientDarkGreen,
-                        borderWidth: 2.w,
-                        borderRadius: 20.r,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              MainTextBody.gradientText(
-                                context,
-                                AppTexts.time,
-                                fontSize: 25.sp,
-                                alignment: Alignment.centerLeft,
-                                useShadow: false,
-                                height: 1.0,
-                              ),
-                              MainTextBody.gradientText(
-                                context,
-                                formattedTime,
-                                fontSize: 30.sp,
-                                alignment: Alignment.centerLeft,
-                                useShadow: false,
-                                height: 1.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 16.h),
-                      CustomGradientContainerWidget(
-                        width: double.infinity,
-                        height: 60.h,
-                        backgroundGradient:
-                        AppColors
-                            .gradientColors
-                            .containerGradientDarkGreen,
-                        borderGradient:
-                        AppColors.gradientColors.borderGradientDarkGreen,
-                        borderWidth: 2.w,
-                        borderRadius: 20.r,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20.w, right: 8.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              MainTextBody.gradientText(
-                                context,
-                                AppTexts.reps,
-                                fontSize: 25.sp,
-                                alignment: Alignment.centerLeft,
-                                useShadow: false,
-                                height: 1.0,
-                              ),
-                              SizedBox(
-                                width: 80.w,
-                                child: TextField(
-                                  controller: _repsController,
-                                  focusNode: _repsFocusNode,
-                                  enabled: _isEditing,
-                                  textAlign: TextAlign.center,
-                                  keyboardType: TextInputType.number,
-                                  style: MainTextBody.style().copyWith(
-                                    color: Colors.white,
-                                    fontSize: 30.sp,
-                                    shadows: [],
-                                  ),
-                                  decoration: const InputDecoration(
-                                    border: InputBorder.none,
-                                    isCollapsed: true,
-                                    contentPadding: EdgeInsets.zero,
-                                  ),
-                                  onTap: _startEditing,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: _startEditing,
-                                child: Opacity(
-                                  opacity: _isEditing ? 0.5 : 1.0,
-                                  child: Image.asset(
-                                    AppAssets.iconEdit,
-                                    width: 44.w,
-                                    height: 44.h,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 100.h),
-                    ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 4.w),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomIconButtonWidget(
+                      iconAsset: AppAssets.iconBack,
+                      onPressed: () => context.router.maybePop(),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 80.h),
-                child: ActionButtonWidget(
-                  width: 224.w,
-                  height: 88.h,
+                SizedBox(height: 92.h),
+                CustomGradientContainerWidget(
+                  width: double.infinity,
+                  height: 248.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  borderWidth: 2.w,
+                  borderRadius: 20.r,
+                  child: Padding(
+                    padding: EdgeInsets.all(4.h),
+                    child: Column(
+                      children: [
+                        MainTextBody.gradientText(
+                          context,
+                          exercise.name,
+                          fontSize: 30.sp,
+                          alignment: Alignment.bottomCenter,
+                          useShadow: false,
+                          height: 1.1,
+                        ),
+                        SizedBox(height: 12.h),
+                        Image.asset(
+                          exercise.image,
+                          height: 180.h,
+                          fit: BoxFit.contain,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                CustomGradientContainerWidget(
+                  width: double.infinity,
+                  height: 60.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  borderWidth: 2.w,
+                  borderRadius: 20.r,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.w, right: 72.w),
+                    child: Row(
+                      children: [
+                        MainTextBody.gradientText(
+                          context,
+                          AppTexts.time,
+                          fontSize: 25.sp,
+                          alignment: Alignment.centerLeft,
+                          useShadow: false,
+                          height: 1.0,
+                        ),
+                        Spacer(),
+                        MainTextBody.gradientText(
+                          context,
+                          formattedTime,
+                          fontSize: 30.sp,
+                          alignment: Alignment.centerRight,
+                          useShadow: false,
+                          height: 1.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                CustomGradientContainerWidget(
+                  width: double.infinity,
+                  height: 60.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  borderWidth: 2.w,
+                  borderRadius: 20.r,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.w, right: 8.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MainTextBody.gradientText(
+                          context,
+                          AppTexts.reps,
+                          fontSize: 25.sp,
+                          alignment: Alignment.centerLeft,
+                          useShadow: false,
+                          height: 1.0,
+                        ),
+                        // Spacer(),
+                        Container(
+                          width: 40.w,
+                          alignment: Alignment.centerRight,
+                          child: TextField(
+                            controller: _repsController,
+                            focusNode: _repsFocusNode,
+                            enabled: _isEditing,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
+                            style: MainTextBody.style().copyWith(
+                              color: Colors.white,
+                              fontSize: 30.sp,
+                              shadows: [],
+                            ),
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              isCollapsed: true,
+                              contentPadding: EdgeInsets.zero,
+                            ),
+                            onTap: _startEditing,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: _startEditing,
+                          child: Opacity(
+                            opacity: _isEditing ? 0.5 : 1.0,
+                            child: Image.asset(
+                              AppAssets.iconEdit,
+                              width: 44.w,
+                              height: 44.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                ActionButtonWidget(
+                  width: 200.w,
+                  height: 80.h,
                   text: AppTexts.buttonSave,
                   fontSize: 30.sp,
                   onPressed: () async {
@@ -237,10 +227,7 @@ class _RecordScreenState extends State<RecordScreen> {
 
                     final bloc = context.read<GameBloc>();
 
-                    CustomSnackBar.show(
-                      context,
-                      AppTexts.snackBarResultSaved,
-                    );
+                    CustomSnackBar.show(context, AppTexts.snackBarResultSaved);
                     await Future.delayed(const Duration(seconds: 3));
 
                     bloc.add(
@@ -252,8 +239,8 @@ class _RecordScreenState extends State<RecordScreen> {
                     );
                   },
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

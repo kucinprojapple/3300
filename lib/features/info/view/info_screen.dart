@@ -51,7 +51,7 @@ class InfoScreen extends StatelessWidget {
             top: 48.h,
             child: Column(
               children: [
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconBack,
                   onPressed: () {
                     AutoRouter.of(context).maybePop();

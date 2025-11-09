@@ -45,7 +45,7 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
             top: 48.h,
             child: Column(
               children: [
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconBack,
                   onPressed: () {
                     context.router.maybePop();

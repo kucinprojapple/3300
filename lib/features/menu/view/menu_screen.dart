@@ -75,21 +75,21 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
             top: 48.h,
             child: Column(
               children: [
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconSettings,
                   onPressed: () {
                     context.router.push(const SettingsRoute());
                   },
                 ),
                 SizedBox(height: 20.h),
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconProfile,
                   onPressed: () {
                     context.router.push(const ProfileRoute());
                   },
                 ),
                 SizedBox(height: 12.h),
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconInfo,
                   onPressed: () {
                     context.router.push(const InfoRoute());
@@ -105,7 +105,7 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
             right: 0.w,
             child: Column(
               children: [
-                IconButtonWidget(
+                CustomIconButtonWidget(
                   iconAsset: AppAssets.iconPlay,
                   width: 140.w,
                   height: 140.h,
