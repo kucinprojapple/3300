@@ -16,7 +16,7 @@ class OnboardingStep3Widget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 24.h),
+          padding: EdgeInsets.only(top: 18.h),
           child: CustomGradientContainerWidget(
             width: 188.w,
             height: 148.h,

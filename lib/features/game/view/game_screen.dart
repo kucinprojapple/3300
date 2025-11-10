@@ -122,20 +122,17 @@ class _GameScreenState extends State<GameScreen> {
                         ],
                       ),
 
-                      const Spacer(),
+                      SizedBox(height: 32.h),
 
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 100.h),
-                        child: ActionButtonWidget(
-                          width: 220.w,
-                          height: 88.h,
-                          text: AppTexts.buttonStart,
-                          fontSize: 30.sp,
-                          onPressed: () {
-                            context.read<GameBloc>().add(
-                                const StartGameFlowEvent());
-                          },
-                        ),
+                      ActionButtonWidget(
+                        width: 200.w,
+                        height: 80.h,
+                        text: AppTexts.buttonStart,
+                        fontSize: 30.sp,
+                        onPressed: () {
+                          context.read<GameBloc>().add(
+                              const StartGameFlowEvent());
+                        },
                       ),
                     ],
                   ),

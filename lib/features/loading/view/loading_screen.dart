@@ -119,35 +119,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   ],
                 ),
               ),
-
-              // Positioned(
-              //   left: 44.w,
-              //   right: 44.w,
-              //   bottom: 246.h,
-              //   child: Image.asset(
-              //     AppAssets.shirt,
-              //     height: 352.h,
-              //     fit: BoxFit.fill,
-              //     alignment: Alignment.bottomCenter,
-              //   ),
-              // ),
-              // Positioned(
-              //   left: 32.w,
-              //   right: 32.w,
-              //   bottom: 64.h,
-              //   child: BlocBuilder<LoadingCubit, LoadingState>(
-              //     builder: (context, state) {
-              //       double progress = 0;
-              //       if (state is LoadingInProgressState) {
-              //         progress = state.progress;
-              //       } else if (state is LoadingCompletedState) {
-              //         progress = 1.0;
-              //       }
-              //
-              //       return LoadingProgressBar(progress: progress);
-              //     },
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -155,4 +126,3 @@ class _LoadingScreenState extends State<LoadingScreen> {
     );
   }
 }
-

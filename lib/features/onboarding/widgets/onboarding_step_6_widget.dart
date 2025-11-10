@@ -18,10 +18,9 @@ class OnboardingStep6Widget extends StatelessWidget {
     );
     return Column(
       children: [
-        SizedBox(height: 12.h),
-
+        SizedBox(height: 18.h),
         CustomGradientContainerWidget(
-          width: 184.w,
+          width: 188.w,
           height: 148.h,
           backgroundGradient:
               AppColors.gradientColors.containerGradientDarkGreen,
@@ -42,16 +41,20 @@ class OnboardingStep6Widget extends StatelessWidget {
                 height: 1.1,
               ),
 
-              SizedBox(height: 4.h),
-              Image.asset(exercise.image, height: 92.h),
-              SizedBox(height: 12.h),
-              MainTextBody.gradientText(
-                context,
-                '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
-                alignment: Alignment.bottomCenter,
-                useShadow: false,
-                height: 1.1,
-                fontSize: 8.sp,
+              SizedBox(height: 8.h),
+              Image.asset(exercise.image, height: 88.h),
+              SizedBox(height: 8.h),
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.only(bottom: 4.h),
+                child: MainTextBody.gradientText(
+                  context,
+                  '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
+                  alignment: Alignment.bottomCenter,
+                  useShadow: false,
+                  height: 1.1,
+                  fontSize: 8.sp,
+                ),
               ),
             ],
           ),
@@ -59,21 +62,21 @@ class OnboardingStep6Widget extends StatelessWidget {
 
         Align(
           alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 10.h),
-                CustomGradientContainerWidget(
-                  width: 184.w,
-                  height: 48.h,
-                  backgroundGradient:
-                      AppColors.gradientColors.containerGradientDarkGreen,
-                  borderGradient:
-                      AppColors.gradientColors.borderGradientDarkGreen,
-                  borderRadius: 10.r,
-                  borderWidth: 1.w,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 8.h),
+              CustomGradientContainerWidget(
+                width: 188.w,
+                height: 48.h,
+                backgroundGradient:
+                    AppColors.gradientColors.containerGradientDarkGreen,
+                borderGradient:
+                    AppColors.gradientColors.borderGradientDarkGreen,
+                borderRadius: 10.r,
+                borderWidth: 1.w,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: MainTextBody.gradientText(
                     context,
                     '${AppTexts.exerciseDetailsTechnique} ${exercise.technique}',
@@ -84,17 +87,20 @@ class OnboardingStep6Widget extends StatelessWidget {
                     fontSize: 8.sp,
                   ),
                 ),
+              ),
 
-                SizedBox(height: 10.h),
-                CustomGradientContainerWidget(
-                  width: 184.w,
-                  height: 32.h,
-                  backgroundGradient:
-                      AppColors.gradientColors.containerGradientDarkGreen,
-                  borderGradient:
-                      AppColors.gradientColors.borderGradientDarkGreen,
-                  borderRadius: 10.r,
-                  borderWidth: 1.w,
+              SizedBox(height: 8.h),
+              CustomGradientContainerWidget(
+                width: 188.w,
+                height: 32.h,
+                backgroundGradient:
+                    AppColors.gradientColors.containerGradientDarkGreen,
+                borderGradient:
+                    AppColors.gradientColors.borderGradientDarkGreen,
+                borderRadius: 10.r,
+                borderWidth: 1.w,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: MainTextBody.gradientText(
                     context,
                     '${AppTexts.exerciseDetailsTip} ${exercise.tip}',
@@ -105,8 +111,8 @@ class OnboardingStep6Widget extends StatelessWidget {
                     fontSize: 8.sp,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],

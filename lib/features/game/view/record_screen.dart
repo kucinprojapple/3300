@@ -109,10 +109,14 @@ class _RecordScreenState extends State<RecordScreen> {
                           height: 1.1,
                         ),
                         SizedBox(height: 12.h),
-                        Image.asset(
-                          exercise.image,
-                          height: 180.h,
-                          fit: BoxFit.contain,
+                        Spacer(),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8.h),
+                          child: Image.asset(
+                            exercise.image,
+                            height: 160.h,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ],
                     ),

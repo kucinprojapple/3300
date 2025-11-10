@@ -31,7 +31,7 @@ class OnboardingStepWidget extends StatelessWidget {
               padding: EdgeInsets.all(15.h),
               child: CustomGradientContainerWidget(
                 width: 280.w,
-                height: 278.h,
+                height: 280.h,
                 backgroundGradient:
                     AppColors.gradientColors.containerGradientDarkGreen,
                 borderGradient:

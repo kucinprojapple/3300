@@ -38,8 +38,8 @@ class ProfileAchievementsCardWidget extends StatelessWidget {
             MainTextBody.gradientText(
               context,
               '${state.completedAchievements} | ${state.totalAchievements}',
-              fontSize: 22.sp,
-              alignment: Alignment.centerLeft,
+              fontSize: 20.sp,
+              alignment: Alignment.centerRight,
               useGradient: false,
               useShadow: false,
               height: 1.0,

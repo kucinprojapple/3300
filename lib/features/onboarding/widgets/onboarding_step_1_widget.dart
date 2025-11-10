@@ -14,7 +14,7 @@ class OnboardingStep1Widget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 24.h),
+          padding: EdgeInsets.only(top: 12.h),
           child: Image.asset(
             AppAssets.exerciseSquats,
             height: 172.h,

@@ -40,86 +40,86 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
 
-          Positioned(
-            left: 30.w,
-            top: 48.h,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               children: [
-                CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconBack,
-                  onPressed: () {
-                    context.router.maybePop();
+                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.w),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomIconButtonWidget(
+                      iconAsset: AppAssets.iconBack,
+                      onPressed: () {
+                        context.router.maybePop();
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(height: 12.h),
+                MainTextBody.gradientText(
+                  context,
+                  AppTexts.achievementsScreen,
+                  fontSize: 25.sp,
+                  alignment: Alignment.center,
+                  useShadow: false,
+                  height: 1.1,
+                ),
+                SizedBox(height: 48.h),
+                BlocBuilder<AchievementsBloc, AchievementsState>(
+                  builder: (context, state) {
+                    if (state is AchievementsLoaded) {
+                      final achievements = state.achievements;
+                      final pageCount = (achievements.length / 5).ceil();
+
+                      return SizedBox(
+                        width: double.infinity,
+                        height: 500.h,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: PageView.builder(
+                                controller: _controller,
+                                itemCount: 4,
+                                onPageChanged:
+                                    (index) =>
+                                        setState(() => _currentPage = index),
+                                itemBuilder: (context, pageIndex) {
+                                  final pageAchievements =
+                                      achievements
+                                          .skip(pageIndex * 5)
+                                          .take(5)
+                                          .toList();
+                                  return Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: List.generate(
+                                      5,
+                                      (i) => AchievementItem(
+                                        achievement: pageAchievements[i],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            // SizedBox(height: 20.h),
+                            AchievementsPageIndicatorWidget(
+                              pageCount: pageCount,
+                              currentPage: _currentPage,
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                    return const Center(child: CircularProgressIndicator());
                   },
                 ),
               ],
             ),
           ),
-          Positioned(
-            left: 0.w,
-            top: 120.h,
-            right: 0.w,
-            child: MainTextBody.gradientText(
-              context,
-              AppTexts.achievementsScreen,
-              fontSize: 25.sp,
-              alignment: Alignment.center,
-              useShadow: false,
-              height: 1.1,
-            ),
-          ),
-          Positioned(
-            left: 0.w,
-            top: 200.h,
-            right: 0.w,
-            child: BlocBuilder<AchievementsBloc, AchievementsState>(
-              builder: (context, state) {
-                if (state is AchievementsLoaded) {
-                  final achievements = state.achievements;
-                  final pageCount = (achievements.length / 5).ceil();
 
-                  return SizedBox(
-                    width: double.infinity,
-                    height: 500.h,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: PageView.builder(
-                            controller: _controller,
-                            itemCount: 4,
-                            onPageChanged:
-                                (index) => setState(() => _currentPage = index),
-                            itemBuilder: (context, pageIndex) {
-                              final pageAchievements =
-                                  achievements
-                                      .skip(pageIndex * 5)
-                                      .take(5)
-                                      .toList();
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: List.generate(
-                                  5,
-                                  (i) => AchievementItem(
-                                    achievement: pageAchievements[i],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        // SizedBox(height: 20.h),
-                        AchievementsPageIndicatorWidget(
-                          pageCount: pageCount,
-                          currentPage: _currentPage,
-                        ),
-                      ],
-                    ),
-                  );
-                }
-                return const Center(child: CircularProgressIndicator());
-              },
-            ),
-          ),
           Positioned.fill(child: AchievementsOverlays()),
         ],
       ),

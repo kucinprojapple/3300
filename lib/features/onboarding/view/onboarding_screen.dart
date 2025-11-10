@@ -85,8 +85,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Builder(
                 builder: (context) {
                   return ActionButtonWidget(
-                    width: 220.w,
-                    height: 88.h,
+                    width: 200.w,
+                    height: 80.h,
                     text: AppTexts.buttonNext,
                     fontSize: 35.sp,
                     onPressed: () {

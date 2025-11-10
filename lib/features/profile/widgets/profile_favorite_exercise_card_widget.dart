@@ -15,8 +15,8 @@ class ProfileFavoriteExerciseCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomGradientContainerWidget(
-      width: 352.w,
-      height: 54.h,
+      width: double.infinity,
+      height: 52.h,
       backgroundGradient: AppColors.gradientColors.containerGradientBrightGreen,
       borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
       borderWidth: 2.w,
@@ -26,23 +26,29 @@ class ProfileFavoriteExerciseCardWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MainTextBody.gradientText(
-              context,
-              AppTexts.favoriteExercise,
-              fontSize: 15.sp,
+            Align(
               alignment: Alignment.centerLeft,
-              useGradient: false,
-              useShadow: false,
-              height: 1.0,
+              child: MainTextBody.gradientText(
+                context,
+                AppTexts.favoriteExercise,
+                fontSize: 15.sp,
+                alignment: Alignment.centerLeft,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+              ),
             ),
-            MainTextBody.gradientText(
-              context,
-              state.favoriteExercise,
-              fontSize: 22.sp,
-              alignment: Alignment.centerLeft,
-              useGradient: false,
-              useShadow: false,
-              height: 1.0,
+
+            Expanded(
+              child: MainTextBody.gradientText(
+                context,
+                state.favoriteExercise,
+                fontSize: 20.sp,
+                alignment: Alignment.centerRight,
+                useGradient: false,
+                useShadow: false,
+                height: 1.0,
+              ),
             ),
           ],
         ),

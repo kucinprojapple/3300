@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
                       SizedBox(height: 72.h),
                       CustomGradientContainerWidget(
                         width: double.infinity,
-                        height: 268.h,
+                        height: 280.h,
                         backgroundGradient:
                             AppColors
                                 .gradientColors
@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
                         borderRadius: 20.r,
                         child: Column(
                           children: [
-                            SizedBox(height: 24.h),
+                            SizedBox(height: 20.h),
 
                             SwitchWithPrefsWidget(
                               title: AppTexts.sound,
