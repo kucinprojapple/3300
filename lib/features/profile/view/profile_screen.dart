@@ -33,12 +33,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late TextEditingController usernameController;
   bool isEditingUsername = false;
   Timer? _debounce;
+  late FocusNode _usernameFocusNode;
 
   @override
   void initState() {
     super.initState();
     final storage = context.read<ProfileDataCubit>().storage;
     usernameController = TextEditingController(text: storage.playerName);
+    _usernameFocusNode = FocusNode();
     context.read<ProfileDataCubit>().loadProfile();
   }
 
@@ -46,7 +48,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void dispose() {
     _debounce?.cancel();
     usernameController.dispose();
+    _usernameFocusNode.dispose();
     super.dispose();
+  }
+
+  void _startEditingUsername() {
+    setState(() {
+      isEditingUsername = true;
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _usernameFocusNode.requestFocus();
+    });
   }
 
   @override
@@ -107,9 +119,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: 8.h),
                     ProfileNameFieldWidget(
                       controller: usernameController,
+                      focusNode: _usernameFocusNode,
                       isEditing: isEditingUsername,
-                      onEditPressed:
-                          () => setState(() => isEditingUsername = true),
+                      onEditPressed: _startEditingUsername,
                       onChanged: (value) {
                         _debounce?.cancel();
                         _debounce = Timer(

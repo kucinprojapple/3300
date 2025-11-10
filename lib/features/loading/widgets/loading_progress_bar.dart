@@ -14,8 +14,8 @@ class LoadingProgressBar extends StatelessWidget {
 
     return CustomPaint(
       child: Container(
+        width: 322.w,
         height: 38.h,
-        width: 190.w,
         decoration: BoxDecoration(
           color: Color(0xFF081900),
           borderRadius: BorderRadius.circular(35.r),

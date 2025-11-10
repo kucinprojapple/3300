@@ -176,6 +176,43 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PrivacyPolicyScreen]
+class PrivacyPolicyRoute extends PageRouteInfo<PrivacyPolicyRouteArgs> {
+  PrivacyPolicyRoute({
+    Key? key,
+    required String url,
+    List<PageRouteInfo>? children,
+  }) : super(
+         PrivacyPolicyRoute.name,
+         args: PrivacyPolicyRouteArgs(key: key, url: url),
+         initialChildren: children,
+       );
+
+  static const String name = 'PrivacyPolicyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PrivacyPolicyRouteArgs>();
+      return PrivacyPolicyScreen(key: args.key, url: args.url);
+    },
+  );
+}
+
+class PrivacyPolicyRouteArgs {
+  const PrivacyPolicyRouteArgs({this.key, required this.url});
+
+  final Key? key;
+
+  final String url;
+
+  @override
+  String toString() {
+    return 'PrivacyPolicyRouteArgs{key: $key, url: $url}';
+  }
+}
+
+/// generated route for
 /// [ProfileScreen]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})

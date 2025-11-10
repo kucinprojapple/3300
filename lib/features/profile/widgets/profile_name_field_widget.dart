@@ -9,6 +9,7 @@ class ProfileNameFieldWidget extends StatelessWidget {
   final bool isEditing;
   final VoidCallback onEditPressed;
   final ValueChanged<String> onChanged;
+  final FocusNode? focusNode;
 
   const ProfileNameFieldWidget({
     super.key,
@@ -16,6 +17,7 @@ class ProfileNameFieldWidget extends StatelessWidget {
     required this.isEditing,
     required this.onEditPressed,
     required this.onChanged,
+    this.focusNode,
   });
 
   @override
@@ -39,7 +41,8 @@ class ProfileNameFieldWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
               child: TextField(
                 controller: controller,
-                readOnly: !isEditing,
+                focusNode: focusNode,
+                enabled: isEditing,
                 textAlign: TextAlign.center,
                 style: MainTextBody.style(
                   fontSize: 25.sp,
@@ -57,8 +60,15 @@ class ProfileNameFieldWidget extends StatelessWidget {
           Positioned(
             right: 4.w,
             child: GestureDetector(
-              onTap: onEditPressed,
-              child: Image.asset(AppAssets.iconEdit, width: 30.w, height: 30.h),
+              onTap: !isEditing ? onEditPressed : null,
+              child: Opacity(
+                opacity: isEditing ? 0.5 : 1.0,
+                child: Image.asset(
+                  AppAssets.iconEdit,
+                  width: 30.w,
+                  height: 30.h,
+                ),
+              ),
             ),
           ),
         ],

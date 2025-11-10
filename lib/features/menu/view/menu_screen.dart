@@ -99,10 +99,7 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
                       CustomIconButtonWidget(
                         iconAsset: AppAssets.iconInfo,
                         onPressed: () {
-                          // context.router.push(const InfoRoute());
-                          // context.router.push(const LostNetworkRoute());
-                          final index = 0;
-                          context.router.push(RecordRoute(index: index));
+                          context.router.push(const InfoRoute());
                         },
                       ),
                     ],

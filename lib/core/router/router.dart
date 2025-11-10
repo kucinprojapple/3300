@@ -12,6 +12,7 @@ import '../../features/loading/view/loading_screen.dart';
 import '../../features/lost_network/view/lost_network_screen.dart';
 import '../../features/menu/view/menu_screen.dart';
 import '../../features/onboarding/view/onboarding_screen.dart';
+import '../../features/privacy_policy/privacy_policy_screen.dart';
 import '../../features/profile/view/profile_screen.dart';
 import '../../features/settings/view/settings_screen.dart';
 
@@ -33,5 +34,6 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: AchievementsRoute.page, path: '/achievements'),
     AutoRoute(page: RecordRoute.page, path: '/record'),
     AutoRoute(page: LostNetworkRoute.page, path: '/lost_network'),
+    AutoRoute(page: PrivacyPolicyRoute.page, path: '/privacy_policy'),
   ];
 }

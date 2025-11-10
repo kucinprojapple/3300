@@ -50,7 +50,9 @@ class _RecordScreenState extends State<RecordScreen> {
     setState(() {
       _isEditing = true;
     });
-    _repsFocusNode.requestFocus();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _repsFocusNode.requestFocus();
+    });
   }
 
   @override
@@ -174,9 +176,9 @@ class _RecordScreenState extends State<RecordScreen> {
                           useShadow: false,
                           height: 1.0,
                         ),
-                        // Spacer(),
+                        Spacer(),
                         Container(
-                          width: 40.w,
+                          width: 48.w,
                           alignment: Alignment.centerRight,
                           child: TextField(
                             controller: _repsController,
@@ -194,11 +196,12 @@ class _RecordScreenState extends State<RecordScreen> {
                               isCollapsed: true,
                               contentPadding: EdgeInsets.zero,
                             ),
-                            onTap: _startEditing,
+                            // onTap: _startEditing,
                           ),
                         ),
+                        SizedBox(width: 8.w),
                         GestureDetector(
-                          onTap: _startEditing,
+                          onTap: _isEditing ? null : _startEditing,
                           child: Opacity(
                             opacity: _isEditing ? 0.5 : 1.0,
                             child: Image.asset(

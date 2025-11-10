@@ -1,3 +1,3 @@
 class TimerConstants {
-  static const List<int> timerOptions = [5, 60, 90, 120];
+  static const List<int> timerOptions = [30, 60, 90, 120];
 }

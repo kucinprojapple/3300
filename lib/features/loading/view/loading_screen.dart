@@ -93,23 +93,28 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   children: [
+                    SizedBox(height: 160.h),
                     Image.asset(
                       AppAssets.shirt,
                       height: 352.h,
                       fit: BoxFit.fill,
                       alignment: Alignment.bottomCenter,
                     ),
-                    BlocBuilder<LoadingCubit, LoadingState>(
-                      builder: (context, state) {
-                        double progress = 0;
-                        if (state is LoadingInProgressState) {
-                          progress = state.progress;
-                        } else if (state is LoadingCompletedState) {
-                          progress = 1.0;
-                        }
+                    Spacer(),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 80.h),
+                      child: BlocBuilder<LoadingCubit, LoadingState>(
+                        builder: (context, state) {
+                          double progress = 0;
+                          if (state is LoadingInProgressState) {
+                            progress = state.progress;
+                          } else if (state is LoadingCompletedState) {
+                            progress = 1.0;
+                          }
 
-                        return LoadingProgressBar(progress: progress);
-                      },
+                          return LoadingProgressBar(progress: progress);
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -150,3 +155,4 @@ class _LoadingScreenState extends State<LoadingScreen> {
     );
   }
 }
+
