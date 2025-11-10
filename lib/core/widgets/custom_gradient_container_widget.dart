@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class CustomGradientContainerWidget extends StatelessWidget {
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final Gradient backgroundGradient;
   final Gradient borderGradient;
   final double? borderRadius;
@@ -13,11 +13,10 @@ class CustomGradientContainerWidget extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final Widget? child;
 
-
   const CustomGradientContainerWidget({
     super.key,
-    required this.width,
-    required this.height,
+    this.width,
+    this.height,
     required this.backgroundGradient,
     required this.borderGradient,
     this.borderRadius,

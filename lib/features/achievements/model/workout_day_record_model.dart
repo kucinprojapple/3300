@@ -4,9 +4,9 @@ part 'workout_day_record_model.g.dart';
 
 @JsonSerializable()
 class WorkoutDayRecord {
-  final String date; // yyyy-MM-dd
+  final String date;
   final int totalReps;
-  final int totalTime; // seconds
+  final int totalTime;
   final int workoutCount;
 
   const WorkoutDayRecord({
@@ -16,7 +16,6 @@ class WorkoutDayRecord {
     required this.workoutCount,
   });
 
-  /// Create new record from today’s workout (for merging)
   WorkoutDayRecord copyWithAdded({
     required int addReps,
     required int addTime,
@@ -32,5 +31,6 @@ class WorkoutDayRecord {
 
   factory WorkoutDayRecord.fromJson(Map<String, dynamic> json) =>
       _$WorkoutDayRecordFromJson(json);
+
   Map<String, dynamic> toJson() => _$WorkoutDayRecordToJson(this);
 }

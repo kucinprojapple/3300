@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +9,6 @@ import '../../../core/storage/local_storage_service.dart';
 import '../model/achievement_model.dart';
 
 part 'achievements_event.dart';
-
 part 'achievements_state.dart';
 
 class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
@@ -165,7 +165,10 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
       Achievement(
         title: AppTexts.achievementCyclist,
         description: AppTexts.achievementCyclistDesc,
-        progress: ratio(stats[AppTexts.bicycleCrunches]?.exerciseReps ?? 0, 100),
+        progress: ratio(
+          stats[AppTexts.bicycleCrunches]?.exerciseReps ?? 0,
+          100,
+        ),
         iconType: AchievementIconType.medal,
       ),
       Achievement(
@@ -181,16 +184,16 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
         iconType: AchievementIconType.medal,
       ),
       Achievement(
-        title: AppTexts.achievementIronWill,
-        description: AppTexts.achievementIronWillDesc,
-        progress: ratio(totalTime / 60, 60),
-        iconType: AchievementIconType.cup,
-      ),
-      Achievement(
         title: AppTexts.achievementTitledAthlete,
         description: AppTexts.achievementTitledAthleteDesc,
         progress: ratio(totalReps, 500),
         iconType: AchievementIconType.medal,
+      ),
+      Achievement(
+        title: AppTexts.achievementIronWill,
+        description: AppTexts.achievementIronWillDesc,
+        progress: ratio(totalTime / 60, 60),
+        iconType: AchievementIconType.cup,
       ),
     ];
 

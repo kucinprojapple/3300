@@ -26,53 +26,65 @@ class AchievementCongratsOverlay extends StatelessWidget {
             const HideAchievementsOverlayEvent(),
           );
         },
-        child: Center(
-          child: GestureDetector(
-            onTap: () {},
-            child: CustomGradientContainerWidget(
-              width: 332.w,
-              height: 384.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientDarkGreen,
-              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 4.w,
-                      vertical: 12.h,
+
+        child: GestureDetector(
+          onTap: () {},
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: 200.h),
+              child: CustomGradientContainerWidget(
+                width: 332.w,
+                // height: 384.h,
+                backgroundGradient:
+                    AppColors.gradientColors.containerGradientDarkGreen,
+                borderGradient:
+                    AppColors.gradientColors.borderGradientDarkGreen,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 8.h,
+                      ),
+                      child: MainTextBody.gradientText(
+                        context,
+                        AppTexts.congratsTitle,
+                        alignment: Alignment.center,
+                        height: 1.2,
+                        fontSize: 40.sp,
+                      ),
                     ),
-                    child: MainTextBody.gradientText(
+                    Image.asset(
+                      AppAssets.achievementCupGold,
+                      width: 180.w,
+                      height: 180.w,
+                    ),
+                    SizedBox(height: 20.h),
+                    MainTextBody.gradientText(
                       context,
-                      AppTexts.congratsTitle,
+                      AppTexts.congratsReceivedTitle,
+                      fontSize: 20.sp,
                       alignment: Alignment.center,
-                      height: 1.2,
-                      fontSize: 40.sp,
+                      height: 1.1,
                     ),
-                  ),
-                  Image.asset(
-                    AppAssets.achievementCupGold,
-                    width: 188.w,
-                    height: 188.w,
-                  ),
-                  SizedBox(height: 20.h),
-                  MainTextBody.gradientText(
-                    context,
-                    AppTexts.congratsReceivedTitle,
-                    fontSize: 20.sp,
-                    alignment: Alignment.center,
-                    height: 1.1,
-                  ),
-                  SizedBox(height: 12.h),
-                  MainTextBody.gradientText(
-                    context,
-                    achievement.title,
-                    fontSize: 30.sp,
-                    alignment: Alignment.center,
-                    height: 1.1,
-                  ),
-                ],
+                    SizedBox(height: 4.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 8.h,
+                      ),
+                      child: MainTextBody.gradientText(
+                        context,
+                        achievement.title,
+                        fontSize: 28.sp,
+                        alignment: Alignment.center,
+                        height: 1.1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
