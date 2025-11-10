@@ -39,108 +39,113 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
 
-                Positioned(
-                  left: 30.w,
-                  top: 48.h,
-                  child: CustomIconButtonWidget(
-                    iconAsset: AppAssets.iconBack,
-                    onPressed: () => context.router.maybePop(),
-                  ),
-                ),
-
-                Positioned(
-                  left: 0,
-                  top: 120.h,
-                  right: 0,
-                  child: MainTextBody.gradientText(
-                    context,
-                    AppTexts.settings,
-                    fontSize: 25.sp,
-                    alignment: Alignment.bottomCenter,
-                    useShadow: false,
-                    height: 1.1,
-                  ),
-                ),
-
-                Positioned(
-                  left: 12.w,
-                  top: 224.h,
-                  right: 12.w,
-                  child: CustomGradientContainerWidget(
-                    width: 332.w,
-                    height: 268.h,
-                    backgroundGradient:
-                        AppColors.gradientColors.containerGradientBrightGreen,
-                    borderGradient:
-                        AppColors.gradientColors.borderGradientBrightGreen,
-                    borderWidth: 2.w,
-                    borderRadius: 20.r,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 24.h),
-
-                        SwitchWithPrefsWidget(
-                          title: AppTexts.sound,
-                          initialValue: state.sound,
-                          onChanged: (value) async {
-                            cubit.toggleSound(value);
-                            if (value) await VibrationService.mediumImpact();
-                          },
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.viewPaddingOf(context).top + 12.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.w),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: CustomIconButtonWidget(
+                            iconAsset: AppAssets.iconBack,
+                            onPressed: () {
+                              context.router.maybePop();
+                            },
+                          ),
                         ),
-                        SizedBox(height: 20.h),
+                      ),
+                      SizedBox(height: 12.h),
+                      MainTextBody.gradientText(
+                        context,
+                        AppTexts.settings,
+                        fontSize: 25.sp,
+                        alignment: Alignment.bottomCenter,
+                        useShadow: false,
+                        height: 1.1,
+                      ),
+                      SizedBox(height: 72.h),
+                      CustomGradientContainerWidget(
+                        width: double.infinity,
+                        height: 268.h,
+                        backgroundGradient:
+                            AppColors
+                                .gradientColors
+                                .containerGradientBrightGreen,
+                        borderGradient:
+                            AppColors.gradientColors.borderGradientBrightGreen,
+                        borderWidth: 2.w,
+                        borderRadius: 20.r,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 24.h),
 
-                        SwitchWithPrefsWidget(
-                          title: AppTexts.music,
-                          initialValue: state.music,
-                          onChanged: (value) async {
-                            cubit.toggleMusic(value);
-                            if (value) await VibrationService.mediumImpact();
-                          },
+                            SwitchWithPrefsWidget(
+                              title: AppTexts.sound,
+                              initialValue: state.sound,
+                              onChanged: (value) async {
+                                cubit.toggleSound(value);
+                                if (value) {
+                                  await VibrationService.mediumImpact();
+                                }
+                              },
+                            ),
+                            SizedBox(height: 20.h),
+
+                            SwitchWithPrefsWidget(
+                              title: AppTexts.music,
+                              initialValue: state.music,
+                              onChanged: (value) async {
+                                cubit.toggleMusic(value);
+                                if (value) {
+                                  await VibrationService.mediumImpact();
+                                }
+                              },
+                            ),
+                            SizedBox(height: 20.h),
+
+                            SwitchWithPrefsWidget(
+                              title: AppTexts.vibration,
+                              initialValue: state.vibration,
+                              onChanged: (value) async {
+                                cubit.toggleVibration(value);
+                                if (value) {
+                                  await VibrationService.mediumImpact();
+                                }
+                              },
+                            ),
+                            SizedBox(height: 40.h),
+
+                            SettingsTimerSelector(
+                              selectedTimer: state.timer,
+                              onSelect: cubit.selectTimer,
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 20.h),
+                      ),
+                      SizedBox(height: 32.h),
+                      ActionButtonWidget(
+                        width: 200.w,
+                        height: 80.h,
+                        text: AppTexts.buttonSave,
+                        fontSize: 24.sp,
+                        onPressed: () async {
+                          if (state.vibration) {
+                            await VibrationService.lightImpact();
+                          }
+                          await cubit.save();
 
-                        SwitchWithPrefsWidget(
-                          title: AppTexts.vibration,
-                          initialValue: state.vibration,
-                          onChanged: (value) async {
-                            cubit.toggleVibration(value);
-                            if (value) await VibrationService.mediumImpact();
-                          },
-                        ),
-                        SizedBox(height: 40.h),
-
-                        SettingsTimerSelector(
-                          selectedTimer: state.timer,
-                          onSelect: cubit.selectTimer,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                Positioned(
-                  left: 0,
-                  bottom: 100.h,
-                  right: 0,
-                  child: Center(
-                    child: ActionButtonWidget(
-                      width: 224.w,
-                      height: 88.h,
-                      text: AppTexts.buttonSave,
-                      fontSize: 30.sp,
-                      onPressed: () async {
-                        if (state.vibration) {
-                          await VibrationService.lightImpact();
-                        }
-                        await cubit.save();
-
-                        if (!context.mounted) return;
-                        CustomSnackBar.show(
-                          context,
-                          AppTexts.snackBarSettingsSaved,
-                        );
-                      },
-                    ),
+                          if (!context.mounted) return;
+                          CustomSnackBar.show(
+                            context,
+                            AppTexts.snackBarSettingsSaved,
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ],

@@ -21,19 +21,22 @@ class ProfileNameFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200.w,
       height: 42.h,
-      margin: EdgeInsets.symmetric(horizontal: 94.w),
       decoration: BoxDecoration(
-        color: const Color(0xFF031400),
+        color: const Color.fromRGBO(3, 20, 0, 1),
         borderRadius: BorderRadius.circular(24.r),
-        border: Border.all(color: const Color(0xFF73706D), width: 1.w),
+        border: Border.all(
+          color: const Color.fromRGBO(115, 112, 109, 1),
+          width: 1.w,
+        ),
       ),
       child: Stack(
         alignment: Alignment.center,
         children: [
           Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
               child: TextField(
                 controller: controller,
                 readOnly: !isEditing,

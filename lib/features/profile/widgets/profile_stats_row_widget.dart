@@ -14,65 +14,59 @@ class ProfileStatsRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
-      child: Row(
-        children: [
-          Expanded(
-            child: CustomGradientContainerWidget(
-              width: 114.w,
-              height: 132.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientBrightGreen,
-              borderGradient:
-                  AppColors.gradientColors.borderGradientBrightGreen,
-              borderWidth: 1.5,
-              borderRadius: 12.r,
-              child: _buildStatItem(
-                context,
-                title: AppTexts.numberOfExercisesPerformed,
-                value: state.totalExercises.toString(),
-              ),
+    return Row(
+      children: [
+        Expanded(
+          child: CustomGradientContainerWidget(
+            width: 114.w,
+            height: 132.h,
+            backgroundGradient:
+                AppColors.gradientColors.containerGradientBrightGreen,
+            borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+            borderWidth: 1.5,
+            borderRadius: 12.r,
+            child: _buildStatItem(
+              context,
+              title: AppTexts.numberOfExercisesPerformed,
+              value: state.totalExercises.toString(),
             ),
           ),
-          SizedBox(width: 4.w),
-          Expanded(
-            child: CustomGradientContainerWidget(
-              width: 114.w,
-              height: 132.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientBrightGreen,
-              borderGradient:
-                  AppColors.gradientColors.borderGradientBrightGreen,
-              borderWidth: 1.5,
-              borderRadius: 12.r,
-              child: _buildStatItem(
-                context,
-                title: AppTexts.amountOfTimeForExercise,
-                value: _formatTime(state.totalTime),
-              ),
+        ),
+        SizedBox(width: 4.w),
+        Expanded(
+          child: CustomGradientContainerWidget(
+            width: 114.w,
+            height: 132.h,
+            backgroundGradient:
+                AppColors.gradientColors.containerGradientBrightGreen,
+            borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+            borderWidth: 1.5,
+            borderRadius: 12.r,
+            child: _buildStatItem(
+              context,
+              title: AppTexts.amountOfTimeForExercise,
+              value: _formatTime(state.totalTime),
             ),
           ),
-          SizedBox(width: 4.w),
-          Expanded(
-            child: CustomGradientContainerWidget(
-              width: 114.w,
-              height: 132.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientBrightGreen,
-              borderGradient:
-                  AppColors.gradientColors.borderGradientBrightGreen,
-              borderWidth: 1.5,
-              borderRadius: 12.r,
-              child: _buildStatItem(
-                context,
-                title: AppTexts.numberOfRepetitions,
-                value: state.totalReps.toString(),
-              ),
+        ),
+        SizedBox(width: 4.w),
+        Expanded(
+          child: CustomGradientContainerWidget(
+            width: 114.w,
+            height: 132.h,
+            backgroundGradient:
+                AppColors.gradientColors.containerGradientBrightGreen,
+            borderGradient: AppColors.gradientColors.borderGradientBrightGreen,
+            borderWidth: 1.5,
+            borderRadius: 12.r,
+            child: _buildStatItem(
+              context,
+              title: AppTexts.numberOfRepetitions,
+              value: state.totalReps.toString(),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -91,7 +85,6 @@ class ProfileStatsRowWidget extends StatelessWidget {
             title,
             fontSize: 12.sp,
             alignment: Alignment.topCenter,
-            useGradient: false,
             useShadow: false,
             height: 1.1,
           ),
@@ -101,7 +94,6 @@ class ProfileStatsRowWidget extends StatelessWidget {
             value,
             fontSize: 30.sp,
             alignment: Alignment.topCenter,
-            useGradient: false,
             useShadow: false,
             height: 1.0,
           ),

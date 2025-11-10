@@ -25,28 +25,35 @@ class ExercisesScreen extends StatelessWidget {
           Positioned.fill(
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
-          Positioned(
-            left: 30.w,
-            top: 48.h,
-            child: CustomIconButtonWidget(
-              iconAsset: AppAssets.iconBack,
-              onPressed: () {
-                context.router.maybePop();
-              },
-            ),
-          ),
 
-          Positioned(
-            left: 0.w,
-            top: 120.h,
-            right: 0.w,
-            child: MainTextBody.gradientText(
-              context,
-              AppTexts.exercises,
-              fontSize: 25.sp,
-              alignment: Alignment.center,
-              useShadow: false,
-              height: 1.1,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.w),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomIconButtonWidget(
+                      iconAsset: AppAssets.iconBack,
+                      onPressed: () {
+                        context.router.maybePop();
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(height: 12.h),
+                MainTextBody.gradientText(
+                  context,
+                  AppTexts.exercises,
+                  fontSize: 25.sp,
+                  alignment: Alignment.bottomCenter,
+                  useShadow: false,
+                  height: 1.1,
+                ),
+                SizedBox(height: 32.h),
+              ],
             ),
           ),
 

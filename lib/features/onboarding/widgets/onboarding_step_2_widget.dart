@@ -27,24 +27,25 @@ class _GreenTimerCircle extends StatelessWidget {
         totalSeconds > 0 ? (totalSeconds - secondsLeft) / totalSeconds : 0.0;
     final timeString = '00:${secondsLeft.toString().padLeft(2, '0')}';
 
-    return Stack(
-      alignment: Alignment.center,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Positioned(
-          top: 40.h,
+        Padding(
+          padding: EdgeInsets.only(top: 32.h),
           child: SizedBox(
             width: 172.w,
             height: 172.h,
             child: CircularProgressIndicator(
               value: progress,
-              strokeWidth: 9.w,
+              strokeWidth: 10.w,
               backgroundColor: Colors.black,
               valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF389A07)),
             ),
           ),
         ),
-        Positioned(
-          bottom: 20.h,
+        Spacer(),
+        Padding(
+          padding: EdgeInsets.only(bottom: 8.h),
           child: MainTextBody.gradientText(
             context,
             timeString,

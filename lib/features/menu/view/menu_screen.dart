@@ -58,6 +58,7 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
           Positioned.fill(
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
+
           Positioned(
             left: 30.w,
             top: 160.h,
@@ -65,80 +66,83 @@ class _MenuScreenState extends State<MenuScreen> with RouteAware {
             child: Image.asset(
               AppAssets.shirt,
               width: 332.w,
-              height: 388.h,
+              height: 380.h,
               fit: BoxFit.fill,
               alignment: Alignment.bottomCenter,
             ),
           ),
-          Positioned(
-            left: 30.w,
-            top: 48.h,
-            child: Column(
-              children: [
-                CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconSettings,
-                  onPressed: () {
-                    context.router.push(const SettingsRoute());
-                  },
-                ),
-                SizedBox(height: 20.h),
-                CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconProfile,
-                  onPressed: () {
-                    context.router.push(const ProfileRoute());
-                  },
-                ),
-                SizedBox(height: 12.h),
-                CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconInfo,
-                  onPressed: () {
-                    context.router.push(const InfoRoute());
-                  },
-                ),
-              ],
-            ),
-          ),
 
-          Positioned(
-            left: 0.w,
-            top: 380.h,
-            right: 0.w,
-            child: Column(
-              children: [
-                CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconPlay,
-                  width: 140.w,
-                  height: 140.h,
+          Column(
+            children: [
+              SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+              Padding(
+                padding: EdgeInsets.only(left: 30.w),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomIconButtonWidget(
+                        iconAsset: AppAssets.iconSettings,
+                        onPressed: () {
+                          context.router.push(const SettingsRoute());
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      CustomIconButtonWidget(
+                        iconAsset: AppAssets.iconProfile,
+                        onPressed: () {
+                          context.router.push(const ProfileRoute());
+                        },
+                      ),
+                      SizedBox(height: 12.h),
+                      CustomIconButtonWidget(
+                        iconAsset: AppAssets.iconInfo,
+                        onPressed: () {
+                          // context.router.push(const InfoRoute());
+                          // context.router.push(const LostNetworkRoute());
+                          final index = 0;
+                          context.router.push(RecordRoute(index: index));
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 116.h),
+              CustomIconButtonWidget(
+                iconAsset: AppAssets.iconPlay,
+                width: 140.w,
+                height: 140.h,
+                onPressed: () {
+                  context.router.push(const GameRoute());
+                },
+              ),
+              SizedBox(height: 44.h),
+              Center(
+                child: ActionButtonWidget(
+                  width: 200.w,
+                  height: 80.h,
+                  text: AppTexts.exercises,
+                  fontSize: 24.sp,
                   onPressed: () {
-                    context.router.push(const GameRoute());
+                    context.router.push(const ExercisesRoute());
                   },
                 ),
-                SizedBox(height: 12.h),
-                Center(
-                  child: ActionButtonWidget(
-                    width: 224.w,
-                    height: 88.h,
-                    text: AppTexts.exercises,
-                    fontSize: 30.sp,
-                    onPressed: () {
-                      context.router.push(const ExercisesRoute());
-                    },
-                  ),
+              ),
+              SizedBox(height: 8.h),
+              Center(
+                child: ActionButtonWidget(
+                  width: 200.w,
+                  height: 80.h,
+                  text: AppTexts.achievementsScreen,
+                  fontSize: 22.sp,
+                  onPressed: () {
+                    context.router.push(const AchievementsRoute());
+                  },
                 ),
-                SizedBox(height: 8.h),
-                Center(
-                  child: ActionButtonWidget(
-                    width: 224.w,
-                    height: 88.h,
-                    text: AppTexts.achievementsScreen,
-                    fontSize: 25.sp,
-                    onPressed: () {
-                      context.router.push(const AchievementsRoute());
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

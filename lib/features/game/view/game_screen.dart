@@ -79,7 +79,7 @@ class _GameScreenState extends State<GameScreen> {
                       SizedBox(
                         height: MediaQuery
                             .viewPaddingOf(context)
-                            .top + 16.h,
+                            .top + 12.h,
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 8.w),
@@ -127,7 +127,7 @@ class _GameScreenState extends State<GameScreen> {
                       Padding(
                         padding: EdgeInsets.only(bottom: 100.h),
                         child: ActionButtonWidget(
-                          width: 224.w,
+                          width: 220.w,
                           height: 88.h,
                           text: AppTexts.buttonStart,
                           fontSize: 30.sp,

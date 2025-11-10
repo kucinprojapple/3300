@@ -21,35 +21,53 @@ class LostNetworkScreen extends StatelessWidget {
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
 
-          Positioned(
-            left: ((MediaQuery.of(context).size.width - 322) / 2).w,
-            top: 244.h,
-            child: CustomGradientContainerWidget(
-              width: 322.w,
-              height: 308.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientDarkGreen,
-              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: 15.h),
-                  MainTextBody.gradientText(
-                    context,
-                    AppTexts.lostNetwork,
-                    fontSize: 30.sp,
-                    alignment: Alignment.center,
-                    height: 1.0,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+                // Padding(
+                //   padding: EdgeInsets.only(left: 8.w),
+                //   child: Align(
+                //     alignment: Alignment.centerLeft,
+                //     child: CustomIconButtonWidget(
+                //       iconAsset: AppAssets.iconBack,
+                //       onPressed: () {
+                //         context.router.maybePop();
+                //       },
+                //     ),
+                //   ),
+                // ),
+                SizedBox(height: 200.h),
+                CustomGradientContainerWidget(
+                  width: 322.w,
+                  height: 300.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 12.h),
+                      MainTextBody.gradientText(
+                        context,
+                        AppTexts.lostNetwork,
+                        fontSize: 30.sp,
+                        alignment: Alignment.center,
+                        height: 1.1,
+                      ),
+                      SizedBox(height: 32.h),
+                      Image.asset(
+                        AppAssets.lostNetwork,
+                        width: 220.w,
+                        height: 180.h,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 32.h),
-                  Image.asset(
-                    AppAssets.lostNetwork,
-                    width: 232.w,
-                    height: 180.h,
-                    fit: BoxFit.contain,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

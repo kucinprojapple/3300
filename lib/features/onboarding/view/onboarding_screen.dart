@@ -85,9 +85,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Builder(
                 builder: (context) {
                   return ActionButtonWidget(
-                    width: 227.w,
-                    height: 89.h,
-                    text: 'Next',
+                    width: 220.w,
+                    height: 88.h,
+                    text: AppTexts.buttonNext,
                     fontSize: 35.sp,
                     onPressed: () {
                       final bool isLast =

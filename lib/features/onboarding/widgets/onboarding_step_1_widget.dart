@@ -10,22 +10,20 @@ class OnboardingStep1Widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Positioned(
-          left: 0.w,
-          top: 12.h,
-          right: 0.w,
+        Padding(
+          padding: EdgeInsets.only(top: 24.h),
           child: Image.asset(
             AppAssets.exerciseSquats,
-            height: 196.h,
+            height: 172.h,
             fit: BoxFit.contain,
           ),
         ),
-        Positioned(
-          left: 0.w,
-          right: 0.w,
-          bottom: 12.h,
+        Spacer(),
+        Padding(
+          padding: EdgeInsets.only(bottom: 8.h),
           child: MainTextBody.gradientText(
             context,
             AppTexts.onboardingStep1YouGotTheExerciseSquats,

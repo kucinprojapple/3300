@@ -66,23 +66,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Positioned.fill(
                 child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
               ),
-              Positioned(
-                left: 30.w,
-                top: 48.h,
-                child: CustomIconButtonWidget(
-                  iconAsset: AppAssets.iconBack,
-                  onPressed: () {
-                    context.router.maybePop();
-                  },
-                ),
-              ),
-              Positioned(
-                left: 0.w,
-                top: 120.h,
-                right: 0.w,
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: MediaQuery.viewPaddingOf(context).top + 12.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8.w),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: CustomIconButtonWidget(
+                          iconAsset: AppAssets.iconBack,
+                          onPressed: () {
+                            context.router.maybePop();
+                          },
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 12.h),
                     MainTextBody.gradientText(
                       context,
                       AppTexts.myAccount,
@@ -100,16 +104,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ShowSelectPictureOverlayEvent(),
                           ),
                     ),
-                  ],
-                ),
-              ),
-              Positioned(
-                left: 0.w,
-                top: 324.h,
-                right: 0.w,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                    SizedBox(height: 8.h),
                     ProfileNameFieldWidget(
                       controller: usernameController,
                       isEditing: isEditingUsername,
@@ -136,6 +131,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
+
+              // Positioned(
+              //   left: 0.w,
+              //   top: 120.h,
+              //   right: 0.w,
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       MainTextBody.gradientText(
+              //         context,
+              //         AppTexts.myAccount,
+              //         fontSize: 25.sp,
+              //         alignment: Alignment.bottomCenter,
+              //         useShadow: false,
+              //         height: 1.1,
+              //       ),
+              //       SizedBox(height: 12.h),
+              //       ProfileAvatarMedalWidget(
+              //         avatarPicture: state.avatar,
+              //         medalAsset: medalAsset,
+              //         onAddPressed:
+              //             () => context.read<ProfileOverlayBloc>().add(
+              //               ShowSelectPictureOverlayEvent(),
+              //             ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // Positioned(
+              //   left: 0.w,
+              //   top: 324.h,
+              //   right: 0.w,
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       ProfileNameFieldWidget(
+              //         controller: usernameController,
+              //         isEditing: isEditingUsername,
+              //         onEditPressed:
+              //             () => setState(() => isEditingUsername = true),
+              //         onChanged: (value) {
+              //           _debounce?.cancel();
+              //           _debounce = Timer(
+              //             const Duration(milliseconds: 500),
+              //             () => context.read<ProfileDataCubit>().updateName(
+              //               value,
+              //             ),
+              //           );
+              //         },
+              //       ),
+              //       SizedBox(height: 12.h),
+              //       ProfileTitleCardWidget(state: state),
+              //       SizedBox(height: 20.h),
+              //       ProfileStatsRowWidget(state: state),
+              //       SizedBox(height: 20.h),
+              //       ProfileAchievementsCardWidget(state: state),
+              //       SizedBox(height: 12.h),
+              //       ProfileFavoriteExerciseCardWidget(state: state),
+              //     ],
+              //   ),
+              // ),
               Positioned.fill(child: ProfileOverlays()),
             ],
           ),

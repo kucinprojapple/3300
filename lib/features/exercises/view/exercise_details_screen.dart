@@ -28,115 +28,108 @@ class ExerciseDetailsScreen extends StatelessWidget {
           Positioned.fill(
             child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
           ),
-          Positioned(
-            top: 48.h,
-            left: 30.w,
-            child: CustomIconButtonWidget(
-              iconAsset: AppAssets.iconBack,
-              onPressed: () {
-                context.router.maybePop();
-              },
-            ),
-          ),
 
-          Positioned(
-            left: 20.w,
-            top: 194.h,
-            right: 20.w,
-            child: CustomGradientContainerWidget(
-              width: 332.w,
-              height: 270.h,
-              backgroundGradient:
-                  AppColors.gradientColors.containerGradientDarkGreen,
-              borderGradient: AppColors.gradientColors.borderGradientDarkGreen,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: 4.h),
-                  MainTextBody.gradientText(
-                    context,
-                    exercise.name,
-                    fontSize: 30.sp,
-                    alignment: Alignment.bottomCenter,
-                    useShadow: false,
-                    height: 1.1,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.w),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomIconButtonWidget(
+                      iconAsset: AppAssets.iconBack,
+                      onPressed: () {
+                        context.router.maybePop();
+                      },
+                    ),
                   ),
+                ),
 
-                  SizedBox(height: 12.h),
-                  Image.asset(exercise.image, height: 160.h),
-                  SizedBox(height: 12.h),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32.w),
+                SizedBox(height: 72.h),
+
+                CustomGradientContainerWidget(
+                  width: 332.w,
+                  height: 280.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(height: 4.h),
+                      MainTextBody.gradientText(
+                        context,
+                        exercise.name,
+                        fontSize: 30.sp,
+                        alignment: Alignment.bottomCenter,
+                        useShadow: false,
+                        height: 1.1,
+                      ),
+
+                      SizedBox(height: 12.h),
+                      Image.asset(exercise.image, height: 160.h),
+                      SizedBox(height: 12.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32.w),
+                        child: MainTextBody.gradientText(
+                          context,
+                          '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
+                          alignment: Alignment.bottomCenter,
+                          useShadow: false,
+                          height: 1.1,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 32.h),
+                CustomGradientContainerWidget(
+                  width: 332.w,
+                  height: 88.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
                     child: MainTextBody.gradientText(
                       context,
-                      '${AppTexts.exerciseDetailsTarget} ${exercise.target}',
-                      alignment: Alignment.bottomCenter,
+                      '${AppTexts.exerciseDetailsTarget} ${exercise.technique}',
+                      alignment: Alignment.center,
+                      useGradient: false,
                       useShadow: false,
-                      height: 1.1,
+                      height: 1.0,
                       fontSize: 14.sp,
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-
-          Positioned(
-            left: 8.w,
-            top: 472.h,
-            right: 8.w,
-            child: Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Column(
-                  children: [
-                    SizedBox(height: 18.h),
-                    CustomGradientContainerWidget(
-                      width: 332.w,
-                      height: 88.h,
-                      backgroundGradient:
-                          AppColors.gradientColors.containerGradientDarkGreen,
-                      borderGradient:
-                          AppColors.gradientColors.borderGradientDarkGreen,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 4.w),
-                        child: MainTextBody.gradientText(
-                          context,
-                          '${AppTexts.exerciseDetailsTarget} ${exercise.technique}',
-                          alignment: Alignment.center,
-                          useGradient: false,
-                          useShadow: false,
-                          height: 1.0,
-                          fontSize: 14.sp,
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(height: 10.h),
-                    CustomGradientContainerWidget(
-                      width: 332.w,
-                      height: 60.h,
-                      backgroundGradient:
-                          AppColors.gradientColors.containerGradientDarkGreen,
-                      borderGradient:
-                          AppColors.gradientColors.borderGradientDarkGreen,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 4.w),
-                        child: MainTextBody.gradientText(
-                          context,
-                          '${AppTexts.exerciseDetailsTarget} ${exercise.tip}',
-                          alignment: Alignment.center,
-                          useGradient: false,
-                          useShadow: false,
-                          height: 1.0,
-                          fontSize: 14.sp,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
-              ),
+                SizedBox(height: 12.h),
+                CustomGradientContainerWidget(
+                  width: 332.w,
+                  height: 60.h,
+                  backgroundGradient:
+                      AppColors.gradientColors.containerGradientDarkGreen,
+                  borderGradient:
+                      AppColors.gradientColors.borderGradientDarkGreen,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
+                    child: MainTextBody.gradientText(
+                      context,
+                      '${AppTexts.exerciseDetailsTarget} ${exercise.tip}',
+                      alignment: Alignment.center,
+                      useGradient: false,
+                      useShadow: false,
+                      height: 1.0,
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
