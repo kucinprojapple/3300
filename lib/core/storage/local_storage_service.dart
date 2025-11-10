@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -95,8 +96,7 @@ class LocalStorageService {
     await setValue(LocalStorageKeys.playerAvatar, value);
   }
 
-  String get playerTitle =>
-      getValue(LocalStorageKeys.playerTitle, 'No title selected');
+  String get playerTitle => getValue(LocalStorageKeys.playerTitle, '');
 
   set playerTitle(String value) =>
       setValue(LocalStorageKeys.playerTitle, value);

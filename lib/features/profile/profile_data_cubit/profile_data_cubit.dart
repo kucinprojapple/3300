@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../core/storage/local_storage_service.dart';
 import 'profile_data_state.dart';
 
@@ -28,7 +29,7 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
         achievements.where((a) => a.progress >= 1.0).length;
     final totalAchievements = achievements.length;
 
-    String favoriteExercise = '—';
+    String favoriteExercise = '';
     if (stats.isNotEmpty) {
       final top = stats.values.reduce(
         (a, b) => a.exerciseReps >= b.exerciseReps ? a : b,

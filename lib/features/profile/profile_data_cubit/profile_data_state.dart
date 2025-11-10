@@ -60,6 +60,6 @@ class ProfileDataState {
     totalTime: 0,
     completedAchievements: 0,
     totalAchievements: 0,
-    favoriteExercise: '—',
+    favoriteExercise: '',
   );
 }

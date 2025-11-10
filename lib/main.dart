@@ -13,6 +13,7 @@ void main() async {
   await storage.init();
 
   await storage.setValue(LocalStorageKeys.onboardingShown, false);
+  await storage.clearAll();
 
   runApp(GreenGymClub());
 }
