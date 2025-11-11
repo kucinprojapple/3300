@@ -33,8 +33,8 @@ class _GreenTimerCircle extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 32.h),
           child: SizedBox(
-            width: 172.w,
-            height: 172.h,
+            width: 172.r,
+            height: 172.r,
             child: CircularProgressIndicator(
               value: progress,
               strokeWidth: 10.w,
