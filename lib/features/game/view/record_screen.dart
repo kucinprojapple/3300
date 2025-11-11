@@ -247,6 +247,8 @@ class _RecordScreenState extends State<RecordScreen> {
                       );
                       await Future.delayed(const Duration(seconds: 3));
 
+                      if (!mounted) return;
+
                       bloc.add(
                         SaveResultEvent(
                           exerciseName: exerciseName,

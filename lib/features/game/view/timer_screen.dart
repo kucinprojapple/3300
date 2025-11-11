@@ -138,7 +138,7 @@ class TimerScreen extends StatelessWidget {
                                 height: 72.h,
                                 child: Image.asset(
                                   isRunning
-                                      ? AppAssets.iconPause
+                                      ? AppAssets.iconTimerPause
                                       : AppAssets.iconTimerStop,
                                   fit: BoxFit.contain,
                                 ),

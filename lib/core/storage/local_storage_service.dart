@@ -18,6 +18,7 @@ class LocalStorageKeys {
   static const timerDuration = 'timer_duration';
   static const exerciseStats = 'exercise_stats';
   static const achievements = 'achievements';
+  static const workoutDates = 'workout_dates';
 }
 
 class LocalStorageService {
@@ -164,6 +165,10 @@ class LocalStorageService {
       allStats.map((k, v) => MapEntry(k, v.toJson())),
     );
 
+    await incrementWorkoutsTodayCount();
+    await addWorkoutDate(DateTime.now());
+    await getConsecutiveWorkoutDays();
+
     if (kDebugMode) {
       debugPrint('✅ Updated: $exerciseName');
       debugPrint(
@@ -212,6 +217,71 @@ class LocalStorageService {
       }
       return [];
     }
+  }
+
+  Future<void> addWorkoutDate(DateTime date) async {
+    await ensureInitialized();
+    final List<String> storedDates =
+        _prefs?.getStringList(LocalStorageKeys.workoutDates) ?? [];
+    final dateString = date.toIso8601String().split('T').first; // yyyy-MM-dd
+    if (!storedDates.contains(dateString)) {
+      storedDates.add(dateString);
+      await _prefs!.setStringList(LocalStorageKeys.workoutDates, storedDates);
+    }
+  }
+
+  Future<int> getConsecutiveWorkoutDays() async {
+    await ensureInitialized();
+    final List<String> storedDates =
+        _prefs?.getStringList(LocalStorageKeys.workoutDates) ?? [];
+    if (storedDates.isEmpty) return 0;
+
+    List<DateTime> dates =
+        storedDates
+            .map(DateTime.parse)
+            .map((dt) => DateTime(dt.year, dt.month, dt.day))
+            .toList()
+          ..sort((a, b) => b.compareTo(a));
+
+    int consecutive = 1;
+    DateTime currentDate = dates.first;
+
+    for (int i = 1; i < dates.length; i++) {
+      final diff = currentDate.difference(dates[i]).inDays;
+      if (diff == 1) {
+        consecutive++;
+        currentDate = dates[i];
+      } else if (diff > 1) {
+        break;
+      }
+    }
+    return consecutive;
+  }
+
+  Future<int> getWorkoutCountForToday() async {
+    await ensureInitialized();
+    final List<String> storedDates =
+        _prefs?.getStringList(LocalStorageKeys.workoutDates) ?? [];
+    final todayString = DateTime.now().toIso8601String().split('T').first;
+    final count = storedDates.where((d) => d == todayString).length;
+    debugPrint('Workout dates today count: $count');
+    return count;
+  }
+
+  Future<void> incrementWorkoutsTodayCount() async {
+    await ensureInitialized();
+
+    final todayKey =
+        'workouts_today_count_${DateTime.now().toIso8601String().split("T").first}';
+    final currentCount = _prefs?.getInt(todayKey) ?? 0;
+    await _prefs!.setInt(todayKey, currentCount + 1);
+  }
+
+  Future<int> getWorkoutsTodayCount() async {
+    await ensureInitialized();
+    final todayKey =
+        'workouts_today_count_${DateTime.now().toIso8601String().split("T").first}';
+    return _prefs?.getInt(todayKey) ?? 0;
   }
 
   Future<void> saveAchievements(List<Achievement> list) async {

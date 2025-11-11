@@ -16,6 +16,8 @@ class SelectPictureBottomSheetOverlay extends StatelessWidget {
     final ImagePicker picker = ImagePicker();
     final XFile? pickedFile = await picker.pickImage(source: source);
 
+    if (!context.mounted) return;
+
     if (pickedFile != null) {
       context.read<ProfileDataCubit>().updateAvatar(pickedFile.path);
 

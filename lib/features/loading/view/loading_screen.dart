@@ -81,46 +81,47 @@ class _LoadingScreenState extends State<LoadingScreen> {
             }
           }
         },
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Stack(
-            children: [
-              Positioned.fill(
-                child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
-              ),
-
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  children: [
-                    SizedBox(height: 160.h),
-                    Image.asset(
-                      AppAssets.shirt,
-                      height: 352.h,
-                      fit: BoxFit.fill,
-                      alignment: Alignment.bottomCenter,
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 80.h),
-                      child: BlocBuilder<LoadingCubit, LoadingState>(
-                        builder: (context, state) {
-                          double progress = 0;
-                          if (state is LoadingInProgressState) {
-                            progress = state.progress;
-                          } else if (state is LoadingCompletedState) {
-                            progress = 1.0;
-                          }
-
-                          return LoadingProgressBar(progress: progress);
-                        },
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
+            ),
+            Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 160.h),
+                      Image.asset(
+                        AppAssets.shirt,
+                        height: 352.h,
+                        fit: BoxFit.fill,
+                        alignment: Alignment.bottomCenter,
                       ),
-                    ),
-                  ],
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 80.h),
+                        child: BlocBuilder<LoadingCubit, LoadingState>(
+                          builder: (context, state) {
+                            double progress = 0;
+                            if (state is LoadingInProgressState) {
+                              progress = state.progress;
+                            } else if (state is LoadingCompletedState) {
+                              progress = 1.0;
+                            }
+
+                            return LoadingProgressBar(progress: progress);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

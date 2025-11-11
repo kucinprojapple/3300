@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/texts.dart';
 import '../../../core/router/router.dart';
+import '../../../core/storage/local_storage_service.dart';
 import '../../../core/widgets/action_button_widget.dart';
 import '../widgets/onboarding_step_1_widget.dart';
 import '../widgets/onboarding_step_2_widget.dart';
@@ -65,6 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final storage = LocalStorageService();
     return Scaffold(
       body: Stack(
         children: [
@@ -89,11 +91,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     height: 80.h,
                     text: AppTexts.buttonNext,
                     fontSize: 35.sp,
-                    onPressed: () {
+                    onPressed: () async {
                       final bool isLast =
                           pageController.page == onboardingPages.length - 1;
                       if (isLast) {
                         context.router.replaceAll([const MenuRoute()]);
+                        await storage.setOnboardingShown();
                       } else {
                         pageController.animateToPage(
                           ((pageController.page ?? 0) + 1).toInt(),

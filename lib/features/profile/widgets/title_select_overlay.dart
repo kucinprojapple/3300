@@ -120,14 +120,14 @@ class _TitleSelectOverlayState extends State<TitleSelectOverlay> {
               onPressed: () async {
                 if (selectedTitle != null) {
                   final title = selectedTitle!;
+                  final overlayBloc = context.read<ProfileOverlayBloc>();
                   context.read<ProfileDataCubit>().updateTitle(title);
-
                   CustomSnackBar.show(context, AppTexts.snackBarTitleSaved);
 
-                  await Future.delayed(const Duration(seconds: 3), () {
-                    if (!mounted) return;
-                    context.read<ProfileOverlayBloc>().add(HideOverlayEvent());
-                  });
+                  await Future.delayed(const Duration(seconds: 3));
+
+                  if (!mounted) return;
+                  overlayBloc.add(HideOverlayEvent());
                 } else {
                   CustomSnackBar.show(context, 'Please select a title');
                 }

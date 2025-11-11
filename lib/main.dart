@@ -12,7 +12,5 @@ void main() async {
   final storage = LocalStorageService();
   await storage.init();
 
-  await storage.setValue(LocalStorageKeys.onboardingShown, false);
-
   runApp(GreenGymClub());
 }

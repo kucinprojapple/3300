@@ -56,9 +56,8 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
     final totalTime = stats.values.fold<int>(0, (s, e) => s + e.exerciseTime);
     final distinctExercises = stats.keys.length;
 
-    // todo: link to real WorkoutDayRecord data
-    const consecutiveDays = 3;
-    const workoutsToday = 2;
+    final consecutiveDays = await storage.getConsecutiveWorkoutDays();
+    final workoutsToday = await storage.getWorkoutsTodayCount();
 
     double ratio(num value, num target) => min(1.0, value / target.toDouble());
 

@@ -166,14 +166,16 @@ sealed class AppTexts {
   static const String crunchesTip = "Exhale as you lift, don’t use your hands.";
 
   static const String bicycleCrunches = 'Bicycle Crunches';
-  static const String bicycleCrunchesTarget = 'Obliques and rectus abdominis';
+  static const String bicycleCrunchesTarget =
+      'Obliques and upper abs for rotational strength';
   static const String bicycleCrunchesTechnique =
       "Lying on your back, alternately curling your elbow towards the opposite knee, simulating pedaling.";
   static const String bicycleCrunchesTip =
       "Keep the movement smooth, don’t strain your neck.";
 
   static const String legRaises = 'Leg Raises';
-  static const String legRaisesTarget = 'Obliques and rectus abdominis';
+  static const String legRaisesTarget =
+      'Lower abs, hip flexors, and core stabilizers';
   static const String legRaisesTechnique =
       "Lying on your back, raise your straight legs up without arching your back. Lower slowly.";
   static const String legRaisesTip =
