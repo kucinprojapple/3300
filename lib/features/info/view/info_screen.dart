@@ -40,59 +40,64 @@ class InfoScreen extends StatelessWidget {
       AppTexts.infoGuideP6,
     ];
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
-          ),
-          Padding(
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              children: [
-                SizedBox(height: MediaQuery.viewPaddingOf(context).top + 12.h),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.w),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: CustomIconButtonWidget(
-                      iconAsset: AppAssets.iconBack,
-                      onPressed: () {
-                        context.router.maybePop();
-                      },
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.viewPaddingOf(context).top + 12.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 8.w),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: CustomIconButtonWidget(
+                        iconAsset: AppAssets.iconBack,
+                        onPressed: () {
+                          context.router.maybePop();
+                        },
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 12.h),
-                MainTextBody.gradientText(
-                  context,
-                  AppTexts.info,
-                  fontSize: 25.sp,
-                  alignment: Alignment.bottomCenter,
-                  useShadow: false,
-                  height: 1.1,
-                ),
-                SizedBox(height: 32.h),
+                  SizedBox(height: 12.h),
+                  MainTextBody.gradientText(
+                    context,
+                    AppTexts.info,
+                    fontSize: 25.sp,
+                    alignment: Alignment.bottomCenter,
+                    useShadow: false,
+                    height: 1.1,
+                  ),
+                  SizedBox(height: 32.h),
 
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        for (var paragraph in paragraphs) ...[
-                          _buildParagraphRow(context, paragraph),
-                          SizedBox(height: 12.h),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (var paragraph in paragraphs) ...[
+                            _buildParagraphRow(context, paragraph),
+                            SizedBox(height: 12.h),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

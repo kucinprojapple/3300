@@ -64,28 +64,25 @@ class _RecordScreenState extends State<RecordScreen> {
     final exerciseTime = storage.timerDuration;
     final formattedTime = '00:${exerciseTime.toString().padLeft(2, '0')}';
 
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w).copyWith(
-              bottom: MediaQuery
-                  .of(context)
-                  .viewInsets
-                  .bottom,
-            ),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
+        ),
+        Scaffold(
+          resizeToAvoidBottomInset: true,
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24.w,
+            ).copyWith(bottom: MediaQuery.of(context).viewInsets.bottom),
             child: SingleChildScrollView(
               reverse: true,
               child: Column(
                 children: [
-                  SizedBox(height: MediaQuery
-                      .viewPaddingOf(context)
-                      .top + 12.h),
+                  SizedBox(
+                    height: MediaQuery.viewPaddingOf(context).top + 12.h,
+                  ),
                   Padding(
                     padding: EdgeInsets.only(left: 4.w),
                     child: Align(
@@ -101,9 +98,9 @@ class _RecordScreenState extends State<RecordScreen> {
                     width: double.infinity,
                     height: 248.h,
                     backgroundGradient:
-                    AppColors.gradientColors.containerGradientDarkGreen,
+                        AppColors.gradientColors.containerGradientDarkGreen,
                     borderGradient:
-                    AppColors.gradientColors.borderGradientDarkGreen,
+                        AppColors.gradientColors.borderGradientDarkGreen,
                     borderWidth: 2.w,
                     borderRadius: 20.r,
                     child: Padding(
@@ -137,9 +134,9 @@ class _RecordScreenState extends State<RecordScreen> {
                     width: double.infinity,
                     height: 60.h,
                     backgroundGradient:
-                    AppColors.gradientColors.containerGradientDarkGreen,
+                        AppColors.gradientColors.containerGradientDarkGreen,
                     borderGradient:
-                    AppColors.gradientColors.borderGradientDarkGreen,
+                        AppColors.gradientColors.borderGradientDarkGreen,
                     borderWidth: 2.w,
                     borderRadius: 20.r,
                     child: Padding(
@@ -172,9 +169,9 @@ class _RecordScreenState extends State<RecordScreen> {
                     width: double.infinity,
                     height: 60.h,
                     backgroundGradient:
-                    AppColors.gradientColors.containerGradientDarkGreen,
+                        AppColors.gradientColors.containerGradientDarkGreen,
                     borderGradient:
-                    AppColors.gradientColors.borderGradientDarkGreen,
+                        AppColors.gradientColors.borderGradientDarkGreen,
                     borderWidth: 2.w,
                     borderRadius: 20.r,
                     child: Padding(
@@ -245,7 +242,9 @@ class _RecordScreenState extends State<RecordScreen> {
                       final bloc = context.read<GameBloc>();
 
                       CustomSnackBar.show(
-                          context, AppTexts.snackBarResultSaved);
+                        context,
+                        AppTexts.snackBarResultSaved,
+                      );
                       await Future.delayed(const Duration(seconds: 3));
 
                       bloc.add(
@@ -261,8 +260,8 @@ class _RecordScreenState extends State<RecordScreen> {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

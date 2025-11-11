@@ -225,6 +225,8 @@ class MainTextBody {
     List<Color>? gradientColors,
     Color? fallbackColor,
     double letterSpacing = 0,
+    int? maxLines = 5,
+    TextOverflow overflow = TextOverflow.ellipsis,
   }) {
     TextStyle style = TextStyle(
       fontFamily: _fontFamily,
@@ -238,6 +240,8 @@ class MainTextBody {
     final textWidget = Text(
       text,
       textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
       style: style.copyWith(
         color: useGradient ? null : (fallbackColor ?? Colors.white),
       ),
