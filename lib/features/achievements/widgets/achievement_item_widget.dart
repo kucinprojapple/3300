@@ -42,7 +42,7 @@ class AchievementItem extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     height: 1.1,
                     fontSize: 18.sp,
-                    // maxLines: 1,
+                    maxLines: 1,
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(height: 4.h),
