@@ -11,10 +11,10 @@
 #include <flutter_inappwebview_windows/flutter_inappwebview_windows_plugin_c_api.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-    AudioplayersWindowsPluginRegisterWithRegistrar(
-            registry->GetRegistrarForPlugin("AudioplayersWindowsPlugin"));
-    FileSelectorWindowsRegisterWithRegistrar(
-            registry->GetRegistrarForPlugin("FileSelectorWindows"));
-    FlutterInappwebviewWindowsPluginCApiRegisterWithRegistrar(
-            registry->GetRegistrarForPlugin("FlutterInappwebviewWindowsPluginCApi"));
+  AudioplayersWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("AudioplayersWindowsPlugin"));
+  FileSelectorWindowsRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("FileSelectorWindows"));
+  FlutterInappwebviewWindowsPluginCApiRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("FlutterInappwebviewWindowsPluginCApi"));
 }
