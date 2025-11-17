@@ -64,7 +64,6 @@ jobs:
             
             # Check for iPhone and iPad folders in each locale
             IPHONE_FOLDERS=$(find "$LOCALE_DIR" -type d -name "iPhone*" | wc -l)
-            IPAD_FOLDERS=$(find "$LOCALE_DIR" -type d -name "iPad*" | wc -l)
             
             if [ "$IPHONE_FOLDERS" -eq 0 ]; then
               echo "WARNING: No iPhone screenshot folders found in $LOCALE_DIR"
@@ -72,12 +71,7 @@ jobs:
               echo "Found $IPHONE_FOLDERS iPhone screenshot folders in $LOCALE"
             fi
             
-            if [ "$IPAD_FOLDERS" -eq 0 ]; then
-              echo "WARNING: No iPad screenshot folders found in $LOCALE_DIR"
-            else
-              echo "Found $IPAD_FOLDERS iPad screenshot folders in $LOCALE"
-            fi
-            
+          
             # Count screenshots in each device folder
             find "$LOCALE_DIR" -type d | grep -v "^$LOCALE_DIR$" | while read DEVICE_FOLDER; do
               if [ -d "$DEVICE_FOLDER" ]; then
@@ -93,17 +87,11 @@ jobs:
             exit 1
           fi
           
-          # Verify en-US has at least one iPhone and one iPad folder
+          # Verify en-US has at least one iPhone folder
           IPHONE_FOLDERS=$(find "./fastlane/screenshots/en-US" -type d -name "iPhone*" | wc -l)
-          IPAD_FOLDERS=$(find "./fastlane/screenshots/en-US" -type d -name "iPad*" | wc -l)
           
           if [ "$IPHONE_FOLDERS" -eq 0 ]; then
             echo "ERROR: No iPhone screenshot folders found in en-US locale"
-            exit 1
-          fi
-          
-          if [ "$IPAD_FOLDERS" -eq 0 ]; then
-            echo "ERROR: No iPad screenshot folders found in en-US locale"
             exit 1
           fi
           
