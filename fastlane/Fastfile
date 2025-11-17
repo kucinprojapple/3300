@@ -277,7 +277,6 @@ platform :ios do
                 notes: "
 Hello,
 Please review my app.
-I've fixed some minor bugs in the PumpFlight app.
 Best regards
 "
               },
