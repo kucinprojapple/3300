@@ -1,1 +1,1 @@
-entraînement,séance,exercice,routine,progrès,force,formephysique,gymnastique,quotidien
+entraînement, séance d'entraînement, exercice, routine, progrès, forme physique, quotidien

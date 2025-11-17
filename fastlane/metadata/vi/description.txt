@@ -1,0 +1,17 @@
+PumpFlight là một ứng dụng hỗ trợ bạn luyện tập. Ứng dụng cung cấp bộ sưu tập các bài tập mà mọi người có thể thực hiện tại nhà và mang đến một cách độc đáo để biến buổi tập trở nên thú vị!
+
+Khi muốn bắt đầu một buổi tập, bạn cần chọn một trong hai tùy chọn. Chọn từng bài tập theo ý muốn hoặc chuyển đổi ngẫu nhiên, nơi bạn được chỉ định ngẫu nhiên một bài tập để thực hiện. Bằng cách này, mỗi bài tập sẽ mang lại cảm giác khác nhau và giúp bạn dễ dàng xây dựng thói quen hơn. Sau khi hết giờ, hãy ghi lại số lần lặp lại và tiếp tục bài tập tiếp theo.
+
+Hồ sơ của bạn sẽ hiển thị thành tích của bạn:
+- ảnh đại diện với các khung có thể mở khóa,
+- tiêu đề thú vị
+- bài tập đã hoàn thành
+- số phút đã tập
+- tổng số lần lặp lại
+- bài tập yêu thích
+
+Mở khóa các tiêu đề và khung mới bằng cách hoàn thành thành tích, đây là một cách củng cố tích cực để xây dựng thói quen lành mạnh của bạn.
+
+Nếu bạn chưa quen với bài tập, hãy chạm vào thư viện để xem hướng dẫn nhanh và hướng dẫn về các bài tập của chúng tôi!
+
+Cùng nhau chinh phục hành trình thể dục của bạn! Xây dựng thói quen và biến nó thành niềm vui! Tải PumpFlight!

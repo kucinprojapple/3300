@@ -241,7 +241,7 @@ platform :ios do
             force: true,
             screenshots_path: 'screenshots/en-US',
             metadata_path: "fastlane/metadata",
-            app_rating_config_path: "fastlane/metadata/ratings_config.json",
+            # app_rating_config_path: "fastlane/metadata/ratings_config.json",
             skip_app_version_update: true,
             skip_binary_upload: true,
             skip_screenshots: false,
