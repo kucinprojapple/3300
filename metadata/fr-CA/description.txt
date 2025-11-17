@@ -1,0 +1,23 @@
+PumpFlight est une application qui vous accompagne dans votre entraînement. Elle vous propose une sélection d'exercices adaptés à tous, à faire chez soi, et une façon originale de rendre vos séances plus stimulantes !
+
+Pour commencer une séance, deux options s'offrent à vous : choisir vos exercices un par un ou opter pour la sélection aléatoire, où un exercice vous est attribué au hasard. Ainsi, chaque entraînement est différent et il est plus facile de créer votre routine. Une fois le chronomètre écoulé, enregistrez vos répétitions et passez à l'exercice suivant.
+
+Votre profil affiche vos progrès :
+
+- avatar avec cadres à débloquer,
+
+- titres amusants,
+
+- exercices réalisés,
+
+- minutes d'entraînement,
+
+- nombre total de répétitions,
+
+- exercice préféré.
+
+Débloquez de nouveaux titres et cadres en relevant des défis. C'est une motivation supplémentaire pour adopter une routine saine.
+
+Si vous ne connaissez pas un exercice, consultez la bibliothèque pour des instructions rapides et des conseils sur notre sélection !
+
+Atteignez vos objectifs fitness en toute sérénité ! Créez votre routine et amusez-vous ! Téléchargez PumpFlight !

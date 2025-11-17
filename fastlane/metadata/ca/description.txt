@@ -1,0 +1,17 @@
+PumpFlight és una aplicació que t'ajuda amb l'entrenament. Ofereix assistència amb una col·lecció d'exercicis que tothom pot fer a casa i proporciona una manera única de fer que els entrenaments siguin emocionants!
+
+Quan vulguis començar un entrenament, has de triar una de les dues opcions. Tria els teus exercicis un per un, o canvia'ls amb emocionants girs aleatoris, on se t'assigna aleatòriament un exercici per fer. D'aquesta manera, cada entrenament es sent diferent i és més fàcil construir la teva rutina. Un cop finalitzat el temporitzador de l'exercici, registra les teves repeticions i continua amb el següent.
+
+El teu perfil és la teva pantalla d'assoliments:
+- avatar amb marcs desbloquejables,
+- títols divertits
+- exercicis completats
+- minuts entrenats
+- repeticions totals
+- exercici preferit
+
+Desbloqueja nous títols i marcs completant assoliments, aquesta és una manera addicional de reforç positiu per construir la teva rutina saludable.
+
+Si no estàs familiaritzat amb l'exercici, toca la biblioteca per obtenir instruccions ràpides i orientació sobre la nostra selecció d'exercicis!
+
+Vola pel teu viatge de fitness! Construeix la teva rutina i fes-la divertida! Descarrega PumpFlight!

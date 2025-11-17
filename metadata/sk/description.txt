@@ -1,0 +1,17 @@
+PumpFlight je aplikácia, ktorá vám pomáha s tréningom. Poskytuje pomoc so zbierkou cvičení, ktoré môže každý robiť doma, a ponúka jedinečný spôsob, ako urobiť tréningy vzrušujúcimi!
+
+Keď chcete začať s tréningom, musíte si vybrať jednu z dvoch možností. Buď si vyberajte cvičenia jedno po druhom, podľa vlastného uváženia, alebo ich striedajte vzrušujúcimi náhodnými prepínaniami, kde vám náhodne priradia cvičenie, ktoré máte robiť. Týmto spôsobom sa každé cvičenie cíti inak a je jednoduchšie si vytvoriť rutinu. Po uplynutí časovača cvičenia si zaznamenajte svoje opakovania a pokračujte na ďalšie.
+
+Váš profil je zobrazenie vašich úspechov:
+- avatar s odomykateľnými rámčekmi,
+- zábavné názvy
+- dokončené cvičenia
+- minúty tréningu
+- celkový počet opakovaní
+- obľúbené cvičenie
+
+Odomknite si nové tituly a rámčeky plnením úspechov, je to ďalší spôsob pozitívnej informácie na vybudovanie vašej zdravej rutiny.
+
+Ak nie ste oboznámení s cvičením, kliknite na knižnicu pre rýchle pokyny a poradenstvo k nášmu výberu cvičení!
+
+Preleťte si svojou fitness cestou! Vytvorte si rutinu a urobte ju zábavnou! Stiahnite si PumpFlight!

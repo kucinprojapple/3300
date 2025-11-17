@@ -1,0 +1,17 @@
+PumpFlight er en app som hjelper deg med trening. Den gir hjelp med en samling øvelser som alle kan gjøre hjemme, og gir en unik måte å gjøre treningsøkter spennende på!
+
+Når du vil starte en treningsøkt, må du velge ett av de to alternativene. Enten velg øvelsene dine én etter én, eller bytt på med spennende tilfeldige flips, hvor du tilfeldig får tildelt en øvelse å gjøre. På denne måten føles hver treningsøkt annerledes, og det er enklere å bygge rutinen din. Etter at timeren for øvelsen er ferdig, loggfør repetisjonene dine og fortsett til den neste.
+
+Profilen din er prestasjonsvisningen din:
+- avatar med opplåsbare rammer,
+- morsomme titler
+- fullførte øvelser
+- minutter trent
+- totalt antall repetisjoner
+- favorittøvelse
+
+Lås opp nye titler og rammer ved å fullføre prestasjoner. Dette er en ekstra måte å få positiv informasjon på for å bygge en sunn rutine.
+
+Hvis du ikke er kjent med øvelsen, trykk på biblioteket for raske instruksjoner og veiledning om vårt utvalg av øvelser!
+
+Fly gjennom treningsreisen din! Bygg rutinen din og gjør den morsom! Last ned PumpFlight!

@@ -1,0 +1,17 @@
+PumpFlight adalah aplikasi yang membantu Anda berlatih. Aplikasi ini menyediakan bantuan dengan kumpulan latihan yang dapat dilakukan semua orang di rumah dan menyediakan cara unik untuk membuat latihan menjadi menyenangkan!
+
+Saat Anda ingin memulai latihan, Anda perlu memilih salah satu dari dua pilihan. Pilih latihan Anda satu per satu, sesuai pilihan Anda, atau ganti dengan putaran acak yang menarik, di mana Anda akan ditugaskan latihan secara acak. Dengan cara ini, setiap latihan terasa berbeda dan lebih mudah untuk membangun rutinitas Anda. Setelah penghitung waktu latihan selesai, catat repetisi Anda dan lanjutkan ke latihan berikutnya.
+
+Profil Anda adalah tampilan pencapaian Anda:
+- avatar dengan bingkai yang dapat dibuka,
+- judul yang menarik
+- latihan yang diselesaikan
+- menit latihan
+- total repetisi
+- latihan favorit
+
+Buka judul dan bingkai baru dengan menyelesaikan pencapaian, ini adalah cara tambahan untuk mendapatkan informasi positif dalam membangun rutinitas sehat Anda.
+
+Jika Anda belum familiar dengan latihan ini, ketuk perpustakaan untuk instruksi dan panduan cepat tentang pilihan latihan kami!
+
+Jalani perjalanan kebugaran Anda! Bangun rutinitasmu dan buat menyenangkan! Unduh PumpFlight!

@@ -1,0 +1,17 @@
+PumpFlight, antrenmanlarınızda size yardımcı olan bir uygulamadır. Herkesin evde yapabileceği bir dizi egzersizle destek sağlar ve antrenmanları heyecan verici hale getirmenin benzersiz bir yolunu sunar!
+
+Bir antrenmana başlamak istediğinizde iki seçenekten birini seçmeniz gerekir. Egzersizlerinizi tek tek, dilediğiniz gibi seçin veya rastgele bir egzersiz atamasıyla heyecan verici rastgele değişikliklerle değiştirin. Bu şekilde her antrenman farklı hissettirir ve rutininizi oluşturmanız daha kolay olur. Egzersizin zamanlayıcısı bittikten sonra tekrarlarınızı kaydedin ve bir sonrakine geçin.
+
+Profiliniz başarı ekranınızdır:
+- kilidi açılabilir çerçeveli avatar,
+- eğlenceli başlıklar
+- tamamlanan egzersizler
+- antrenman dakikaları
+- toplam tekrar sayısı
+- favori egzersiz
+
+Başarıları tamamlayarak yeni başlıklar ve çerçeveler açın; bu, sağlıklı rutininizi oluşturmak için olumlu bir yeniden bilgilendirme yöntemidir.
+
+Egzersizlere aşina değilseniz, egzersiz seçeneklerimiz hakkında hızlı talimatlar ve rehberlik için kütüphaneye dokunun!
+
+Fitness yolculuğunuzda hızla ilerleyin! Rutinini oluştur ve bunu eğlenceli hale getir! PumpFlight'ı indir!

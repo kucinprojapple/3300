@@ -1,0 +1,18 @@
+PumpFlight je aplikace, která vám pomůže s tréninkem. Poskytuje pomoc se sbírkou cviků, které může každý dělat doma, a nabízí jedinečný způsob, jak si cvičení zpestřit!
+
+Když chcete začít s tréninkem, musíte si vybrat jednu ze dvou možností. Buď si vybírejte cviky jeden po druhém, dle vlastního uvážení, nebo je střídejte vzrušujícími náhodnými přepínáními, kde vám náhodně přidělíte cvik, který máte dělat. Tímto způsobem se každý trénink cítí jinak a je snazší si vytvořit rutinu. Po uplynutí časovače cvičení si zaznamenejte svá opakování a pokračujte k dalšímu.
+
+Váš profil je zobrazením vašich úspěchů:
+
+- avatar s odemykatelnými rámečky,
+- zábavné názvy
+- dokončené cviky
+- minuty tréninku
+- celkový počet opakování
+- oblíbený cvik
+
+Odemkněte si nové tituly a rámečky plněním úspěchů, což je další způsob pozitivního povzbuzení pro budování vaší zdravé rutiny.
+
+Pokud s cvičením nejste obeznámeni, klepněte na knihovnu pro rychlé pokyny a rady k našemu výběru cviků!
+
+Proleťte svou fitness cestou! Vytvořte si rutinu a udělejte si z ní zábavu! Stáhněte si PumpFlight!

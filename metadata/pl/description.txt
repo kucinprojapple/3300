@@ -1,0 +1,17 @@
+PumpFlight to aplikacja, która pomaga w treningu. Oferuje zestaw ćwiczeń, które każdy może wykonywać w domu, i oferuje unikalny sposób na urozmaicenie treningów!
+
+Kiedy chcesz rozpocząć trening, musisz wybrać jedną z dwóch opcji. Możesz wybierać ćwiczenia pojedynczo, według własnego uznania, lub urozmaicić je ekscytującymi, losowymi saltami, gdzie losowo przypisane jest ćwiczenie do wykonania. W ten sposób każdy trening będzie inny i łatwiej będzie Ci zbudować swój plan treningowy. Po zakończeniu ćwiczenia, zapisz powtórzenia i przejdź do następnego.
+
+Twój profil to wyświetlacz osiągnięć:
+- awatar z odblokowywanymi ramkami,
+- zabawne tytuły,
+- ukończone ćwiczenia,
+- minuty treningu,
+- łączna liczba powtórzeń,
+- ulubione ćwiczenie.
+
+Odblokowuj nowe tytuły i ramki, zdobywając osiągnięcia. To dodatkowy sposób na pozytywną regenerację i budowanie zdrowego planu treningowego.
+
+Jeśli nie znasz danego ćwiczenia, kliknij w bibliotekę, aby uzyskać szybkie instrukcje i wskazówki dotyczące naszego wyboru ćwiczeń!
+
+Przeżyj swoją podróż do sprawności fizycznej! Stwórz własną rutynę i niech będzie zabawna! Pobierz PumpFlight!
