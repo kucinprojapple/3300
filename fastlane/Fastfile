@@ -268,16 +268,16 @@ platform :ios do
                   add_id_info_uses_idfa: true,
             },
             app_review_information: {
-                first_name: "Robert David",
-                last_name: "Palmer",
-                phone_number: "+19472255104",
-                email_address: "robdavi4pa@icloud.com",
+                first_name: "Olena",
+                last_name: "Kutsyn",
+                phone_number: "+380971361623",
+                email_address: "olenakucin510@gmail.com",
                 demo_username: "",
                 demo_password: "",
                 notes: "
 Hello,
 Please review my app.
-I've fixed some minor bugs in the Yatzy game.
+I've fixed some minor bugs in the PumpFlight app.
 Best regards
 "
               },
