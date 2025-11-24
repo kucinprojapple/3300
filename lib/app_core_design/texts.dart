@@ -1,6 +1,6 @@
 sealed class AppTexts {
   // App text
-  static const String appTitle = 'Green Gym Club';
+  static const String appTitle = 'PumpFlight';
 
   /// --- Lost Network Screen text ---
   static const String lostNetwork = 'Lost Network!';
@@ -257,4 +257,5 @@ sealed class AppTexts {
   static const String achievementTitledAthlete = "Titled Athlete";
   static const String achievementTitledAthleteDesc =
       "Completed 500 total repetitions.";
+  static const loading = 'Loading';
 }

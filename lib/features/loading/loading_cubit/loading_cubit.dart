@@ -54,12 +54,12 @@ class LoadingCubit extends Cubit<LoadingState> {
       }
 
       progress = target;
-      final pauseDuration = Duration(milliseconds: 50 + _random.nextInt(51));
+      final pauseDuration = Duration(milliseconds: 10 + _random.nextInt(51));
       await Future.delayed(pauseDuration);
     }
 
     emit(const LoadingInProgressState(1.0));
-    await Future.delayed(const Duration(milliseconds: 100));
+    await Future.delayed(const Duration(milliseconds: 50));
     emit(const LoadingCompletedState());
   }
 }

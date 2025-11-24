@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:green_gym_club/app_core_design/texts.dart';
 import 'package:green_gym_club/features/game/repository/game_exercise_repository.dart';
 
 import 'core/router/router.dart';
@@ -10,14 +11,14 @@ import 'features/achievements/achievements_overlay_bloc/achievements_overlay_blo
 import 'features/game/game_bloc/game_bloc.dart';
 import 'features/profile/profile_data_cubit/profile_data_cubit.dart';
 import 'features/profile/profile_overlay_bloc/profile_overlay_bloc.dart';
+import 'secondary/connectivity_bloc/connectivity_bloc.dart';
+import 'secondary/features_bloc/features_bloc.dart';
 
-
-final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
 
 class GreenGymClub extends StatelessWidget {
   final _router = AppRouter();
-
-
 
   GreenGymClub({super.key});
 
@@ -31,6 +32,12 @@ class GreenGymClub extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
+            BlocProvider(create: (context) => ConnectivityBloc()),
+            BlocProvider(
+              create:
+                  (_) =>
+                      FeaturesBloc(preferences: LocalStorageService.instance!),
+            ),
             BlocProvider<ProfileOverlayBloc>(
               create: (context) => ProfileOverlayBloc(),
             ),
@@ -47,9 +54,9 @@ class GreenGymClub extends StatelessWidget {
           ],
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            title: 'Green Gym Club',
+            title: AppTexts.appTitle,
             routerConfig: _router.config(
-            navigatorObservers: () => [routeObserver],
+              navigatorObservers: () => [routeObserver],
             ),
           ),
         );

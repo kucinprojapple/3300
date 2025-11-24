@@ -39,11 +39,13 @@ class Headers {
   late final TextStyle l;
   late final TextStyle m;
   late final TextStyle s;
+  late final TextStyle xs;
 
   Headers(BuildContext context) {
     l = _Headers().l;
     m = _Headers().m;
     s = _Headers().s;
+    xs = _Headers().xs;
   }
 }
 
@@ -91,7 +93,7 @@ class _ButtonBody {
     fontSize: 19,
     letterSpacing: 0.1,
     shadows: textLightShadows,
-    // color: AppColors.main.white,
+    color: AppColors.mainColors.white,
   );
 }
 
@@ -128,6 +130,12 @@ class _Headers {
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w700,
     fontSize: 24,
+    letterSpacing: 1,
+  );
+  final TextStyle xs = const TextStyle(
+    fontFamily: _fontFamily,
+    fontWeight: FontWeight.w300,
+    fontSize: 17,
     letterSpacing: 1,
   );
 }

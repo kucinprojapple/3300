@@ -19,6 +19,8 @@ class _MainColors {
 
   final Color background = const Color.fromARGB(255, 10, 183, 240);
   final Color white = const Color.fromARGB(255, 255, 255, 255);
+  final Color black = const Color.fromARGB(255, 0, 0, 0);
+  final Color primaryGreen =  const Color.fromRGBO(29, 84, 1, 1);
 }
 
 class _TextColors {

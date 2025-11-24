@@ -23,11 +23,12 @@ class LocalStorageKeys {
 
 class LocalStorageService {
   static final LocalStorageService _instance = LocalStorageService._internal();
-  SharedPreferences? _prefs;
+  static SharedPreferences? _prefs;
 
   LocalStorageService._internal();
 
   factory LocalStorageService() => _instance;
+  static SharedPreferences? get instance => _prefs;
 
   Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:green_gym_club/background.dart';
 
 import '../../../app_core_design/assets.dart';
 import '../../../app_core_design/colors.dart';
@@ -14,14 +15,11 @@ class LostNetworkScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(AppAssets.backgroundMain, fit: BoxFit.fill),
-          ),
-
-          Padding(
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: AppMainBackground(
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               children: [
@@ -70,7 +68,7 @@ class LostNetworkScreen extends StatelessWidget {
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
