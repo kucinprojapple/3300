@@ -56,10 +56,10 @@ class _AnimationLoaderState extends State<AnimationLoader> {
     }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Future.delayed(
-      //   Duration(milliseconds: _duration),
-      //   () => widget.onComplete(),
-      // );
+      Future.delayed(
+        Duration(milliseconds: _duration),
+        () => widget.onComplete(),
+      );
     });
     super.initState();
   }
