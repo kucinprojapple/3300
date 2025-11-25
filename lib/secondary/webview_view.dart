@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_messaging/firebase_messaging.dart'
@@ -35,7 +34,7 @@ import 'connectivity_bloc/connectivity_bloc.dart'
 import 'features_bloc/features_bloc.dart'
     show FeaturesBloc, LinkEvent, ModerEvent;
 import 'features_constants.dart'
-    show FeaturesConstants, aboutBlanck, domen, httpKey, httpsKey, rush, debkey;
+    show FeaturesConstants, aboutBlanck, tushCloud, httpKey, httpsKey, rushPump;
 
 class WebviewViewBuilder extends StatefulWidget {
   const WebviewViewBuilder({
@@ -90,8 +89,7 @@ class _WebviewViewBuilderState extends State<WebviewViewBuilder> {
       offSecond = false;
       offFirst = true;
     }
-    log('$debkey _baseLink $_baseLink');
-    log('$debkey _userAgent $_userAgent');
+
   }
 
   setCoockies(WebUri url) async {
@@ -211,8 +209,8 @@ class _WebviewViewBuilderState extends State<WebviewViewBuilder> {
                                     if (resultUrl == _baseLink) {
                                       context.router.pushNamed('/lost_network');
                                       // context.router.pushPathState('/lost_network');
-                                    } else if (resultUrl.startsWith(rush) ||
-                                        resultUrl.startsWith(domen)) {
+                                    } else if (resultUrl.startsWith(rushPump) ||
+                                        resultUrl.startsWith(tushCloud)) {
                                       context.read<FeaturesBloc>().add(
                                         ModerEvent(nameEv: 'gymgym'),
                                       );

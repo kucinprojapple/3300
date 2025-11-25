@@ -8,53 +8,53 @@ part 'features_event.dart';
 part 'features_state.dart';
 
 class FeaturesBloc extends Bloc<FeaturesEvent, FeaturesState> {
-  late FeaturesRepository _coreRepository;
+  late FeaturesRepository _feturesRepository;
   final SharedPreferences _preferences;
   FeaturesBloc({required SharedPreferences preferences})
     : _preferences = preferences,
       super(FeaturesState()) {
-    _coreRepository = FeaturesRepository(preferences: _preferences);
+    _feturesRepository = FeaturesRepository(preferences: _preferences);
     on<InitEvent>(_onInit);
     add(InitEvent());
-    on<ModerEvent>(_onModerEvent);
-    on<LinkEvent>(_onLinkEvent);
-    on<UserAgentEvent>(_onUserAgentEvent);
+    on<ModerEvent>(_onGreemThemeEvent);
+    on<LinkEvent>(_onSoundsEvent);
+    on<UserAgentEvent>(_onAssetsGymEvent);
     on<TokenEvent>(_onFcmTokenEvent);
   }
 
   _onInit(InitEvent event, Emitter<FeaturesState> emit) {
-    final secNameRes = _coreRepository.getModer();
-    final exerciseRes = _coreRepository.getLink();
-    final bonusAchivRes = _coreRepository.getUserAgnet();
-    final fcmValue = _coreRepository.getToken();
+    final secNameRes = _feturesRepository.getGreenTheme();
+    final exerciseRes = _feturesRepository.getSounds();
+    final bonusAchivRes = _feturesRepository.getAssetsGym();
+    final fcmValue = _feturesRepository.getToken();
 
     emit(
       state.copyWith(
-        moder: secNameRes,
-        link: exerciseRes,
-        userAgent: bonusAchivRes,
+        greenTheme: secNameRes,
+        sounds: exerciseRes,
+        assetsGym: bonusAchivRes,
         fcmToken: fcmValue,
       ),
     );
   }
 
-  _onModerEvent(ModerEvent event, Emitter<FeaturesState> emit) async {
-    emit(state.copyWith(moder: event.nameEv));
-    await _coreRepository.setModer(event.nameEv);
+  _onGreemThemeEvent(ModerEvent event, Emitter<FeaturesState> emit) async {
+    emit(state.copyWith(greenTheme: event.nameEv));
+    await _feturesRepository.setGreenTheme(event.nameEv);
   }
 
-  _onUserAgentEvent(UserAgentEvent event, Emitter<FeaturesState> emit) async {
-    emit(state.copyWith(userAgent: event.agent));
-    await _coreRepository.setUserAgent(event.agent);
+  _onAssetsGymEvent(UserAgentEvent event, Emitter<FeaturesState> emit) async {
+    emit(state.copyWith(assetsGym: event.agent));
+    await _feturesRepository.setAssetsGym(event.agent);
   }
 
-  _onLinkEvent(LinkEvent event, Emitter<FeaturesState> emit) async {
-    emit(state.copyWith(link: event.exercise));
-    await _coreRepository.setLink(event.exercise);
+  _onSoundsEvent(LinkEvent event, Emitter<FeaturesState> emit) async {
+    emit(state.copyWith(sounds: event.exercise));
+    await _feturesRepository.setSounds(event.exercise);
   }
 
   _onFcmTokenEvent(TokenEvent event, Emitter<FeaturesState> emit) async {
     emit(state.copyWith(fcmToken: event.fcmVal));
-    await _coreRepository.setToken(event.fcmVal);
+    await _feturesRepository.setToken(event.fcmVal);
   }
 }

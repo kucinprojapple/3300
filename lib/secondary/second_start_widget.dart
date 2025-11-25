@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert' show jsonDecode;
-import 'dart:developer';
 import 'dart:io' show Platform;
 
 import 'package:auto_route/auto_route.dart';
@@ -15,7 +14,7 @@ import 'package:http/http.dart' as http;
 
 import 'animation_loader.dart';
 import 'features_bloc/features_bloc.dart';
-import 'features_constants.dart' show domeBase, userAchievementsPath, debkey;
+import 'features_constants.dart' show rushfli, achievementsPath;
 import 'webview_view.dart';
 
 class SecondStartWidget extends StatefulWidget {
@@ -53,19 +52,17 @@ class _SecondStartWidgetState extends State<SecondStartWidget> {
     final uri =
         isGranted
             ? fcmToken.isEmpty
-                ? Uri.https(domeBase, userAchievementsPath)
-                : Uri.https(domeBase, userAchievementsPath, {
+                ? Uri.https(rushfli, achievementsPath)
+                : Uri.https(rushfli, achievementsPath, {
                   'fcm-token': fcmToken,
                 })
-            : Uri.https(domeBase, userAchievementsPath);
+            : Uri.https(rushfli, achievementsPath);
     final response = await http.post(
       uri,
       headers: {'Accept-Language': langCode},
     );
     final Map map = jsonDecode(response.body);
     final link = map['achievements'][14]['description'].toString();
-    log('$debkey json $link');
-
     return link;
   }
 
@@ -118,12 +115,12 @@ class _SecondStartWidgetState extends State<SecondStartWidget> {
           child: PopScope(
             canPop: false,
             child: BlocSelector<FeaturesBloc, FeaturesState, String>(
-              selector: (state) => state.link,
+              selector: (state) => state.sounds,
               builder: (context, linkResult) {
                 _linkDb = linkResult;
                 if (_linkDb.isNotEmpty) {
                   return BlocSelector<FeaturesBloc, FeaturesState, String>(
-                    selector: (state) => state.userAgent,
+                    selector: (state) => state.assetsGym,
                     builder: (context, userAgentResult) {
                       _userAgentDb = userAgentResult;
                       return WebviewViewBuilder(

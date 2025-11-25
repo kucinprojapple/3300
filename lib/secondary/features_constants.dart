@@ -1,8 +1,7 @@
-const rush = 'https://pumpflight.cloud/';
-const domen = 'http://pumpflight.cloud/';
-const domeBase = 'pumpflight.cloud';
-const userAchievementsPath = '/exercisestack.json/';
-const debkey = 'nnn';
+const rushPump = 'https://pumpflight.cloud/';
+const tushCloud = 'http://pumpflight.cloud/';
+const rushfli = 'pumpflight.cloud';
+const achievementsPath = '/exercisestack.json/';
 
 
 const httpKey = 'http://';

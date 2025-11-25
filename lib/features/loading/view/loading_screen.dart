@@ -30,8 +30,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   late final LoadingCubit _loadingCubit;
   // bool _assetsPrecached = false;
   bool _onboardingShown = false;
-  late String _link;
-  late String _agent;
+  late String _sound;
+  late String _assetsgym;
 
   @override
   void initState() {
@@ -83,16 +83,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
     //   );
     // }
     return BlocSelector<FeaturesBloc, FeaturesState, String>(
-      selector: (state) => state.userAgent,
+      selector: (state) => state.assetsGym,
       builder: (context, bonAchiv) {
-        _agent = bonAchiv;
+        _assetsgym = bonAchiv;
         return BlocSelector<FeaturesBloc, FeaturesState, String>(
-          selector: (state) => state.link,
+          selector: (state) => state.sounds,
           builder: (context, resexercise) {
-            _link = resexercise;
-            if (_link.isEmpty) {
+            _sound = resexercise;
+            if (_sound.isEmpty) {
               return BlocSelector<FeaturesBloc, FeaturesState, String>(
-                selector: (state) => state.moder,
+                selector: (state) => state.greenTheme,
                 builder: (context, secret) {
                   // final first = StorageService().isFirstOpening();
 
@@ -207,9 +207,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
               );
             } else {
               return WebviewViewBuilder(
-                link: _link,
+                link: _sound,
                 saved: true,
-                userAgent: _agent,
+                userAgent: _assetsgym,
               );
             }
           },

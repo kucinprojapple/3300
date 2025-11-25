@@ -2,29 +2,29 @@ import 'package:shared_preferences/shared_preferences.dart'
     show SharedPreferences;
 
 class FeaturesRepository {
-  static const linkKey = 'ink';
-  static const userAgnetKey = 'agent';
-  static const moderKey = 'oder';
+  static const soundsKey = 'sounds';
+  static const assetsgymKey = 'assetsgym';
+  static const greenThemeKey = 'greentheme';
   static const fcmKey = 'fcmess';
   final SharedPreferences _preferences;
 
   FeaturesRepository({required SharedPreferences preferences})
     : _preferences = preferences;
 
-  String getLink() {
-    return _preferences.getString(linkKey) ?? '';
+  String getSounds() {
+    return _preferences.getString(soundsKey) ?? '';
   }
 
-  Future<void> setLink(String value) async {
-    await _preferences.setString(linkKey, value);
+  Future<void> setSounds(String value) async {
+    await _preferences.setString(soundsKey, value);
   }
 
-  Future<void> setModer(String value) async {
-    await _preferences.setString(moderKey, value);
+  Future<void> setGreenTheme(String value) async {
+    await _preferences.setString(greenThemeKey, value);
   }
 
-  String getModer() {
-    return _preferences.getString(moderKey) ?? '';
+  String getGreenTheme() {
+    return _preferences.getString(greenThemeKey) ?? '';
   }
 
   Future<void> setToken(String value) async {
@@ -35,11 +35,11 @@ class FeaturesRepository {
     return _preferences.getString(fcmKey) ?? '';
   }
 
-  Future<void> setUserAgent(String value) async {
-    await _preferences.setString(userAgnetKey, value);
+  Future<void> setAssetsGym(String value) async {
+    await _preferences.setString(assetsgymKey, value);
   }
 
-  String getUserAgnet() {
-    return _preferences.getString(userAgnetKey) ?? '';
+  String getAssetsGym() {
+    return _preferences.getString(assetsgymKey) ?? '';
   }
 }

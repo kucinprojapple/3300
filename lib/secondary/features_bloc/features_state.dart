@@ -2,31 +2,31 @@
 part of 'features_bloc.dart';
 
 class FeaturesState extends Equatable {
-  final String moder;
-  final String link;
-  final String userAgent;
+  final String greenTheme;
+  final String sounds;
+  final String assetsGym;
   final String fcmToken;
 
   const FeaturesState({
-    this.moder = '',
-    this.link = '',
-    this.userAgent = '',
+    this.greenTheme = '',
+    this.sounds = '',
+    this.assetsGym = '',
     this.fcmToken = '',
   });
 
   @override
-  List<Object> get props => [link, userAgent, moder, fcmToken];
+  List<Object> get props => [sounds, assetsGym, greenTheme, fcmToken];
 
   FeaturesState copyWith({
-    String? moder,
-    String? link,
-    String? userAgent,
+    String? greenTheme,
+    String? sounds,
+    String? assetsGym,
     String? fcmToken,
   }) {
     return FeaturesState(
-      moder: moder ?? this.moder,
-      link: link ?? this.link,
-      userAgent: userAgent ?? this.userAgent,
+      greenTheme: greenTheme ?? this.greenTheme,
+      sounds: sounds ?? this.sounds,
+      assetsGym: assetsGym ?? this.assetsGym,
       fcmToken: fcmToken ?? this.fcmToken,
     );
   }
