@@ -244,7 +244,7 @@ platform :ios do
             app_rating_config_path: "fastlane/metadata/ratings_config.json",
             skip_app_version_update: true,
             skip_binary_upload: true,
-            skip_screenshots: false,
+            skip_screenshots: true,
             automatic_release: false,
             overwrite_screenshots: true,
             precheck_include_in_app_purchases: false,
